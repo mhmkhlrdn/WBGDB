@@ -114,14 +114,6 @@
       "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk1.mp3"
     },
     {
-      "name": "chunk11.mp3",
-      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk11.mp3"
-    },
-    {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk12.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk2.mp3"
     },
@@ -136,6 +128,14 @@
     {
       "name": "chunk5.mp3",
       "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk5.mp3"
+    },
+    {
+      "name": "chunk11.mp3",
+      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk11.mp3"
+    },
+    {
+      "name": "chunk12.mp3",
+      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk12.mp3"
     }
   ],
   "Alouette,_Doomwright_Ward": [
@@ -146,10 +146,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Alouette,_Doomwright_Ward/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Alouette,_Doomwright_Ward/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -166,6 +162,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Alouette,_Doomwright_Ward/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Alouette,_Doomwright_Ward/chunk10.mp3"
     }
   ],
   "Amalia,_Luxsteel_Paladin": [
@@ -176,14 +176,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk1.mp3"
-    },
-    {
-      "name": "chunk14.mp3",
-      "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk14.mp3"
-    },
-    {
-      "name": "chunk15.mp3",
-      "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk15.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -212,6 +204,14 @@
     {
       "name": "chunk8.mp3",
       "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk8.mp3"
+    },
+    {
+      "name": "chunk14.mp3",
+      "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk14.mp3"
+    },
+    {
+      "name": "chunk15.mp3",
+      "url": "Audio/FILTERED/Amalia,_Luxsteel_Paladin/chunk15.mp3"
     }
   ],
   "Amataz,_Origin_Blader": [
@@ -224,16 +224,16 @@
       "url": "Audio/FILTERED/Amataz,_Origin_Blader/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Amataz,_Origin_Blader/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Amataz,_Origin_Blader/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Amataz,_Origin_Blader/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Amataz,_Origin_Blader/chunk10.mp3"
     }
   ],
   "Amorous_Necromancer": [
@@ -246,16 +246,16 @@
       "url": "Audio/FILTERED/Amorous_Necromancer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Amorous_Necromancer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Amorous_Necromancer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Amorous_Necromancer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Amorous_Necromancer/chunk10.mp3"
     }
   ],
   "Ancestral_Crown": [],
@@ -270,10 +270,6 @@
       "url": "Audio/FILTERED/Anne_&_Grea,_Mysterian_Duo/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Anne_&_Grea,_Mysterian_Duo/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Anne_&_Grea,_Mysterian_Duo/chunk2.mp3"
     },
@@ -284,6 +280,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Anne_&_Grea,_Mysterian_Duo/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Anne_&_Grea,_Mysterian_Duo/chunk10.mp3"
     }
   ],
   "Apollo,_Heaven's_Envoy": [
@@ -296,16 +296,16 @@
       "url": "Audio/FILTERED/Apollo,_Heaven's_Envoy/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Apollo,_Heaven's_Envoy/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Apollo,_Heaven's_Envoy/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Apollo,_Heaven's_Envoy/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Apollo,_Heaven's_Envoy/chunk10.mp3"
     }
   ],
   "Apostle_of_Voracity": [
@@ -340,16 +340,16 @@
       "url": "Audio/FILTERED/Apprentice_Astrologer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Apprentice_Astrologer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Apprentice_Astrologer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Apprentice_Astrologer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Apprentice_Astrologer/chunk10.mp3"
     }
   ],
   "Aragavy,_Eternal_Hunter": [
@@ -362,16 +362,16 @@
       "url": "Audio/FILTERED/Aragavy,_Eternal_Hunter/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Aragavy,_Eternal_Hunter/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Aragavy,_Eternal_Hunter/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Aragavy,_Eternal_Hunter/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Aragavy,_Eternal_Hunter/chunk10.mp3"
     }
   ],
   "Arcane_Archivist": [
@@ -384,16 +384,16 @@
       "url": "Audio/FILTERED/Arcane_Archivist/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Arcane_Archivist/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Arcane_Archivist/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Arcane_Archivist/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Arcane_Archivist/chunk10.mp3"
     }
   ],
   "Arcane_Eruption": [],
@@ -407,16 +407,16 @@
       "url": "Audio/FILTERED/Aria,_Lady_of_the_Woods/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Aria,_Lady_of_the_Woods/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Aria,_Lady_of_the_Woods/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Aria,_Lady_of_the_Woods/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Aria,_Lady_of_the_Woods/chunk10.mp3"
     }
   ],
   "Arms_Peddler": [
@@ -451,16 +451,16 @@
       "url": "Audio/FILTERED/Arriet,_Luxminstrel/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Arriet,_Luxminstrel/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Arriet,_Luxminstrel/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Arriet,_Luxminstrel/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Arriet,_Luxminstrel/chunk10.mp3"
     }
   ],
   "Artifact_Catapult": [],
@@ -475,10 +475,6 @@
       "url": "Audio/FILTERED/Aryll,_Moonstruck_Vampire/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Aryll,_Moonstruck_Vampire/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Aryll,_Moonstruck_Vampire/chunk2.mp3"
     },
@@ -489,6 +485,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Aryll,_Moonstruck_Vampire/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Aryll,_Moonstruck_Vampire/chunk10.mp3"
     }
   ],
   "Ascetic_of_Wuxing": [
@@ -524,16 +524,16 @@
       "url": "Audio/FILTERED/Axe-Wielding_Dragonslayer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Axe-Wielding_Dragonslayer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Axe-Wielding_Dragonslayer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Axe-Wielding_Dragonslayer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Axe-Wielding_Dragonslayer/chunk10.mp3"
     }
   ],
   "Axia,_Heir_to_Destruction": [
@@ -544,10 +544,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Axia,_Heir_to_Destruction/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Axia,_Heir_to_Destruction/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -564,6 +560,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Axia,_Heir_to_Destruction/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Axia,_Heir_to_Destruction/chunk10.mp3"
     }
   ],
   "Azurifrit,_Heir_to_Disdain": [
@@ -574,18 +574,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk10.mp3"
-    },
-    {
-      "name": "chunk11.mp3",
-      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk11.mp3"
-    },
-    {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk12.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -618,6 +606,18 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk10.mp3"
+    },
+    {
+      "name": "chunk11.mp3",
+      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk11.mp3"
+    },
+    {
+      "name": "chunk12.mp3",
+      "url": "Audio/FILTERED/Azurifrit,_Heir_to_Disdain/chunk12.mp3"
     }
   ],
   "Baby_Carbuncle": [
@@ -652,10 +652,6 @@
       "url": "Audio/FILTERED/Balto,_Dusk_Bounty_Hunter/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Balto,_Dusk_Bounty_Hunter/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Balto,_Dusk_Bounty_Hunter/chunk2.mp3"
     },
@@ -666,6 +662,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Balto,_Dusk_Bounty_Hunter/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Balto,_Dusk_Bounty_Hunter/chunk10.mp3"
     }
   ],
   "Band_of_Battle_Princesses": [
@@ -688,10 +688,6 @@
       "url": "Audio/FILTERED/Battleforged_Dragon_Keeper/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Battleforged_Dragon_Keeper/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Battleforged_Dragon_Keeper/chunk2.mp3"
     },
@@ -702,6 +698,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Battleforged_Dragon_Keeper/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Battleforged_Dragon_Keeper/chunk10.mp3"
     }
   ],
   "Bayle,_Luxglaive_Warrior": [
@@ -712,10 +712,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Bayle,_Luxglaive_Warrior/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Bayle,_Luxglaive_Warrior/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -744,6 +740,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Bayle,_Luxglaive_Warrior/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Bayle,_Luxglaive_Warrior/chunk10.mp3"
     }
   ],
   "Bearer_of_the_Fairy_Blade": [
@@ -804,16 +804,16 @@
       "url": "Audio/FILTERED/Beryl,_Nightmare_Incarnate/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Beryl,_Nightmare_Incarnate/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Beryl,_Nightmare_Incarnate/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Beryl,_Nightmare_Incarnate/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Beryl,_Nightmare_Incarnate/chunk10.mp3"
     }
   ],
   "Bestial_Swipe": [],
@@ -875,16 +875,16 @@
       "url": "Audio/FILTERED/Capricious_Sprite/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Capricious_Sprite/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Capricious_Sprite/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Capricious_Sprite/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Capricious_Sprite/chunk10.mp3"
     }
   ],
   "Caravan_Mammoth": [
@@ -919,16 +919,16 @@
       "url": "Audio/FILTERED/Carnelia,_Ember_of_Darkness/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Carnelia,_Ember_of_Darkness/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Carnelia,_Ember_of_Darkness/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Carnelia,_Ember_of_Darkness/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Carnelia,_Ember_of_Darkness/chunk10.mp3"
     }
   ],
   "Castle_of_Entwining": [],
@@ -964,16 +964,16 @@
       "url": "Audio/FILTERED/Cerberus,_Hellfire_Unleashed/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Cerberus,_Hellfire_Unleashed/chunk2.mp3"
+    },
+    {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Cerberus,_Hellfire_Unleashed/chunk11.mp3"
     },
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Cerberus,_Hellfire_Unleashed/chunk12.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Cerberus,_Hellfire_Unleashed/chunk2.mp3"
     }
   ],
   "Ceres,_Blue_Rose_Maiden": [
@@ -986,10 +986,6 @@
       "url": "Audio/FILTERED/Ceres,_Blue_Rose_Maiden/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ceres,_Blue_Rose_Maiden/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ceres,_Blue_Rose_Maiden/chunk2.mp3"
     },
@@ -1000,6 +996,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ceres,_Blue_Rose_Maiden/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ceres,_Blue_Rose_Maiden/chunk10.mp3"
     }
   ],
   "Chaos_Cyclone": [],
@@ -1069,16 +1069,16 @@
       "url": "Audio/FILTERED/Comrade_of_the_Swordmaster/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Comrade_of_the_Swordmaster/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Comrade_of_the_Swordmaster/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Comrade_of_the_Swordmaster/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Comrade_of_the_Swordmaster/chunk10.mp3"
     }
   ],
   "Congregant_of_Destruction": [
@@ -1117,10 +1117,6 @@
       "url": "Audio/FILTERED/Congregant_of_Disdain/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Congregant_of_Disdain/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Congregant_of_Disdain/chunk2.mp3"
     },
@@ -1135,6 +1131,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Congregant_of_Disdain/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Congregant_of_Disdain/chunk10.mp3"
     }
   ],
   "Congregant_of_Entwining": [
@@ -1185,10 +1185,6 @@
       "url": "Audio/FILTERED/Congregant_of_Repose/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Congregant_of_Repose/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Congregant_of_Repose/chunk2.mp3"
     },
@@ -1199,6 +1195,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Congregant_of_Repose/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Congregant_of_Repose/chunk10.mp3"
     }
   ],
   "Congregant_of_Unkilling": [
@@ -1237,10 +1237,6 @@
       "url": "Audio/FILTERED/Congregant_of_Usurpation/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Congregant_of_Usurpation/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Congregant_of_Usurpation/chunk2.mp3"
     },
@@ -1255,6 +1251,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Congregant_of_Usurpation/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Congregant_of_Usurpation/chunk10.mp3"
     }
   ],
   "Crystal_Gazing": [],
@@ -1312,16 +1312,16 @@
       "url": "Audio/FILTERED/Damus,_Oracle_of_Malice/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Damus,_Oracle_of_Malice/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Damus,_Oracle_of_Malice/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Damus,_Oracle_of_Malice/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Damus,_Oracle_of_Malice/chunk10.mp3"
     }
   ],
   "Darkhaven_Grace": [
@@ -1344,16 +1344,16 @@
       "url": "Audio/FILTERED/Darkseal_Demon/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Darkseal_Demon/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Darkseal_Demon/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Darkseal_Demon/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Darkseal_Demon/chunk10.mp3"
     }
   ],
   "Dark_Side": [
@@ -1388,16 +1388,16 @@
       "url": "Audio/FILTERED/Dazzling_Runeknight/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Dazzling_Runeknight/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Dazzling_Runeknight/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Dazzling_Runeknight/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Dazzling_Runeknight/chunk10.mp3"
     }
   ],
   "Deepwood_Fairy_Beast": [
@@ -1440,16 +1440,16 @@
       "url": "Audio/FILTERED/Devious_Lesser_Mummy/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devious_Lesser_Mummy/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Devious_Lesser_Mummy/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devious_Lesser_Mummy/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devious_Lesser_Mummy/chunk10.mp3"
     }
   ],
   "Devotee_of_Destruction": [
@@ -1462,10 +1462,6 @@
       "url": "Audio/FILTERED/Devotee_of_Destruction/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devotee_of_Destruction/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Devotee_of_Destruction/chunk2.mp3"
     },
@@ -1476,6 +1472,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devotee_of_Destruction/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devotee_of_Destruction/chunk10.mp3"
     }
   ],
   "Devotee_of_Disdain": [
@@ -1486,10 +1486,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Devotee_of_Disdain/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devotee_of_Disdain/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -1506,6 +1502,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devotee_of_Disdain/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devotee_of_Disdain/chunk10.mp3"
     }
   ],
   "Devotee_of_Entwining": [
@@ -1516,10 +1516,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Devotee_of_Entwining/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devotee_of_Entwining/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -1540,6 +1536,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devotee_of_Entwining/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devotee_of_Entwining/chunk10.mp3"
     }
   ],
   "Devotee_of_Repose": [
@@ -1552,10 +1552,6 @@
       "url": "Audio/FILTERED/Devotee_of_Repose/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devotee_of_Repose/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Devotee_of_Repose/chunk2.mp3"
     },
@@ -1566,6 +1562,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devotee_of_Repose/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devotee_of_Repose/chunk10.mp3"
     }
   ],
   "Devotee_of_Truth": [
@@ -1578,10 +1578,6 @@
       "url": "Audio/FILTERED/Devotee_of_Truth/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Devotee_of_Truth/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Devotee_of_Truth/chunk2.mp3"
     },
@@ -1592,6 +1588,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Devotee_of_Truth/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Devotee_of_Truth/chunk10.mp3"
     }
   ],
   "Devotee_of_Unkilling": [
@@ -1662,16 +1662,16 @@
       "url": "Audio/FILTERED/Dirk,_Metal_Mercenary/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Dirk,_Metal_Mercenary/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Dirk,_Metal_Mercenary/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Dirk,_Metal_Mercenary/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Dirk,_Metal_Mercenary/chunk10.mp3"
     }
   ],
   "Divine_Guard": [],
@@ -1691,10 +1691,6 @@
       "url": "Audio/FILTERED/Dogged_One/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Dogged_One/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Dogged_One/chunk2.mp3"
     },
@@ -1709,6 +1705,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Dogged_One/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Dogged_One/chunk10.mp3"
     }
   ],
   "Doomwright_Resurgence": [
@@ -1773,10 +1773,6 @@
       "url": "Audio/FILTERED/Edelweiss,_Sagelight_Ward/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Edelweiss,_Sagelight_Ward/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Edelweiss,_Sagelight_Ward/chunk2.mp3"
     },
@@ -1791,6 +1787,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Edelweiss,_Sagelight_Ward/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Edelweiss,_Sagelight_Ward/chunk10.mp3"
     }
   ],
   "Elder_Sagebrush": [
@@ -1825,16 +1825,16 @@
       "url": "Audio/FILTERED/Electric_Whip_Lass/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Electric_Whip_Lass/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Electric_Whip_Lass/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Electric_Whip_Lass/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Electric_Whip_Lass/chunk10.mp3"
     }
   ],
   "Elise,_Electrifying_Inventor": [
@@ -1869,16 +1869,16 @@
       "url": "Audio/FILTERED/Emmylou,_Witch_of_Wonder/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Emmylou,_Witch_of_Wonder/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Emmylou,_Witch_of_Wonder/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Emmylou,_Witch_of_Wonder/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Emmylou,_Witch_of_Wonder/chunk10.mp3"
     }
   ],
   "Enchanting_Perfumer": [
@@ -1963,16 +1963,16 @@
       "url": "Audio/FILTERED/Ernesta,_Peace_Hawker/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ernesta,_Peace_Hawker/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ernesta,_Peace_Hawker/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ernesta,_Peace_Hawker/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ernesta,_Peace_Hawker/chunk10.mp3"
     }
   ],
   "Eudie,_Maiden_Reborn": [
@@ -2029,10 +2029,6 @@
       "url": "Audio/FILTERED/Eyfa,_Windrider/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Eyfa,_Windrider/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Eyfa,_Windrider/chunk2.mp3"
     },
@@ -2043,6 +2039,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Eyfa,_Windrider/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Eyfa,_Windrider/chunk10.mp3"
     }
   ],
   "Fairy_Fencer": [
@@ -2152,16 +2152,16 @@
       "url": "Audio/FILTERED/Flashstep_Quickblader/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Flashstep_Quickblader/chunk2.mp3"
+    },
+    {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Flashstep_Quickblader/chunk11.mp3"
     },
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Flashstep_Quickblader/chunk12.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Flashstep_Quickblader/chunk2.mp3"
     }
   ],
   "Fledgling_Dragonslayer": [
@@ -2174,16 +2174,16 @@
       "url": "Audio/FILTERED/Fledgling_Dragonslayer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Fledgling_Dragonslayer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Fledgling_Dragonslayer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Fledgling_Dragonslayer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Fledgling_Dragonslayer/chunk10.mp3"
     }
   ],
   "Flight_of_Icarus": [
@@ -2233,16 +2233,16 @@
       "url": "Audio/FILTERED/Fox_of_Purity/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Fox_of_Purity/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Fox_of_Purity/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Fox_of_Purity/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Fox_of_Purity/chunk10.mp3"
     }
   ],
   "Fragrantwood_Whispers": [
@@ -2261,10 +2261,6 @@
       "url": "Audio/FILTERED/Galmieux,_Ardor_Manifest/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Galmieux,_Ardor_Manifest/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Galmieux,_Ardor_Manifest/chunk2.mp3"
     },
@@ -2279,6 +2275,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Galmieux,_Ardor_Manifest/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Galmieux,_Ardor_Manifest/chunk10.mp3"
     }
   ],
   "Garden's_Allure": [],
@@ -2290,10 +2290,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -2310,6 +2306,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk10.mp3"
     }
   ],
   "Genesis_Dragon_Reborn": [
@@ -2322,16 +2322,16 @@
       "url": "Audio/FILTERED/Genesis_Dragon_Reborn/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Genesis_Dragon_Reborn/chunk2.mp3"
+    },
+    {
       "name": "chunk10.mp3",
       "url": "Audio/FILTERED/Genesis_Dragon_Reborn/chunk10.mp3"
     },
     {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Genesis_Dragon_Reborn/chunk11.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Genesis_Dragon_Reborn/chunk2.mp3"
     }
   ],
   "Gentile_Treant": [
@@ -2367,16 +2367,16 @@
       "url": "Audio/FILTERED/Ghost_Juggler/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ghost_Juggler/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ghost_Juggler/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ghost_Juggler/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ghost_Juggler/chunk10.mp3"
     }
   ],
   "Gilnelise,_Voracity_Manifest": [
@@ -2389,16 +2389,16 @@
       "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest/chunk10.mp3"
     }
   ],
   "Ginsetsu_&_Yuzuki,_Twin_Calamities": [
@@ -2548,10 +2548,6 @@
       "url": "Audio/FILTERED/Grimnir,_Heavenly_Gale/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Grimnir,_Heavenly_Gale/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Grimnir,_Heavenly_Gale/chunk2.mp3"
     },
@@ -2566,6 +2562,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Grimnir,_Heavenly_Gale/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Grimnir,_Heavenly_Gale/chunk10.mp3"
     }
   ],
   "Hamlet_of_Unkilling": [],
@@ -2577,10 +2577,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Himeka,_Heir_to_Repose/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Himeka,_Heir_to_Repose/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -2597,6 +2593,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Himeka,_Heir_to_Repose/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Himeka,_Heir_to_Repose/chunk10.mp3"
     }
   ],
   "Hnikar_&_Jatnhar,_Firestorm_Duo": [
@@ -2645,10 +2645,6 @@
       "url": "Audio/FILTERED/Hound_of_War/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Hound_of_War/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Hound_of_War/chunk2.mp3"
     },
@@ -2659,6 +2655,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Hound_of_War/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Hound_of_War/chunk10.mp3"
     }
   ],
   "Ignominious_Samural": [
@@ -2774,16 +2774,16 @@
       "url": "Audio/FILTERED/Intent_Dragonewt_Princess/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Intent_Dragonewt_Princess/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Intent_Dragonewt_Princess/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Intent_Dragonewt_Princess/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Intent_Dragonewt_Princess/chunk10.mp3"
     }
   ],
   "Ironcrown_Majesty": [
@@ -2824,16 +2824,16 @@
       "url": "Audio/FILTERED/Ironheart_Hunter/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ironheart_Hunter/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ironheart_Hunter/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ironheart_Hunter/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ironheart_Hunter/chunk10.mp3"
     }
   ],
   "Izudia,_Annihilation_Manifest": [
@@ -2868,16 +2868,16 @@
       "url": "Audio/FILTERED/Jeanne,_Saintly_Knight/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Jeanne,_Saintly_Knight/chunk2.mp3"
+    },
+    {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Jeanne,_Saintly_Knight/chunk11.mp3"
     },
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Jeanne,_Saintly_Knight/chunk12.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Jeanne,_Saintly_Knight/chunk2.mp3"
     }
   ],
   "Jeno,_Levin_Axeraider": [
@@ -2942,16 +2942,16 @@
       "url": "Audio/FILTERED/Kagemitsu,_Enduring_Warrior/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Kagemitsu,_Enduring_Warrior/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Kagemitsu,_Enduring_Warrior/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Kagemitsu,_Enduring_Warrior/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Kagemitsu,_Enduring_Warrior/chunk10.mp3"
     }
   ],
   "Karula,_Eternal_Arts": [
@@ -2986,16 +2986,16 @@
       "url": "Audio/FILTERED/Killer_Rhinoceroach/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Killer_Rhinoceroach/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Killer_Rhinoceroach/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Killer_Rhinoceroach/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Killer_Rhinoceroach/chunk10.mp3"
     }
   ],
   "Kit,_Luxfang_Champion": [
@@ -3006,10 +3006,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Kit,_Luxfang_Champion/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Kit,_Luxfang_Champion/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -3038,6 +3034,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Kit,_Luxfang_Champion/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Kit,_Luxfang_Champion/chunk10.mp3"
     }
   ],
   "Kitty_Cannoneer": [
@@ -3050,16 +3050,16 @@
       "url": "Audio/FILTERED/Kitty_Cannoneer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Kitty_Cannoneer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Kitty_Cannoneer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Kitty_Cannoneer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Kitty_Cannoneer/chunk10.mp3"
     }
   ],
   "Knightly_Rending": [],
@@ -3073,10 +3073,6 @@
       "url": "Audio/FILTERED/Knight_of_the_Holy_Order/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Knight_of_the_Holy_Order/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Knight_of_the_Holy_Order/chunk2.mp3"
     },
@@ -3087,6 +3083,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Knight_of_the_Holy_Order/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Knight_of_the_Holy_Order/chunk10.mp3"
     }
   ],
   "Kuon,_Fivefold_Master": [
@@ -3099,14 +3099,6 @@
       "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk1.mp3"
     },
     {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk12.mp3"
-    },
-    {
-      "name": "chunk13.mp3",
-      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk13.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk2.mp3"
     },
@@ -3117,6 +3109,14 @@
     {
       "name": "chunk4.mp3",
       "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk4.mp3"
+    },
+    {
+      "name": "chunk12.mp3",
+      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk12.mp3"
+    },
+    {
+      "name": "chunk13.mp3",
+      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk13.mp3"
     }
   ],
   "Lair_of_Usurpation": [],
@@ -3131,16 +3131,16 @@
       "url": "Audio/FILTERED/lan,_Lovebound_Knight/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/lan,_Lovebound_Knight/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/lan,_Lovebound_Knight/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/lan,_Lovebound_Knight/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/lan,_Lovebound_Knight/chunk10.mp3"
     }
   ],
   "Lapis,_Shining_Seraph": [
@@ -3175,16 +3175,16 @@
       "url": "Audio/FILTERED/Laura,_Cruel_Commander/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Laura,_Cruel_Commander/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Laura,_Cruel_Commander/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Laura,_Cruel_Commander/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Laura,_Cruel_Commander/chunk10.mp3"
     }
   ],
   "Leah,_Bellringer_Angel": [
@@ -3219,20 +3219,20 @@
       "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk1.mp3"
     },
     {
-      "name": "chunk11.mp3",
-      "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3"
-    },
-    {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk2.mp3"
     },
     {
       "name": "chunk3.mp3",
       "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk3.mp3"
+    },
+    {
+      "name": "chunk11.mp3",
+      "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3"
+    },
+    {
+      "name": "chunk12.mp3",
+      "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3"
     }
   ],
   "Lilith,_Enchanting_Succubus": [
@@ -3311,16 +3311,16 @@
       "url": "Audio/FILTERED/Lishenna,_Melody_Manifest/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Lishenna,_Melody_Manifest/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Lishenna,_Melody_Manifest/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Lishenna,_Melody_Manifest/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Lishenna,_Melody_Manifest/chunk10.mp3"
     }
   ],
   "Little_Dragon_Nanny": [
@@ -3333,16 +3333,16 @@
       "url": "Audio/FILTERED/Little_Dragon_Nanny/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Little_Dragon_Nanny/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Little_Dragon_Nanny/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Little_Dragon_Nanny/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Little_Dragon_Nanny/chunk10.mp3"
     }
   ],
   "Little_Miss_Bonemancer": [
@@ -3355,16 +3355,16 @@
       "url": "Audio/FILTERED/Little_Miss_Bonemancer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Little_Miss_Bonemancer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Little_Miss_Bonemancer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Little_Miss_Bonemancer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Little_Miss_Bonemancer/chunk10.mp3"
     }
   ],
   "Liu_Feng,_Goldennote_Ward": [
@@ -3375,10 +3375,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Liu_Feng,_Goldennote_Ward/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Liu_Feng,_Goldennote_Ward/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -3395,6 +3391,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Liu_Feng,_Goldennote_Ward/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Liu_Feng,_Goldennote_Ward/chunk10.mp3"
     }
   ],
   "Lovestruck_Puppeteer": [
@@ -3407,16 +3407,16 @@
       "url": "Audio/FILTERED/Lovestruck_Puppeteer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Lovestruck_Puppeteer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Lovestruck_Puppeteer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Lovestruck_Puppeteer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Lovestruck_Puppeteer/chunk10.mp3"
     }
   ],
   "Lucrative_Deal": [],
@@ -3431,14 +3431,6 @@
       "url": "Audio/FILTERED/Luminous_Commander/chunk1.mp3"
     },
     {
-      "name": "chunk14.mp3",
-      "url": "Audio/FILTERED/Luminous_Commander/chunk14.mp3"
-    },
-    {
-      "name": "chunk15.mp3",
-      "url": "Audio/FILTERED/Luminous_Commander/chunk15.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Luminous_Commander/chunk2.mp3"
     },
@@ -3449,6 +3441,14 @@
     {
       "name": "chunk4.mp3",
       "url": "Audio/FILTERED/Luminous_Commander/chunk4.mp3"
+    },
+    {
+      "name": "chunk14.mp3",
+      "url": "Audio/FILTERED/Luminous_Commander/chunk14.mp3"
+    },
+    {
+      "name": "chunk15.mp3",
+      "url": "Audio/FILTERED/Luminous_Commander/chunk15.mp3"
     }
   ],
   "Luminous_Lancetrooper": [
@@ -3521,16 +3521,16 @@
       "url": "Audio/FILTERED/Lymaga,_Untamed_Wild/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Lymaga,_Untamed_Wild/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Lymaga,_Untamed_Wild/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Lymaga,_Untamed_Wild/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Lymaga,_Untamed_Wild/chunk10.mp3"
     }
   ],
   "Lyrala,_Luminous_Potionwright": [
@@ -3541,10 +3541,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Lyrala,_Luminous_Potionwright/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Lyrala,_Luminous_Potionwright/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -3569,6 +3565,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Lyrala,_Luminous_Potionwright/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Lyrala,_Luminous_Potionwright/chunk10.mp3"
     }
   ],
   "Maddening_Benison": [
@@ -3587,10 +3587,6 @@
       "url": "Audio/FILTERED/Maeve,_Guardian_of_Earth/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Maeve,_Guardian_of_Earth/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Maeve,_Guardian_of_Earth/chunk2.mp3"
     },
@@ -3605,6 +3601,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Maeve,_Guardian_of_Earth/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Maeve,_Guardian_of_Earth/chunk10.mp3"
     }
   ],
   "Mainyu,_Darkdweller": [
@@ -3617,10 +3617,6 @@
       "url": "Audio/FILTERED/Mainyu,_Darkdweller/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Mainyu,_Darkdweller/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Mainyu,_Darkdweller/chunk2.mp3"
     },
@@ -3631,6 +3627,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Mainyu,_Darkdweller/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Mainyu,_Darkdweller/chunk10.mp3"
     }
   ],
   "March_of_the_Brutes": [],
@@ -3644,16 +3644,16 @@
       "url": "Audio/FILTERED/Marion,_Ravishing_Dragonewt/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Marion,_Ravishing_Dragonewt/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Marion,_Ravishing_Dragonewt/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Marion,_Ravishing_Dragonewt/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Marion,_Ravishing_Dragonewt/chunk10.mp3"
     }
   ],
   "Marwynn,_Despair_Manifest": [
@@ -3666,16 +3666,16 @@
       "url": "Audio/FILTERED/Marwynn,_Despair_Manifest/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Marwynn,_Despair_Manifest/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Marwynn,_Despair_Manifest/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Marwynn,_Despair_Manifest/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Marwynn,_Despair_Manifest/chunk10.mp3"
     }
   ],
   "May,_Journey_Elf": [
@@ -3780,10 +3780,6 @@
       "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk2.mp3"
     },
@@ -3802,6 +3798,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk10.mp3"
     }
   ],
   "Melvie,_Adoring_Witch": [
@@ -3814,16 +3814,16 @@
       "url": "Audio/FILTERED/Melvie,_Adoring_Witch/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Melvie,_Adoring_Witch/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Melvie,_Adoring_Witch/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Melvie,_Adoring_Witch/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Melvie,_Adoring_Witch/chunk10.mp3"
     }
   ],
   "Mino,_Shrewd_Reaper": [
@@ -3834,10 +3834,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Mino,_Shrewd_Reaper/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Mino,_Shrewd_Reaper/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -3854,6 +3850,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Mino,_Shrewd_Reaper/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Mino,_Shrewd_Reaper/chunk10.mp3"
     }
   ],
   "Miriam,_the_Resolute": [
@@ -3914,16 +3914,16 @@
       "url": "Audio/FILTERED/Mjerrabaine,_Great_Manifest/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Mjerrabaine,_Great_Manifest/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Mjerrabaine,_Great_Manifest/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Mjerrabaine,_Great_Manifest/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Mjerrabaine,_Great_Manifest/chunk10.mp3"
     }
   ],
   "Ms._Miranda,_Adored_Academic": [
@@ -3936,16 +3936,16 @@
       "url": "Audio/FILTERED/Ms._Miranda,_Adored_Academic/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ms._Miranda,_Adored_Academic/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ms._Miranda,_Adored_Academic/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ms._Miranda,_Adored_Academic/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ms._Miranda,_Adored_Academic/chunk10.mp3"
     }
   ],
   "Mukan,_Shadowcrypt_Ward": [
@@ -3956,10 +3956,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Mukan,_Shadowcrypt_Ward/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Mukan,_Shadowcrypt_Ward/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -3980,6 +3976,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Mukan,_Shadowcrypt_Ward/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Mukan,_Shadowcrypt_Ward/chunk10.mp3"
     }
   ],
   "Nameless_Demon": [
@@ -3992,16 +3992,16 @@
       "url": "Audio/FILTERED/Nameless_Demon/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Nameless_Demon/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Nameless_Demon/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Nameless_Demon/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Nameless_Demon/chunk10.mp3"
     }
   ],
   "Nation_of_Disdain": [],
@@ -4037,16 +4037,16 @@
       "url": "Audio/FILTERED/Nightshadow_Ninja_Master/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Nightshadow_Ninja_Master/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Nightshadow_Ninja_Master/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Nightshadow_Ninja_Master/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Nightshadow_Ninja_Master/chunk10.mp3"
     }
   ],
   "Night_Fiend": [
@@ -4059,16 +4059,16 @@
       "url": "Audio/FILTERED/Night_Fiend/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Night_Fiend/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Night_Fiend/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Night_Fiend/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Night_Fiend/chunk10.mp3"
     }
   ],
   "Noah,_Thread_of_Death": [
@@ -4107,10 +4107,6 @@
       "url": "Audio/FILTERED/Ocean_Rider/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ocean_Rider/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ocean_Rider/chunk2.mp3"
     },
@@ -4121,6 +4117,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Ocean_Rider/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ocean_Rider/chunk10.mp3"
     }
   ],
   "Odin,_Twilit_Fate": [
@@ -4131,10 +4131,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Odin,_Twilit_Fate/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Odin,_Twilit_Fate/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -4151,6 +4147,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Odin,_Twilit_Fate/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Odin,_Twilit_Fate/chunk10.mp3"
     }
   ],
   "Olivia,_Heroic_Dark_Angel": [
@@ -4211,14 +4211,6 @@
       "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk1.mp3"
     },
     {
-      "name": "chunk15.mp3",
-      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk15.mp3"
-    },
-    {
-      "name": "chunk16.mp3",
-      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk16.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk2.mp3"
     },
@@ -4233,6 +4225,14 @@
     {
       "name": "chunk5.mp3",
       "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk5.mp3"
+    },
+    {
+      "name": "chunk15.mp3",
+      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk15.mp3"
+    },
+    {
+      "name": "chunk16.mp3",
+      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk16.mp3"
     }
   ],
   "Orthrus,_Hellhound_Blader": [
@@ -4245,10 +4245,6 @@
       "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk2.mp3"
     },
@@ -4259,6 +4255,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3"
     }
   ],
   "Owen,_Mysterian_Swordsman": [
@@ -4271,10 +4271,6 @@
       "url": "Audio/FILTERED/Owen,_Mysterian_Swordsman/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Owen,_Mysterian_Swordsman/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Owen,_Mysterian_Swordsman/chunk2.mp3"
     },
@@ -4285,6 +4281,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Owen,_Mysterian_Swordsman/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Owen,_Mysterian_Swordsman/chunk10.mp3"
     }
   ],
   "Owl!_Summoner": [
@@ -4297,16 +4297,16 @@
       "url": "Audio/FILTERED/Owl!_Summoner/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Owl!_Summoner/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Owl!_Summoner/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Owl!_Summoner/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Owl!_Summoner/chunk10.mp3"
     }
   ],
   "Pact_of_the_Beast_Princess": [],
@@ -4326,16 +4326,16 @@
       "url": "Audio/FILTERED/Penelope,_Potions_Prodigy/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Penelope,_Potions_Prodigy/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Penelope,_Potions_Prodigy/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Penelope,_Potions_Prodigy/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Penelope,_Potions_Prodigy/chunk10.mp3"
     }
   ],
   "Peppy_Scout": [
@@ -4422,16 +4422,16 @@
       "url": "Audio/FILTERED/Puppet_Cat/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Puppet_Cat/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Puppet_Cat/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Puppet_Cat/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Puppet_Cat/chunk10.mp3"
     }
   ],
   "Puppet_Lancer": [
@@ -4444,16 +4444,16 @@
       "url": "Audio/FILTERED/Puppet_Lancer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Puppet_Lancer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Puppet_Lancer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Puppet_Lancer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Puppet_Lancer/chunk10.mp3"
     }
   ],
   "Puppet_Shield": [],
@@ -4491,16 +4491,16 @@
       "url": "Audio/FILTERED/Rackhir,_Ordinary_Knight/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rackhir,_Ordinary_Knight/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Rackhir,_Ordinary_Knight/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rackhir,_Ordinary_Knight/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rackhir,_Ordinary_Knight/chunk10.mp3"
     }
   ],
   "Radiant_Guiding_Angel": [
@@ -4543,16 +4543,16 @@
       "url": "Audio/FILTERED/Ralmia,_Sonic_Boom/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Ralmia,_Sonic_Boom/chunk2.mp3"
+    },
+    {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Ralmia,_Sonic_Boom/chunk11.mp3"
     },
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Ralmia,_Sonic_Boom/chunk12.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Ralmia,_Sonic_Boom/chunk2.mp3"
     }
   ],
   "Ravening_Tentacles": [
@@ -4571,16 +4571,16 @@
       "url": "Audio/FILTERED/Rayvn,_the_Silver_Bullet/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rayvn,_the_Silver_Bullet/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Rayvn,_the_Silver_Bullet/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rayvn,_the_Silver_Bullet/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rayvn,_the_Silver_Bullet/chunk10.mp3"
     }
   ],
   "Reaper's_Deathslash": [],
@@ -4638,10 +4638,6 @@
       "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk2.mp3"
     },
@@ -4660,6 +4656,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk10.mp3"
     }
   ],
   "Returning_Slash": [
@@ -4735,10 +4735,6 @@
       "url": "Audio/FILTERED/Rose,_Princess_Knight/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rose,_Princess_Knight/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Rose,_Princess_Knight/chunk2.mp3"
     },
@@ -4753,6 +4749,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rose,_Princess_Knight/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rose,_Princess_Knight/chunk10.mp3"
     }
   ],
   "Royal_Coachwoman": [
@@ -4809,16 +4809,16 @@
       "url": "Audio/FILTERED/Rukina,_Resistance_Leader/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rukina,_Resistance_Leader/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Rukina,_Resistance_Leader/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rukina,_Resistance_Leader/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rukina,_Resistance_Leader/chunk10.mp3"
     }
   ],
   "Rulenye_&_Vainareik": [
@@ -4829,10 +4829,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -4849,6 +4845,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk10.mp3"
     }
   ],
   "Ruler_of_Cocytus": [
@@ -4861,20 +4861,20 @@
       "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk10.mp3"
-    },
-    {
-      "name": "chunk11.mp3",
-      "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk11.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk2.mp3"
     },
     {
       "name": "chunk3.mp3",
       "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk3.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk10.mp3"
+    },
+    {
+      "name": "chunk11.mp3",
+      "url": "Audio/FILTERED/Ruler_of_Cocytus/chunk11.mp3"
     }
   ],
   "Runeblade_Conductor": [
@@ -4887,16 +4887,16 @@
       "url": "Audio/FILTERED/Runeblade_Conductor/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Runeblade_Conductor/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Runeblade_Conductor/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Runeblade_Conductor/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Runeblade_Conductor/chunk10.mp3"
     }
   ],
   "Rusty,_Luxcard_Trickster": [
@@ -4907,10 +4907,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Rusty,_Luxcard_Trickster/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Rusty,_Luxcard_Trickster/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -4939,6 +4935,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Rusty,_Luxcard_Trickster/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Rusty,_Luxcard_Trickster/chunk10.mp3"
     }
   ],
   "Sacred_Griffon": [
@@ -4983,10 +4983,6 @@
       "url": "Audio/FILTERED/Salefa,_Guardian_of_Water/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Salefa,_Guardian_of_Water/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Salefa,_Guardian_of_Water/chunk2.mp3"
     },
@@ -4997,6 +4993,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Salefa,_Guardian_of_Water/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Salefa,_Guardian_of_Water/chunk10.mp3"
     }
   ],
   "Sarissa,_Luxspear_Al-mi'raJ": [
@@ -5007,10 +5007,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Sarissa,_Luxspear_Al-mi'raJ/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Sarissa,_Luxspear_Al-mi'raJ/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -5035,6 +5031,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Sarissa,_Luxspear_Al-mi'raJ/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Sarissa,_Luxspear_Al-mi'raJ/chunk10.mp3"
     }
   ],
   "Screaming_and_Loathing": [
@@ -5061,16 +5061,16 @@
       "url": "Audio/FILTERED/Searing_Firenewt/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Searing_Firenewt/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Searing_Firenewt/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Searing_Firenewt/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Searing_Firenewt/chunk10.mp3"
     }
   ],
   "Seasoned_Merman": [
@@ -5083,16 +5083,16 @@
       "url": "Audio/FILTERED/Seasoned_Merman/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Seasoned_Merman/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Seasoned_Merman/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Seasoned_Merman/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Seasoned_Merman/chunk10.mp3"
     }
   ],
   "Selwyn,_Sonic_Archer": [
@@ -5105,16 +5105,16 @@
       "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3"
     }
   ],
   "Seraphic_Tidings": [
@@ -5232,16 +5232,16 @@
       "url": "Audio/FILTERED/Skullfane_of_Demise/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Skullfane_of_Demise/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Skullfane_of_Demise/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Skullfane_of_Demise/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Skullfane_of_Demise/chunk10.mp3"
     }
   ],
   "Snowstorm_Dragonewt": [
@@ -5326,10 +5326,6 @@
       "url": "Audio/FILTERED/Spirited_Gravekeeper/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Spirited_Gravekeeper/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Spirited_Gravekeeper/chunk2.mp3"
     },
@@ -5340,6 +5336,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Spirited_Gravekeeper/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Spirited_Gravekeeper/chunk10.mp3"
     }
   ],
   "Starry-Eyed_Penguin_Wizard": [
@@ -5426,10 +5426,6 @@
       "url": "Audio/FILTERED/Supplicant_of_Destruction/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Supplicant_of_Destruction/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Destruction/chunk2.mp3"
     },
@@ -5440,6 +5436,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Destruction/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Supplicant_of_Destruction/chunk10.mp3"
     }
   ],
   "Supplicant_of_Disdain": [
@@ -5482,10 +5482,6 @@
       "url": "Audio/FILTERED/Supplicant_of_Entwining/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Supplicant_of_Entwining/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Entwining/chunk2.mp3"
     },
@@ -5504,6 +5500,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Entwining/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Supplicant_of_Entwining/chunk10.mp3"
     }
   ],
   "Supplicant_of_Truth": [
@@ -5516,10 +5516,6 @@
       "url": "Audio/FILTERED/Supplicant_of_Truth/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Supplicant_of_Truth/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Truth/chunk2.mp3"
     },
@@ -5530,6 +5526,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Truth/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Supplicant_of_Truth/chunk10.mp3"
     }
   ],
   "Supplicant_of_Unkilling": [
@@ -5542,10 +5542,6 @@
       "url": "Audio/FILTERED/Supplicant_of_Unkilling/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Supplicant_of_Unkilling/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Unkilling/chunk2.mp3"
     },
@@ -5556,6 +5552,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Unkilling/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Supplicant_of_Unkilling/chunk10.mp3"
     }
   ],
   "Supplicant_of_Usurpation": [
@@ -5568,10 +5568,6 @@
       "url": "Audio/FILTERED/Supplicant_of_Usurpation/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Supplicant_of_Usurpation/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Usurpation/chunk2.mp3"
     },
@@ -5582,6 +5578,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Supplicant_of_Usurpation/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Supplicant_of_Usurpation/chunk10.mp3"
     }
   ],
   "Swordsnout_Trencher": [
@@ -5616,10 +5616,6 @@
       "url": "Audio/FILTERED/Sylvia,_Garden_Executioner/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Sylvia,_Garden_Executioner/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Sylvia,_Garden_Executioner/chunk2.mp3"
     },
@@ -5630,6 +5626,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Sylvia,_Garden_Executioner/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Sylvia,_Garden_Executioner/chunk10.mp3"
     }
   ],
   "Synchronous_Hearts": [
@@ -5740,10 +5740,6 @@
       "url": "Audio/FILTERED/Valse,_Silent_Sniper/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Valse,_Silent_Sniper/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Valse,_Silent_Sniper/chunk2.mp3"
     },
@@ -5758,6 +5754,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Valse,_Silent_Sniper/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Valse,_Silent_Sniper/chunk10.mp3"
     }
   ],
   "Velharia,_Heir_to_Truth": [
@@ -5768,10 +5768,6 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk1.mp3"
-    },
-    {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk10.mp3"
     },
     {
       "name": "chunk2.mp3",
@@ -5788,6 +5784,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk10.mp3"
     }
   ],
   "Viad,_Impaler": [
@@ -5800,16 +5800,16 @@
       "url": "Audio/FILTERED/Viad,_Impaler/chunk1.mp3"
     },
     {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Viad,_Impaler/chunk2.mp3"
+    },
+    {
       "name": "chunk11.mp3",
       "url": "Audio/FILTERED/Viad,_Impaler/chunk11.mp3"
     },
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Viad,_Impaler/chunk12.mp3"
-    },
-    {
-      "name": "chunk2.mp3",
-      "url": "Audio/FILTERED/Viad,_Impaler/chunk2.mp3"
     }
   ],
   "Vier,_Heart_Slayer": [
@@ -5822,10 +5822,6 @@
       "url": "Audio/FILTERED/Vier,_Heart_Slayer/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Vier,_Heart_Slayer/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Vier,_Heart_Slayer/chunk2.mp3"
     },
@@ -5836,6 +5832,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Vier,_Heart_Slayer/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Vier,_Heart_Slayer/chunk10.mp3"
     }
   ],
   "Vigilant_Detective": [
@@ -5848,16 +5848,16 @@
       "url": "Audio/FILTERED/Vigilant_Detective/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Vigilant_Detective/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Vigilant_Detective/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Vigilant_Detective/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Vigilant_Detective/chunk10.mp3"
     }
   ],
   "Vuella,_the_Blastwing": [
@@ -5870,10 +5870,6 @@
       "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk2.mp3"
     },
@@ -5884,6 +5880,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk10.mp3"
     }
   ],
   "Wasteland_of_Destruction": [],
@@ -5920,16 +5920,16 @@
       "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk10.mp3"
     }
   ],
   "Wildheart": [
@@ -5942,16 +5942,16 @@
       "url": "Audio/FILTERED/Wildheart/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Wildheart/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Wildheart/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Wildheart/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Wildheart/chunk10.mp3"
     }
   ],
   "Wild_Profusion": [],
@@ -6037,16 +6037,16 @@
       "url": "Audio/FILTERED/Workin_Grasshopper/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Workin_Grasshopper/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Workin_Grasshopper/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Workin_Grasshopper/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Workin_Grasshopper/chunk10.mp3"
     }
   ],
   "Yuna,_Occult_Hunter": [
@@ -6081,16 +6081,16 @@
       "url": "Audio/FILTERED/Zahar,_Stormwave_Dragoon/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Zahar,_Stormwave_Dragoon/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Zahar,_Stormwave_Dragoon/chunk2.mp3"
     },
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Zahar,_Stormwave_Dragoon/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Zahar,_Stormwave_Dragoon/chunk10.mp3"
     }
   ],
   "Zell,_Windreader": [
@@ -6103,10 +6103,6 @@
       "url": "Audio/FILTERED/Zell,_Windreader/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Zell,_Windreader/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Zell,_Windreader/chunk2.mp3"
     },
@@ -6117,6 +6113,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Zell,_Windreader/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Zell,_Windreader/chunk10.mp3"
     }
   ],
   "Zirconia,_Ironcrown_Ward": [
@@ -6159,10 +6159,6 @@
       "url": "Audio/FILTERED/Zwel,_Symphonic_Heart/chunk1.mp3"
     },
     {
-      "name": "chunk10.mp3",
-      "url": "Audio/FILTERED/Zwel,_Symphonic_Heart/chunk10.mp3"
-    },
-    {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Zwel,_Symphonic_Heart/chunk2.mp3"
     },
@@ -6177,6 +6173,10 @@
     {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Zwel,_Symphonic_Heart/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Zwel,_Symphonic_Heart/chunk10.mp3"
     }
   ]
 }

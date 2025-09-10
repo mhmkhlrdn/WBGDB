@@ -2,50 +2,480 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Card Voice Browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shadowverse Worlds Beyond Card Voice Browser</title>
     <style>
+      :root {
+        --bg: #0b1020;
+        --surface: #121939;
+        --surface-2: #0f1530;
+        --text: #e6ecff;
+        --muted: #9aa4c7;
+        --primary: #6c8cff; /* neon blue */
+        --accent: #8a5cff;  /* violet */
+        --success: #19d3a7; /* teal */
+        --danger: #ff5c8a;  /* pink */
+        --ring: rgba(108, 140, 255, 0.6);
+        --card-border: rgba(255,255,255,0.08);
+        --shadow: 0 10px 30px rgba(0,0,0,0.4);
+        --radius: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: sans-serif;
-        padding: 20px;
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(138, 92, 255, 0.25), transparent 60%),
+                    radial-gradient(900px 700px at -10% 10%, rgba(108, 140, 255, 0.18), transparent 55%),
+                    linear-gradient(180deg, #0a0f21 0%, #0b1020 100%);
+        min-height: 100vh;
       }
-      .card {
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
       }
-      button {
-        margin: 5px;
-        padding: 5px 10px;
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .title h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        background: linear-gradient(90deg, var(--text), #b9c4ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      nav.tabs {
+        display: flex;
+        gap: 8px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--card-border);
+        padding: 6px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .tab-btn {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        color: var(--muted);
+        padding: 8px 14px;
+        border-radius: 10px;
         cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+
+      .tab-btn.active {
+        color: var(--text);
+        background: linear-gradient(180deg, rgba(108,140,255,0.25), rgba(138,92,255,0.2));
+        border: 1px solid var(--card-border);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 6px 14px rgba(0,0,0,0.25);
+      }
+
+      .search-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 10px 0 22px 0;
+      }
+
+      #search {
+        flex: 1;
+        margin: 0;
+        padding: 12px 14px 12px 42px;
+        width: 100%;
+        max-width: 560px;
+        font-size: 15px;
+        color: var(--text);
+        background: linear-gradient(180deg, var(--surface), var(--surface-2));
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        outline: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 24px rgba(0,0,0,0.25);
+        transition: box-shadow 0.2s ease, border 0.2s ease;
+      }
+
+      #search:focus {
+        border-color: var(--ring);
+        box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+
+      .search-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        pointer-events: none;
+      }
+
+      .card {
+        margin-bottom: 16px;
+        padding: 14px;
+        background: linear-gradient(180deg, rgba(18,25,57,0.9), rgba(15,21,48,0.9));
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .card h2 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #dee6ff;
+      }
+
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .audio-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding: 10px 12px;
+        cursor: pointer;
+        border: 1px solid var(--card-border);
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(108,140,255,0.16), rgba(138,92,255,0.12));
+        color: var(--text);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        user-select: none;
+      }
+
+      .audio-btn:hover {
+        box-shadow: 0 6px 16px rgba(0,0,0,0.32), 0 0 0 2px rgba(108,140,255,0.15);
+      }
+
+      .audio-btn:active {
+        transform: translateY(1px);
+      }
+
+      .audio-btn .icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      .audio-btn.playing {
+        background: linear-gradient(180deg, rgba(25,211,167,0.18), rgba(25,211,167,0.12));
+        box-shadow: 0 0 0 2px rgba(25,211,167,0.18), 0 6px 16px rgba(0,0,0,0.32);
+      }
+
+      .audio-btn .time {
+        margin-left: 6px;
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 12px;
+        opacity: 0.9;
+      }
+
+      section {
+        display: none;
+      }
+
+      section.active {
+        display: block;
+      }
+
+      .qna, .problems {
+        background: linear-gradient(180deg, rgba(18,25,57,0.8), rgba(15,21,48,0.8));
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+
+      .qna h2 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+      }
+
+      .qna-item, .problems-item {
+        margin: 10px 0;
+        padding: 12px;
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        background: rgba(255,255,255,0.03);
+      }
+
+      .q {
+        color: var(--primary);
+        font-weight: 700;
+        margin: 0 0 6px 0;
+      }
+
+      .a {
+        color: var(--muted);
+        margin: 0;
       }
     </style>
   </head>
   <body>
-    <h1>Card Voices</h1>
-    <div id="cards"></div>
+    <div class="container">
+      <header>
+        <div class="title">
+          <img src="../voice_button.png" alt="Worlds Beyond" width="28" height="28" />
+          <h1>Worlds Beyond • JP Card Voices</h1>
+        </div>
+        <nav class="tabs" role="tablist">
+          <button class="tab-btn active" data-tab="voices" role="tab" aria-selected="true">Voices</button>
+          <button class="tab-btn" data-tab="qna" role="tab" aria-selected="false">Q&A</button>
+          <button class="tab-btn" data-tab="problems" role="tab" aria-selected="false">Known Problems</button>
+        </nav>
+      </header>
+
+      <section id="voices" class="active" role="tabpanel" aria-labelledby="tab-voices">
+        <div class="search-row">
+          <div class="search-wrap">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <input type="text" id="search" placeholder="Search cards..." aria-label="Search cards" />
+          </div>
+        </div>
+        <div id="cards"></div>
+      </section>
+
+      <section id="qna" role="tabpanel" aria-labelledby="tab-qna">
+        <div class="qna">
+          <h2>Q&A</h2>
+          <div class="qna-item">
+            <p class="q">What is this?</p>
+            <p class="a">A static site hosted by Github Page for browsing and playing voice lines of cards from the game "Shadowverse Worlds Beyond".</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Where did you gather all the audio data?</p>
+            <p class="a">All of them are from the in-game card library that I've recorded using Audacity.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">How did you record it?</p>
+            <p class="a">I wrote a python automation script for clicking the record button, traversing to the card, playing the voice lines, saving the recording, and splitting it into separate lines.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Why are some of the cards not listed?</p>
+            <p class="a">The data is gathered from the in-game card library, therefore if my account don't have a specific card, it will not be listed in this website.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Some of the voices are cutting-off midway.</p>
+            <p class="a">Please refer to the known problems tab.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Some of the card names are wrong or have typos.</p>
+            <p class="a">I gathered the data for the card names through OCR (Screen to Text) but the accuracy isn't perfect so letters like "f" might be mistaken for "i".</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Will this site be updated?</p>
+            <p class="a">Yes.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Will you include English voice lines?</p>
+            <p class="a">At the moment, I'm not planning to.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Is it open source?</p>
+            <p class="a">Yes. https://github.com/mhmkhlrdn/WBGDB</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">I have a complaint or suggestion, where do I send them to?</p>
+            <p class="a">You may contact me via discord @Arishulmr or X @Arishulmer.</p>
+          </div>
+        </div>
+      </section>
+      <section id="problems" role="tabpanel" aria-labelledby="tab-problems">
+        <div class="qna">
+          <h2>Known Problems</h2>
+          <div class="qna-item">
+            <p class="q">Recording completeness</p>
+            <p class="a">Due to the early automation script still being incomplete, some cards' voice lines are partially missing or cut off.</p>
+          </div>
+          <div class="qna-item">
+            <p class="q">Affected cards</p>
+            <p class="a">Albert, Kuon, Orchis, Phildau.</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <script>
+      let allCards = {};
+      let currentAudio = null;
+      let currentButton = null;
+
+      function formatName(name) {
+        return name.replace(/_/g, " ");
+      }
+
+      function createAudioButton(line) {
+        const button = document.createElement("button");
+        button.className = "audio-btn";
+        button.setAttribute("type", "button");
+        button.innerHTML = `
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
+            <g class="icon-pause" style="display:none"><rect x="7" y="5" width="4" height="14" rx="1"></rect><rect x="13" y="5" width="4" height="14" rx="1"></rect></g>
+          </svg>
+          <span>${line.name}</span>
+          <span class="time" aria-hidden="true">0:00</span>
+        `;
+
+        button.addEventListener("click", () => {
+          const isSame = currentButton === button;
+
+          if (currentAudio && !isSame) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            if (currentButton) {
+              currentButton.classList.remove("playing");
+              toggleIcon(currentButton, false);
+              const t = currentButton.querySelector('.time');
+              if (t) t.textContent = '0:00';
+            }
+          }
+
+          if (!currentAudio || !isSame) {
+            currentAudio = new Audio(line.url);
+            const timeEl = button.querySelector('.time');
+            const updateTime = () => {
+              if (!currentAudio || !timeEl) return;
+              const cur = formatTime(currentAudio.currentTime);
+              const dur = isFinite(currentAudio.duration) ? formatTime(currentAudio.duration) : '…';
+              timeEl.textContent = `${cur}/${dur}`;
+            };
+            currentAudio.addEventListener("ended", () => {
+              if (currentButton) {
+                currentButton.classList.remove("playing");
+                toggleIcon(currentButton, false);
+                const t2 = currentButton.querySelector('.time');
+                if (t2) t2.textContent = '0:00';
+              }
+              currentAudio = null;
+              currentButton = null;
+            });
+            currentAudio.addEventListener('loadedmetadata', updateTime);
+            currentAudio.addEventListener('timeupdate', updateTime);
+            currentAudio.play();
+            currentButton = button;
+            button.classList.add("playing");
+            toggleIcon(button, true);
+            updateTime();
+          } else {
+            if (currentAudio.paused) {
+              currentAudio.play();
+              button.classList.add("playing");
+              toggleIcon(button, true);
+            } else {
+              currentAudio.pause();
+              button.classList.remove("playing");
+              toggleIcon(button, false);
+            }
+          }
+        });
+
+        return button;
+      }
+
+      function formatTime(seconds) {
+        const s = Math.max(0, Math.floor(seconds || 0));
+        const m = Math.floor(s / 60);
+        const r = s % 60;
+        return `${m}:${r.toString().padStart(2,'0')}`;
+      }
+
+      function toggleIcon(button, playing) {
+        const svg = button.querySelector("svg");
+        const playPath = svg.querySelector(".icon-play");
+        const pauseGroup = svg.querySelector(".icon-pause");
+        if (playing) {
+          playPath.style.display = "none";
+          pauseGroup.style.display = "block";
+        } else {
+          playPath.style.display = "block";
+          pauseGroup.style.display = "none";
+        }
+      }
+
+      function renderCards(cards, filter = "") {
+        const container = document.getElementById("cards");
+        container.innerHTML = "";
+
+        Object.entries(cards).forEach(([cardName, lines]) => {
+          if (!cardName.toLowerCase().includes(filter.toLowerCase())) return;
+          if (!Array.isArray(lines) || lines.length === 0) return;
+
+          const cardDiv = document.createElement("div");
+          cardDiv.className = "card";
+          const title = document.createElement("h2");
+          title.textContent = formatName(cardName);
+          cardDiv.appendChild(title);
+
+          const row = document.createElement("div");
+          row.className = "btn-row";
+          lines.forEach((line) => {
+            const btn = createAudioButton(line);
+            row.appendChild(btn);
+          });
+          cardDiv.appendChild(row);
+
+          container.appendChild(cardDiv);
+        });
+      }
+
       fetch("cards.json")
         .then((res) => res.json())
         .then((cards) => {
-          const container = document.getElementById("cards");
-
-          Object.entries(cards).forEach(([cardName, lines]) => {
-            const cardDiv = document.createElement("div");
-            cardDiv.className = "card";
-            cardDiv.innerHTML = `<h2>${cardName}</h2>`;
-
-            lines.forEach((line) => {
-              const btn = document.createElement("button");
-              btn.textContent = line.name;
-              btn.onclick = () => new Audio(line.url).play();
-              cardDiv.appendChild(btn);
-            });
-
-            container.appendChild(cardDiv);
+          allCards = cards;
+          renderCards(allCards);
+          document.getElementById("search").addEventListener("input", (e) => {
+            renderCards(allCards, e.target.value);
           });
         });
+
+      document.querySelectorAll('.tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+          btn.classList.add('active');
+          const id = btn.dataset.tab;
+          document.getElementById(id)?.classList.add('active');
+        });
+      });
     </script>
   </body>
 </html>

@@ -40,14 +40,12 @@ EXPORT_HOTKEY = "ctrl+shift+e"
 DURATION = 4  
 
 def record_and_save(filename, duration=4, sr=44100):
-    """Record audio from microphone and save to file."""
     print(f"🎙 Recording → {filename}")
     audio = sd.rec(int(duration * sr), samplerate=sr, channels=1, device=4)
     sd.wait()
     sf.write(filename, audio, sr)
 
 def audio_similarity(file1, file2, threshold=0.999):
-    """Check if two audio files sound similar (MFCC cosine similarity)."""
     y1, sr1 = librosa.load(file1, sr=None)
     y2, sr2 = librosa.load(file2, sr=None)
 
@@ -96,7 +94,7 @@ def process_card():
     found, loc, shape = find_image(VOICE_INDICATOR)
 
     if found:
-        for i in range(1, 12):  # play 5 normal lines
+        for i in range(1, 12):  
             line_file = os.path.join(CACHE_DIR, f"line{i}.wav")
             pyautogui.click(VOICE_BUTTON)
             record_and_save(line_file, duration=DURATION)
@@ -106,7 +104,6 @@ def process_card():
                 print(f'comparing {line_file} to {ref_file}')
                 print(f'🔁 First line repeated → stopping loop with similarity of {audio_similarity(line_file, ref_file)}')
                 break
-            # time.sleep(DURATION)
             voice_lines.append(line_file)
             
             
@@ -120,13 +117,11 @@ def process_card():
             pyautogui.click(VOICE_BUTTON)
             time.sleep(DURATION)
 
-    # Stop Audacity
     gw.getWindowsWithTitle("audacity")[0].activate()
     time.sleep(1)
     pyautogui.click(AUDACITY_STOP)
     time.sleep(1)
 
-    # Export manually or via hotkey
     pyautogui.hotkey(*EXPORT_HOTKEY.split("+"))
     time.sleep(1)
     export_path = f"G:\\WBGDB\\Audio\\{card_name}"  
@@ -162,10 +157,8 @@ def process_all_cards():
             pyautogui.click(pos)
             time.sleep(1.5)  
 
-            # Process card
             process_card()
 
-            # Close card
             pyautogui.click(CLOSE_BUTTON)
             time.sleep(1)
         pyautogui.click(1802, 537)
@@ -173,5 +166,3 @@ def process_all_cards():
 
 if __name__ == "__main__":
     process_all_cards()
-    # devices = sd.query_devices()
-    # print(devices)
