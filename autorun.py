@@ -46,7 +46,7 @@ def record_and_save(filename, duration=4, sr=44100):
     sd.wait()
     sf.write(filename, audio, sr)
 
-def audio_similarity(file1, file2, threshold=1):
+def audio_similarity(file1, file2, threshold=0.999):
     """Check if two audio files sound similar (MFCC cosine similarity)."""
     y1, sr1 = librosa.load(file1, sr=None)
     y2, sr2 = librosa.load(file2, sr=None)
@@ -96,7 +96,7 @@ def process_card():
     found, loc, shape = find_image(VOICE_INDICATOR)
 
     if found:
-        for i in range(1, 10):  # play 5 normal lines
+        for i in range(1, 12):  # play 5 normal lines
             line_file = os.path.join(CACHE_DIR, f"line{i}.wav")
             pyautogui.click(VOICE_BUTTON)
             record_and_save(line_file, duration=DURATION)
@@ -154,7 +154,7 @@ def get_card_positions():
 
 def process_all_cards():
     positions = get_card_positions()
-    for _ in range (23):  
+    for _ in range (12):  
         for pos in positions:
             gw.getWindowsWithTitle("ShadowverseWB")[0].activate()
             time.sleep(1)
