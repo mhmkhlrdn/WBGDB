@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Card Voice Browser</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      .card {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      button {
+        margin: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Card Voices</h1>
+    <div id="cards"></div>
+
+    <script>
+      fetch("cards.json")
+        .then((res) => res.json())
+        .then((cards) => {
+          const container = document.getElementById("cards");
+
+          Object.entries(cards).forEach(([cardName, lines]) => {
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "card";
+            cardDiv.innerHTML = `<h2>${cardName}</h2>`;
+
+            lines.forEach((line) => {
+              const btn = document.createElement("button");
+              btn.textContent = line.name;
+              btn.onclick = () => new Audio(line.url).play();
+              cardDiv.appendChild(btn);
+            });
+
+            container.appendChild(cardDiv);
+          });
+        });
+    </script>
+  </body>
+</html>
