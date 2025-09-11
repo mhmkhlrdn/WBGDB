@@ -81,23 +81,13 @@
       "label": "chunk4.mp3"
     },
     {
-      "name": "chunk5.mp3",
-      "url": "Audio/FILTERED/Aether,_Empyrean_Guardian/chunk5.mp3",
-      "label": "chunk5.mp3"
-    },
-    {
       "name": "chunk6.mp3",
       "url": "Audio/FILTERED/Aether,_Empyrean_Guardian/chunk6.mp3",
-      "label": "chunk6.mp3"
+      "label": "Evolve"
     },
     {
       "name": "chunk7.mp3",
       "url": "Audio/FILTERED/Aether,_Empyrean_Guardian/chunk7.mp3",
-      "label": "Evolve"
-    },
-    {
-      "name": "chunk8.mp3",
-      "url": "Audio/FILTERED/Aether,_Empyrean_Guardian/chunk8.mp3",
       "label": "Super-Evolve"
     }
   ],
@@ -160,28 +150,13 @@
       "label": "chunk4.mp3"
     },
     {
-      "name": "chunk5.mp3",
-      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk5.mp3",
-      "label": "chunk5.mp3"
-    },
-    {
       "name": "chunk7.mp3",
       "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk7.mp3",
-      "label": "chunk7.mp3"
+      "label": "Evolve"
     },
     {
       "name": "chunk8.mp3",
       "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk8.mp3",
-      "label": "chunk8.mp3"
-    },
-    {
-      "name": "chunk11.mp3",
-      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk11.mp3",
-      "label": "Evolve"
-    },
-    {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Albert,_Levin_Stormsaber/chunk12.mp3",
       "label": "Super-Evolve"
     }
   ],
@@ -4412,28 +4387,13 @@
       "label": "chunk3.mp3"
     },
     {
-      "name": "chunk4.mp3",
-      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk4.mp3",
-      "label": "chunk4.mp3"
-    },
-    {
       "name": "chunk9.mp3",
       "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk9.mp3",
-      "label": "chunk9.mp3"
+      "label": "Evolve"
     },
     {
       "name": "chunk10.mp3",
       "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk10.mp3",
-      "label": "chunk10.mp3"
-    },
-    {
-      "name": "chunk12.mp3",
-      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk12.mp3",
-      "label": "Evolve"
-    },
-    {
-      "name": "chunk13.mp3",
-      "url": "Audio/FILTERED/Kuon,_Fivefold_Master/chunk13.mp3",
       "label": "Super-Evolve"
     }
   ],
@@ -6157,23 +6117,13 @@
       "label": "chunk4.mp3"
     },
     {
-      "name": "chunk5.mp3",
-      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk5.mp3",
-      "label": "chunk5.mp3"
-    },
-    {
       "name": "chunk14.mp3",
       "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk14.mp3",
-      "label": "chunk14.mp3"
+      "label": "Evolve"
     },
     {
       "name": "chunk15.mp3",
       "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk15.mp3",
-      "label": "Evolve"
-    },
-    {
-      "name": "chunk16.mp3",
-      "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk16.mp3",
       "label": "Super-Evolve"
     }
   ],
