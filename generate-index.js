@@ -31,7 +31,7 @@ function generateIndex() {
           label: labels[idx],
         });
       });
-    } else {
+    } else if (files.length > 3) {
       files.forEach((file, idx) => {
         let label;
         if (idx === 0) {
@@ -41,7 +41,7 @@ function generateIndex() {
         } else if (idx === files.length - 1) {
           label = "Super-Evolve";
         } else {
-          label = file; // fallback to filename
+          label = file; 
         }
 
         lines.push({
@@ -50,6 +50,15 @@ function generateIndex() {
           label,
         });
       });
+    } else {
+        let label = "Play";
+        files.forEach((file, idx) => {
+        lines.push({
+          name: file,
+          url: `Audio/FILTERED/${folder}/${file}`,
+          label: label,
+        });
+      })
     }
 
     cards[folder] = lines;

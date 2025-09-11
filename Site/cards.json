@@ -865,7 +865,7 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Band_of_Battle_Princesses/chunk1.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Bat": [
@@ -1797,7 +1797,7 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Darkhaven_Grace/chunk1.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Darkseal_Demon": [
@@ -3481,12 +3481,12 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Godwood_Statt/chunk1.mp3",
-      "label": "Evolve"
+      "label": "Play"
     },
     {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Godwood_Statt/chunk2.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Goldennote_Melody": [
@@ -7299,12 +7299,12 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Screaming_and_Loathing/chunk1.mp3",
-      "label": "Evolve"
+      "label": "Play"
     },
     {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Screaming_and_Loathing/chunk2.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Scream_Diffusion": [
@@ -7411,7 +7411,7 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Serene_Sanctuary/chunk1.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Seria,_Gunslinger_Maid": [
@@ -7520,7 +7520,7 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Shining_Disenchantment/chunk1.mp3",
-      "label": "Super-Evolve"
+      "label": "Play"
     }
   ],
   "Shinobi_Squirrel": [
