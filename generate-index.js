@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const AUDIO_DIR = path.join(process.cwd(), "Audio/FILTERED");
+const AUDIO_DIR = path.join(process.cwd(), "Site/Audio/FILTERED");
 const OUTPUT_FILE = path.join(process.cwd(), "Site", "cards.json");
 
 function naturalSort(a, b) {

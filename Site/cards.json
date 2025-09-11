@@ -2282,6 +2282,28 @@
     }
   ],
   "Garden's_Allure": [],
+  "Garyu,_Fabled_Dragonkin": [
+    {
+      "name": "chunk0.mp3",
+      "url": "Audio/FILTERED/Garyu,_Fabled_Dragonkin/chunk0.mp3"
+    },
+    {
+      "name": "chunk1.mp3",
+      "url": "Audio/FILTERED/Garyu,_Fabled_Dragonkin/chunk1.mp3"
+    },
+    {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Garyu,_Fabled_Dragonkin/chunk2.mp3"
+    },
+    {
+      "name": "chunk3.mp3",
+      "url": "Audio/FILTERED/Garyu,_Fabled_Dragonkin/chunk3.mp3"
+    },
+    {
+      "name": "chunk4.mp3",
+      "url": "Audio/FILTERED/Garyu,_Fabled_Dragonkin/chunk4.mp3"
+    }
+  ],
   "Gelt,_Intrepid_Vice-Captain": [
     {
       "name": "chunk0.mp3",
@@ -3233,6 +3255,28 @@
     {
       "name": "chunk12.mp3",
       "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3"
+    }
+  ],
+  "Lilanthim,_Anathema_of_Edacity": [
+    {
+      "name": "chunk0.mp3",
+      "url": "Audio/FILTERED/Lilanthim,_Anathema_of_Edacity/chunk0.mp3"
+    },
+    {
+      "name": "chunk1.mp3",
+      "url": "Audio/FILTERED/Lilanthim,_Anathema_of_Edacity/chunk1.mp3"
+    },
+    {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Lilanthim,_Anathema_of_Edacity/chunk2.mp3"
+    },
+    {
+      "name": "chunk3.mp3",
+      "url": "Audio/FILTERED/Lilanthim,_Anathema_of_Edacity/chunk3.mp3"
+    },
+    {
+      "name": "chunk4.mp3",
+      "url": "Audio/FILTERED/Lilanthim,_Anathema_of_Edacity/chunk4.mp3"
     }
   ],
   "Lilith,_Enchanting_Succubus": [
@@ -4388,6 +4432,26 @@
     {
       "name": "chunk6.mp3",
       "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk6.mp3"
+    },
+    {
+      "name": "chunk7.mp3",
+      "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk7.mp3"
+    },
+    {
+      "name": "chunk8.mp3",
+      "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk8.mp3"
+    },
+    {
+      "name": "chunk9.mp3",
+      "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk9.mp3"
+    },
+    {
+      "name": "chunk10.mp3",
+      "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk10.mp3"
+    },
+    {
+      "name": "chunk11.mp3",
+      "url": "Audio/FILTERED/Phildau,_Lionheart_Ward/chunk11.mp3"
     }
   ],
   "Prim,_Princess's_Picnic": [
@@ -5222,6 +5286,28 @@
       "url": "Audio/FILTERED/Shinobi_Squirrel/chunk5.mp3"
     }
   ],
+  "Silvercloud_Dragonrider": [
+    {
+      "name": "chunk0.mp3",
+      "url": "Audio/FILTERED/Silvercloud_Dragonrider/chunk0.mp3"
+    },
+    {
+      "name": "chunk1.mp3",
+      "url": "Audio/FILTERED/Silvercloud_Dragonrider/chunk1.mp3"
+    },
+    {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Silvercloud_Dragonrider/chunk2.mp3"
+    },
+    {
+      "name": "chunk3.mp3",
+      "url": "Audio/FILTERED/Silvercloud_Dragonrider/chunk3.mp3"
+    },
+    {
+      "name": "chunk4.mp3",
+      "url": "Audio/FILTERED/Silvercloud_Dragonrider/chunk4.mp3"
+    }
+  ],
   "Skullfane_of_Demise": [
     {
       "name": "chunk0.mp3",
@@ -5884,6 +5970,28 @@
     {
       "name": "chunk10.mp3",
       "url": "Audio/FILTERED/Vuella,_the_Blastwing/chunk10.mp3"
+    }
+  ],
+  "Warrior_of_the_Deep": [
+    {
+      "name": "chunk0.mp3",
+      "url": "Audio/FILTERED/Warrior_of_the_Deep/chunk0.mp3"
+    },
+    {
+      "name": "chunk1.mp3",
+      "url": "Audio/FILTERED/Warrior_of_the_Deep/chunk1.mp3"
+    },
+    {
+      "name": "chunk2.mp3",
+      "url": "Audio/FILTERED/Warrior_of_the_Deep/chunk2.mp3"
+    },
+    {
+      "name": "chunk3.mp3",
+      "url": "Audio/FILTERED/Warrior_of_the_Deep/chunk3.mp3"
+    },
+    {
+      "name": "chunk4.mp3",
+      "url": "Audio/FILTERED/Warrior_of_the_Deep/chunk4.mp3"
     }
   ],
   "Wasteland_of_Destruction": [],
