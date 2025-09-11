@@ -45,7 +45,7 @@ def record_and_save(filename, duration=4, sr=44100):
     sd.wait()
     sf.write(filename, audio, sr)
 
-def audio_similarity(file1, file2, threshold=0.999):
+def audio_similarity(file1, file2, threshold=0.987):
     y1, sr1 = librosa.load(file1, sr=None)
     y2, sr2 = librosa.load(file2, sr=None)
 
@@ -100,7 +100,7 @@ def process_card():
             record_and_save(line_file, duration=DURATION)
             if i == 1:
                 ref_file = line_file
-            if i > 1 and audio_similarity(line_file, ref_file):
+            if i > 2 and audio_similarity(line_file, ref_file):
                 print(f'comparing {line_file} to {ref_file}')
                 print(f'🔁 First line repeated → stopping loop with similarity of {audio_similarity(line_file, ref_file)}')
                 break
@@ -124,7 +124,7 @@ def process_card():
 
     pyautogui.hotkey(*EXPORT_HOTKEY.split("+"))
     time.sleep(1)
-    export_path = f"G:\\WBGDB\\Audio\\{card_name}"  
+    export_path = f"G:\\WBGDB\\Audio\\RAW\\voices\\{card_name}"  
     pyautogui.click(1008, 372)                     
     time.sleep(0.5)
     pyautogui.hotkey("ctrl", "a")                  
@@ -149,7 +149,7 @@ def get_card_positions():
 
 def process_all_cards():
     positions = get_card_positions()
-    for _ in range (12):  
+    for _ in range (2):  
         for pos in positions:
             gw.getWindowsWithTitle("ShadowverseWB")[0].activate()
             time.sleep(1)

@@ -21,14 +21,41 @@ function generateIndex() {
       .filter((f) => f.endsWith(".mp3"))
       .sort(naturalSort);
 
-    cards[folder] = files.map((file) => ({
-      name: file,
-      url: `Audio/FILTERED/${folder}/${file}`,
-    }));
+    const lines = [];
+    if (files.length === 5) {
+      const labels = ["Play", "Attack", "Death", "Evolve", "Super-Evolve"];
+      files.forEach((file, idx) => {
+        lines.push({
+          name: file,
+          url: `Audio/FILTERED/${folder}/${file}`,
+          label: labels[idx],
+        });
+      });
+    } else {
+      files.forEach((file, idx) => {
+        let label;
+        if (idx === 0) {
+          label = "Play";
+        } else if (idx === files.length - 2) {
+          label = "Evolve";
+        } else if (idx === files.length - 1) {
+          label = "Super-Evolve";
+        } else {
+          label = file; // fallback to filename
+        }
+
+        lines.push({
+          name: file,
+          url: `Audio/FILTERED/${folder}/${file}`,
+          label,
+        });
+      });
+    }
+
+    cards[folder] = lines;
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(cards, null, 2));
-  console.log(`✅ Generated ${OUTPUT_FILE} with natural sorting`);
 }
 
 generateIndex();
