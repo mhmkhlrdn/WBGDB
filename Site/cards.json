@@ -5321,27 +5321,12 @@
     {
       "name": "chunk1.mp3",
       "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk1.mp3",
-      "label": "chunk1.mp3"
+      "label": "Attack"
     },
     {
       "name": "chunk2.mp3",
       "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk2.mp3",
-      "label": "chunk2.mp3"
-    },
-    {
-      "name": "chunk3.mp3",
-      "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk3.mp3",
-      "label": "chunk3.mp3"
-    },
-    {
-      "name": "chunk4.mp3",
-      "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk4.mp3",
-      "label": "chunk4.mp3"
-    },
-    {
-      "name": "chunk5.mp3",
-      "url": "Audio/FILTERED/Medusa,_Venomfang_Royalty/chunk5.mp3",
-      "label": "chunk5.mp3"
+      "label": "Death"
     },
     {
       "name": "chunk9.mp3",
