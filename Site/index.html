@@ -359,7 +359,7 @@
             <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
             <g class="icon-pause" style="display:none"><rect x="7" y="5" width="4" height="14" rx="1"></rect><rect x="13" y="5" width="4" height="14" rx="1"></rect></g>
           </svg>
-          <span>${line.label}</span>
+          <span>${line.label || line.name}</span>
           <span class="time" aria-hidden="true">0:00</span>
         `;
 
