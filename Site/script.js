@@ -13,6 +13,7 @@ const activeFilters = {
   lifeMin: "",
   lifeMax: "",
   class: "",
+  set: "",
   type: "",
   tokenMode: 'all',
   sortBy: 'alpha',
@@ -255,6 +256,9 @@ function passesFilters(lines, meta) {
   if (activeFilters.type !== "") {
     if (Number(meta.type) !== Number(activeFilters.type)) return false;
   }
+  if (activeFilters.set !== "") {
+    if (Number(meta.card_set_id) !== Number(activeFilters.set)) return false;
+  }
   if (activeFilters.tokenMode === 'exclude') {
     if (meta.is_token) return false;
   } else if (activeFilters.tokenMode === 'only') {
@@ -422,6 +426,10 @@ fetch("cards.json")
       activeFilters.type = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document.getElementById("filter-set").addEventListener("change", (e) => {
+      activeFilters.set = e.target.value;
+      renderCards(allCards, document.getElementById("search").value);
+    });
     document.getElementById("filter-token").addEventListener("change", (e) => {
       activeFilters.tokenMode = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
@@ -453,6 +461,7 @@ fetch("cards.json")
         activeFilters.illustrator = "";
         activeFilters.class = "";
         activeFilters.type = "";
+        activeFilters.set = "";
         activeFilters.tokenMode = 'all';
         activeFilters.sortBy = 'alpha';
 
@@ -467,6 +476,7 @@ fetch("cards.json")
         document.getElementById("filter-cv").value = "";
         document.getElementById("filter-class").value = "";
         document.getElementById("filter-type").value = "";
+        document.getElementById("filter-set").value = "";
         document.getElementById("filter-token").value = 'all';
         document.getElementById("sort-by").value = 'alpha';
         document.getElementById("view-mode").value = 'list';
