@@ -166,6 +166,45 @@ nav.tabs {
   margin: 10px 0 22px 0;
 }
 
+.filters-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -8px 0 16px 0;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+}
+
+.filter label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.filter select,
+.filter input[type="text"],
+.filter input[type="number"] {
+  color: var(--text);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-height: 36px;
+}
+
+.filter input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
 #search {
   flex: 1;
   margin: 0;

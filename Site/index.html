@@ -34,6 +34,33 @@
             <input type="text" id="search" placeholder="Search cards..." aria-label="Search cards" />
           </div>
         </div>
+        <div class="filters-row" id="filters">
+          <div class="filter">
+            <label for="filter-rarity">Rarity</label>
+            <select id="filter-rarity">
+              <option value="">Any</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="filter">
+            <label for="filter-cost-min">Cost</label>
+            <input type="number" id="filter-cost-min" min="0" placeholder="min" style="width:72px" />
+            <span style="color:var(--muted)">–</span>
+            <input type="number" id="filter-cost-max" min="0" placeholder="max" style="width:72px" />
+          </div>
+          <div class="filter">
+            <label for="filter-cv">CV</label>
+            <input type="text" id="filter-cv" placeholder="Voice actor" style="width:160px" />
+          </div>
+          <div class="filter">
+            <label for="filter-en">Has EN</label>
+            <input type="checkbox" id="filter-en" />
+          </div>
+        </div>
         <div id="cards"></div>
       </section>
 

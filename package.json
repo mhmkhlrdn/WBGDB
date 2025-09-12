@@ -20,6 +20,7 @@
   "description": "",
   "dependencies": {
     "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
     "path": "^0.12.7"
   }
 }
