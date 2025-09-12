@@ -133,7 +133,7 @@ function renderCards(cards, filter = "") {
   container.innerHTML = "";
   let entries = Object.entries(cards);
 
-  // Sorting
+  
   entries.sort((a, b) => {
     const [nameA, objA] = a; const [nameB, objB] = b;
     const metaA = (objA && objA.metadata && objA.metadata.common) || {};
@@ -163,7 +163,7 @@ function renderCards(cards, filter = "") {
     title.textContent = formatName(cardName);
     cardDiv.appendChild(title);
 
-    // Card image block if hash exists
+    
     if (meta.card_image_hash) {
       const { commonUrl, evoUrl } = buildCardImageUrls(meta.card_image_hash, metaEvo.card_image_hash);
       const canToggleEvo = Number(meta.type) === 1 && !!metaEvo.card_image_hash;
@@ -216,7 +216,7 @@ function renderCards(cards, filter = "") {
       cardDiv.appendChild(imgWrap);
     }
 
-    // Only render voice buttons when there are lines
+    
     if (Array.isArray(lines) && lines.length > 0) {
       const row = document.createElement("div");
       row.className = "btn-row";
@@ -253,11 +253,17 @@ function passesFilters(lines, meta) {
   if (activeFilters.illustrator) {
     if ((meta.illustrator || "") !== activeFilters.illustrator) return false;
   }
+
+  if (activeFilters.type) {
+    const metaType = Number(meta.type);
+    if (activeFilters.type === 'amulet') {
+      if (!(metaType === 2 || metaType === 3)) return false;
+    } else {
+      if (metaType !== Number(activeFilters.type)) return false;
+    }
+  }
   if (activeFilters.class !== "") {
     if (Number(meta.class) !== Number(activeFilters.class)) return false;
-  }
-  if (activeFilters.type !== "") {
-    if (Number(meta.type) !== Number(activeFilters.type)) return false;
   }
   if (activeFilters.set !== "") {
     if (Number(meta.card_set_id) !== Number(activeFilters.set)) return false;
@@ -267,7 +273,6 @@ function passesFilters(lines, meta) {
   } else if (activeFilters.tokenMode === 'only') {
     if (!meta.is_token) return false;
   }
-  // Voices presence filter
   if (activeFilters.voices === 'with') {
     if (!Array.isArray(lines) || lines.length === 0) return false;
   } else if (activeFilters.voices === 'without') {
@@ -307,7 +312,7 @@ function openLightbox({ name, commonUrl, evoUrl, meta, metaEvo }) {
   const cvValue = isEnglish ? (meta.cv || '') : (meta.jpCV || '');
   if (cvValue) addMeta('CV', cvValue);
   if (meta.illustrator) addMeta('Illustrator', meta.illustrator);
-  // Initialize flavor with common variant
+  
   flavor.innerHTML = meta.flavour_text || '';
 
   const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.flavour_text;
@@ -348,14 +353,14 @@ fetch("cards.json")
       renderCards(allCards, e.target.value);
     });
 
-    // Populate dropdown filters (Illustrator, CV)
+    
     const illustrators = new Set();
     let cvs = new Set();
     const classes = new Set();
     Object.values(allCards).forEach((cardObj) => {
       const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
       if (meta.illustrator) illustrators.add(meta.illustrator);
-      // collect classes as numeric ids
+      
       if (meta.class !== undefined && meta.class !== null) classes.add(Number(meta.class));
     });
     const illuSel = document.getElementById('filter-illustrator');
@@ -390,7 +395,7 @@ fetch("cards.json")
       classSel.appendChild(opt);
     });
 
-    // Filters listeners
+    
     document.getElementById("filter-rarity").addEventListener("change", (e) => {
       activeFilters.rarity = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
@@ -507,16 +512,16 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   const btn = document.getElementById("lang-toggle");
   btn.textContent = isEnglish ? "EN" : "JP";
   
-  // Update title
+  
   const title = document.querySelector('.title h1');
   title.textContent = isEnglish ? "Worlds Beyond • EN Card Voices" : "Worlds Beyond • JP Card Voices";
 
-  // Rebuild CV options to match language
+  
   const prev = activeFilters.cv;
   const cvSel = document.getElementById('filter-cv');
   cvSel.value = '';
   activeFilters.cv = '';
-  // repopulate
+  
   (function(){
     const anyOpt = document.createElement('option');
     cvSel.innerHTML = '';
@@ -548,7 +553,7 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   }
 });
 
-// Back to top button functionality
+
 document.getElementById("back-to-top").addEventListener("click", () => {
   window.scrollTo({
     top: 0,
@@ -566,7 +571,7 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
   });
 });
 
-// Mobile filters toggle
+
 (function(){
   const toggleBtn = document.getElementById('filters-toggle-btn');
   const primary = document.getElementById('filters');
@@ -586,7 +591,7 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
       setVisible(nowVisible);
     });
   }
-  // Start visible by default
+  
   setVisible(true);
   window.addEventListener('resize', () => {
     if (!isMobile()) {
@@ -594,14 +599,14 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
       secondary.style.display = 'flex';
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
     } else {
-      // keep state consistent with button on mobile
+      
       const expand = toggleBtn ? toggleBtn.getAttribute('aria-expanded') === 'true' : false;
       setVisible(expand);
     }
   });
 })();
 
-// Lightbox close interactions
+
 (function(){
   const lb = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');

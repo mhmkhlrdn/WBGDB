@@ -4,10 +4,10 @@
   --surface-2: #0f1530;
   --text: #e6ecff;
   --muted: #9aa4c7;
-  --primary: #6c8cff; /* neon blue */
-  --accent: #8a5cff; /* violet */
-  --success: #19d3a7; /* teal */
-  --danger: #ff5c8a; /* pink */
+  --primary: #6c8cff;
+  --accent: #8a5cff;
+  --success: #19d3a7;
+  --danger: #ff5c8a;
   --ring: rgba(108, 140, 255, 0.6);
   --card-border: rgba(255, 255, 255, 0.08);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -39,7 +39,6 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Background image overlay */
 body::before {
   content: "";
   position: fixed;
@@ -94,7 +93,6 @@ header {
   .lang-toggle-container {
     justify-content: center;
   }
-  /* Hide filters by default on mobile, show toggle button */
   #filters-mobile-toggle { display: flex; }
 }
 
@@ -227,7 +225,6 @@ nav.tabs {
   transition: box-shadow 0.2s ease, border 0.2s ease;
 }
 
-/* Improve native dropdown readability: dark control, but system list remains legible */
 .filter select {
   color-scheme: dark;
   -webkit-appearance: none;
@@ -241,13 +238,11 @@ nav.tabs {
   padding-right: 34px;
 }
 
-/* Ensure dropdown list items stay readable on white OS popups */
 .filter select option {
   color: #0b1020;
   background: #ffffff;
 }
 
-/* Number input arrows (modern look) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -270,7 +265,6 @@ input[type="number"]::before {
   pointer-events: none;
 }
 
-/* Up chevron */
 input[type="number"]::before {
   top: 8px;
   border-left: 6px solid transparent;
@@ -278,7 +272,6 @@ input[type="number"]::before {
   border-bottom: 6px solid rgba(230,236,255,0.7);
 }
 
-/* Down chevron */
 input[type="number"]::after {
   bottom: 8px;
   border-left: 6px solid transparent;
@@ -663,7 +656,6 @@ section.active {
   transform: translateY(1px);
 }
 
-/* Lightbox (fullscreen image + side details) */
 .lightbox {
   position: fixed;
   inset: 0;
