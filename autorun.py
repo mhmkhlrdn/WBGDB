@@ -23,7 +23,7 @@ os.makedirs(VOICES_DIR, exist_ok=True)
 GRID_START_X = 268
 GRID_START_Y = [379, 714]  
 COL_SPACING = 226
-NUM_COLS = 7
+NUM_COLS = 5
 CLOSE_BUTTON = (1711, 102)
 VOICE_INDICATOR = cv.imread(os.path.join(BASE_DIR, 'voice_button.png'), cv.IMREAD_COLOR)
 EVOLVE_INDICATOR = cv.imread(os.path.join(BASE_DIR, 'evolve_indicator.png'), cv.IMREAD_COLOR)
@@ -37,7 +37,7 @@ AUDACITY_RECORD = (705, 232)
 AUDACITY_STOP = (532, 232)              
 EXPORT_HOTKEY = "ctrl+shift+e"          
 
-DURATION = 4  
+DURATION = 5  
 
 def record_and_save(filename, duration=4, sr=44100):
     print(f"🎙 Recording → {filename}")
@@ -45,7 +45,7 @@ def record_and_save(filename, duration=4, sr=44100):
     sd.wait()
     sf.write(filename, audio, sr)
 
-def audio_similarity(file1, file2, threshold=0.987):
+def audio_similarity(file1, file2, threshold=0.978):
     y1, sr1 = librosa.load(file1, sr=None)
     y2, sr2 = librosa.load(file2, sr=None)
 
@@ -125,15 +125,15 @@ def process_card():
     pyautogui.hotkey(*EXPORT_HOTKEY.split("+"))
     time.sleep(1)
     export_path = f"G:\\WBGDB\\Audio\\RAW\\voices\\{card_name}"  
-    pyautogui.click(1008, 372)                     
+    pyautogui.click(1008, 370)                     
     time.sleep(0.5)
     pyautogui.hotkey("ctrl", "a")                  
     time.sleep(0.2)
     pyautogui.typewrite(export_path, interval=0.05) 
     time.sleep(0.5)
-    pyautogui.click(1165, 696)                      
+    pyautogui.click(1172, 726)                      
     time.sleep(1)
-    pyautogui.click(395,311)
+    pyautogui.click(395,321)
 
     print(f"✅ Finished card {card_name}")
 
@@ -149,7 +149,7 @@ def get_card_positions():
 
 def process_all_cards():
     positions = get_card_positions()
-    for _ in range (2):  
+    for _ in range (1):  
         for pos in positions:
             gw.getWindowsWithTitle("ShadowverseWB")[0].activate()
             time.sleep(1)
