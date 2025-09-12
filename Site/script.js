@@ -17,6 +17,7 @@ const activeFilters = {
   type: "",
   tokenMode: 'all',
   sortBy: 'alpha',
+  voices: 'both',
 };
 
 const classLabels = {
@@ -151,7 +152,6 @@ function renderCards(cards, filter = "") {
   entries.forEach(([cardName, cardObj]) => {
     const lines = cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
     if (!cardName.toLowerCase().includes(filter.toLowerCase())) return;
-    if (!Array.isArray(lines) || lines.length === 0) return;
 
     const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
     const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
@@ -216,13 +216,16 @@ function renderCards(cards, filter = "") {
       cardDiv.appendChild(imgWrap);
     }
 
-    const row = document.createElement("div");
-    row.className = "btn-row";
-    lines.forEach((line) => {
-      const btn = createAudioButton(line);
-      row.appendChild(btn);
-    });
-    cardDiv.appendChild(row);
+    // Only render voice buttons when there are lines
+    if (Array.isArray(lines) && lines.length > 0) {
+      const row = document.createElement("div");
+      row.className = "btn-row";
+      lines.forEach((line) => {
+        const btn = createAudioButton(line);
+        row.appendChild(btn);
+      });
+      cardDiv.appendChild(row);
+    }
 
     container.appendChild(cardDiv);
   });
@@ -263,6 +266,12 @@ function passesFilters(lines, meta) {
     if (meta.is_token) return false;
   } else if (activeFilters.tokenMode === 'only') {
     if (!meta.is_token) return false;
+  }
+  // Voices presence filter
+  if (activeFilters.voices === 'with') {
+    if (!Array.isArray(lines) || lines.length === 0) return false;
+  } else if (activeFilters.voices === 'without') {
+    if (Array.isArray(lines) && lines.length > 0) return false;
   }
   return true;
 }
@@ -434,6 +443,10 @@ fetch("cards.json")
       activeFilters.tokenMode = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document.getElementById("filter-voices").addEventListener("change", (e) => {
+      activeFilters.voices = e.target.value;
+      renderCards(allCards, document.getElementById("search").value);
+    });
     document.getElementById("sort-by").addEventListener("change", (e) => {
       activeFilters.sortBy = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
@@ -479,6 +492,7 @@ fetch("cards.json")
         document.getElementById("filter-set").value = "";
         document.getElementById("filter-token").value = 'all';
         document.getElementById("sort-by").value = 'alpha';
+        document.getElementById("filter-voices").value = 'both';
         document.getElementById("view-mode").value = 'list';
         document.querySelector('.container').classList.remove('waterfall');
         document.getElementById("search").value = '';
@@ -534,6 +548,14 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   }
 });
 
+// Back to top button functionality
+document.getElementById("back-to-top").addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
 document.querySelectorAll('.tab-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -564,15 +586,17 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
       setVisible(nowVisible);
     });
   }
-  // Ensure hidden on load if mobile
-  if (isMobile()) setVisible(false);
+  // Start visible by default
+  setVisible(true);
   window.addEventListener('resize', () => {
     if (!isMobile()) {
       primary.style.display = 'flex';
       secondary.style.display = 'flex';
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
     } else {
-      setVisible(false);
+      // keep state consistent with button on mobile
+      const expand = toggleBtn ? toggleBtn.getAttribute('aria-expanded') === 'true' : false;
+      setVisible(expand);
     }
   });
 })();

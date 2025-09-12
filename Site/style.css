@@ -95,9 +95,6 @@ header {
     justify-content: center;
   }
   /* Hide filters by default on mobile, show toggle button */
-  #filters, #filters-secondary {
-    display: none;
-  }
   #filters-mobile-toggle { display: flex; }
 }
 
@@ -516,12 +513,14 @@ section.active {
 }
 .lang-toggle-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 900;
   margin: 0;
+  gap: 8px;
 }
 
 .lang-toggle-btn {
@@ -561,6 +560,32 @@ section.active {
 .lang-toggle-btn.active {
   background: linear-gradient(180deg, rgba(25,211,167,0.18), rgba(25,211,167,0.12));
   box-shadow: 0 0 0 2px rgba(25,211,167,0.18), 0 6px 16px rgba(0,0,0,0.32);
+}
+
+.back-to-top-btn {
+  appearance: none;
+  background: linear-gradient(180deg, rgba(108,140,255,0.16), rgba(138,92,255,0.12));
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  user-select: none;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top-btn:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.32), 0 0 0 2px rgba(108,140,255,0.15);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(1px);
 }
 
 .card-image {

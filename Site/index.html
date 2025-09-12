@@ -20,6 +20,11 @@
           <button class="tab-btn" data-tab="problems" role="tab" aria-selected="false">Known Problems</button>
         </nav>
         <div class="lang-toggle-container">
+          <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
           <button id="lang-toggle" class="lang-toggle-btn">JP</button>
         </div>
       </header>
@@ -32,6 +37,9 @@
               <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
             </svg>
             <input type="text" id="search" placeholder="Search cards..." aria-label="Search cards" />
+          </div>
+          <div class="filter" style="background:transparent;border:none;box-shadow:none;padding:0;margin-left:auto;">
+            <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="true">Hide Filters</button>
           </div>
         </div>
         <div class="filters-row" id="filters">
@@ -122,6 +130,14 @@
             </select>
           </div>
           <div class="filter">
+            <label for="filter-voices">Voices</label>
+            <select id="filter-voices">
+              <option value="both">Both</option>
+              <option value="with">With voices</option>
+              <option value="without">Without voices</option>
+            </select>
+          </div>
+          <div class="filter">
             <label for="view-mode">View</label>
             <select id="view-mode">
               <option value="list">List</option>
@@ -132,11 +148,7 @@
             <button id="filters-reset" type="button" class="filter-reset-btn" aria-label="Reset filters">Reset Filters</button>
           </div>
         </div>
-        <div class="filters-row filters-row--mobile-toggle" id="filters-mobile-toggle" style="display:none;">
-          <div class="filter" style="background:transparent;border:none;box-shadow:none;padding:0;margin-left:auto;">
-            <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="false">Show Filters</button>
-          </div>
-        </div>
+        
     <div id="cards"></div>
       </section>
 
