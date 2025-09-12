@@ -39,11 +39,10 @@
             <label for="filter-rarity">Rarity</label>
             <select id="filter-rarity">
               <option value="">Any</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              <option value="1">Bronze</option>
+              <option value="2">Silver</option>
+              <option value="3">Gold</option>
+              <option value="4">Legendary</option>
             </select>
           </div>
           <div class="filter">
@@ -53,16 +52,87 @@
             <input type="number" id="filter-cost-max" min="0" placeholder="max" style="width:72px" />
           </div>
           <div class="filter">
-            <label for="filter-cv">CV</label>
-            <input type="text" id="filter-cv" placeholder="Voice actor" style="width:160px" />
+            <label for="filter-atk-min">ATK</label>
+            <input type="number" id="filter-atk-min" min="0" placeholder="min" style="width:72px" />
+            <span style="color:var(--muted)">–</span>
+            <input type="number" id="filter-atk-max" min="0" placeholder="max" style="width:72px" />
           </div>
           <div class="filter">
-            <label for="filter-en">Has EN</label>
-            <input type="checkbox" id="filter-en" />
+            <label for="filter-life-min">LIFE</label>
+            <input type="number" id="filter-life-min" min="0" placeholder="min" style="width:72px" />
+            <span style="color:var(--muted)">–</span>
+            <input type="number" id="filter-life-max" min="0" placeholder="max" style="width:72px" />
           </div>
         </div>
-        <div id="cards"></div>
+        <div class="filters-row filters-row--secondary" id="filters-secondary">
+          <div class="filter">
+            <label for="sort-by">Sort</label>
+            <select id="sort-by">
+              <option value="alpha">Alphabetical</option>
+              <option value="cost">Cost</option>
+              <option value="atk">ATK</option>
+              <option value="life">LIFE</option>
+              <option value="class">Class</option>
+              <option value="rarity">Rarity</option>
+            </select>
+          </div>
+          <div class="filter" style="min-width:260px;">
+            <label for="filter-class">Class</label>
+            <select id="filter-class">
+              <option value="">Any</option>
+            </select>
+          </div>
+          <div class="filter">
+            <label for="filter-token">Token</label>
+            <select id="filter-token">
+              <option value="all">Tokens + Non-tokens</option>
+              <option value="exclude">No tokens</option>
+              <option value="only">Tokens only</option>
+            </select>
+          </div>
+          <div class="filter" style="min-width:260px;">
+            <label for="filter-illustrator">Illustrator</label>
+            <select id="filter-illustrator">
+              <option value="">Any</option>
+            </select>
+          </div>
+          <div class="filter" style="min-width:220px;">
+            <label for="filter-cv">CV</label>
+            <select id="filter-cv">
+              <option value="">Any</option>
+            </select>
+          </div>
+          <div class="filter" style="margin-left:auto;background:transparent;border:none;box-shadow:none;padding:0;">
+            <button id="filters-reset" type="button" class="filter-reset-btn" aria-label="Reset filters">Reset Filters</button>
+          </div>
+        </div>
+        <div class="filters-row filters-row--mobile-toggle" id="filters-mobile-toggle" style="display:none;">
+          <div class="filter" style="background:transparent;border:none;box-shadow:none;padding:0;margin-left:auto;">
+            <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="false">Show Filters</button>
+          </div>
+        </div>
+    <div id="cards"></div>
       </section>
+
+      <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lightbox-content">
+          <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.3 5.71L12 12.01l-6.29-6.3-1.42 1.42 6.29 6.29-6.3 6.29 1.42 1.42 6.3-6.29 6.29 6.29 1.42-1.42-6.29-6.29 6.29-6.3z"/></svg>
+          </button>
+          <div class="lightbox-img-wrap">
+            <img id="lightbox-img" class="lightbox-img" alt="Card image" />
+          </div>
+          <div class="lightbox-side">
+            <h3 id="lightbox-title" class="lightbox-title"></h3>
+            <div class="lightbox-meta" id="lightbox-meta"></div>
+            <div class="lightbox-flavor" id="lightbox-flavor"></div>
+            <div class="lightbox-controls">
+              <button id="lightbox-toggle" class="lightbox-btn" type="button">Show: Evo</button>
+              <button id="lightbox-download" class="lightbox-btn" type="button">Open Image</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section id="qna" role="tabpanel" aria-labelledby="tab-qna">
         <div class="qna">
@@ -135,177 +205,6 @@
       </section>
     </div>
 
-    <script>
-      let isEnglish = false;
-      let allCards = {};
-      let currentAudio = null;
-      let currentButton = null;
-
-      function formatName(name) {
-        return name.replace(/_/g, " ");
-      }
-
-      function createAudioButton(line) {
-        const button = document.createElement("button");
-        button.className = "audio-btn";
-        button.setAttribute("type", "button");
-        button.innerHTML = `
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
-            <g class="icon-pause" style="display:none"><rect x="7" y="5" width="4" height="14" rx="1"></rect><rect x="13" y="5" width="4" height="14" rx="1"></rect></g>
-          </svg>
-          <span>${line.label || line.name}</span>
-          <span class="time" aria-hidden="true">0:00</span>
-        `;
-
-        button.addEventListener("click", () => {
-          const isSame = currentButton === button;
-
-          if (currentAudio && !isSame) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-            if (currentButton) {
-              currentButton.classList.remove("playing");
-              toggleIcon(currentButton, false);
-              const t = currentButton.querySelector('.time');
-              if (t) t.textContent = '0:00';
-            }
-          }
-
-          if (!currentAudio || !isSame) {
-            if (isEnglish == true){
-              currentAudio = new Audio(line.en_url);
-            } else {
-              currentAudio = new Audio(line.url);
-            }
-            const timeEl = button.querySelector('.time');
-            const updateTime = () => {
-              if (!currentAudio || !timeEl) return;
-              const cur = formatTime(currentAudio.currentTime);
-              const dur = isFinite(currentAudio.duration) ? formatTime(currentAudio.duration) : '…';
-              timeEl.textContent = `${cur}/${dur}`;
-            };
-            currentAudio.addEventListener("ended", () => {
-              if (currentButton) {
-                currentButton.classList.remove("playing");
-                toggleIcon(currentButton, false);
-                const t2 = currentButton.querySelector('.time');
-                if (t2) t2.textContent = '0:00';
-              }
-              currentAudio = null;
-              currentButton = null;
-            });
-            currentAudio.addEventListener('loadedmetadata', updateTime);
-            currentAudio.addEventListener('timeupdate', updateTime);
-            currentAudio.play();
-            currentButton = button;
-            button.classList.add("playing");
-            toggleIcon(button, true);
-            updateTime();
-          } else {
-            if (currentAudio.paused) {
-              currentAudio.play();
-              button.classList.add("playing");
-              toggleIcon(button, true);
-            } else {
-              currentAudio.pause();
-              button.classList.remove("playing");
-              toggleIcon(button, false);
-            }
-          }
-        });
-
-        return button;
-      }
-
-      function formatTime(seconds) {
-        const s = Math.max(0, Math.floor(seconds || 0));
-        const m = Math.floor(s / 60);
-        const r = s % 60;
-        return `${m}:${r.toString().padStart(2,'0')}`;
-      }
-
-      function toggleIcon(button, playing) {
-        const svg = button.querySelector("svg");
-        const playPath = svg.querySelector(".icon-play");
-        const pauseGroup = svg.querySelector(".icon-pause");
-        if (playing) {
-          playPath.style.display = "none";
-          pauseGroup.style.display = "block";
-        } else {
-          playPath.style.display = "block";
-          pauseGroup.style.display = "none";
-        }
-      }
-
-      function renderCards(cards, filter = "") {
-        const container = document.getElementById("cards");
-        container.innerHTML = "";
-
-        Object.entries(cards).forEach(([cardName, lines]) => {
-          if (!cardName.toLowerCase().includes(filter.toLowerCase())) return;
-          if (!Array.isArray(lines) || lines.length === 0) return;
-
-          const cardDiv = document.createElement("div");
-          cardDiv.className = "card";
-          const title = document.createElement("h2");
-          title.textContent = formatName(cardName);
-          cardDiv.appendChild(title);
-
-          const row = document.createElement("div");
-          row.className = "btn-row";
-          lines.forEach((line) => {
-            const btn = createAudioButton(line);
-            row.appendChild(btn);
-          });
-          cardDiv.appendChild(row);
-
-          container.appendChild(cardDiv);
-        });
-      }
-
-      fetch("cards.json")
-        .then((res) => res.json())
-        .then((cards) => {
-          allCards = cards;
-          renderCards(allCards);
-          document.getElementById("search").addEventListener("input", (e) => {
-            renderCards(allCards, e.target.value);
-          });
-        });
-
-      document.getElementById("lang-toggle").addEventListener("click", () => {
-        isEnglish = !isEnglish;
-        const btn = document.getElementById("lang-toggle");
-        btn.textContent = isEnglish ? "EN" : "JP";
-        
-        // Update title
-        const title = document.querySelector('.title h1');
-        title.textContent = isEnglish ? "Worlds Beyond • EN Card Voices" : "Worlds Beyond • JP Card Voices";
-
-        if (currentAudio) {
-          currentAudio.pause();
-          currentAudio = null;
-          if (currentButton) {
-            currentButton.classList.remove("playing");
-            toggleIcon(currentButton, false);
-            const t = currentButton.querySelector('.time');
-            if (t) t.textContent = '0:00';
-            currentButton = null;
-          }
-        }
-      });
-
-
-      document.querySelectorAll('.tab-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-          btn.classList.add('active');
-          const id = btn.dataset.tab;
-          document.getElementById(id)?.classList.add('active');
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
