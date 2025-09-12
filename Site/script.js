@@ -206,7 +206,6 @@ function renderCards(cards, filter = "") {
             img.dataset.variant = 'common';
             toggleBtn.setAttribute('aria-pressed', 'false');
             toggleBtn.innerHTML = `
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 5l4 4h-3v6h-2V9H8l4-4z"/></svg>
               <span>Show: Evo</span>
             `;
           }
