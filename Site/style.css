@@ -63,7 +63,7 @@ body::before {
 
 @media (min-width: 768px) {
   .container {
-    padding: 24px;
+  padding: 24px;
   }
 }
 
@@ -338,6 +338,29 @@ input[type="number"]::after {
   max-width: 560px;
 }
 
+.waterfall #cards {
+  column-count: 1;
+  column-gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .waterfall #cards { column-count: 2; }
+}
+
+@media (min-width: 900px) {
+  .waterfall #cards { column-count: 3; }
+}
+
+@media (min-width: 1200px) {
+  .waterfall #cards { column-count: 4; }
+}
+
+.waterfall .card {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+}
+
 .search-icon {
   position: absolute;
   left: 12px;
@@ -375,7 +398,7 @@ input[type="number"]::after {
 
 @media (min-width: 768px) {
   .btn-row {
-    gap: 10px;
+  gap: 10px;
   }
 }
 

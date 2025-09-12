@@ -430,6 +430,15 @@ fetch("cards.json")
       activeFilters.sortBy = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document.getElementById("view-mode").addEventListener("change", (e) => {
+      const mode = e.target.value;
+      const container = document.querySelector('.container');
+      if (mode === 'waterfall') {
+        container.classList.add('waterfall');
+      } else {
+        container.classList.remove('waterfall');
+      }
+    });
     const resetBtn = document.getElementById("filters-reset");
     if (resetBtn) {
       resetBtn.addEventListener("click", () => {
@@ -460,6 +469,8 @@ fetch("cards.json")
         document.getElementById("filter-type").value = "";
         document.getElementById("filter-token").value = 'all';
         document.getElementById("sort-by").value = 'alpha';
+        document.getElementById("view-mode").value = 'list';
+        document.querySelector('.container').classList.remove('waterfall');
         document.getElementById("search").value = '';
 
         renderCards(allCards, document.getElementById("search").value);
