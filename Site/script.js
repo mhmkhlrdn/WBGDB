@@ -13,6 +13,7 @@ const activeFilters = {
   lifeMin: "",
   lifeMax: "",
   class: "",
+  type: "",
   tokenMode: 'all',
   sortBy: 'alpha',
 };
@@ -164,6 +165,7 @@ function renderCards(cards, filter = "") {
     // Card image block if hash exists
     if (meta.card_image_hash) {
       const { commonUrl, evoUrl } = buildCardImageUrls(meta.card_image_hash, metaEvo.card_image_hash);
+      const canToggleEvo = Number(meta.type) === 1 && !!metaEvo.card_image_hash;
       const imgWrap = document.createElement('div');
       imgWrap.className = 'card-image';
 
@@ -181,34 +183,35 @@ function renderCards(cards, filter = "") {
         metaEvo
       }));
 
-      const toggleBtn = document.createElement('button');
-      toggleBtn.className = 'img-toggle';
-      toggleBtn.type = 'button';
-      toggleBtn.setAttribute('aria-pressed', 'false');
-      toggleBtn.innerHTML = `
-       <span>Show: Evo</span>
-      `;
-      toggleBtn.addEventListener('click', () => {
-        if (img.dataset.variant === 'common') {
-          img.src = evoUrl;
-          img.dataset.variant = 'evo';
-          toggleBtn.setAttribute('aria-pressed', 'true');
-          toggleBtn.innerHTML = `
-            <span>Show: Base</span>
-          `;
-        } else {
-          img.src = commonUrl;
-          img.dataset.variant = 'common';
-          toggleBtn.setAttribute('aria-pressed', 'false');
-          toggleBtn.innerHTML = `
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 5l4 4h-3v6h-2V9H8l4-4z"/></svg>
-            <span>Show: Evo</span>
-          `;
-        }
-      });
-
       imgWrap.appendChild(img);
-      imgWrap.appendChild(toggleBtn);
+      if (canToggleEvo) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'img-toggle';
+        toggleBtn.type = 'button';
+        toggleBtn.setAttribute('aria-pressed', 'false');
+        toggleBtn.innerHTML = `
+         <span>Show: Evo</span>
+        `;
+        toggleBtn.addEventListener('click', () => {
+          if (img.dataset.variant === 'common') {
+            img.src = evoUrl;
+            img.dataset.variant = 'evo';
+            toggleBtn.setAttribute('aria-pressed', 'true');
+            toggleBtn.innerHTML = `
+              <span>Show: Base</span>
+            `;
+          } else {
+            img.src = commonUrl;
+            img.dataset.variant = 'common';
+            toggleBtn.setAttribute('aria-pressed', 'false');
+            toggleBtn.innerHTML = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 5l4 4h-3v6h-2V9H8l4-4z"/></svg>
+              <span>Show: Evo</span>
+            `;
+          }
+        });
+        imgWrap.appendChild(toggleBtn);
+      }
       cardDiv.appendChild(imgWrap);
     }
 
@@ -248,6 +251,9 @@ function passesFilters(lines, meta) {
   }
   if (activeFilters.class !== "") {
     if (Number(meta.class) !== Number(activeFilters.class)) return false;
+  }
+  if (activeFilters.type !== "") {
+    if (Number(meta.type) !== Number(activeFilters.type)) return false;
   }
   if (activeFilters.tokenMode === 'exclude') {
     if (meta.is_token) return false;
@@ -291,22 +297,26 @@ function openLightbox({ name, commonUrl, evoUrl, meta, metaEvo }) {
   // Initialize flavor with common variant
   flavor.innerHTML = meta.flavour_text || '';
 
-  toggle.textContent = 'Show: Evo';
-  toggle.onclick = () => {
-    if (showing === 'common') {
-      img.src = evoUrl;
-      showing = 'evo';
-      // Switch to evo flavor when showing evo image
-      flavor.innerHTML = (metaEvo && metaEvo.flavour_text) || '';
-      toggle.textContent = 'Show: Base';
-    } else {
-      img.src = commonUrl;
-      showing = 'common';
-      // Back to common flavor text
-      flavor.innerHTML = (meta && meta.flavour_text) || '';
-      toggle.textContent = 'Show: Evo';
-    }
-  };
+  const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.flavour_text;
+  if (canToggleEvo) {
+    toggle.style.display = '';
+    toggle.textContent = 'Show: Evo';
+    toggle.onclick = () => {
+      if (showing === 'common') {
+        img.src = evoUrl;
+        showing = 'evo';
+        flavor.innerHTML = (metaEvo && metaEvo.flavour_text) || '';
+        toggle.textContent = 'Show: Base';
+      } else {
+        img.src = commonUrl;
+        showing = 'common';
+        flavor.innerHTML = (meta && meta.flavour_text) || '';
+        toggle.textContent = 'Show: Evo';
+      }
+    };
+  } else {
+    toggle.style.display = 'none';
+  }
 
   openBtn.onclick = () => {
     window.open(img.src, '_blank');
@@ -408,6 +418,10 @@ fetch("cards.json")
       activeFilters.class = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document.getElementById("filter-type").addEventListener("change", (e) => {
+      activeFilters.type = e.target.value;
+      renderCards(allCards, document.getElementById("search").value);
+    });
     document.getElementById("filter-token").addEventListener("change", (e) => {
       activeFilters.tokenMode = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
@@ -429,6 +443,7 @@ fetch("cards.json")
         activeFilters.cv = "";
         activeFilters.illustrator = "";
         activeFilters.class = "";
+        activeFilters.type = "";
         activeFilters.tokenMode = 'all';
         activeFilters.sortBy = 'alpha';
 
@@ -442,6 +457,7 @@ fetch("cards.json")
         document.getElementById("filter-illustrator").value = "";
         document.getElementById("filter-cv").value = "";
         document.getElementById("filter-class").value = "";
+        document.getElementById("filter-type").value = "";
         document.getElementById("filter-token").value = 'all';
         document.getElementById("sort-by").value = 'alpha';
         document.getElementById("search").value = '';
