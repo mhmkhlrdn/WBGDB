@@ -35,20 +35,49 @@ body {
     ),
     linear-gradient(180deg, #0a0f21 0%, #0b1020 100%);
   min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 24px;
+  }
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .title {
+    justify-content: center;
+  }
+  
+  nav.tabs {
+    justify-content: center;
+  }
+  
+  .lang-toggle-container {
+    justify-content: center;
+  }
 }
 
 .title {
@@ -59,7 +88,7 @@ header {
 
 .title h1 {
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.4px;
   background: linear-gradient(90deg, var(--text), #b9c4ff);
@@ -68,14 +97,28 @@ header {
   color: transparent;
 }
 
+@media (min-width: 768px) {
+  .title h1 {
+    font-size: 22px;
+  }
+}
+
 nav.tabs {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--card-border);
-  padding: 6px;
+  padding: 4px;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  nav.tabs {
+    gap: 8px;
+    padding: 6px;
+  }
 }
 
 .tab-btn {
@@ -83,12 +126,25 @@ nav.tabs {
   background: transparent;
   border: 0;
   color: var(--muted);
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.2px;
   transition: color 0.2s ease, background 0.2s ease;
+  font-size: 14px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .tab-btn {
+    padding: 8px 14px;
+    font-size: 16px;
+    min-height: auto;
+  }
 }
 
 .tab-btn.active {
@@ -116,7 +172,7 @@ nav.tabs {
   padding: 12px 14px 12px 42px;
   width: 100%;
   max-width: 560px;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text);
   background: linear-gradient(180deg, var(--surface), var(--surface-2));
   border: 1px solid var(--card-border);
@@ -125,6 +181,14 @@ nav.tabs {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04),
     0 10px 24px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.2s ease, border 0.2s ease;
+  min-height: 44px;
+}
+
+@media (min-width: 768px) {
+  #search {
+    font-size: 15px;
+    min-height: auto;
+  }
 }
 
 #search:focus {
@@ -171,7 +235,13 @@ nav.tabs {
 .btn-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .btn-row {
+    gap: 10px;
+  }
 }
 
 .audio-btn {
@@ -179,7 +249,7 @@ nav.tabs {
   align-items: center;
   gap: 8px;
   margin: 0;
-  padding: 10px 12px;
+  padding: 12px 14px;
   cursor: pointer;
   border: 1px solid var(--card-border);
   border-radius: 999px;
@@ -194,6 +264,16 @@ nav.tabs {
   transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   user-select: none;
+  min-height: 44px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .audio-btn {
+    padding: 10px 12px;
+    font-size: 16px;
+    min-height: auto;
+  }
 }
 
 .audio-btn:hover {
@@ -291,7 +371,16 @@ section.active {
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   user-select: none;
   min-width: 48px;
+  min-height: 44px;
   text-align: center;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .lang-toggle-btn {
+    font-size: 16px;
+    min-height: auto;
+  }
 }
 
 .lang-toggle-btn:hover {
