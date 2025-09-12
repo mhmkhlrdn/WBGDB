@@ -490,6 +490,11 @@ section.active {
 .lang-toggle-container {
   display: flex;
   align-items: center;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 900;
+  margin: 0;
 }
 
 .lang-toggle-btn {
