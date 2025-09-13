@@ -41,6 +41,92 @@ let currentCardData = null;
       });
   }
 
+  // Function to create mobile-friendly dropdown for CV/Illustrator
+  function createMobileDropdown(inputId, datalistId, placeholder) {
+    const input = document.getElementById(inputId);
+    const datalist = document.getElementById(datalistId);
+    if (!input || !datalist) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobile) return;
+
+    // Create dropdown container
+    const dropdownContainer = document.createElement("div");
+    dropdownContainer.className = "mobile-dropdown-container";
+    dropdownContainer.style.position = "relative";
+    dropdownContainer.style.display = "inline-block";
+    dropdownContainer.style.width = "100%";
+
+    // Create dropdown button
+    const dropdownBtn = document.createElement("button");
+    dropdownBtn.type = "button";
+    dropdownBtn.className = "mobile-dropdown-btn";
+    dropdownBtn.innerHTML = `
+      <span class="dropdown-text">${input.value || placeholder}</span>
+      <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10l5 5 5-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+
+    // Create dropdown menu
+    const dropdownMenu = document.createElement("div");
+    dropdownMenu.className = "mobile-dropdown-menu";
+    dropdownMenu.style.display = "none";
+
+    // Populate dropdown options
+    const options = Array.from(datalist.querySelectorAll("option"));
+    options.forEach(option => {
+      const menuItem = document.createElement("div");
+      menuItem.className = "mobile-dropdown-item";
+      menuItem.textContent = option.value;
+      menuItem.addEventListener("click", () => {
+        input.value = option.value;
+        dropdownBtn.querySelector(".dropdown-text").textContent = option.value;
+        dropdownMenu.style.display = "none";
+        // Trigger input event for filtering
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      dropdownMenu.appendChild(menuItem);
+    });
+
+    // Add "Clear" option
+    const clearItem = document.createElement("div");
+    clearItem.className = "mobile-dropdown-item clear-item";
+    clearItem.textContent = "Clear";
+    clearItem.addEventListener("click", () => {
+      input.value = "";
+      dropdownBtn.querySelector(".dropdown-text").textContent = placeholder;
+      dropdownMenu.style.display = "none";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    dropdownMenu.appendChild(clearItem);
+
+    // Toggle dropdown
+    dropdownBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdownContainer.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    // Update dropdown text when input changes
+    input.addEventListener("input", () => {
+      dropdownBtn.querySelector(".dropdown-text").textContent = input.value || placeholder;
+    });
+
+    // Replace input with dropdown
+    input.style.display = "none";
+    dropdownContainer.appendChild(dropdownBtn);
+    dropdownContainer.appendChild(dropdownMenu);
+    input.parentNode.insertBefore(dropdownContainer, input);
+  }
+
 const ENABLE_MANY_VOICES_FILTER = false;
 
 const activeFilters = {
@@ -453,7 +539,7 @@ function renderCards(cards, filter = "") {
           e.preventDefault();
           e.stopPropagation();
           
-          // Start hold timer
+          // Start hold timer for hold functionality (optional)
           holdTimer = setTimeout(() => {
             if (!isTooltipVisible) {
               tooltip.style.display = "block";
@@ -493,7 +579,7 @@ function renderCards(cards, filter = "") {
           }
         });
 
-        // Also handle click for immediate toggle
+        // Handle click for immediate toggle (primary interaction)
         skillBtn.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -873,6 +959,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   const prevBtn = document.getElementById("lightbox-prev");
   const nextBtn = document.getElementById("lightbox-next");
 
+  // Reset any swipe animation classes
+  const lightboxContent = document.querySelector('.lightbox-content');
+  if (lightboxContent) {
+    lightboxContent.classList.remove('swipe-left', 'swipe-right');
+  }
+
   // Store current card data for navigation
   currentCardIndex = cardIndex;
   currentCardData = cardData;
@@ -899,49 +991,61 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
     // Only process horizontal swipes (ignore vertical scrolling)
     if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
+      const lightboxContent = document.querySelector('.lightbox-content');
+      
       if (deltaX > 0) {
         // Swipe right - go to previous card
         if (currentCardIndex > 0) {
-          const prevCardData = filteredCards[currentCardIndex - 1];
-          const prevCardObj = allCards[prevCardData.id];
-          if (prevCardObj) {
-            const prevMeta = prevCardObj.metadata?.common || {};
-            const prevMetaEvo = prevCardObj.metadata?.evo || {};
-            const prevLines = prevCardObj.voices || [];
-            const prevAlternate = prevCardObj.metadata?.alternate || null;
-            
-            openLightbox({
-              name: prevCardData.name,
-              meta: prevMeta,
-              metaEvo: prevMetaEvo,
-              voices: prevLines,
-              alternate: prevAlternate,
-              cardIndex: currentCardIndex - 1,
-              cardData: prevCardData
-            });
-          }
+          // Add swipe animation
+          lightboxContent.classList.add('swipe-right');
+          
+          setTimeout(() => {
+            const prevCardData = filteredCards[currentCardIndex - 1];
+            const prevCardObj = allCards[prevCardData.id];
+            if (prevCardObj) {
+              const prevMeta = prevCardObj.metadata?.common || {};
+              const prevMetaEvo = prevCardObj.metadata?.evo || {};
+              const prevLines = prevCardObj.voices || [];
+              const prevAlternate = prevCardObj.metadata?.alternate || null;
+              
+              openLightbox({
+                name: prevCardData.name,
+                meta: prevMeta,
+                metaEvo: prevMetaEvo,
+                voices: prevLines,
+                alternate: prevAlternate,
+                cardIndex: currentCardIndex - 1,
+                cardData: prevCardData
+              });
+            }
+          }, 150); // Half of the animation duration
         }
       } else {
         // Swipe left - go to next card
         if (currentCardIndex < filteredCards.length - 1) {
-          const nextCardData = filteredCards[currentCardIndex + 1];
-          const nextCardObj = allCards[nextCardData.id];
-          if (nextCardObj) {
-            const nextMeta = nextCardObj.metadata?.common || {};
-            const nextMetaEvo = nextCardObj.metadata?.evo || {};
-            const nextLines = nextCardObj.voices || [];
-            const nextAlternate = nextCardObj.metadata?.alternate || null;
-            
-            openLightbox({
-              name: nextCardData.name,
-              meta: nextMeta,
-              metaEvo: nextMetaEvo,
-              voices: nextLines,
-              alternate: nextAlternate,
-              cardIndex: currentCardIndex + 1,
-              cardData: nextCardData
-            });
-          }
+          // Add swipe animation
+          lightboxContent.classList.add('swipe-left');
+          
+          setTimeout(() => {
+            const nextCardData = filteredCards[currentCardIndex + 1];
+            const nextCardObj = allCards[nextCardData.id];
+            if (nextCardObj) {
+              const nextMeta = nextCardObj.metadata?.common || {};
+              const nextMetaEvo = nextCardObj.metadata?.evo || {};
+              const nextLines = nextCardObj.voices || [];
+              const nextAlternate = nextCardObj.metadata?.alternate || null;
+              
+              openLightbox({
+                name: nextCardData.name,
+                meta: nextMeta,
+                metaEvo: nextMetaEvo,
+                voices: nextLines,
+                alternate: nextAlternate,
+                cardIndex: currentCardIndex + 1,
+                cardData: nextCardData
+              });
+            }
+          }, 150); // Half of the animation duration
         }
       }
     }
@@ -959,17 +1063,49 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
       touchStartY = e.touches[0].clientY;
     };
     
+    const touchMoveHandler = (e) => {
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const deltaX = currentX - touchStartX;
+      const deltaY = currentY - touchStartY;
+      const absDeltaX = Math.abs(deltaX);
+      const absDeltaY = Math.abs(deltaY);
+      
+      // Only show preview for horizontal swipes
+      if (absDeltaX > absDeltaY && absDeltaX > 20) {
+        const lightboxContent = document.querySelector('.lightbox-content');
+        
+        // Remove any existing preview classes
+        lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
+        
+        if (deltaX > 0 && currentCardIndex > 0) {
+          // Swiping right - show preview for previous card
+          lightboxContent.classList.add('swipe-preview-right');
+        } else if (deltaX < 0 && currentCardIndex < filteredCards.length - 1) {
+          // Swiping left - show preview for next card
+          lightboxContent.classList.add('swipe-preview-left');
+        }
+      }
+    };
+    
     const touchEndHandler = (e) => {
       touchEndX = e.changedTouches[0].clientX;
       touchEndY = e.changedTouches[0].clientY;
+      
+      // Remove preview classes
+      const lightboxContent = document.querySelector('.lightbox-content');
+      lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
+      
       handleSwipe();
     };
     
     lb.addEventListener("touchstart", touchStartHandler, { passive: true });
+    lb.addEventListener("touchmove", touchMoveHandler, { passive: true });
     lb.addEventListener("touchend", touchEndHandler, { passive: true });
     
     // Store handlers for cleanup
     window.currentTouchStartHandler = touchStartHandler;
+    window.currentTouchMoveHandler = touchMoveHandler;
     window.currentTouchEndHandler = touchEndHandler;
   }
 
@@ -1327,6 +1463,11 @@ fetch("cards.json")
       });
     // Populate CV options using the global function
     populateCVOptions();
+    
+    // Create mobile dropdowns for CV and Illustrator filters
+    createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
+    createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
+    
     const classSel = document.getElementById("filter-class");
     Array.from(classes)
       .sort((a, b) => a - b)
@@ -1517,6 +1658,10 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   // Repopulate CV options for the new language
   populateCVOptions();
   
+  // Recreate mobile dropdowns for the new language
+  createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
+  createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
+  
   // Re-render cards to apply the language change
   renderCards(allCards, document.getElementById("search").value);
 
@@ -1624,10 +1769,12 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   
   // Expose cleanup function for use in openLightbox
   window.cleanupLightboxTouchEvents = () => {
-    if (window.currentTouchStartHandler && window.currentTouchEndHandler) {
+    if (window.currentTouchStartHandler && window.currentTouchMoveHandler && window.currentTouchEndHandler) {
       lb.removeEventListener('touchstart', window.currentTouchStartHandler);
+      lb.removeEventListener('touchmove', window.currentTouchMoveHandler);
       lb.removeEventListener('touchend', window.currentTouchEndHandler);
       window.currentTouchStartHandler = null;
+      window.currentTouchMoveHandler = null;
       window.currentTouchEndHandler = null;
     }
   };
