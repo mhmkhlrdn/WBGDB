@@ -1,6 +1,7 @@
 const https = require("https");
 
-const API_URL = "https://shadowverse-wb.com/web/CardList/cardList?offset=0&class=0,1,2,3,4,5,6,7&cost=0,1,2,3,4,5,6,7,8,9,10&exists_card_style=1";
+const API_URL =
+  "https://shadowverse-wb.com/web/CardList/cardList?offset=0&class=0,1,2,3,4,5,6,7&cost=0,1,2,3,4,5,6,7,8,9,10&exists_card_style=1";
 
 function fetchData(url) {
   return new Promise((resolve, reject) => {
@@ -31,13 +32,13 @@ async function testAPI() {
   try {
     console.log("Fetching API data...");
     const apiData = await fetchData(API_URL);
-    
+
     console.log("API Response structure:");
     console.log("Keys in response:", Object.keys(apiData));
-    
+
     if (apiData.data) {
       console.log("Keys in data:", Object.keys(apiData.data));
-      
+
       if (apiData.data.card_details) {
         const cardIds = Object.keys(apiData.data.card_details);
         console.log(`Number of cards: ${cardIds.length}`);
@@ -68,7 +69,6 @@ async function testAPI() {
         }
       }
     }
-    
   } catch (error) {
     console.error("Error:", error.message);
   }
