@@ -2,6 +2,9 @@ let isEnglish = false;
 let allCards = {};
 let currentAudio = null;
 let currentButton = null;
+
+const ENABLE_MANY_VOICES_FILTER = false;
+
 const activeFilters = {
   rarity: "",
   costMin: "",
@@ -20,6 +23,8 @@ const activeFilters = {
   sortOrder: "asc",
   voices: "both",
   viewMode: "list",
+  manyVoices: "all",
+  alternate: "all",
 };
 
 const classLabels = {
@@ -33,6 +38,21 @@ const classLabels = {
   7: "Portal",
 };
 
+const classIconNames = {
+  0: "neutral",
+  1: "elf",
+  2: "royal",
+  3: "witch",
+  4: "dragon",
+  5: "nightmare",
+  6: "bishop",
+  7: "nemesis",
+};
+
+function getClassIconName(classNumber) {
+  return classIconNames[classNumber] || "neutral";
+}
+
 function formatName(name) {
   return name.replace(/_/g, " ");
 }
@@ -41,15 +61,20 @@ function createAudioButton(line) {
   const container = document.createElement("div");
   container.className = "audio-button-container";
 
+  const isMeeting = line.label && line.label.startsWith("Meeting");
+  const displayText = isMeeting
+    ? line.label.substring(7)
+    : line.label || line.name;
+
   const button = document.createElement("button");
-  button.className = "audio-btn";
+  button.className = isMeeting ? "audio-btn meeting-btn" : "audio-btn";
   button.setAttribute("type", "button");
   button.innerHTML = `
     <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
       <g class="icon-pause" style="display:none"><rect x="7" y="5" width="4" height="14" rx="1"></rect><rect x="13" y="5" width="4" height="14" rx="1"></rect></g>
     </svg>
-    <span>${line.label || line.name}</span>
+    <span>${displayText}</span>
     <span class="time" aria-hidden="true">0:00</span>
   `;
 
@@ -209,13 +234,32 @@ function renderCards(cards, filter = "") {
 
     const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
     const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
-    if (!passesFilters(lines, meta)) return;
+    if (!passesFilters(lines, meta, cardObj)) return;
 
     const cardDiv = document.createElement("div");
     cardDiv.className = "card";
+
+    const cardHeader = document.createElement("div");
+    cardHeader.className = "card-header";
+
     const title = document.createElement("h2");
     title.textContent = formatName(cardName);
-    cardDiv.appendChild(title);
+    cardHeader.appendChild(title);
+
+    if (meta.class !== undefined) {
+      const classIcon = document.createElement("div");
+      classIcon.className = "card-class-icon";
+      classIcon.innerHTML = `<img src="./icons/class_${getClassIconName(
+        meta.class
+      )}.svg" alt="${classLabels[meta.class]}" title="${
+        classLabels[meta.class]
+      }">`;
+      cardHeader.appendChild(classIcon);
+    }
+
+    cardDiv.appendChild(cardHeader);
+
+    let img = null;
 
     if (meta.card_image_hash) {
       const { commonUrl, evoUrl } = buildCardImageUrls(
@@ -226,22 +270,64 @@ function renderCards(cards, filter = "") {
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-image";
 
-      const img = document.createElement("img");
+      img = document.createElement("img");
       img.loading = "lazy";
       img.alt = `${title.textContent} image`;
       img.src = commonUrl;
       img.dataset.variant = "common";
+      img.dataset.artType = "normal";
       img.style.cursor = "zoom-in";
-      img.addEventListener("click", () =>
+      img.addEventListener("click", () => {
         openLightbox({
           name: title.textContent,
           meta,
           metaEvo,
           voices: lines,
-        })
-      );
+          alternate: cardObj.metadata?.alternate,
+        });
+      });
 
-      // Add tooltip for skill text
+      if (cardObj.metadata?.alternate?.style_data) {
+        const alternateToggle = document.createElement("button");
+        alternateToggle.className = "alternate-toggle";
+        alternateToggle.setAttribute("aria-label", "Toggle alternate art");
+        alternateToggle.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+
+        alternateToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          const isAlternate = img.dataset.artType === "alternate";
+          const alternateData = cardObj.metadata?.alternate?.style_data;
+
+          if (isAlternate) {
+            img.src = commonUrl;
+            img.dataset.artType = "normal";
+            alternateToggle.classList.remove("active");
+
+            updateCardMetadata(cardDiv, meta, false);
+          } else {
+            if (alternateData?.hash) {
+              const alternateUrl = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+              img.src = alternateUrl;
+              img.dataset.artType = "alternate";
+              alternateToggle.classList.add("active");
+
+              updateCardMetadata(cardDiv, meta, true, alternateData);
+            }
+          }
+
+          updateVoiceButtons();
+        });
+
+        imgWrap.appendChild(alternateToggle);
+      }
+
       if (meta.skill_text) {
         const tooltip = document.createElement("div");
         tooltip.className = "card-tooltip";
@@ -262,18 +348,17 @@ function renderCards(cards, filter = "") {
           const tooltipRect = tooltip.getBoundingClientRect();
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
-          
+
           let left = e.clientX + 10;
           let top = e.clientY - 10;
-          
-          // Adjust if tooltip would go off screen
+
           if (left + tooltipRect.width > viewportWidth) {
             left = e.clientX - tooltipRect.width - 10;
           }
           if (top + tooltipRect.height > viewportHeight) {
             top = e.clientY - tooltipRect.height - 10;
           }
-          
+
           tooltip.style.left = `${left}px`;
           tooltip.style.top = `${top}px`;
         });
@@ -318,10 +403,9 @@ function renderCards(cards, filter = "") {
         imgWrap.appendChild(img);
       }
 
-      // Always add toggle container for consistent spacing
       const toggleContainer = document.createElement("div");
       toggleContainer.className = "img-toggle-container";
-      
+
       if (canToggleEvo) {
         const toggleBtn = document.createElement("button");
         toggleBtn.className = "img-toggle";
@@ -331,44 +415,72 @@ function renderCards(cards, filter = "") {
          <span>Show: Evo</span>
         `;
         toggleBtn.addEventListener("click", () => {
+          const isAlternate = img.dataset.artType === "alternate";
+          const alternateData = cardObj.metadata?.alternate?.style_data;
+
           if (img.dataset.variant === "common") {
-            img.src = evoUrl;
+            if (isAlternate && alternateData?.evo_hash) {
+              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.evo_hash}.png`;
+            } else {
+              img.src = evoUrl;
+            }
             img.dataset.variant = "evo";
             toggleBtn.setAttribute("aria-pressed", "true");
             toggleBtn.innerHTML = `
               <span>Show: Base</span>
             `;
           } else {
-            img.src = commonUrl;
+            if (isAlternate && alternateData?.hash) {
+              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+            } else {
+              img.src = commonUrl;
+            }
             img.dataset.variant = "common";
             toggleBtn.setAttribute("aria-pressed", "false");
             toggleBtn.innerHTML = `
               <span>Show: Evo</span>
             `;
           }
+
+          updateVoiceButtons();
         });
         toggleContainer.appendChild(toggleBtn);
       }
-      
+
       imgWrap.appendChild(toggleContainer);
       cardDiv.appendChild(imgWrap);
     }
 
-    if (Array.isArray(lines) && lines.length > 0) {
-      const row = document.createElement("div");
-      row.className = "btn-row";
-      lines.forEach((line) => {
-        const btn = createAudioButton(line);
-        row.appendChild(btn);
-      });
-      cardDiv.appendChild(row);
-    }
+    const voiceButtonsContainer = document.createElement("div");
+    voiceButtonsContainer.className = "voice-buttons-container";
+
+    const updateVoiceButtons = () => {
+      voiceButtonsContainer.innerHTML = "";
+      const isAlternate = img && img.dataset.artType === "alternate";
+      const voicesToUse =
+        isAlternate && cardObj.metadata?.alternate?.voices
+          ? cardObj.metadata.alternate.voices
+          : lines;
+
+      if (Array.isArray(voicesToUse) && voicesToUse.length > 0) {
+        const row = document.createElement("div");
+        row.className = "btn-row";
+        voicesToUse.forEach((line) => {
+          const btn = createAudioButton(line);
+          row.appendChild(btn);
+        });
+        voiceButtonsContainer.appendChild(row);
+      }
+    };
+
+    updateVoiceButtons();
+    cardDiv.appendChild(voiceButtonsContainer);
 
     container.appendChild(cardDiv);
   });
 }
 
-function passesFilters(lines, meta) {
+function passesFilters(lines, meta, cardData = null) {
   if (activeFilters.rarity) {
     if (Number(meta.rarity) !== Number(activeFilters.rarity)) return false;
   }
@@ -438,6 +550,29 @@ function passesFilters(lines, meta) {
   } else if (activeFilters.voices === "without") {
     if (Array.isArray(lines) && lines.length > 0) return false;
   }
+
+  if (ENABLE_MANY_VOICES_FILTER && activeFilters.manyVoices !== "all") {
+    const voiceCount = Array.isArray(lines) ? lines.length : 0;
+    if (activeFilters.manyVoices === "many") {
+      if (voiceCount < 6) return false;
+    } else if (activeFilters.manyVoices === "few") {
+      if (voiceCount >= 5) return false;
+    }
+  }
+
+  if (activeFilters.alternate !== "all") {
+    const hasAlternate =
+      cardData &&
+      cardData.metadata &&
+      cardData.metadata.alternate &&
+      cardData.metadata.alternate.style_data;
+    if (activeFilters.alternate === "with") {
+      if (!hasAlternate) return false;
+    } else if (activeFilters.alternate === "without") {
+      if (hasAlternate) return false;
+    }
+  }
+
   return true;
 }
 
@@ -449,7 +584,112 @@ function buildCardImageUrls(cardImageHash, evoCardImageHash) {
   };
 }
 
-function openLightbox({ name, meta, metaEvo, voices = [] }) {
+function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
+  if (activeFilters.viewMode !== "list") return;
+
+  const leftMetadata = cardDiv.querySelector(".card-metadata");
+  const rightMetadata = cardDiv.querySelectorAll(".card-metadata")[1];
+
+  if (!leftMetadata || !rightMetadata) return;
+
+  leftMetadata.innerHTML = "";
+  rightMetadata.innerHTML = "";
+
+  const cvValue =
+    isAlternate && alternateData?.cv
+      ? alternateData.cv
+      : isEnglish
+      ? meta.cv || ""
+      : meta.jpCV || "";
+
+  const illustratorValue =
+    isAlternate && alternateData?.illustrator
+      ? alternateData.illustrator
+      : meta.illustrator || "";
+
+  if (cvValue) {
+    const cvItem = document.createElement("div");
+    cvItem.className = "card-metadata-item";
+    cvItem.innerHTML = `
+      <div class="card-metadata-label">CV</div>
+      <div class="card-metadata-value">${cvValue}</div>
+    `;
+    leftMetadata.appendChild(cvItem);
+  }
+
+  if (illustratorValue) {
+    const illustratorItem = document.createElement("div");
+    illustratorItem.className = "card-metadata-item";
+    illustratorItem.innerHTML = `
+      <div class="card-metadata-label">Illustrator</div>
+      <div class="card-metadata-value">${illustratorValue}</div>
+    `;
+    rightMetadata.appendChild(illustratorItem);
+  }
+}
+
+function updateLightboxMetadata(
+  meta,
+  metaEvo,
+  isAlternate,
+  alternateData = null,
+  showing = "common"
+) {
+  const metaBox = document.getElementById("lightbox-meta");
+  const flavor = document.getElementById("lightbox-flavor");
+
+  if (!metaBox || !flavor) return;
+
+  metaBox.innerHTML = "";
+
+  const cvValue =
+    isAlternate && alternateData?.cv
+      ? alternateData.cv
+      : isEnglish
+      ? meta.cv || ""
+      : meta.jpCV || "";
+
+  const illustratorValue =
+    isAlternate && alternateData?.illustrator
+      ? alternateData.illustrator
+      : meta.illustrator || "";
+
+  if (cvValue) {
+    const cvItem = document.createElement("div");
+    cvItem.innerHTML = `
+      <div class="label">CV</div>
+      <div class="value">${cvValue}</div>
+    `;
+    metaBox.appendChild(cvItem);
+  }
+
+  if (illustratorValue) {
+    const illustratorItem = document.createElement("div");
+    illustratorItem.innerHTML = `
+      <div class="label">Illustrator</div>
+      <div class="value">${illustratorValue}</div>
+    `;
+    metaBox.appendChild(illustratorItem);
+  }
+
+  if (isAlternate && alternateData?.flavour_text) {
+    flavor.innerHTML = alternateData.flavour_text;
+  } else if (
+    isAlternate &&
+    alternateData?.evo_flavour_text &&
+    showing === "evo"
+  ) {
+    flavor.innerHTML = alternateData.evo_flavour_text;
+  } else {
+    if (showing === "evo" && metaEvo?.flavour_text) {
+      flavor.innerHTML = metaEvo.flavour_text;
+    } else {
+      flavor.innerHTML = meta.flavour_text || "";
+    }
+  }
+}
+
+function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
   const lb = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
   const title = document.getElementById("lightbox-title");
@@ -459,6 +699,16 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
   const toggle = document.getElementById("lightbox-toggle");
   const openBtn = document.getElementById("lightbox-download");
   const downloadImgBtn = document.getElementById("lightbox-download-img");
+
+  let alternateToggle = document.getElementById("lightbox-alternate-toggle");
+  if (alternateToggle) {
+    alternateToggle.textContent = "Show: Alternate";
+    alternateToggle.style.display = "none";
+  }
+  if (toggle) {
+    toggle.textContent = "Show: Evo";
+    toggle.style.display = "none";
+  }
 
   const commonUrl =
     meta?.base_art_url ||
@@ -476,142 +726,226 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
   title.textContent = name;
   metaBox.innerHTML = "";
 
-  const addMeta = (label, value) => {
-    const l = document.createElement("div");
-    l.className = "label";
-    l.textContent = label;
-    const v = document.createElement("div");
-    v.className = "value";
-    v.textContent = value;
-    metaBox.appendChild(l);
-    metaBox.appendChild(v);
-  };
+  updateLightboxMetadata(meta, metaEvo, false, null, "common");
 
-  const cvValue = isEnglish ? meta.cv || "" : meta.jpCV || "";
-  if (cvValue) addMeta("CV", cvValue);
-  if (meta.illustrator) addMeta("Illustrator", meta.illustrator);
+  let showingAlternate = false;
 
-  flavor.innerHTML = meta.flavour_text || "";
+  const updateLightboxVoices = () => {
+    voicesContainer.innerHTML = "";
+    const voicesToUse =
+      showingAlternate && alternate?.voices ? alternate.voices : voices;
 
-  voicesContainer.innerHTML = "";
-  if (voices && voices.length > 0) {
-    voices.forEach((line, index) => {
-      const voiceContainer = document.createElement("div");
-      voiceContainer.className = "lightbox-voice-container";
+    if (voicesToUse && voicesToUse.length > 7) {
+      voicesContainer.classList.add("many-voices");
+    } else {
+      voicesContainer.classList.remove("many-voices");
+    }
 
-      const voiceBtn = document.createElement("button");
-      voiceBtn.className = "lightbox-voice-btn";
-      voiceBtn.innerHTML = `
+    if (voicesToUse && voicesToUse.length > 0) {
+      voicesToUse.forEach((line, index) => {
+        const voiceContainer = document.createElement("div");
+        voiceContainer.className = "lightbox-voice-container";
+
+        const isMeeting = line.label && line.label.startsWith("Meeting");
+        const displayText = isMeeting
+          ? line.label.substring(7)
+          : line.label || line.name || line;
+
+        const voiceBtn = document.createElement("button");
+        voiceBtn.className = isMeeting
+          ? "lightbox-voice-btn meeting-btn"
+          : "lightbox-voice-btn";
+        voiceBtn.innerHTML = `
         <svg class="voice-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="voice-text">${line.label || line.name || line}</span>
+        <span class="voice-text">${displayText}</span>
         <span class="voice-duration">--:--</span>
       `;
 
-      const downloadBtn = document.createElement("button");
-      downloadBtn.className = "lightbox-download-btn";
-      downloadBtn.setAttribute("aria-label", "Download audio");
-      downloadBtn.innerHTML = `
+        const downloadBtn = document.createElement("button");
+        downloadBtn.className = "lightbox-download-btn";
+        downloadBtn.setAttribute("aria-label", "Download audio");
+        downloadBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       `;
-      
-      voiceBtn.addEventListener("click", () => {
-        if (currentAudio) {
-          currentAudio.pause();
-          if (currentButton) {
-            currentButton.classList.remove("playing");
-            currentButton.querySelector(".voice-icon").innerHTML = `
+
+        voiceBtn.addEventListener("click", () => {
+          if (currentAudio) {
+            currentAudio.pause();
+            if (currentButton) {
+              currentButton.classList.remove("playing");
+              currentButton.querySelector(".voice-icon").innerHTML = `
               <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             `;
+            }
           }
-        }
-        
-        if (currentButton === voiceBtn && currentAudio) {
-          currentButton = null;
-          currentAudio = null;
-          return;
-        }
-        
-        const audioUrl = isEnglish ? line.en_url : line.url;
-        const audio = new Audio(audioUrl);
-        currentAudio = audio;
-        currentButton = voiceBtn;
-        
-        voiceBtn.classList.add("playing");
-        voiceBtn.querySelector(".voice-icon").innerHTML = `
+
+          if (currentButton === voiceBtn && currentAudio) {
+            currentButton = null;
+            currentAudio = null;
+            return;
+          }
+
+          const audioUrl = isEnglish ? line.en_url : line.url;
+          const audio = new Audio(audioUrl);
+          currentAudio = audio;
+          currentButton = voiceBtn;
+
+          voiceBtn.classList.add("playing");
+          voiceBtn.querySelector(".voice-icon").innerHTML = `
           <path d="M6 4h4v16H6zM14 4h4v16h-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         `;
-        
-        audio.addEventListener("loadedmetadata", () => {
-          const duration = formatTime(audio.duration);
-          voiceBtn.querySelector(".voice-duration").textContent = duration;
-        });
-        
-        audio.addEventListener("timeupdate", () => {
-          const current = formatTime(audio.currentTime);
-          const duration = formatTime(audio.duration);
-          voiceBtn.querySelector(".voice-duration").textContent = `${current} / ${duration}`;
-        });
-        
-        audio.addEventListener("ended", () => {
-          voiceBtn.classList.remove("playing");
-          voiceBtn.querySelector(".voice-icon").innerHTML = `
+
+          audio.addEventListener("loadedmetadata", () => {
+            const duration = formatTime(audio.duration);
+            voiceBtn.querySelector(".voice-duration").textContent = duration;
+          });
+
+          audio.addEventListener("timeupdate", () => {
+            const current = formatTime(audio.currentTime);
+            const duration = formatTime(audio.duration);
+            voiceBtn.querySelector(
+              ".voice-duration"
+            ).textContent = `${current} / ${duration}`;
+          });
+
+          audio.addEventListener("ended", () => {
+            voiceBtn.classList.remove("playing");
+            voiceBtn.querySelector(".voice-icon").innerHTML = `
             <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           `;
-          const duration = formatTime(audio.duration);
-          voiceBtn.querySelector(".voice-duration").textContent = duration;
-          currentButton = null;
-          currentAudio = null;
+            const duration = formatTime(audio.duration);
+            voiceBtn.querySelector(".voice-duration").textContent = duration;
+            currentButton = null;
+            currentAudio = null;
+          });
+
+          audio.play().catch(console.error);
         });
-        
-        audio.play().catch(console.error);
-      });
 
-      downloadBtn.addEventListener("click", () => {
-        const audioUrl = isEnglish ? line.en_url : line.url;
-        const link = document.createElement("a");
-        link.href = audioUrl;
-        link.download = `${line.label || line.name || "audio"}.mp3`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      });
+        downloadBtn.addEventListener("click", () => {
+          const audioUrl = isEnglish ? line.en_url : line.url;
+          const link = document.createElement("a");
+          link.href = audioUrl;
+          link.download = `${line.label || line.name || "audio"}.mp3`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
 
-      voiceContainer.appendChild(voiceBtn);
-      voiceContainer.appendChild(downloadBtn);
-      voicesContainer.appendChild(voiceContainer);
-    });
-  } else {
-    voicesContainer.innerHTML = '<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">No voice lines available</div>';
-  }
+        voiceContainer.appendChild(voiceBtn);
+        voiceContainer.appendChild(downloadBtn);
+        voicesContainer.appendChild(voiceContainer);
+      });
+    } else {
+      voicesContainer.innerHTML =
+        '<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">No voice lines available</div>';
+    }
+  };
+
+  updateLightboxVoices();
 
   const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.evo_art_url;
+
   if (canToggleEvo) {
     toggle.style.display = "";
     toggle.textContent = "Show: Evo";
     toggle.onclick = () => {
       if (showing === "common") {
-        img.src = evoUrl;
+        if (showingAlternate && alternate?.style_data?.evo_art_url) {
+          img.src = alternate.style_data.evo_art_url;
+        } else {
+          img.src = evoUrl;
+        }
         showing = "evo";
-        flavor.innerHTML = (metaEvo && metaEvo.flavour_text) || "";
         toggle.textContent = "Show: Base";
+
+        updateLightboxMetadata(
+          meta,
+          metaEvo,
+          showingAlternate,
+          showingAlternate ? alternate?.style_data : null,
+          "evo"
+        );
       } else {
-        img.src = commonUrl;
+        if (showingAlternate && alternate?.style_data?.base_art_url) {
+          img.src = alternate.style_data.base_art_url;
+        } else {
+          img.src = commonUrl;
+        }
         showing = "common";
-        flavor.innerHTML = (meta && meta.flavour_text) || "";
         toggle.textContent = "Show: Evo";
+
+        updateLightboxMetadata(
+          meta,
+          metaEvo,
+          showingAlternate,
+          showingAlternate ? alternate?.style_data : null,
+          "common"
+        );
       }
+
+      updateLightboxVoices();
     };
   } else {
     toggle.style.display = "none";
+  }
+
+  const lightboxControls = document.querySelector(".lightbox-controls");
+
+  if (alternate?.style_data) {
+    if (!alternateToggle) {
+      alternateToggle = document.createElement("button");
+      alternateToggle.id = "lightbox-alternate-toggle";
+      alternateToggle.className = "lightbox-btn";
+      alternateToggle.type = "button";
+      alternateToggle.innerHTML = "Show: Alternate";
+      lightboxControls.appendChild(alternateToggle);
+    }
+
+    alternateToggle.style.display = "";
+
+    alternateToggle.onclick = () => {
+      if (showingAlternate) {
+        if (showing === "evo") {
+          img.src = evoUrl;
+        } else {
+          img.src = commonUrl;
+        }
+        alternateToggle.textContent = "Show: Alternate";
+        showingAlternate = false;
+
+        updateLightboxMetadata(meta, metaEvo, false, null, showing);
+      } else {
+        if (showing === "evo" && alternate.style_data?.evo_art_url) {
+          img.src = alternate.style_data.evo_art_url;
+        } else if (alternate.style_data?.base_art_url) {
+          img.src = alternate.style_data.base_art_url;
+        }
+        alternateToggle.textContent = "Show: Normal";
+        showingAlternate = true;
+
+        updateLightboxMetadata(
+          meta,
+          metaEvo,
+          true,
+          alternate.style_data,
+          showing
+        );
+      }
+
+      updateLightboxVoices();
+    };
+  } else if (alternateToggle) {
+    alternateToggle.style.display = "none";
   }
 
   openBtn.onclick = () => {
@@ -621,7 +955,9 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
   downloadImgBtn.onclick = () => {
     const link = document.createElement("a");
     link.href = img.src;
-    link.download = `${name.replace(/[^a-zA-Z0-9]/g, '_')}_${showing === 'evo' ? 'evolved' : 'base'}.png`;
+    link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${
+      showing === "evo" ? "evolved" : "base"
+    }.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -760,6 +1096,27 @@ fetch("cards.json")
       activeFilters.voices = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document
+      .getElementById("filter-alternate")
+      .addEventListener("change", (e) => {
+        activeFilters.alternate = e.target.value;
+        renderCards(allCards, document.getElementById("search").value);
+      });
+
+    if (ENABLE_MANY_VOICES_FILTER) {
+      const manyVoicesContainer = document.getElementById(
+        "filter-many-voices-container"
+      );
+      const manyVoicesSelect = document.getElementById("filter-many-voices");
+
+      if (manyVoicesContainer && manyVoicesSelect) {
+        manyVoicesContainer.style.display = "block";
+        manyVoicesSelect.addEventListener("change", (e) => {
+          activeFilters.manyVoices = e.target.value;
+          renderCards(allCards, document.getElementById("search").value);
+        });
+      }
+    }
     document.getElementById("sort-by").addEventListener("change", (e) => {
       activeFilters.sortBy = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
@@ -798,6 +1155,8 @@ fetch("cards.json")
         activeFilters.tokenMode = "all";
         activeFilters.sortBy = "alpha";
         activeFilters.sortOrder = "asc";
+        activeFilters.manyVoices = "all";
+        activeFilters.alternate = "all";
 
         document.getElementById("filter-rarity").value = "";
         document.getElementById("filter-cost-min").value = "";
@@ -815,7 +1174,16 @@ fetch("cards.json")
         document.getElementById("sort-by").value = "alpha";
         document.getElementById("sort-order").value = "asc";
         document.getElementById("filter-voices").value = "both";
+        document.getElementById("filter-alternate").value = "all";
         document.getElementById("view-mode").value = "list";
+
+        if (ENABLE_MANY_VOICES_FILTER) {
+          const manyVoicesSelect =
+            document.getElementById("filter-many-voices");
+          if (manyVoicesSelect) {
+            manyVoicesSelect.value = "all";
+          }
+        }
         document.querySelector(".container").classList.remove("waterfall");
         document.getElementById("search").value = "";
 
@@ -826,8 +1194,8 @@ fetch("cards.json")
 
 document.getElementById("lang-toggle").addEventListener("click", () => {
   isEnglish = !isEnglish;
-  const btn = document.getElementById("lang-toggle");
-  btn.textContent = isEnglish ? "EN" : "JP";
+  const langText = document.querySelector(".lang-text");
+  langText.textContent = isEnglish ? "EN" : "JP";
 
   const prev = activeFilters.cv;
   const cvSel = document.getElementById("filter-cv");

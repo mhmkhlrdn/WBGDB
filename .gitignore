@@ -2,4 +2,9 @@ cache
 RAW
 code
 public
+append_*.js
+* copy.json
+analyze_*.js
+test_*.js
 index.js
+manual_voice_renamer.js

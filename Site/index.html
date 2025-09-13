@@ -27,7 +27,12 @@
               <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button id="lang-toggle" class="lang-toggle-btn">JP</button>
+          <div class="lang-toggle-wrapper">
+            <button id="lang-toggle" class="lang-toggle-btn">
+              <span class="lang-text">JP</span>
+            </button>
+            <span class="lang-hint-text">Click to change Language</span>
+          </div>
         </div>
       </header>
 
@@ -147,6 +152,22 @@
                   <option value="without">Without voices</option>
                 </select>
               </div>
+              <div class="filter">
+                <label for="filter-alternate">Alternate Art</label>
+                <select id="filter-alternate">
+                  <option value="all">All cards</option>
+                  <option value="with">With alternate art</option>
+                  <option value="without">Without alternate art</option>
+                </select>
+              </div>
+              <!-- <div class="filter" id="filter-many-voices-container" style="display: none;">
+                <label for="filter-many-voices">Many Voices</label>
+                <select id="filter-many-voices">
+                  <option value="all">All cards</option>
+                  <option value="many">5+ voice lines</option>
+                  <option value="few">Less than 5</option>
+                </select>
+              </div> -->
             </div>
           </div>
 
