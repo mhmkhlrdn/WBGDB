@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="./Art/logo.png" />
     <link rel="stylesheet" href="style.css">
-    <title>Shadowverse Worlds Beyond Card Voice Browser</title>
+    <title>The Great Entwining</title>
     
   </head>
   <body>
     <div class="container">
       <header>
         <div class="title">
-          <img src="../voice_button.png" alt="Worlds Beyond" width="28" height="28" />
-          <h1>Worlds Beyond • JP Card Voices</h1>
+          <img src="./Art/logo.png" alt="Worlds Beyond" width="28" height="28" />
+          <h1>Shadowverse: Worlds Beyond • Web of the Entwining</h1>
         </div>
         <nav class="tabs" role="tablist">
-          <button class="tab-btn active" data-tab="voices" role="tab" aria-selected="true">Voices</button>
+          <button class="tab-btn active" data-tab="voices" role="tab" aria-selected="true">Cards</button>
           <button class="tab-btn" data-tab="qna" role="tab" aria-selected="false">Q&A</button>
           <button class="tab-btn" data-tab="problems" role="tab" aria-selected="false">Known Problems</button>
+          <button class="tab-btn" data-tab="credits" role="tab" aria-selected="false">Credits</button>
         </nav>
         <div class="lang-toggle-container">
           <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
@@ -42,110 +44,152 @@
             <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="true">Hide Filters</button>
           </div>
         </div>
-        <div class="filters-row" id="filters">
-          <div class="filter">
-            <label for="filter-rarity">Rarity</label>
-            <select id="filter-rarity">
-              <option value="">Any</option>
-              <option value="1">Bronze</option>
-              <option value="2">Silver</option>
-              <option value="3">Gold</option>
-              <option value="4">Legendary</option>
-            </select>
+        <div class="filters-section" id="filters">
+          <div class="filter-group">
+            <h3 class="filter-group-title">Card Properties</h3>
+            <div class="filters-row">
+              <div class="filter">
+                <label for="filter-rarity">Rarity</label>
+                <select id="filter-rarity">
+                  <option value="">Any</option>
+                  <option value="1">Bronze</option>
+                  <option value="2">Silver</option>
+                  <option value="3">Gold</option>
+                  <option value="4">Legendary</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-type">Type</label>
+                <select id="filter-type">
+                  <option value="">Any</option>
+                  <option value="1">Follower</option>
+                  <option value="amulet">Amulet</option>
+                  <option value="4">Spell</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-class">Class</label>
+                <select id="filter-class">
+                  <option value="">Any</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-set">Set</label>
+                <select id="filter-set">
+                  <option value="">Any</option>
+                  <option value="10000">Basic</option>
+                  <option value="10001">Legends Rise</option>
+                  <option value="10002">Infinity Evolved</option>
+                  <option value="10003">Heirs of the Omen</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-token">Token</label>
+                <select id="filter-token">
+                  <option value="all">All cards</option>
+                  <option value="exclude">No tokens</option>
+                  <option value="only">Tokens only</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <div class="filter">
-            <label for="filter-cost-min">Cost</label>
-            <input type="number" id="filter-cost-min" min="0" placeholder="min" style="width:72px" />
-            <span style="color:var(--muted)">–</span>
-            <input type="number" id="filter-cost-max" min="0" placeholder="max" style="width:72px" />
+
+          <div class="filter-group">
+            <h3 class="filter-group-title">Stats</h3>
+            <div class="filters-row">
+              <div class="filter">
+                <label for="filter-cost-min">Cost</label>
+                <div class="range-inputs">
+                  <input type="number" id="filter-cost-min" min="0" placeholder="min" />
+                  <span class="range-separator">–</span>
+                  <input type="number" id="filter-cost-max" min="0" placeholder="max" />
+                </div>
+              </div>
+              <div class="filter">
+                <label for="filter-atk-min">ATK</label>
+                <div class="range-inputs">
+                  <input type="number" id="filter-atk-min" min="0" placeholder="min" />
+                  <span class="range-separator">–</span>
+                  <input type="number" id="filter-atk-max" min="0" placeholder="max" />
+                </div>
+              </div>
+              <div class="filter">
+                <label for="filter-life-min">LIFE</label>
+                <div class="range-inputs">
+                  <input type="number" id="filter-life-min" min="0" placeholder="min" />
+                  <span class="range-separator">–</span>
+                  <input type="number" id="filter-life-max" min="0" placeholder="max" />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="filter">
-            <label for="filter-atk-min">ATK</label>
-            <input type="number" id="filter-atk-min" min="0" placeholder="min" style="width:72px" />
-            <span style="color:var(--muted)">–</span>
-            <input type="number" id="filter-atk-max" min="0" placeholder="max" style="width:72px" />
+
+          <div class="filter-group">
+            <h3 class="filter-group-title">Content & Creators</h3>
+            <div class="filters-row">
+              <div class="filter">
+                <label for="filter-illustrator">Illustrator</label>
+                <select id="filter-illustrator">
+                  <option value="">Any</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-cv">CV</label>
+                <select id="filter-cv">
+                  <option value="">Any</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="filter-voices">Voices</label>
+                <select id="filter-voices">
+                  <option value="both">Both</option>
+                  <option value="with">With voices</option>
+                  <option value="without">Without voices</option>
+                </select>
+              </div>
+            </div>
           </div>
-          <div class="filter">
-            <label for="filter-life-min">LIFE</label>
-            <input type="number" id="filter-life-min" min="0" placeholder="min" style="width:72px" />
-            <span style="color:var(--muted)">–</span>
-            <input type="number" id="filter-life-max" min="0" placeholder="max" style="width:72px" />
-          </div>
-        </div>
-        <div class="filters-row filters-row--secondary" id="filters-secondary">
-          <div class="filter">
-            <label for="sort-by">Sort</label>
-            <select id="sort-by">
-              <option value="alpha">Alphabetical</option>
-              <option value="cost">Cost</option>
-              <option value="atk">ATK</option>
-              <option value="life">LIFE</option>
-              <option value="class">Class</option>
-              <option value="rarity">Rarity</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="filter-type">Type</label>
-            <select id="filter-type">
-              <option value="">Any</option>
-              <option value="1">Follower</option>
-              <option value="amulet">Amulet</option>
-              <option value="4">Spell</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="filter-set">Set</label>
-            <select id="filter-set">
-              <option value="">Any</option>
-              <option value="10000">Basic</option>
-              <option value="10001">Legends Rise</option>
-              <option value="10002">Infinity Evolved</option>
-              <option value="10003">Heirs of the Omen</option>
-            </select>
-          </div>
-          <div class="filter" style="min-width:260px;">
-            <label for="filter-class">Class</label>
-            <select id="filter-class">
-              <option value="">Any</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="filter-token">Token</label>
-            <select id="filter-token">
-              <option value="all">Tokens + Non-tokens</option>
-              <option value="exclude">No tokens</option>
-              <option value="only">Tokens only</option>
-            </select>
-          </div>
-          <div class="filter" style="min-width:260px;">
-            <label for="filter-illustrator">Illustrator</label>
-            <select id="filter-illustrator">
-              <option value="">Any</option>
-            </select>
-          </div>
-          <div class="filter" style="min-width:220px;">
-            <label for="filter-cv">CV</label>
-            <select id="filter-cv">
-              <option value="">Any</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="filter-voices">Voices</label>
-            <select id="filter-voices">
-              <option value="both">Both</option>
-              <option value="with">With voices</option>
-              <option value="without">Without voices</option>
-            </select>
-          </div>
-          <div class="filter">
-            <label for="view-mode">View</label>
-            <select id="view-mode">
-              <option value="list">List</option>
-              <option value="waterfall">Waterfall (Beta)</option>
-            </select>
-          </div>
-          <div class="filter" style="margin-left:auto;background:transparent;border:none;box-shadow:none;padding:0;">
-            <button id="filters-reset" type="button" class="filter-reset-btn" aria-label="Reset filters">Reset Filters</button>
+
+          <div class="filter-group">
+            <h3 class="filter-group-title">Display & Sort</h3>
+            <div class="filters-row">
+              <div class="filter">
+                <label for="sort-by">Sort by</label>
+                <select id="sort-by">
+                  <option value="alpha">Alphabetical</option>
+                  <option value="cost">Cost</option>
+                  <option value="atk">ATK</option>
+                  <option value="life">LIFE</option>
+                  <option value="class">Class</option>
+                  <option value="rarity">Rarity</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="sort-order">Order</label>
+                <select id="sort-order">
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+              <div class="filter">
+                <label for="view-mode">View mode</label>
+                <select id="view-mode">
+                  <option value="list">List</option>
+                  <option value="waterfall">Waterfall</option>
+                </select>
+              </div>
+              <div class="filter filter-actions">
+                <button id="filters-reset" type="button" class="filter-reset-btn" aria-label="Reset all filters">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Reset All
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -164,9 +208,14 @@
             <h3 id="lightbox-title" class="lightbox-title"></h3>
             <div class="lightbox-meta" id="lightbox-meta"></div>
             <div class="lightbox-flavor" id="lightbox-flavor"></div>
+            <div class="lightbox-voices" id="lightbox-voices">
+              <h4 class="lightbox-voices-title">Voice Lines</h4>
+              <div class="lightbox-voices-list" id="lightbox-voices-list"></div>
+            </div>
             <div class="lightbox-controls">
               <button id="lightbox-toggle" class="lightbox-btn" type="button">Show: Evo</button>
               <button id="lightbox-download" class="lightbox-btn" type="button">Open Image</button>
+              <button id="lightbox-download-img" class="lightbox-btn" type="button">Download Image</button>
             </div>
           </div>
         </div>
@@ -177,7 +226,7 @@
           <h2>Q&A</h2>
           <div class="qna-item">
             <p class="q">What is this?</p>
-            <p class="a">A static site hosted by Github Page for browsing and playing voice lines of cards from the game "Shadowverse Worlds Beyond".</p>
+            <p class="a">A static site hosted by Github Page for browsing and viewing various data of cards from the game "Shadowverse Worlds Beyond".</p>
           </div>
           <div class="qna-item">
             <p class="q">Where did you gather all the audio data?</p>
@@ -240,6 +289,20 @@
               <p class="a">Filene, Dragonsign, Puppet, Forte, Olivia, Gildaria, Sinciro, Titania, Albert, Charon, Ceres, Fairy Convocation, Aether, Cerberus, Dimension Climb, Orchis, Galmieux.</p>
             </div>
           </div>
+          <div class="qna-item">
+            <p class="q">Missing Full Arts</p>
+            <p class="a">A lot of token cards don't yet have the full-arts inserted, we will try to provide them as soon as possible.</p>
+          </div>
+      </section>
+
+      <section id="credits" role="tabpanel" aria-labelledby="tab-credits">
+        <div class="qna">
+          <h2>Credits</h2>
+          <div class="qna-item">
+            <p class="q">Full-Art Images</p>
+            <p class="a">Provided by <strong>Xtopher17</strong> - High-quality full-art card images used in the lightbox view.</p>
+          </div>
+        </div>
       </section>
     </div>
 
