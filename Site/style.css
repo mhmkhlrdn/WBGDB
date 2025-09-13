@@ -766,6 +766,49 @@ section.active {
   }
 }
 
+@media (max-width: 767px) {
+  .lang-hint-text {
+    display: none;
+  }
+  
+  .lightbox {
+    padding: 10px;
+  }
+  
+  .lightbox-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .lightbox-side {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+  }
+  
+  .lightbox-voices-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .lightbox-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .lightbox-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
 .lang-toggle-btn:hover {
   background: linear-gradient(180deg, rgba(108,140,255,0.25), rgba(138,92,255,0.2));
   border-color: rgba(108,140,255,0.6);
