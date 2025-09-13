@@ -1,7 +1,10 @@
 let isEnglish = false;
 let allCards = {};
-  let currentAudio = null;
-  let currentButton = null;
+let currentAudio = null;
+let currentButton = null;
+let currentCardIndex = -1;
+let filteredCards = [];
+let currentCardData = null;
 
   // Debounce utility function
   function debounce(func, wait) {
@@ -271,16 +274,29 @@ function renderCards(cards, filter = "") {
     return activeFilters.sortOrder === "desc" ? -result : result;
   });
 
+  // Store filtered cards for navigation
+  filteredCards = [];
+  
   // Use document fragment for better performance
   const fragment = document.createDocumentFragment();
   
-  entries.forEach(([cardName, cardObj]) => {
+  entries.forEach(([cardName, cardObj], index) => {
     const lines =
       cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
     
     const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
     const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
     if (!passesFilters(lines, meta, cardObj)) return;
+    
+    // Add to filtered cards for navigation
+    filteredCards.push({
+      id: cardName,
+      name: formatName(cardName),
+      meta,
+      metaEvo,
+      lines,
+      alternate: cardObj.metadata?.alternate
+    });
 
     const cardDiv = document.createElement("div");
     cardDiv.className = "card";
@@ -324,12 +340,15 @@ function renderCards(cards, filter = "") {
       img.dataset.artType = "normal";
       img.style.cursor = "zoom-in";
       img.addEventListener("click", () => {
+        const cardIndex = filteredCards.findIndex(card => card.id === cardName);
         openLightbox({
           name: title.textContent,
           meta,
           metaEvo,
           voices: lines,
           alternate: cardObj.metadata?.alternate,
+          cardIndex,
+          cardData: filteredCards[cardIndex]
         });
       });
 
@@ -741,7 +760,7 @@ function updateLightboxMetadata(
   }
 }
 
-function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
+function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, cardIndex = -1, cardData = null }) {
   const lb = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
   const title = document.getElementById("lightbox-title");
@@ -751,6 +770,18 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
   const toggle = document.getElementById("lightbox-toggle");
   const openBtn = document.getElementById("lightbox-download");
   const downloadImgBtn = document.getElementById("lightbox-download-img");
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
+
+  // Store current card data for navigation
+  currentCardIndex = cardIndex;
+  currentCardData = cardData;
+
+  // Update navigation button states
+  if (prevBtn && nextBtn) {
+    prevBtn.disabled = currentCardIndex <= 0;
+    nextBtn.disabled = currentCardIndex >= filteredCards.length - 1;
+  }
 
   let alternateToggle = document.getElementById("lightbox-alternate-toggle");
   if (alternateToggle) {
@@ -1014,6 +1045,57 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
     link.click();
     document.body.removeChild(link);
   };
+
+  // Navigation event listeners
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      if (currentCardIndex > 0) {
+        const prevCardData = filteredCards[currentCardIndex - 1];
+        const prevCardObj = allCards[prevCardData.id];
+        if (prevCardObj) {
+          const prevMeta = prevCardObj.metadata?.common || {};
+          const prevMetaEvo = prevCardObj.metadata?.evo || {};
+          const prevLines = prevCardObj.voices || [];
+          const prevAlternate = prevCardObj.metadata?.alternate || null;
+          
+          openLightbox({
+            name: prevCardData.name,
+            meta: prevMeta,
+            metaEvo: prevMetaEvo,
+            voices: prevLines,
+            alternate: prevAlternate,
+            cardIndex: currentCardIndex - 1,
+            cardData: prevCardData
+          });
+        }
+      }
+    };
+  }
+
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      if (currentCardIndex < filteredCards.length - 1) {
+        const nextCardData = filteredCards[currentCardIndex + 1];
+        const nextCardObj = allCards[nextCardData.id];
+        if (nextCardObj) {
+          const nextMeta = nextCardObj.metadata?.common || {};
+          const nextMetaEvo = nextCardObj.metadata?.evo || {};
+          const nextLines = nextCardObj.voices || [];
+          const nextAlternate = nextCardObj.metadata?.alternate || null;
+          
+          openLightbox({
+            name: nextCardData.name,
+            meta: nextMeta,
+            metaEvo: nextMetaEvo,
+            voices: nextLines,
+            alternate: nextAlternate,
+            cardIndex: currentCardIndex + 1,
+            cardData: nextCardData
+          });
+        }
+      }
+    };
+  }
 
   lb.classList.add("open");
   lb.setAttribute("aria-hidden", "false");
