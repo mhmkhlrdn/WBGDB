@@ -222,6 +222,23 @@
         "card_image_hash": "fdffd4ea082a45e981a90c66c439ec14",
         "card_banner_image_hash": "1202d42c869b4a82922bcbffe569ee32",
         "evo_art_url": "Art/10264111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70264110,
+          "base_art_url": "./Art/70264110.png",
+          "evo_art_url": "./Art/70264111.png",
+          "hash": "d32b139880584673b2b43c2c2327eebe",
+          "evo_hash": "511c40ff34c042bb81646dfc53dacac6",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "ameya",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -366,6 +383,23 @@
         "card_image_hash": "3be6efc0bc5e4ed685b9a7d2bfb0df2d",
         "card_banner_image_hash": "f9955ab0e0f5490798d8295fdcdca504",
         "evo_art_url": "Art/10124111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70124110,
+          "base_art_url": "./Art/70124110.png",
+          "evo_art_url": "./Art/70124111.png",
+          "hash": "238693b90aa34ace95de1e64a3f1510b",
+          "evo_hash": "13559cc029444d8e8ff0c0f72c66fb3d",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "ell",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -3255,6 +3289,23 @@
         "card_image_hash": "7e551629c13141b88f2dba7c67419ea1",
         "card_banner_image_hash": "c39959d42b404f398f2cd22a7d7bdbb1",
         "evo_art_url": "Art/10154111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70154110,
+          "base_art_url": "./Art/70154110.png",
+          "evo_art_url": "./Art/70154111.png",
+          "hash": "9ffeac9eeb2d490da33d72d7c693d8dc",
+          "evo_hash": "9457cf0efda9400abda8f68275818c1d",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Bukurote",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -3324,6 +3375,23 @@
         "card_image_hash": "f57ca74c18b945a79fc8ec2a81ad1323",
         "card_banner_image_hash": "36155f34bd284c099e4eede40b0b6ad1",
         "evo_art_url": "Art/10153111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70153110,
+          "base_art_url": "./Art/70153110.png",
+          "evo_art_url": "./Art/70153111.png",
+          "hash": "30a9faabdfc544eeb688c314baf213b6",
+          "evo_hash": "15c3a51ab0744121aebd92d80aa5bde0",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Manabi Okada",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -3430,6 +3498,23 @@
         "card_image_hash": "54816bb2a1894c2f9f3c40720507a48c",
         "card_banner_image_hash": "70650efbba9e49c0a810378b4776b476",
         "evo_art_url": "Art/10254121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70254120,
+          "base_art_url": "./Art/70254120.png",
+          "evo_art_url": "./Art/70254121.png",
+          "hash": "98f197186e104a298405d079905daf6d",
+          "evo_hash": "26e966cb8c3f4f99999ac3946d13d9bf",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "liiko",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -3493,6 +3578,23 @@
         "card_image_hash": "a00bd0a157d34473b23130ae61e34e82",
         "card_banner_image_hash": "5a2077a6d67742c7a09a06a725af766b",
         "evo_art_url": "Art/10202111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70202110,
+          "base_art_url": "./Art/70202110.png",
+          "evo_art_url": "./Art/70202111.png",
+          "hash": "d63c2074d6c14e6f9b7aaafc456add77",
+          "evo_hash": "a8930fc8a31c4061b1ce1a5abf520b22",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "hajime",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -4894,7 +4996,24 @@
         "base_art_url": "Art/10373310.png",
         "jpCV": "茅野愛衣"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70373310,
+          "base_art_url": "./Art/70373310.png",
+          "evo_art_url": null,
+          "hash": "314fcb7e9dad40548b249201c22d38c1",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Rwael",
+          "skill_text": "",
+          "flavour_text": "Don't worry, there's plenty of destruction to go around!\n—Lishenna, Omen of Destruction",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Devious_Lesser_Mummy": {
@@ -5490,7 +5609,24 @@
         "base_art_url": "Art/10134310.png",
         "jpCV": "木戸衣吹"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70134310,
+          "base_art_url": "./Art/70134310.png",
+          "evo_art_url": null,
+          "hash": "d0577dac8d53464a91be0fdd1447b8dd",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Soji Hisakata",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Dirk,_Metal_Mercenary": {
@@ -5893,7 +6029,24 @@
         "base_art_url": "Art/10042310.png",
         "jpCV": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70042310,
+          "base_art_url": "./Art/70042310.png",
+          "evo_art_url": null,
+          "hash": "fd544f0f89524ac1944f02a1d581c366",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Cristina \"Vee\" Valenzuela",
+          "illustrator": "netuki",
+          "skill_text": "",
+          "flavour_text": "That's right! This phoenix has risen from the ashes, as glorious as ever. No longer will I answer to that foolish nickname Fennie. No, from now on you will only address me as The Super-Magnificent, Brilliant, and Beau—Hey, wait! I'm not done talking yet!",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Dwarven_Malletman": {
@@ -7318,6 +7471,23 @@
         "card_image_hash": "c0e91543f7ba4e939dc392f0ffbe990f",
         "card_banner_image_hash": "ce477048283240848fd6c1f596d2c5fe",
         "evo_art_url": "Art/10244111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70244110,
+          "base_art_url": "./Art/70244110.png",
+          "evo_art_url": "./Art/70244111.png",
+          "hash": "7fe848aabb184a888e6cfc69ef264985",
+          "evo_hash": "6179454efe784831a1c82b2438d17628",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Ponzu",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -7589,7 +7759,24 @@
         "base_art_url": "Art/10031310.png",
         "jpCV": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70031310,
+          "base_art_url": "./Art/70031310.png",
+          "evo_art_url": null,
+          "hash": "82b6efe473a3474880a758212fb7e479",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Khoi Dao",
+          "illustrator": "liiko",
+          "skill_text": "",
+          "flavour_text": "The stars guide the practitioner of Onmyodo. Counseled by the heavens above on earthly affairs below, it is not in the nature of the Onmyodo master to miss.",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Forte,_Blackwing_Dragoon": {
@@ -7664,6 +7851,23 @@
         "card_image_hash": "7648bf321a30499798301d8ff077ebab",
         "card_banner_image_hash": "210423ac093046f49871fb24d3455ad3",
         "evo_art_url": "Art/10144121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70144120,
+          "base_art_url": "./Art/70144120.png",
+          "evo_art_url": "./Art/70144121.png",
+          "hash": "e614313bff2a48c298571a4f2a22ddf9",
+          "evo_hash": "10d67ab985934bcfa8044ee4c620eda8",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Mushimaro",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -7897,6 +8101,23 @@
         "card_image_hash": "729f6201f3ba451cad76103426914ffb",
         "card_banner_image_hash": "10587a6456f94306a5bb1a0efbfa603f",
         "evo_art_url": "Art/10344121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70344120,
+          "base_art_url": "./Art/70344120.png",
+          "evo_art_url": "./Art/70344121.png",
+          "hash": "349a6da33869423384f4b9d182288ede",
+          "evo_hash": "f79efdcbe74c45f69687c26006ee5b9c",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "77gl",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -8419,6 +8640,23 @@
         "card_image_hash": "58eeeaffd5fc495db26dfa4b7bfb9559",
         "card_banner_image_hash": "5dddc51208094a5da448eb70cc4df610",
         "evo_art_url": "Art/10224111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70224110,
+          "base_art_url": "./Art/70224110.png",
+          "evo_art_url": "./Art/70224111.png",
+          "hash": "83e9cd4501ae4233b4082b57deb3c66b",
+          "evo_hash": "7c116375b9d1473cb9537a9fefe5d484",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Ponzu",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -9816,7 +10054,24 @@
         "base_art_url": "Art/10333310.png",
         "jpCV": "小山力也"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70333310,
+          "base_art_url": "./Art/70333310.png",
+          "evo_art_url": null,
+          "hash": "0c3d3053b7f44d2f8f6544caf0897c76",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Julie Park",
+          "illustrator": "Soichi",
+          "skill_text": "",
+          "flavour_text": "No falsehood can deceive my eye. Begone from this place.\n—Velharia, Heir to Truth",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Immaculate_Adjudicator": {
@@ -10873,6 +11128,7 @@
         "card_banner_image_hash": "690780a2ff164e888017b744e6132b6e",
         "evo_art_url": "Art/10071111.png"
       }
+     
     }
   },
   "Knight": {
@@ -11244,6 +11500,7 @@
         "card_banner_image_hash": "41fecc2511744d73aa03b4c7cf4f25e4",
         "evo_art_url": "Art/10121111.png"
       }
+    
     }
   },
   "Lapis,_Shining_Seraph": {
@@ -11306,6 +11563,23 @@
         "card_image_hash": "061a85831b84477aad709b03812866e3",
         "card_banner_image_hash": "b02141e23e9b4ccb9d9e7fe91814b318",
         "evo_art_url": "Art/10163131.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70163130,
+          "base_art_url": "./Art/70163130.png",
+          "evo_art_url": "./Art/70163131.png",
+          "hash": "6d3c28b7544f45c5980ae0464abf5ca6",
+          "evo_hash": "73f92cae86924f2bbba598d885f3d154",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Onineko (Unevolved)",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -11816,6 +12090,23 @@
         "card_image_hash": "3726b3f767d5406191347fde75035e67",
         "card_banner_image_hash": "af97ce714edc43d785c86ffec34eefea",
         "evo_art_url": "Art/10374121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70374120,
+          "base_art_url": "./Art/70374120.png",
+          "evo_art_url": "./Art/70374121.png",
+          "hash": "7dc63f0521ac40bc84bb27fb620b6392",
+          "evo_hash": "63456fde67714d20976ef8c31c37495b",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Bukurote",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -14128,6 +14419,23 @@
         "card_image_hash": "bf7cd0057e1246769e61b447b803577a",
         "card_banner_image_hash": "847c3fa6825f49978cc838276844371f",
         "evo_art_url": "Art/10243111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70243110,
+          "base_art_url": "./Art/70243110.png",
+          "evo_art_url": "./Art/70243111.png",
+          "hash": "4dee1675f7214e65b0f6ccc8ebd2df48",
+          "evo_hash": "d2c5d25b254949ecb32b87100af5d5d5",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "SEAL",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -14732,6 +15040,23 @@
         "card_image_hash": "36d45f2c19fe494cacc09461a0627e60",
         "card_banner_image_hash": "c239a45b2e2f47f2920a18b552df9754",
         "evo_art_url": "Art/10104111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70104110,
+          "base_art_url": "./Art/70104110.png",
+          "evo_art_url": "./Art/70104111.png",
+          "hash": "e180e3596a59461f80d5611107419b6b",
+          "evo_hash": "13c226a124d34f5fbdcbb14e5f757f86",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Mushimaro",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -15944,6 +16269,14 @@
         "card_image_hash": "82baec2a5bfa483b9751463a4912d002",
         "card_banner_image_hash": "07abbcfce2bd460497e7e5b750575f33",
         "evo_art_url": "Art/90071111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70071110,
+          "base_art_url": "./Art/70071110.png",
+          "evo_art_url": "./Art/70071111.png"
+        }
       }
     }
   },
@@ -16993,7 +17326,6 @@
         "en_url": "Audio/EN/Rodeo,_Anathema_of_Judgment/chunk5.mp3",
         "label": "Super-Evolve"
       }
-      
     ],
     "metadata": {
       "common": {
@@ -18310,7 +18642,24 @@
         "base_art_url": "Art/10161210.png",
         "jpCV": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70161210,
+          "base_art_url": "./Art/70161210.png",
+          "evo_art_url": null,
+          "hash": "e030ae0a279141ab8edfec5dc0c5267c",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Lizzie Freeman",
+          "illustrator": "Akefumi",
+          "skill_text": "",
+          "flavour_text": "This might sound blasphemous, but if <i>that's</i> what heresy looks like, then sign me right up!\n—A pagan devotee",
+          "evo_flavour_text": ""
+        }
+      }
     }
   },
   "Seria,_Gunslinger_Maid": {
@@ -18801,6 +19150,23 @@
         "card_image_hash": "18a2ad8949144894b5cda6c14fb4a611",
         "card_banner_image_hash": "4398baa88d22427c97bf5a5c187e8dfd",
         "evo_art_url": "Art/10324111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70324110,
+          "base_art_url": "./Art/70324110.png",
+          "evo_art_url": "./Art/70324111.png",
+          "hash": "72daf1408778476ca9e3ee8df0b17277",
+          "evo_hash": "728d8b7a9370471f89a68f9bcb0981a4",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "takebayashi",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -20493,6 +20859,23 @@
         "card_image_hash": "986594d491774f14ad78dd371f7cd20a",
         "card_banner_image_hash": "033a975c4a9d43d9b59adeeebfc3d704",
         "evo_art_url": "Art/10214111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70214110,
+          "base_art_url": "./Art/70214110.png",
+          "evo_art_url": "./Art/70214111.png",
+          "hash": "e208333d9dce4fa987fe89eb94639a96",
+          "evo_hash": "47d422659b41426d9323bdb917fc90ce",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "yamamomo",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },

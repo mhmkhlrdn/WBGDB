@@ -231,15 +231,61 @@ function renderCards(cards, filter = "") {
       img.alt = `${title.textContent} image`;
       img.src = commonUrl;
       img.dataset.variant = "common";
+      img.dataset.artType = "normal";
       img.style.cursor = "zoom-in";
-      img.addEventListener("click", () =>
+      img.addEventListener("click", () => {
         openLightbox({
           name: title.textContent,
           meta,
           metaEvo,
           voices: lines,
-        })
-      );
+          alternate: cardObj.metadata?.alternate,
+        });
+      });
+
+      // Add alternate art toggle if alternate data exists
+      if (cardObj.metadata?.alternate?.style_data) {
+        const alternateToggle = document.createElement("button");
+        alternateToggle.className = "alternate-toggle";
+        alternateToggle.setAttribute("aria-label", "Toggle alternate art");
+        alternateToggle.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+
+        alternateToggle.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent triggering the lightbox
+
+          const isAlternate = img.dataset.artType === "alternate";
+          const alternateData = cardObj.metadata?.alternate?.style_data;
+
+          if (isAlternate) {
+            // Switch back to normal art
+            img.src = commonUrl;
+            img.dataset.artType = "normal";
+            alternateToggle.classList.remove("active");
+            
+            // Restore original metadata display
+            updateCardMetadata(cardDiv, meta, false);
+          } else {
+            // Switch to alternate art
+            if (alternateData?.hash) {
+              const alternateUrl = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+              img.src = alternateUrl;
+              img.dataset.artType = "alternate";
+              alternateToggle.classList.add("active");
+              
+              // Update metadata display with alternate data
+              updateCardMetadata(cardDiv, meta, true, alternateData);
+            }
+          }
+        });
+
+        imgWrap.appendChild(alternateToggle);
+      }
 
       // Add tooltip for skill text
       if (meta.skill_text) {
@@ -262,10 +308,10 @@ function renderCards(cards, filter = "") {
           const tooltipRect = tooltip.getBoundingClientRect();
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
-          
+
           let left = e.clientX + 10;
           let top = e.clientY - 10;
-          
+
           // Adjust if tooltip would go off screen
           if (left + tooltipRect.width > viewportWidth) {
             left = e.clientX - tooltipRect.width - 10;
@@ -273,7 +319,7 @@ function renderCards(cards, filter = "") {
           if (top + tooltipRect.height > viewportHeight) {
             top = e.clientY - tooltipRect.height - 10;
           }
-          
+
           tooltip.style.left = `${left}px`;
           tooltip.style.top = `${top}px`;
         });
@@ -321,7 +367,7 @@ function renderCards(cards, filter = "") {
       // Always add toggle container for consistent spacing
       const toggleContainer = document.createElement("div");
       toggleContainer.className = "img-toggle-container";
-      
+
       if (canToggleEvo) {
         const toggleBtn = document.createElement("button");
         toggleBtn.className = "img-toggle";
@@ -331,15 +377,26 @@ function renderCards(cards, filter = "") {
          <span>Show: Evo</span>
         `;
         toggleBtn.addEventListener("click", () => {
+          const isAlternate = img.dataset.artType === "alternate";
+          const alternateData = cardObj.metadata?.alternate?.style_data;
+          
           if (img.dataset.variant === "common") {
-            img.src = evoUrl;
+            if (isAlternate && alternateData?.evo_hash) {
+              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.evo_hash}.png`;
+            } else {
+              img.src = evoUrl;
+            }
             img.dataset.variant = "evo";
             toggleBtn.setAttribute("aria-pressed", "true");
             toggleBtn.innerHTML = `
               <span>Show: Base</span>
             `;
           } else {
-            img.src = commonUrl;
+            if (isAlternate && alternateData?.hash) {
+              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+            } else {
+              img.src = commonUrl;
+            }
             img.dataset.variant = "common";
             toggleBtn.setAttribute("aria-pressed", "false");
             toggleBtn.innerHTML = `
@@ -349,7 +406,7 @@ function renderCards(cards, filter = "") {
         });
         toggleContainer.appendChild(toggleBtn);
       }
-      
+
       imgWrap.appendChild(toggleContainer);
       cardDiv.appendChild(imgWrap);
     }
@@ -449,7 +506,106 @@ function buildCardImageUrls(cardImageHash, evoCardImageHash) {
   };
 }
 
-function openLightbox({ name, meta, metaEvo, voices = [] }) {
+function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
+  if (activeFilters.viewMode !== "list") return; // Only update metadata in list view
+  
+  const leftMetadata = cardDiv.querySelector(".card-metadata");
+  const rightMetadata = cardDiv.querySelectorAll(".card-metadata")[1];
+  
+  if (!leftMetadata || !rightMetadata) return;
+  
+  // Clear existing metadata
+  leftMetadata.innerHTML = "";
+  rightMetadata.innerHTML = "";
+  
+  // Use alternate data if available and not empty, otherwise use original
+  const cvValue = isAlternate && alternateData?.cv ? 
+    alternateData.cv : 
+    (isEnglish ? meta.cv || "" : meta.jpCV || "");
+    
+  const illustratorValue = isAlternate && alternateData?.illustrator ? 
+    alternateData.illustrator : 
+    meta.illustrator || "";
+  
+  // Add CV metadata
+  if (cvValue) {
+    const cvItem = document.createElement("div");
+    cvItem.className = "card-metadata-item";
+    cvItem.innerHTML = `
+      <div class="card-metadata-label">CV</div>
+      <div class="card-metadata-value">${cvValue}</div>
+    `;
+    leftMetadata.appendChild(cvItem);
+  }
+  
+  // Add Illustrator metadata
+  if (illustratorValue) {
+    const illustratorItem = document.createElement("div");
+    illustratorItem.className = "card-metadata-item";
+    illustratorItem.innerHTML = `
+      <div class="card-metadata-label">Illustrator</div>
+      <div class="card-metadata-value">${illustratorValue}</div>
+    `;
+    rightMetadata.appendChild(illustratorItem);
+  }
+}
+
+function updateLightboxMetadata(meta, metaEvo, isAlternate, alternateData = null) {
+  const metaBox = document.getElementById("lightbox-meta");
+  const flavor = document.getElementById("lightbox-flavor");
+  
+  if (!metaBox || !flavor) return;
+  
+  // Clear existing metadata
+  metaBox.innerHTML = "";
+  
+  // Use alternate data if available and not empty, otherwise use original
+  const cvValue = isAlternate && alternateData?.cv ? 
+    alternateData.cv : 
+    (isEnglish ? meta.cv || "" : meta.jpCV || "");
+    
+  const illustratorValue = isAlternate && alternateData?.illustrator ? 
+    alternateData.illustrator : 
+    meta.illustrator || "";
+  
+  // Add CV metadata
+  if (cvValue) {
+    const cvItem = document.createElement("div");
+    cvItem.innerHTML = `
+      <div class="label">CV</div>
+      <div class="value">${cvValue}</div>
+    `;
+    metaBox.appendChild(cvItem);
+  }
+  
+  // Add Illustrator metadata
+  if (illustratorValue) {
+    const illustratorItem = document.createElement("div");
+    illustratorItem.innerHTML = `
+      <div class="label">Illustrator</div>
+      <div class="value">${illustratorValue}</div>
+    `;
+    metaBox.appendChild(illustratorItem);
+  }
+  
+  
+  // Update flavor text with alternate data if available
+  if (isAlternate && alternateData?.flavour_text) {
+    flavor.innerHTML = alternateData.flavour_text;
+  } else if (isAlternate && alternateData?.evo_flavour_text && showing === "evo") {
+    flavor.innerHTML = alternateData.evo_flavour_text;
+  } else {
+    // Use original flavor text
+    if (showing === "evo" && metaEvo?.flavour_text) {
+      flavor.innerHTML = metaEvo.flavour_text;
+    } else {
+      flavor.innerHTML = meta.flavour_text || "";
+    }
+  }
+}
+
+function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
+  
   const lb = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
   const title = document.getElementById("lightbox-title");
@@ -459,6 +615,17 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
   const toggle = document.getElementById("lightbox-toggle");
   const openBtn = document.getElementById("lightbox-download");
   const downloadImgBtn = document.getElementById("lightbox-download-img");
+  
+  // Reset button states
+  let alternateToggle = document.getElementById("lightbox-alternate-toggle");
+  if (alternateToggle) {
+    alternateToggle.textContent = "Show: Alternate";
+    alternateToggle.style.display = "none";
+  }
+  if (toggle) {
+    toggle.textContent = "Show: Evo";
+    toggle.style.display = "none";
+  }
 
   const commonUrl =
     meta?.base_art_url ||
@@ -520,7 +687,7 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
           <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       `;
-      
+
       voiceBtn.addEventListener("click", () => {
         if (currentAudio) {
           currentAudio.pause();
@@ -532,34 +699,36 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
             `;
           }
         }
-        
+
         if (currentButton === voiceBtn && currentAudio) {
           currentButton = null;
           currentAudio = null;
           return;
         }
-        
+
         const audioUrl = isEnglish ? line.en_url : line.url;
         const audio = new Audio(audioUrl);
         currentAudio = audio;
         currentButton = voiceBtn;
-        
+
         voiceBtn.classList.add("playing");
         voiceBtn.querySelector(".voice-icon").innerHTML = `
           <path d="M6 4h4v16H6zM14 4h4v16h-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         `;
-        
+
         audio.addEventListener("loadedmetadata", () => {
           const duration = formatTime(audio.duration);
           voiceBtn.querySelector(".voice-duration").textContent = duration;
         });
-        
+
         audio.addEventListener("timeupdate", () => {
           const current = formatTime(audio.currentTime);
           const duration = formatTime(audio.duration);
-          voiceBtn.querySelector(".voice-duration").textContent = `${current} / ${duration}`;
+          voiceBtn.querySelector(
+            ".voice-duration"
+          ).textContent = `${current} / ${duration}`;
         });
-        
+
         audio.addEventListener("ended", () => {
           voiceBtn.classList.remove("playing");
           voiceBtn.querySelector(".voice-icon").innerHTML = `
@@ -571,7 +740,7 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
           currentButton = null;
           currentAudio = null;
         });
-        
+
         audio.play().catch(console.error);
       });
 
@@ -590,28 +759,88 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
       voicesContainer.appendChild(voiceContainer);
     });
   } else {
-    voicesContainer.innerHTML = '<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">No voice lines available</div>';
+    voicesContainer.innerHTML =
+      '<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">No voice lines available</div>';
   }
 
   const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.evo_art_url;
+  let showingAlternate = false;
+  
   if (canToggleEvo) {
     toggle.style.display = "";
     toggle.textContent = "Show: Evo";
     toggle.onclick = () => {
       if (showing === "common") {
-        img.src = evoUrl;
+        if (showingAlternate && alternate?.style_data?.evo_art_url) {
+          img.src = alternate.style_data.evo_art_url;
+        } else {
+          img.src = evoUrl;
+        }
         showing = "evo";
-        flavor.innerHTML = (metaEvo && metaEvo.flavour_text) || "";
         toggle.textContent = "Show: Base";
+        
+        // Update metadata for evolved form
+        updateLightboxMetadata(meta, metaEvo, showingAlternate, showingAlternate ? alternate?.style_data : null);
       } else {
-        img.src = commonUrl;
+        if (showingAlternate && alternate?.style_data?.base_art_url) {
+          img.src = alternate.style_data.base_art_url;
+        } else {
+          img.src = commonUrl;
+        }
         showing = "common";
-        flavor.innerHTML = (meta && meta.flavour_text) || "";
         toggle.textContent = "Show: Evo";
+        
+        // Update metadata for common form
+        updateLightboxMetadata(meta, metaEvo, showingAlternate, showingAlternate ? alternate?.style_data : null);
       }
     };
   } else {
     toggle.style.display = "none";
+  }
+
+  const lightboxControls = document.querySelector(".lightbox-controls");
+
+  if (alternate?.style_data) {
+    if (!alternateToggle) {
+      alternateToggle = document.createElement("button");
+      alternateToggle.id = "lightbox-alternate-toggle";
+      alternateToggle.className = "lightbox-btn";
+      alternateToggle.type = "button";
+      alternateToggle.innerHTML = "Show: Alternate";
+      lightboxControls.appendChild(alternateToggle);
+    }
+
+    alternateToggle.style.display = "";
+
+    alternateToggle.onclick = () => {
+      if (showingAlternate) {
+        // Switch back to normal art
+        if (showing === "evo") {
+          img.src = evoUrl;
+        } else {
+          img.src = commonUrl;
+        }
+        alternateToggle.textContent = "Show: Alternate";
+        showingAlternate = false;
+        
+        // Restore original metadata in lightbox
+        updateLightboxMetadata(meta, metaEvo, false);
+      } else {
+        // Switch to alternate art
+        if (showing === "evo" && alternate.style_data?.evo_art_url) {
+          img.src = alternate.style_data.evo_art_url;
+        } else if (alternate.style_data?.base_art_url) {
+          img.src = alternate.style_data.base_art_url;
+        }
+        alternateToggle.textContent = "Show: Normal";
+        showingAlternate = true;
+        
+        // Update lightbox metadata with alternate data
+        updateLightboxMetadata(meta, metaEvo, true, alternate.style_data);
+      }
+    };
+  } else if (alternateToggle) {
+    alternateToggle.style.display = "none";
   }
 
   openBtn.onclick = () => {
@@ -621,7 +850,9 @@ function openLightbox({ name, meta, metaEvo, voices = [] }) {
   downloadImgBtn.onclick = () => {
     const link = document.createElement("a");
     link.href = img.src;
-    link.download = `${name.replace(/[^a-zA-Z0-9]/g, '_')}_${showing === 'evo' ? 'evolved' : 'base'}.png`;
+    link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${
+      showing === "evo" ? "evolved" : "base"
+    }.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -726,6 +726,7 @@ section.active {
   border-radius: 14px;
   background: linear-gradient(180deg, rgba(18,25,57,0.6), rgba(15,21,48,0.6));
   box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+  position: relative;
 }
 
 .card-image-content {
@@ -786,6 +787,46 @@ section.active {
 
 .card-image img:hover {
   transform: translateY(-1px) scale(1.01);
+}
+
+.alternate-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(255,92,138,0.9), rgba(255,92,138,0.7));
+  border: 1px solid rgba(255,92,138,0.3);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.alternate-toggle:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.alternate-toggle.active {
+  background: linear-gradient(180deg, rgba(25,211,167,0.9), rgba(25,211,167,0.7));
+  border-color: rgba(25,211,167,0.3);
+  opacity: 1;
+}
+
+.alternate-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.alternate-toggle:hover svg {
+  transform: scale(1.1);
 }
 
 .card-tooltip {
