@@ -1020,6 +1020,17 @@ section.active {
   word-wrap: break-word;
 }
 
+@media (max-width: 767px) {
+  .card-tooltip {
+    max-width: calc(100vw - 20px);
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(108, 140, 255, 0.3);
+  }
+}
+
 .card-tooltip b {
   color: var(--primary);
   font-weight: 600;

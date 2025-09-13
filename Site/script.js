@@ -400,32 +400,145 @@ function renderCards(cards, filter = "") {
         tooltip.style.display = "none";
         imgWrap.appendChild(tooltip);
 
-        img.addEventListener("mouseenter", () => {
+        let isTooltipVisible = false;
+        let isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+        // Function to show tooltip
+        const showTooltip = (e) => {
           tooltip.style.display = "block";
-        });
-
-        img.addEventListener("mouseleave", () => {
-          tooltip.style.display = "none";
-        });
-
-        img.addEventListener("mousemove", (e) => {
+          isTooltipVisible = true;
+          
           const rect = img.getBoundingClientRect();
           const tooltipRect = tooltip.getBoundingClientRect();
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
 
-          let left = e.clientX + 10;
-          let top = e.clientY - 10;
+          let left, top;
 
-          if (left + tooltipRect.width > viewportWidth) {
-            left = e.clientX - tooltipRect.width - 10;
-          }
-          if (top + tooltipRect.height > viewportHeight) {
-            top = e.clientY - tooltipRect.height - 10;
+          if (isMobile) {
+            // On mobile, center the tooltip and position it above the card
+            left = Math.max(10, Math.min(viewportWidth - tooltipRect.width - 10, rect.left + (rect.width - tooltipRect.width) / 2));
+            top = Math.max(10, rect.top - tooltipRect.height - 10);
+          } else {
+            // On desktop, follow mouse cursor
+            left = e.clientX + 10;
+            top = e.clientY - 10;
+
+            if (left + tooltipRect.width > viewportWidth) {
+              left = e.clientX - tooltipRect.width - 10;
+            }
+            if (top + tooltipRect.height > viewportHeight) {
+              top = e.clientY - tooltipRect.height - 10;
+            }
           }
 
           tooltip.style.left = `${left}px`;
           tooltip.style.top = `${top}px`;
+        };
+
+        // Function to hide tooltip
+        const hideTooltip = () => {
+          tooltip.style.display = "none";
+          isTooltipVisible = false;
+        };
+
+        // Desktop hover events
+        if (!isMobile) {
+          img.addEventListener("mouseenter", showTooltip);
+          img.addEventListener("mouseleave", hideTooltip);
+          img.addEventListener("mousemove", (e) => {
+            if (isTooltipVisible) {
+              const tooltipRect = tooltip.getBoundingClientRect();
+              const viewportWidth = window.innerWidth;
+              const viewportHeight = window.innerHeight;
+
+              let left = e.clientX + 10;
+              let top = e.clientY - 10;
+
+              if (left + tooltipRect.width > viewportWidth) {
+                left = e.clientX - tooltipRect.width - 10;
+              }
+              if (top + tooltipRect.height > viewportHeight) {
+                top = e.clientY - tooltipRect.height - 10;
+              }
+
+              tooltip.style.left = `${left}px`;
+              tooltip.style.top = `${top}px`;
+            }
+          });
+        }
+
+        // Mobile touch events
+        if (isMobile) {
+          img.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (isTooltipVisible) {
+              hideTooltip();
+            } else {
+              showTooltip(e);
+            }
+          });
+
+          // Hide tooltip when clicking outside
+          document.addEventListener("click", (e) => {
+            if (isTooltipVisible && !imgWrap.contains(e.target)) {
+              hideTooltip();
+            }
+          });
+        }
+
+        // Update mobile detection on resize
+        window.addEventListener("resize", () => {
+          const wasMobile = isMobile;
+          isMobile = window.matchMedia("(max-width: 767px)").matches;
+          
+          if (wasMobile !== isMobile) {
+            // Remove old event listeners and add new ones
+            img.removeEventListener("click", showTooltip);
+            img.removeEventListener("mouseenter", showTooltip);
+            img.removeEventListener("mouseleave", hideTooltip);
+            img.removeEventListener("mousemove", showTooltip);
+            
+            hideTooltip();
+            
+            if (isMobile) {
+              img.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                if (isTooltipVisible) {
+                  hideTooltip();
+                } else {
+                  showTooltip(e);
+                }
+              });
+            } else {
+              img.addEventListener("mouseenter", showTooltip);
+              img.addEventListener("mouseleave", hideTooltip);
+              img.addEventListener("mousemove", (e) => {
+                if (isTooltipVisible) {
+                  const tooltipRect = tooltip.getBoundingClientRect();
+                  const viewportWidth = window.innerWidth;
+                  const viewportHeight = window.innerHeight;
+
+                  let left = e.clientX + 10;
+                  let top = e.clientY - 10;
+
+                  if (left + tooltipRect.width > viewportWidth) {
+                    left = e.clientX - tooltipRect.width - 10;
+                  }
+                  if (top + tooltipRect.height > viewportHeight) {
+                    top = e.clientY - tooltipRect.height - 10;
+                  }
+
+                  tooltip.style.left = `${left}px`;
+                  tooltip.style.top = `${top}px`;
+                }
+              });
+            }
+          }
         });
       }
 
@@ -1389,13 +1502,15 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
-  setVisible(true);
+  // Default to hidden on mobile, visible on desktop
+  setVisible(!isMobile());
 
   window.addEventListener("resize", () => {
     if (!isMobile()) {
       filtersSection.style.display = "block";
       if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "true");
     } else {
+      // On mobile, default to hidden unless user has explicitly shown it
       const expand = toggleBtn
         ? toggleBtn.getAttribute("aria-expanded") === "true"
         : false;
