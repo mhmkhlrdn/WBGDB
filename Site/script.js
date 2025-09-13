@@ -249,7 +249,7 @@ function renderCards(cards, filter = "") {
     if (meta.class !== undefined) {
       const classIcon = document.createElement("div");
       classIcon.className = "card-class-icon";
-      classIcon.innerHTML = `<img src="./icons/class_${getClassIconName(
+      classIcon.innerHTML = `<img src="Icons/class_${getClassIconName(
         meta.class
       )}.svg" alt="${classLabels[meta.class]}" title="${
         classLabels[meta.class]
