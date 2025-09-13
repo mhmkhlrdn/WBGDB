@@ -1,7 +1,42 @@
 let isEnglish = false;
 let allCards = {};
-let currentAudio = null;
-let currentButton = null;
+  let currentAudio = null;
+  let currentButton = null;
+
+  // Debounce utility function
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Global function to populate CV options
+  function populateCVOptions() {
+    const cvDatalist = document.getElementById("cv-options");
+    if (!cvDatalist) return;
+    
+    cvDatalist.innerHTML = "";
+    const cvs = new Set();
+    Object.values(allCards).forEach((cardObj) => {
+      const meta =
+        (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+      const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
+      if (value) cvs.add(value);
+    });
+    Array.from(cvs)
+      .sort()
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        cvDatalist.appendChild(opt);
+      });
+  }
 
 const ENABLE_MANY_VOICES_FILTER = false;
 
@@ -188,6 +223,15 @@ function renderCards(cards, filter = "") {
   const container = document.getElementById("cards");
   container.innerHTML = "";
   let entries = Object.entries(cards);
+  
+  // Early filter by search term to reduce processing
+  if (filter) {
+    const normalizedFilter = filter.toLowerCase();
+    entries = entries.filter(([cardName]) => {
+      const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
+      return normalizedCardName.includes(normalizedFilter);
+    });
+  }
 
   entries.sort((a, b) => {
     const [nameA, objA] = a;
@@ -227,14 +271,13 @@ function renderCards(cards, filter = "") {
     return activeFilters.sortOrder === "desc" ? -result : result;
   });
 
+  // Use document fragment for better performance
+  const fragment = document.createDocumentFragment();
+  
   entries.forEach(([cardName, cardObj]) => {
     const lines =
       cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
-    // Normalize both card name and filter for search (replace underscores with spaces)
-    const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
-    const normalizedFilter = filter.toLowerCase();
-    if (!normalizedCardName.includes(normalizedFilter)) return;
-
+    
     const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
     const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
     if (!passesFilters(lines, meta, cardObj)) return;
@@ -479,8 +522,11 @@ function renderCards(cards, filter = "") {
     updateVoiceButtons();
     cardDiv.appendChild(voiceButtonsContainer);
 
-    container.appendChild(cardDiv);
+    fragment.appendChild(cardDiv);
   });
+  
+  // Append all cards at once for better performance
+  container.appendChild(fragment);
 }
 
 function passesFilters(lines, meta, cardData = null) {
@@ -523,10 +569,13 @@ function passesFilters(lines, meta, cardData = null) {
 
   if (activeFilters.cv) {
     const targetCV = isEnglish ? meta.cv || "" : meta.jpCV || "";
-    if (targetCV !== activeFilters.cv) return false;
+    const filterCV = activeFilters.cv.trim();
+    if (!targetCV.toLowerCase().includes(filterCV.toLowerCase())) return false;
   }
   if (activeFilters.illustrator) {
-    if ((meta.illustrator || "") !== activeFilters.illustrator) return false;
+    const illustrator = meta.illustrator || "";
+    const filterIllustrator = activeFilters.illustrator.trim();
+    if (!illustrator.toLowerCase().includes(filterIllustrator.toLowerCase())) return false;
   }
 
   if (activeFilters.type) {
@@ -975,8 +1024,14 @@ fetch("cards.json")
   .then((cards) => {
     allCards = cards;
     renderCards(allCards);
+    
+    // Create debounced render function for search
+    const debouncedSearchRender = debounce((searchValue) => {
+      renderCards(allCards, searchValue);
+    }, 150);
+    
     document.getElementById("search").addEventListener("input", (e) => {
-      renderCards(allCards, e.target.value);
+      debouncedSearchRender(e.target.value);
     });
 
     const illustrators = new Set();
@@ -990,38 +1045,15 @@ fetch("cards.json")
       if (meta.class !== undefined && meta.class !== null)
         classes.add(Number(meta.class));
     });
-    const illuSel = document.getElementById("filter-illustrator");
+    const illuDatalist = document.getElementById("illustrator-options");
     Array.from(illustrators)
       .sort()
       .forEach((v) => {
         const opt = document.createElement("option");
         opt.value = v;
-        opt.textContent = v;
-        illuSel.appendChild(opt);
+        illuDatalist.appendChild(opt);
       });
-    const cvSel = document.getElementById("filter-cv");
-    function populateCVOptions() {
-      cvSel.innerHTML = "";
-      const anyOpt = document.createElement("option");
-      anyOpt.value = "";
-      anyOpt.textContent = "Any";
-      cvSel.appendChild(anyOpt);
-      cvs = new Set();
-      Object.values(allCards).forEach((cardObj) => {
-        const meta =
-          (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-        const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
-        if (value) cvs.add(value);
-      });
-      Array.from(cvs)
-        .sort()
-        .forEach((v) => {
-          const opt = document.createElement("option");
-          opt.value = v;
-          opt.textContent = v;
-          cvSel.appendChild(opt);
-        });
-    }
+    // Populate CV options using the global function
     populateCVOptions();
     const classSel = document.getElementById("filter-class");
     Array.from(classes)
@@ -1041,43 +1073,48 @@ fetch("cards.json")
       .getElementById("filter-cost-min")
       .addEventListener("input", (e) => {
         activeFilters.costMin = e.target.value;
-        renderCards(allCards, document.getElementById("search").value);
+        debouncedFilterRender();
       });
     document
       .getElementById("filter-cost-max")
       .addEventListener("input", (e) => {
         activeFilters.costMax = e.target.value;
-        renderCards(allCards, document.getElementById("search").value);
+        debouncedFilterRender();
       });
     document.getElementById("filter-atk-min").addEventListener("input", (e) => {
       activeFilters.atkMin = e.target.value;
-      renderCards(allCards, document.getElementById("search").value);
+      debouncedFilterRender();
     });
     document.getElementById("filter-atk-max").addEventListener("input", (e) => {
       activeFilters.atkMax = e.target.value;
-      renderCards(allCards, document.getElementById("search").value);
+      debouncedFilterRender();
     });
     document
       .getElementById("filter-life-min")
       .addEventListener("input", (e) => {
         activeFilters.lifeMin = e.target.value;
-        renderCards(allCards, document.getElementById("search").value);
+        debouncedFilterRender();
       });
     document
       .getElementById("filter-life-max")
       .addEventListener("input", (e) => {
         activeFilters.lifeMax = e.target.value;
-        renderCards(allCards, document.getElementById("search").value);
+        debouncedFilterRender();
       });
-    document.getElementById("filter-cv").addEventListener("change", (e) => {
-      activeFilters.cv = e.target.value;
+    // Create debounced render function for filters
+    const debouncedFilterRender = debounce(() => {
       renderCards(allCards, document.getElementById("search").value);
+    }, 100);
+    
+    document.getElementById("filter-cv").addEventListener("input", (e) => {
+      activeFilters.cv = e.target.value;
+      debouncedFilterRender();
     });
     document
       .getElementById("filter-illustrator")
-      .addEventListener("change", (e) => {
+      .addEventListener("input", (e) => {
         activeFilters.illustrator = e.target.value;
-        renderCards(allCards, document.getElementById("search").value);
+        debouncedFilterRender();
       });
     document.getElementById("filter-class").addEventListener("change", (e) => {
       activeFilters.class = e.target.value;
@@ -1201,32 +1238,15 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
   langText.textContent = isEnglish ? "EN" : "JP";
 
   const prev = activeFilters.cv;
-  const cvSel = document.getElementById("filter-cv");
-  cvSel.value = "";
+  const cvInput = document.getElementById("filter-cv");
+  cvInput.value = "";
   activeFilters.cv = "";
 
-  (function () {
-    const anyOpt = document.createElement("option");
-    cvSel.innerHTML = "";
-    anyOpt.value = "";
-    anyOpt.textContent = "Any";
-    cvSel.appendChild(anyOpt);
-    const set = new Set();
-    Object.values(allCards).forEach((cardObj) => {
-      const meta =
-        (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-      const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
-      if (value) set.add(value);
-    });
-    Array.from(set)
-      .sort()
-      .forEach((v) => {
-        const opt = document.createElement("option");
-        opt.value = v;
-        opt.textContent = v;
-        cvSel.appendChild(opt);
-      });
-  })();
+  // Repopulate CV options for the new language
+  populateCVOptions();
+  
+  // Re-render cards to apply the language change
+  renderCards(allCards, document.getElementById("search").value);
 
   if (currentAudio) {
     currentAudio.pause();
