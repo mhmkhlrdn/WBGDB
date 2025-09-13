@@ -230,7 +230,10 @@ function renderCards(cards, filter = "") {
   entries.forEach(([cardName, cardObj]) => {
     const lines =
       cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
-    if (!cardName.toLowerCase().includes(filter.toLowerCase())) return;
+    // Normalize both card name and filter for search (replace underscores with spaces)
+    const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
+    const normalizedFilter = filter.toLowerCase();
+    if (!normalizedCardName.includes(normalizedFilter)) return;
 
     const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
     const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
