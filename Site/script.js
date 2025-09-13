@@ -276,9 +276,7 @@ function renderCards(cards, filter = "") {
       img.src = commonUrl;
       img.dataset.variant = "common";
       img.dataset.artType = "normal";
-      img.dataset.artType = "normal";
       img.style.cursor = "zoom-in";
-      img.addEventListener("click", () => {
       img.addEventListener("click", () => {
         openLightbox({
           name: title.textContent,
@@ -351,7 +349,6 @@ function renderCards(cards, filter = "") {
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
 
-
           let left = e.clientX + 10;
           let top = e.clientY - 10;
 
@@ -361,7 +358,6 @@ function renderCards(cards, filter = "") {
           if (top + tooltipRect.height > viewportHeight) {
             top = e.clientY - tooltipRect.height - 10;
           }
-
 
           tooltip.style.left = `${left}px`;
           tooltip.style.top = `${top}px`;
@@ -410,7 +406,6 @@ function renderCards(cards, filter = "") {
       const toggleContainer = document.createElement("div");
       toggleContainer.className = "img-toggle-container";
 
-
       if (canToggleEvo) {
         const toggleBtn = document.createElement("button");
         toggleBtn.className = "img-toggle";
@@ -429,22 +424,11 @@ function renderCards(cards, filter = "") {
             } else {
               img.src = evoUrl;
             }
-            if (isAlternate && alternateData?.evo_hash) {
-              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.evo_hash}.png`;
-            } else {
-              img.src = evoUrl;
-            }
             img.dataset.variant = "evo";
             toggleBtn.setAttribute("aria-pressed", "true");
             toggleBtn.innerHTML = `
               <span>Show: Base</span>
             `;
-          } else {
-            if (isAlternate && alternateData?.hash) {
-              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
-            } else {
-              img.src = commonUrl;
-            }
           } else {
             if (isAlternate && alternateData?.hash) {
               img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
@@ -462,7 +446,6 @@ function renderCards(cards, filter = "") {
         });
         toggleContainer.appendChild(toggleBtn);
       }
-
 
       imgWrap.appendChild(toggleContainer);
       cardDiv.appendChild(imgWrap);
@@ -882,11 +865,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
         } else {
           img.src = evoUrl;
         }
-        if (showingAlternate && alternate?.style_data?.evo_art_url) {
-          img.src = alternate.style_data.evo_art_url;
-        } else {
-          img.src = evoUrl;
-        }
         showing = "evo";
         toggle.textContent = "Show: Base";
 
@@ -977,9 +955,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null }) {
   downloadImgBtn.onclick = () => {
     const link = document.createElement("a");
     link.href = img.src;
-    link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${
-      showing === "evo" ? "evolved" : "base"
-    }.png`;
     link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${
       showing === "evo" ? "evolved" : "base"
     }.png`;
