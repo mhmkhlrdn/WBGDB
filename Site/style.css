@@ -1020,20 +1020,39 @@ section.active {
   word-wrap: break-word;
 }
 
-@media (max-width: 767px) {
-  .card-tooltip {
-    max-width: calc(100vw - 20px);
-    padding: 16px 20px;
-    font-size: 14px;
-    line-height: 1.5;
-    border-radius: 12px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(108, 140, 255, 0.3);
-  }
+.card-skill-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(180deg, rgba(255, 193, 7, 0.2), rgba(255, 193, 7, 0.1));
+  border: 1px solid rgba(255, 193, 7, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
 }
 
-.card-tooltip b {
-  color: var(--primary);
-  font-weight: 600;
+.card-skill-btn:hover {
+  background: linear-gradient(180deg, rgba(255, 193, 7, 0.3), rgba(255, 193, 7, 0.2));
+  border-color: rgba(255, 193, 7, 0.6);
+  transform: scale(1.05);
+}
+
+.card-skill-btn svg {
+  width: 16px;
+  height: 16px;
+  color: #ffd700;
+}
+
+@media (min-width: 768px) {
+  .card-skill-btn {
+    display: none;
+  }
 }
 
 .card-tooltip color[Keyword] {
@@ -1433,4 +1452,33 @@ section.active {
   .lightbox-nav {
     display: none;
   }
+  
+  .lightbox-content {
+    position: relative;
+  }
+  
+  .lightbox-content::before {
+    content: "← Swipe to navigate →";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--muted);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1001;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: fadeInOut 3s ease-in-out;
+  }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { opacity: 0; }
 }

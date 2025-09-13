@@ -400,29 +400,26 @@ function renderCards(cards, filter = "") {
         tooltip.style.display = "none";
         imgWrap.appendChild(tooltip);
 
-        let isTooltipVisible = false;
-        let isMobile = window.matchMedia("(max-width: 767px)").matches;
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-        // Function to show tooltip
-        const showTooltip = (e) => {
-          tooltip.style.display = "block";
-          isTooltipVisible = true;
-          
-          const rect = img.getBoundingClientRect();
-          const tooltipRect = tooltip.getBoundingClientRect();
-          const viewportWidth = window.innerWidth;
-          const viewportHeight = window.innerHeight;
+        // Only add hover events on desktop
+        if (!isMobile) {
+          img.addEventListener("mouseenter", () => {
+            tooltip.style.display = "block";
+          });
 
-          let left, top;
+          img.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
+          });
 
-          if (isMobile) {
-            // On mobile, center the tooltip and position it above the card
-            left = Math.max(10, Math.min(viewportWidth - tooltipRect.width - 10, rect.left + (rect.width - tooltipRect.width) / 2));
-            top = Math.max(10, rect.top - tooltipRect.height - 10);
-          } else {
-            // On desktop, follow mouse cursor
-            left = e.clientX + 10;
-            top = e.clientY - 10;
+          img.addEventListener("mousemove", (e) => {
+            const rect = img.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            let left = e.clientX + 10;
+            let top = e.clientY - 10;
 
             if (left + tooltipRect.width > viewportWidth) {
               left = e.clientX - tooltipRect.width - 10;
@@ -430,116 +427,106 @@ function renderCards(cards, filter = "") {
             if (top + tooltipRect.height > viewportHeight) {
               top = e.clientY - tooltipRect.height - 10;
             }
-          }
 
-          tooltip.style.left = `${left}px`;
-          tooltip.style.top = `${top}px`;
-        };
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+          });
+        }
 
-        // Function to hide tooltip
-        const hideTooltip = () => {
-          tooltip.style.display = "none";
-          isTooltipVisible = false;
-        };
+        // Add sword button for mobile
+        const skillBtn = document.createElement("button");
+        skillBtn.className = "card-skill-btn";
+        skillBtn.setAttribute("aria-label", "Show card skills");
+        skillBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 2L17.5 2L20 4.5L20 6L17.5 8.5L17.5 20L6.5 20L6.5 8.5L4 6L4 4.5L6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 6L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 10L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 14L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        `;
 
-        // Desktop hover events
-        if (!isMobile) {
-          img.addEventListener("mouseenter", showTooltip);
-          img.addEventListener("mouseleave", hideTooltip);
-          img.addEventListener("mousemove", (e) => {
-            if (isTooltipVisible) {
+        let isTooltipVisible = false;
+        let holdTimer = null;
+
+        skillBtn.addEventListener("touchstart", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Start hold timer
+          holdTimer = setTimeout(() => {
+            if (!isTooltipVisible) {
+              tooltip.style.display = "block";
+              isTooltipVisible = true;
+              
+              // Position tooltip above the card
+              const rect = img.getBoundingClientRect();
               const tooltipRect = tooltip.getBoundingClientRect();
               const viewportWidth = window.innerWidth;
-              const viewportHeight = window.innerHeight;
-
-              let left = e.clientX + 10;
-              let top = e.clientY - 10;
-
-              if (left + tooltipRect.width > viewportWidth) {
-                left = e.clientX - tooltipRect.width - 10;
-              }
-              if (top + tooltipRect.height > viewportHeight) {
-                top = e.clientY - tooltipRect.height - 10;
-              }
-
+              
+              let left = Math.max(10, Math.min(viewportWidth - tooltipRect.width - 10, rect.left + (rect.width - tooltipRect.width) / 2));
+              let top = Math.max(10, rect.top - tooltipRect.height - 10);
+              
               tooltip.style.left = `${left}px`;
               tooltip.style.top = `${top}px`;
             }
-          });
-        }
+          }, 500); // 500ms hold
+        });
 
-        // Mobile touch events
-        if (isMobile) {
-          img.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            if (isTooltipVisible) {
-              hideTooltip();
-            } else {
-              showTooltip(e);
-            }
-          });
-
-          // Hide tooltip when clicking outside
-          document.addEventListener("click", (e) => {
-            if (isTooltipVisible && !imgWrap.contains(e.target)) {
-              hideTooltip();
-            }
-          });
-        }
-
-        // Update mobile detection on resize
-        window.addEventListener("resize", () => {
-          const wasMobile = isMobile;
-          isMobile = window.matchMedia("(max-width: 767px)").matches;
+        skillBtn.addEventListener("touchend", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
           
-          if (wasMobile !== isMobile) {
-            // Remove old event listeners and add new ones
-            img.removeEventListener("click", showTooltip);
-            img.removeEventListener("mouseenter", showTooltip);
-            img.removeEventListener("mouseleave", hideTooltip);
-            img.removeEventListener("mousemove", showTooltip);
-            
-            hideTooltip();
-            
-            if (isMobile) {
-              img.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                if (isTooltipVisible) {
-                  hideTooltip();
-                } else {
-                  showTooltip(e);
-                }
-              });
-            } else {
-              img.addEventListener("mouseenter", showTooltip);
-              img.addEventListener("mouseleave", hideTooltip);
-              img.addEventListener("mousemove", (e) => {
-                if (isTooltipVisible) {
-                  const tooltipRect = tooltip.getBoundingClientRect();
-                  const viewportWidth = window.innerWidth;
-                  const viewportHeight = window.innerHeight;
-
-                  let left = e.clientX + 10;
-                  let top = e.clientY - 10;
-
-                  if (left + tooltipRect.width > viewportWidth) {
-                    left = e.clientX - tooltipRect.width - 10;
-                  }
-                  if (top + tooltipRect.height > viewportHeight) {
-                    top = e.clientY - tooltipRect.height - 10;
-                  }
-
-                  tooltip.style.left = `${left}px`;
-                  tooltip.style.top = `${top}px`;
-                }
-              });
-            }
+          if (holdTimer) {
+            clearTimeout(holdTimer);
+            holdTimer = null;
           }
         });
+
+        skillBtn.addEventListener("touchcancel", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (holdTimer) {
+            clearTimeout(holdTimer);
+            holdTimer = null;
+          }
+        });
+
+        // Also handle click for immediate toggle
+        skillBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (isTooltipVisible) {
+            tooltip.style.display = "none";
+            isTooltipVisible = false;
+          } else {
+            tooltip.style.display = "block";
+            isTooltipVisible = true;
+            
+            // Position tooltip above the card
+            const rect = img.getBoundingClientRect();
+            const tooltipRect = tooltip.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            
+            let left = Math.max(10, Math.min(viewportWidth - tooltipRect.width - 10, rect.left + (rect.width - tooltipRect.width) / 2));
+            let top = Math.max(10, rect.top - tooltipRect.height - 10);
+            
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+          }
+        });
+
+        // Hide tooltip when clicking outside
+        document.addEventListener("click", (e) => {
+          if (isTooltipVisible && !imgWrap.contains(e.target) && !skillBtn.contains(e.target)) {
+            tooltip.style.display = "none";
+            isTooltipVisible = false;
+          }
+        });
+
+        imgWrap.appendChild(skillBtn);
       }
 
       if (activeFilters.viewMode === "list") {
@@ -894,6 +881,96 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   if (prevBtn && nextBtn) {
     prevBtn.disabled = currentCardIndex <= 0;
     nextBtn.disabled = currentCardIndex >= filteredCards.length - 1;
+  }
+
+  // Mobile swipe navigation
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  const minSwipeDistance = 50;
+
+  const handleSwipe = () => {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    // Only process horizontal swipes (ignore vertical scrolling)
+    if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
+      if (deltaX > 0) {
+        // Swipe right - go to previous card
+        if (currentCardIndex > 0) {
+          const prevCardData = filteredCards[currentCardIndex - 1];
+          const prevCardObj = allCards[prevCardData.id];
+          if (prevCardObj) {
+            const prevMeta = prevCardObj.metadata?.common || {};
+            const prevMetaEvo = prevCardObj.metadata?.evo || {};
+            const prevLines = prevCardObj.voices || [];
+            const prevAlternate = prevCardObj.metadata?.alternate || null;
+            
+            openLightbox({
+              name: prevCardData.name,
+              meta: prevMeta,
+              metaEvo: prevMetaEvo,
+              voices: prevLines,
+              alternate: prevAlternate,
+              cardIndex: currentCardIndex - 1,
+              cardData: prevCardData
+            });
+          }
+        }
+      } else {
+        // Swipe left - go to next card
+        if (currentCardIndex < filteredCards.length - 1) {
+          const nextCardData = filteredCards[currentCardIndex + 1];
+          const nextCardObj = allCards[nextCardData.id];
+          if (nextCardObj) {
+            const nextMeta = nextCardObj.metadata?.common || {};
+            const nextMetaEvo = nextCardObj.metadata?.evo || {};
+            const nextLines = nextCardObj.voices || [];
+            const nextAlternate = nextCardObj.metadata?.alternate || null;
+            
+            openLightbox({
+              name: nextCardData.name,
+              meta: nextMeta,
+              metaEvo: nextMetaEvo,
+              voices: nextLines,
+              alternate: nextAlternate,
+              cardIndex: currentCardIndex + 1,
+              cardData: nextCardData
+            });
+          }
+        }
+      }
+    }
+  };
+
+  // Add touch event listeners for mobile swipe navigation
+  if (isMobile) {
+    // Clean up any existing touch event listeners
+    if (window.cleanupLightboxTouchEvents) {
+      window.cleanupLightboxTouchEvents();
+    }
+    
+    const touchStartHandler = (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    };
+    
+    const touchEndHandler = (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
+      handleSwipe();
+    };
+    
+    lb.addEventListener("touchstart", touchStartHandler, { passive: true });
+    lb.addEventListener("touchend", touchEndHandler, { passive: true });
+    
+    // Store handlers for cleanup
+    window.currentTouchStartHandler = touchStartHandler;
+    window.currentTouchEndHandler = touchEndHandler;
   }
 
   let alternateToggle = document.getElementById("lightbox-alternate-toggle");
@@ -1523,13 +1600,37 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 (function(){
   const lb = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
+  
+  // Store touch event handlers for cleanup
+  let touchStartHandler = null;
+  let touchEndHandler = null;
+  
   function close() {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
+    
+    // Clean up touch event listeners
+    if (touchStartHandler && touchEndHandler) {
+      lb.removeEventListener('touchstart', touchStartHandler);
+      lb.removeEventListener('touchend', touchEndHandler);
+      touchStartHandler = null;
+      touchEndHandler = null;
+    }
   }
+  
   closeBtn?.addEventListener('click', close);
   lb?.addEventListener('click', (e) => { if (e.target === lb) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+  
+  // Expose cleanup function for use in openLightbox
+  window.cleanupLightboxTouchEvents = () => {
+    if (window.currentTouchStartHandler && window.currentTouchEndHandler) {
+      lb.removeEventListener('touchstart', window.currentTouchStartHandler);
+      lb.removeEventListener('touchend', window.currentTouchEndHandler);
+      window.currentTouchStartHandler = null;
+      window.currentTouchEndHandler = null;
+    }
+  };
 })();
 
 
