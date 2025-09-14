@@ -4592,7 +4592,6 @@
         "en_url": "Audio/EN/Dark_Side/chunk0.mp3",
         "label": "Play"
       }
-     
     ],
     "metadata": {
       "common": {
@@ -5249,6 +5248,18 @@
         "url": "Audio/FILTERED/Devotee_of_Entwining/chunk10.mp3",
         "en_url": "Audio/EN/Devotee_of_Entwining/chunk8.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "name": "chunk11.mp3",
+        "url": "Audio/FILTERED/Devotee_of_Entwining/chunk11.mp3",
+        "en_url": "Audio/EN/Devotee_of_Entwining/chunk7.mp3",
+        "label": "Attack"
+      },
+      {
+        "name": "chunk12.mp3",
+        "url": "Audio/FILTERED/Devotee_of_Entwining/chunk12.mp3",
+        "en_url": "Audio/EN/Devotee_of_Entwining/chunk8.mp3",
+        "label": "Death"
       }
     ],
     "metadata": {
@@ -18589,9 +18600,7 @@
     }
   },
   "Serene_Sanctuary": {
-    "voices": [
-     
-    ],
+    "voices": [],
     "metadata": {
       "common": {
         "card_id": 10161210,
@@ -18614,18 +18623,20 @@
       },
       "evo": {},
       "alternate": {
-        "voices": [ {
-        "name": "chunk0.mp3",
-        "url": "Audio/FILTERED/Serene_Sanctuary/chunk0.mp3",
-        "en_url": "Audio/EN/Serene_Sanctuary/chunk0.mp3",
-        "label": "Play"
-      },
-      {
-        "name": "chunk1.mp3",
-        "url": "Audio/FILTERED/Serene_Sanctuary/chunk1.mp3",
-        "en_url": "Audio/EN/Serene_Sanctuary/chunk1.mp3",
-        "label": "Play"
-      }],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "url": "Audio/FILTERED/Serene_Sanctuary/chunk0.mp3",
+            "en_url": "Audio/EN/Serene_Sanctuary/chunk0.mp3",
+            "label": "Play"
+          },
+          {
+            "name": "chunk1.mp3",
+            "url": "Audio/FILTERED/Serene_Sanctuary/chunk1.mp3",
+            "en_url": "Audio/EN/Serene_Sanctuary/chunk1.mp3",
+            "label": "Play"
+          }
+        ],
         "style_data": {
           "card_id": 70161210,
           "base_art_url": "./Art/70161210.png",
@@ -20201,19 +20212,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Supplicant_of_Truth/chunk1.mp3",
         "en_url": "Audio/EN/Supplicant_of_Truth/chunk1.mp3",
-        "label": "chunk1.mp3"
+        "label": "MeetingVelharia"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Supplicant_of_Truth/chunk2.mp3",
         "en_url": "Audio/EN/Supplicant_of_Truth/chunk2.mp3",
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Supplicant_of_Truth/chunk3.mp3",
         "en_url": "Audio/EN/Supplicant_of_Truth/chunk3.mp3",
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk9.mp3",
@@ -21281,25 +21292,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk1.mp3",
         "en_url": "Audio/EN/Velharia,_Heir_to_Truth/chunk1.mp3",
-        "label": "chunk1.mp3"
+        "label": "MeetingHeirs"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk2.mp3",
         "en_url": "Audio/EN/Velharia,_Heir_to_Truth/chunk2.mp3",
-        "label": "chunk2.mp3"
+        "label": "MeetingRaio"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk3.mp3",
         "en_url": "Audio/EN/Velharia,_Heir_to_Truth/chunk3.mp3",
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Velharia,_Heir_to_Truth/chunk4.mp3",
         "en_url": "Audio/EN/Velharia,_Heir_to_Truth/chunk4.mp3",
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk9.mp3",
