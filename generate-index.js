@@ -1,3 +1,5 @@
+// Run after putting filtered audio to the respective language folder
+
 const fs = require("fs");
 const path = require("path");
 
@@ -32,11 +34,11 @@ function processCard(folder, cards) {
       .sort(naturalSort);
   }
 
-  const lines = [];
+  const voices = [];
   if (files.length === 5) {
     const labels = ["Play", "Attack", "Death", "Evolve", "Super-Evolve"];
     files.forEach((file, idx) => {
-      lines.push({
+      voices.push({
         name: file,
         url: `Audio/FILTERED/${folder}/${file}`,
         en_url: enFiles[idx] ? `Audio/EN/${folder}/${enFiles[idx]}` : null,
@@ -56,7 +58,7 @@ function processCard(folder, cards) {
         label = file;
       }
 
-      lines.push({
+      voices.push({
         name: file,
         url: `Audio/FILTERED/${folder}/${file}`,
         en_url: enFiles[idx] ? `Audio/EN/${folder}/${enFiles[idx]}` : null,
@@ -65,7 +67,7 @@ function processCard(folder, cards) {
     });
   } else {
     files.forEach((file, idx) => {
-      lines.push({
+      voices.push({
         name: file,
         url: `Audio/FILTERED/${folder}/${file}`,
         en_url: enFiles[idx] ? `Audio/EN/${folder}/${enFiles[idx]}` : null,
@@ -74,7 +76,7 @@ function processCard(folder, cards) {
     });
   }
 
-  return lines;
+  return { voices };
 }
 
 function generateIndex() {
@@ -101,8 +103,8 @@ function generateIndex() {
     
     if (matchingFolder) {
       console.log(`🎯 Processing specific card: ${matchingFolder}`);
-      const lines = processCard(matchingFolder, cards);
-      cards[matchingFolder] = lines;
+      const cardData = processCard(matchingFolder, cards);
+      cards[matchingFolder] = cardData;
       fs.writeFileSync(OUTPUT_FILE, JSON.stringify(cards, null, 2));
       console.log(`✅ Updated ${matchingFolder} in ${OUTPUT_FILE}`);
       return;
@@ -116,12 +118,12 @@ function generateIndex() {
   const cardFolders = fs.readdirSync(AUDIO_DIR);
 
   for (const folder of cardFolders) {
-    const lines = processCard(folder, cards);
-    if (!lines) continue;
+    const cardData = processCard(folder, cards);
+    if (!cardData) continue;
 
     // Only update if the card doesn't exist or if we want to force update
     if (!cards[folder] || process.argv.includes('--force')) {
-      cards[folder] = lines;
+      cards[folder] = cardData;
       console.log(`🔄 Updated card: ${folder}`);
     } else {
       console.log(`⏭️  Skipped existing card: ${folder} (use --force to update)`);

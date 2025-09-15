@@ -11041,7 +11041,7 @@
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Kit,_Luxfang_Champion/chunk5.mp3",
         "en_url": "Audio/EN/Kit,_Luxfang_Champion/chunk5.mp3",
-        "label": "MeetingRino"
+        "label": "MeetingReno"
       },
       {
         "name": "chunk6.mp3",
@@ -14898,7 +14898,7 @@
   },
   "Octrice,_Hollowness_Manifest": {
     "voices": [
-       {
+      {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Octrice,_Hollowness_Manifest/chunk0.mp3",
         "en_url": "Audio/EN/Octrice,_Hollowness_Manifest/chunk0.mp3",
@@ -17228,7 +17228,7 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Reno,_Luxwing_Featherfolk/chunk1.mp3",
         "en_url": "Audio/EN/Reno,_Luxwing_Featherfolk/chunk1.mp3",
-        "label": "MeetingSarissa"
+        "label": "MeetingBayle"
       },
       {
         "name": "chunk2.mp3",
@@ -22918,6 +22918,38 @@
         "card_banner_image_hash": "1807cbd9d07845b09f89053020656153",
         "evo_art_url": "Art/10274111.png"
       }
+    }
+  },
+  "Remnant_of_Hollowness": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Remnant_of_Hollowness/chunk0.mp3",
+        "en_url": "Audio/EN/Remnant_of_Hollowness/chunk0.mp3",
+        "label": "Play"
+      }
+      ],
+    "metadata": {
+      "common": {
+        "card_id": 90024310,
+        "card_set_id": 90000,
+        "type": 4,
+        "class": 2,
+        "is_token": true,
+        "atk": 0,
+        "life": 0,
+        "cost": 1,
+        "rarity": 4,
+        "cv": "Cristina \"Vee\" Valenzuela",
+        "illustrator": "liiko",
+        "flavour_text": "Usurpation—the merciless depredation that leaves only an empty plate. Hollowness—the heartless restitution that satiates you with fear. In this, they are alike: you must defy them or be starved.",
+        "skill_text": "Deal 4 damage split between all enemies.",
+        "card_image_hash": "46527b721ee04434ad83a52a7aa79cbf",
+        "card_banner_image_hash": "6b7398676d9c43fc922732e5abffa720",
+        "base_art_url": "Art/90024310.png",
+        "jpCV": "井上麻里奈"
+      },
+      "evo": {}
     }
   }
 }

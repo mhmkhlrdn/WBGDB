@@ -1151,6 +1151,54 @@ section.active {
   transform: translateY(1px);
 }
 
+/* Keyboard shortcut indicators */
+.keyboard-shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  font-family: ui-monospace, "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+}
+
+.keyboard-shortcut:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Position keyboard shortcuts appropriately */
+.filter .keyboard-shortcut {
+  margin-left: 8px;
+}
+
+.lang-toggle-wrapper .keyboard-shortcut {
+  margin-top: 4px;
+  display: block;
+  text-align: center;
+}
+
+.filter-actions .keyboard-shortcut {
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+/* Hide keyboard shortcuts on very small screens */
+@media (max-width: 480px) {
+  .keyboard-shortcut {
+    display: none;
+  }
+}
+
 .lightbox {
   position: fixed;
   inset: 0;

@@ -1780,4 +1780,69 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   };
 })();
 
+// Keyboard shortcuts for accessibility
+(function() {
+  // Prevent shortcuts from triggering when user is typing in input fields
+  function isInputFocused() {
+    const activeElement = document.activeElement;
+    return activeElement && (
+      activeElement.tagName === 'INPUT' || 
+      activeElement.tagName === 'TEXTAREA' || 
+      activeElement.contentEditable === 'true'
+    );
+  }
+
+  // Toggle filters visibility
+  function toggleFilters() {
+    const toggleBtn = document.getElementById("filters-toggle-btn");
+    if (toggleBtn) {
+      toggleBtn.click();
+    }
+  }
+
+  // Toggle language
+  function toggleLanguage() {
+    const langToggle = document.getElementById("lang-toggle");
+    if (langToggle) {
+      langToggle.click();
+    }
+  }
+
+  // Reset all filters
+  function resetFilters() {
+    const resetBtn = document.getElementById("filters-reset");
+    if (resetBtn) {
+      resetBtn.click();
+    }
+  }
+
+  // Keyboard event listener
+  document.addEventListener('keydown', function(e) {
+    // Don't trigger shortcuts when user is typing in input fields
+    if (isInputFocused()) {
+      return;
+    }
+
+    // Check for Ctrl/Cmd + key combinations
+    const isCtrlOrCmd = e.ctrlKey || e.metaKey;
+    
+    if (isCtrlOrCmd) {
+      switch(e.key.toLowerCase()) {
+        case 'f':
+          e.preventDefault();
+          toggleFilters();
+          break;
+        case 'l':
+          e.preventDefault();
+          toggleLanguage();
+          break;
+        case 'r':
+          e.preventDefault();
+          resetFilters();
+          break;
+      }
+    }
+  });
+})();
+
 
