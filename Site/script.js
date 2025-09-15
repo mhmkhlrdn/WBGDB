@@ -24,21 +24,46 @@ let currentCardData = null;
     const cvDatalist = document.getElementById("cv-options");
     if (!cvDatalist) return;
     
+    // Use cached CV options if available
+    const cacheKey = isEnglish ? 'en' : 'jp';
+    if (cvOptionsCache[cacheKey].size > 0 && cvOptionsPopulated) {
+      cvDatalist.innerHTML = "";
+      Array.from(cvOptionsCache[cacheKey])
+        .sort()
+        .forEach((v) => {
+          const opt = document.createElement("option");
+          opt.value = v;
+          cvDatalist.appendChild(opt);
+        });
+      return;
+    }
+    
+    // Build cache if not available
     cvDatalist.innerHTML = "";
     const cvs = new Set();
-    Object.values(allCards).forEach((cardObj) => {
-      const meta =
-        (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-      const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
-      if (value) cvs.add(value);
-    });
-    Array.from(cvs)
-      .sort()
-      .forEach((v) => {
-        const opt = document.createElement("option");
-        opt.value = v;
-        cvDatalist.appendChild(opt);
+    
+    // Use requestAnimationFrame to prevent blocking
+    requestAnimationFrame(() => {
+      Object.values(allCards).forEach((cardObj) => {
+        const meta =
+          (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+        const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
+        if (value) {
+          cvs.add(value);
+          cvOptionsCache[cacheKey].add(value);
+        }
       });
+      
+      Array.from(cvs)
+        .sort()
+        .forEach((v) => {
+          const opt = document.createElement("option");
+          opt.value = v;
+          cvDatalist.appendChild(opt);
+        });
+      
+      cvOptionsPopulated = true;
+    });
   }
 
   // Function to create mobile-friendly dropdown for CV/Illustrator
@@ -308,19 +333,26 @@ function toggleIcon(button, playing) {
   }
 }
 
+// Cache for CV options to avoid recalculating
+let cvOptionsCache = { jp: new Set(), en: new Set() };
+let cvOptionsPopulated = false;
+
 function renderCards(cards, filter = "") {
   const container = document.getElementById("cards");
-  container.innerHTML = "";
-  let entries = Object.entries(cards);
   
-  // Early filter by search term to reduce processing
-  if (filter) {
-    const normalizedFilter = filter.toLowerCase();
-    entries = entries.filter(([cardName]) => {
-      const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
-      return normalizedCardName.includes(normalizedFilter);
-    });
-  }
+  // Use requestAnimationFrame for smooth rendering
+  requestAnimationFrame(() => {
+    container.innerHTML = "";
+    let entries = Object.entries(cards);
+    
+    // Early filter by search term to reduce processing
+    if (filter) {
+      const normalizedFilter = filter.toLowerCase();
+      entries = entries.filter(([cardName]) => {
+        const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
+        return normalizedCardName.includes(normalizedFilter);
+      });
+    }
 
   entries.sort((a, b) => {
     const [nameA, objA] = a;
@@ -360,61 +392,62 @@ function renderCards(cards, filter = "") {
     return activeFilters.sortOrder === "desc" ? -result : result;
   });
 
-  // Store filtered cards for navigation
-  filteredCards = [];
-  
-  // Use document fragment for better performance
-  const fragment = document.createDocumentFragment();
-  
-  entries.forEach(([cardName, cardObj], index) => {
-    const lines =
-      cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
+    // Store filtered cards for navigation
+    filteredCards = [];
     
-    const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-    const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
-    if (!passesFilters(lines, meta, cardObj)) return;
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
     
-    // Add to filtered cards for navigation
-    filteredCards.push({
-      id: cardName,
-      name: formatName(cardName),
-      meta,
-      metaEvo,
-      lines,
-      alternate: cardObj.metadata?.alternate
-    });
+    // Process all cards (reverted from batch processing for reliability)
+    entries.forEach(([cardName, cardObj], index) => {
+      const lines =
+        cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
+      
+      const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+      const metaEvo = (cardObj && cardObj.metadata && cardObj.metadata.evo) || {};
+      if (!passesFilters(lines, meta, cardObj)) return;
+    
+      // Add to filtered cards for navigation
+      filteredCards.push({
+        id: cardName,
+        name: formatName(cardName),
+        meta,
+        metaEvo,
+        lines,
+        alternate: cardObj.metadata?.alternate
+      });
 
-    const cardDiv = document.createElement("div");
-    cardDiv.className = "card";
+      const cardDiv = document.createElement("div");
+      cardDiv.className = "card";
 
-    const cardHeader = document.createElement("div");
-    cardHeader.className = "card-header";
+      const cardHeader = document.createElement("div");
+      cardHeader.className = "card-header";
 
-    const title = document.createElement("h2");
-    title.textContent = formatName(cardName);
-    cardHeader.appendChild(title);
+      const title = document.createElement("h2");
+      title.textContent = formatName(cardName);
+      cardHeader.appendChild(title);
 
-    if (meta.class !== undefined) {
-      const classIcon = document.createElement("div");
-      classIcon.className = "card-class-icon";
-      classIcon.innerHTML = `<img src="Icons/class_${getClassIconName(
-        meta.class
-      )}.svg" alt="${classLabels[meta.class]}" title="${
-        classLabels[meta.class]
-      }">`;
-      cardHeader.appendChild(classIcon);
-    }
+      if (meta.class !== undefined) {
+        const classIcon = document.createElement("div");
+        classIcon.className = "card-class-icon";
+        classIcon.innerHTML = `<img src="Icons/class_${getClassIconName(
+          meta.class
+        )}.svg" alt="${classLabels[meta.class]}" title="${
+          classLabels[meta.class]
+        }">`;
+        cardHeader.appendChild(classIcon);
+      }
 
-    cardDiv.appendChild(cardHeader);
+      cardDiv.appendChild(cardHeader);
 
-    let img = null;
+      let img = null;
 
-    if (meta.card_image_hash) {
-      const { commonUrl, evoUrl } = buildCardImageUrls(
-        meta.card_image_hash,
-        metaEvo.card_image_hash
-      );
-      const canToggleEvo = Number(meta.type) === 1 && !!metaEvo.card_image_hash;
+      if (meta.card_image_hash) {
+        const { commonUrl, evoUrl } = buildCardImageUrls(
+          meta.card_image_hash,
+          metaEvo.card_image_hash
+        );
+        const canToggleEvo = Number(meta.type) === 1 && !!metaEvo.card_image_hash;
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-image";
 
@@ -724,54 +757,40 @@ function renderCards(cards, filter = "") {
       }
     };
 
-    updateVoiceButtons();
-    cardDiv.appendChild(voiceButtonsContainer);
+      updateVoiceButtons();
+      cardDiv.appendChild(voiceButtonsContainer);
 
-    fragment.appendChild(cardDiv);
+      fragment.appendChild(cardDiv);
+    });
+    
+    // Append all cards at once for better performance
+    container.appendChild(fragment);
   });
-  
-  // Append all cards at once for better performance
-  container.appendChild(fragment);
 }
 
 function passesFilters(lines, meta, cardData = null) {
-  if (activeFilters.rarity) {
-    if (Number(meta.rarity) !== Number(activeFilters.rarity)) return false;
+  // Early exit for most common filters first
+  if (activeFilters.rarity && Number(meta.rarity) !== Number(activeFilters.rarity)) {
+    return false;
   }
 
-  if (
-    activeFilters.costMin !== "" &&
-    Number(meta.cost) < Number(activeFilters.costMin)
-  )
-    return false;
-  if (
-    activeFilters.costMax !== "" &&
-    Number(meta.cost) > Number(activeFilters.costMax)
-  )
-    return false;
+  // Pre-convert numeric values to avoid repeated conversions
+  const cost = Number(meta.cost) || 0;
+  const atk = Number(meta.atk) || 0;
+  const life = Number(meta.life) || 0;
+  const classNum = Number(meta.class);
+  const typeNum = Number(meta.type);
+  const setNum = Number(meta.card_set_id);
 
-  if (
-    activeFilters.atkMin !== "" &&
-    Number(meta.atk ?? -Infinity) < Number(activeFilters.atkMin)
-  )
-    return false;
-  if (
-    activeFilters.atkMax !== "" &&
-    Number(meta.atk ?? Infinity) > Number(activeFilters.atkMax)
-  )
-    return false;
+  // Numeric range filters
+  if (activeFilters.costMin !== "" && cost < Number(activeFilters.costMin)) return false;
+  if (activeFilters.costMax !== "" && cost > Number(activeFilters.costMax)) return false;
+  if (activeFilters.atkMin !== "" && atk < Number(activeFilters.atkMin)) return false;
+  if (activeFilters.atkMax !== "" && atk > Number(activeFilters.atkMax)) return false;
+  if (activeFilters.lifeMin !== "" && life < Number(activeFilters.lifeMin)) return false;
+  if (activeFilters.lifeMax !== "" && life > Number(activeFilters.lifeMax)) return false;
 
-  if (
-    activeFilters.lifeMin !== "" &&
-    Number(meta.life ?? -Infinity) < Number(activeFilters.lifeMin)
-  )
-    return false;
-  if (
-    activeFilters.lifeMax !== "" &&
-    Number(meta.life ?? Infinity) > Number(activeFilters.lifeMax)
-  )
-    return false;
-
+  // String filters with early exit
   if (activeFilters.cv) {
     const targetCV = isEnglish ? meta.cv || "" : meta.jpCV || "";
     const filterCV = activeFilters.cv.trim();
@@ -783,19 +802,19 @@ function passesFilters(lines, meta, cardData = null) {
     if (!illustrator.toLowerCase().includes(filterIllustrator.toLowerCase())) return false;
   }
 
+  // Use pre-converted values
   if (activeFilters.type) {
-    const metaType = Number(meta.type);
     if (activeFilters.type === "amulet") {
-      if (!(metaType === 2 || metaType === 3)) return false;
+      if (!(typeNum === 2 || typeNum === 3)) return false;
     } else {
-      if (metaType !== Number(activeFilters.type)) return false;
+      if (typeNum !== Number(activeFilters.type)) return false;
     }
   }
-  if (activeFilters.class !== "") {
-    if (Number(meta.class) !== Number(activeFilters.class)) return false;
+  if (activeFilters.class !== "" && classNum !== Number(activeFilters.class)) {
+    return false;
   }
-  if (activeFilters.set !== "") {
-    if (Number(meta.card_set_id) !== Number(activeFilters.set)) return false;
+  if (activeFilters.set !== "" && setNum !== Number(activeFilters.set)) {
+    return false;
   }
   if (activeFilters.tokenMode === "exclude") {
     if (meta.is_token) return false;
@@ -1478,9 +1497,14 @@ fetch("cards.json")
         classSel.appendChild(opt);
       });
 
+    // Debounced filter render function
+    const debouncedFilterRender = debounce(() => {
+      renderCards(allCards, document.getElementById("search").value);
+    }, 50);
+
     document.getElementById("filter-rarity").addEventListener("change", (e) => {
       activeFilters.rarity = e.target.value;
-      renderCards(allCards, document.getElementById("search").value);
+      debouncedFilterRender();
     });
     document
       .getElementById("filter-cost-min")
@@ -1514,10 +1538,7 @@ fetch("cards.json")
         activeFilters.lifeMax = e.target.value;
         debouncedFilterRender();
       });
-    // Create debounced render function for filters
-    const debouncedFilterRender = debounce(() => {
-      renderCards(allCards, document.getElementById("search").value);
-    }, 100);
+    // Use the existing debouncedFilterRender function
     
     document.getElementById("filter-cv").addEventListener("input", (e) => {
       activeFilters.cv = e.target.value;
@@ -1645,26 +1666,29 @@ fetch("cards.json")
     }
   });
 
-document.getElementById("lang-toggle").addEventListener("click", () => {
+// Debounced language toggle to prevent rapid switching
+const debouncedLanguageToggle = debounce(() => {
   isEnglish = !isEnglish;
   const langText = document.querySelector(".lang-text");
-  langText.textContent = isEnglish ? "EN" : "JP";
+  if (langText) {
+    langText.textContent = isEnglish ? "EN" : "JP";
+  }
 
-  const prev = activeFilters.cv;
+  // Clear CV filter when switching languages
   const cvInput = document.getElementById("filter-cv");
-  cvInput.value = "";
-  activeFilters.cv = "";
+  if (cvInput) {
+    cvInput.value = "";
+    activeFilters.cv = "";
+  }
 
-  // Repopulate CV options for the new language
+  // Repopulate CV options for the new language (now cached)
   populateCVOptions();
   
   // Recreate mobile dropdowns for the new language
   createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
   createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
   
-  // Re-render cards to apply the language change
-  renderCards(allCards, document.getElementById("search").value);
-
+  // Stop any currently playing audio
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -1677,8 +1701,11 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
     }
   }
 
+  // Single renderCards call
   renderCards(allCards, document.getElementById("search").value);
-});
+}, 100);
+
+document.getElementById("lang-toggle").addEventListener("click", debouncedLanguageToggle);
 
 document.getElementById("back-to-top").addEventListener("click", () => {
   window.scrollTo({
@@ -1782,6 +1809,10 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 
 // Keyboard shortcuts for accessibility
 (function() {
+  let isProcessing = false;
+  let lastKeyTime = 0;
+  const DEBOUNCE_TIME = 100; // ms
+
   // Prevent shortcuts from triggering when user is typing in input fields
   function isInputFocused() {
     const activeElement = document.activeElement;
@@ -1792,7 +1823,37 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     );
   }
 
-  // Toggle filters visibility
+  // Show/hide loading indicator
+  function setLoadingState(shortcutKey, isLoading) {
+    const shortcuts = document.querySelectorAll('.keyboard-shortcut');
+    shortcuts.forEach(shortcut => {
+      if (shortcut.textContent.includes(shortcutKey)) {
+        if (isLoading) {
+          shortcut.classList.add('processing');
+        } else {
+          shortcut.classList.remove('processing');
+        }
+      }
+    });
+  }
+
+  // Debounced execution to prevent rapid key presses
+  function debounceExecute(fn, delay = 50, shortcutKey = '') {
+    if (isProcessing) return;
+    
+    isProcessing = true;
+    if (shortcutKey) setLoadingState(shortcutKey, true);
+    
+    requestAnimationFrame(() => {
+      fn();
+      setTimeout(() => {
+        isProcessing = false;
+        if (shortcutKey) setLoadingState(shortcutKey, false);
+      }, delay);
+    });
+  }
+
+  // Toggle filters visibility (lightweight operation)
   function toggleFilters() {
     const toggleBtn = document.getElementById("filters-toggle-btn");
     if (toggleBtn) {
@@ -1800,27 +1861,176 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     }
   }
 
-  // Toggle language
+  // Optimized language toggle - avoid duplicate renderCards calls
   function toggleLanguage() {
-    const langToggle = document.getElementById("lang-toggle");
-    if (langToggle) {
-      langToggle.click();
-    }
+    if (isProcessing) return;
+    
+    debounceExecute(() => {
+      isEnglish = !isEnglish;
+      const langText = document.querySelector(".lang-text");
+      if (langText) {
+        langText.textContent = isEnglish ? "EN" : "JP";
+      }
+
+      // Clear CV filter when switching languages
+      const prev = activeFilters.cv;
+      const cvInput = document.getElementById("filter-cv");
+      if (cvInput) {
+        cvInput.value = "";
+        activeFilters.cv = "";
+      }
+
+      // Repopulate CV options for the new language
+      populateCVOptions();
+      
+      // Recreate mobile dropdowns for the new language
+      createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
+      createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
+      
+      // Stop any currently playing audio
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+        if (currentButton) {
+          currentButton.classList.remove("playing");
+          toggleIcon(currentButton, false);
+          const t = currentButton.querySelector(".time");
+          if (t) t.textContent = "0:00";
+          currentButton = null;
+        }
+      }
+
+      // Single renderCards call with slight delay for smooth transition
+      setTimeout(() => {
+        renderCards(allCards, document.getElementById("search").value);
+      }, 10);
+    }, 100, 'Ctrl+L');
   }
 
-  // Reset all filters
+  // Optimized reset filters
   function resetFilters() {
-    const resetBtn = document.getElementById("filters-reset");
-    if (resetBtn) {
-      resetBtn.click();
+    if (isProcessing) return;
+    
+    debounceExecute(() => {
+      // Reset all filter values
+      activeFilters.rarity = "";
+      activeFilters.costMin = "";
+      activeFilters.costMax = "";
+      activeFilters.atkMin = "";
+      activeFilters.atkMax = "";
+      activeFilters.lifeMin = "";
+      activeFilters.lifeMax = "";
+      activeFilters.cv = "";
+      activeFilters.illustrator = "";
+      activeFilters.class = "";
+      activeFilters.type = "";
+      activeFilters.set = "";
+      activeFilters.tokenMode = "all";
+      activeFilters.sortBy = "alpha";
+      activeFilters.sortOrder = "asc";
+      activeFilters.manyVoices = "all";
+      activeFilters.alternate = "all";
+
+      // Reset all form elements
+      const elements = [
+        "filter-rarity", "filter-cost-min", "filter-cost-max", 
+        "filter-atk-min", "filter-atk-max", "filter-life-min", 
+        "filter-life-max", "filter-illustrator", "filter-cv", 
+        "filter-class", "filter-type", "filter-set", "filter-token", 
+        "sort-by", "sort-order", "filter-voices", "filter-alternate", 
+        "view-mode", "search"
+      ];
+
+      elements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          if (id === "filter-token" || id === "sort-by" || id === "sort-order" || 
+              id === "filter-voices" || id === "filter-alternate" || id === "view-mode") {
+            element.value = id === "view-mode" ? "list" : "all";
+          } else if (id === "sort-by") {
+            element.value = "alpha";
+          } else if (id === "sort-order") {
+            element.value = "asc";
+          } else {
+            element.value = "";
+          }
+        }
+      });
+
+      // Handle special cases
+      if (ENABLE_MANY_VOICES_FILTER) {
+        const manyVoicesSelect = document.getElementById("filter-many-voices");
+        if (manyVoicesSelect) {
+          manyVoicesSelect.value = "all";
+        }
+      }
+
+      // Reset view mode
+      const container = document.querySelector(".container");
+      if (container) {
+        container.classList.remove("waterfall");
+      }
+
+      // Single renderCards call
+      setTimeout(() => {
+        renderCards(allCards, "");
+      }, 10);
+    }, 100, 'Ctrl+R');
+  }
+
+  // Lightbox navigation functions
+  function navigateToPreviousCard() {
+    const prevBtn = document.getElementById("lightbox-prev");
+    if (prevBtn && !prevBtn.disabled) {
+      prevBtn.click();
     }
   }
 
-  // Keyboard event listener
+  function navigateToNextCard() {
+    const nextBtn = document.getElementById("lightbox-next");
+    if (nextBtn && !nextBtn.disabled) {
+      nextBtn.click();
+    }
+  }
+
+  // Keyboard event listener with debouncing
   document.addEventListener('keydown', function(e) {
     // Don't trigger shortcuts when user is typing in input fields
     if (isInputFocused()) {
       return;
+    }
+
+    // Debounce rapid key presses
+    const now = Date.now();
+    if (now - lastKeyTime < DEBOUNCE_TIME) {
+      return;
+    }
+    lastKeyTime = now;
+
+    // Check if lightbox is open
+    const lightbox = document.getElementById('lightbox');
+    const isLightboxOpen = lightbox && lightbox.classList.contains('open');
+
+    // Lightbox navigation shortcuts (A/D or Left/Right arrows)
+    if (isLightboxOpen) {
+      switch(e.key.toLowerCase()) {
+        case 'a':
+        case 'arrowleft':
+          e.preventDefault();
+          navigateToPreviousCard();
+          break;
+        case 'd':
+        case 'arrowright':
+          e.preventDefault();
+          navigateToNextCard();
+          break;
+        case 'escape':
+          e.preventDefault();
+          const closeBtn = document.getElementById('lightbox-close');
+          if (closeBtn) closeBtn.click();
+          break;
+      }
+      return; // Don't process other shortcuts when lightbox is open
     }
 
     // Check for Ctrl/Cmd + key combinations
@@ -1830,7 +2040,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       switch(e.key.toLowerCase()) {
         case 'f':
           e.preventDefault();
-          toggleFilters();
+          toggleFilters(); // This one is already lightweight
           break;
         case 'l':
           e.preventDefault();
