@@ -7,4 +7,5 @@ append_*.js
 analyze_*.js
 test_*.js
 index.js
+generate-index.js
 manual_voice_renamer.js
