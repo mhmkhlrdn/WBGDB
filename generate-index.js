@@ -102,9 +102,45 @@ function generateIndex() {
     );
     
     if (matchingFolder) {
-      console.log(`🎯 Processing specific card: ${matchingFolder}`);
-      const cardData = processCard(matchingFolder, cards);
-      cards[matchingFolder] = cardData;
+      // If user selected an _Alt folder, map to base card
+      const isAlt = matchingFolder.endsWith('_Alt');
+      const baseFolder = isAlt ? matchingFolder.replace(/_Alt$/, '') : matchingFolder;
+      const altFolder = `${baseFolder}_Alt`;
+
+      console.log(`🎯 Processing specific card: ${baseFolder}${isAlt ? ' (from alternate folder)' : ''}`);
+      const cardData = processCard(baseFolder, cards);
+
+      // Check for alternate voices in `<Card>_Alt` folders
+      const altFilteredPath = path.join(AUDIO_DIR, altFolder);
+      let altVoices = null;
+      if (fs.existsSync(altFilteredPath) && fs.statSync(altFilteredPath).isDirectory()) {
+        const altData = processCard(altFolder, cards);
+        altVoices = altData && altData.voices ? altData.voices : null;
+        if (altVoices) {
+          console.log(`✨ Found alternate voices for ${matchingFolder} in ${altFolder}`);
+        }
+      }
+
+      const existing = cards[matchingFolder] || {};
+      const updated = {
+        ...existing,
+        voices: cardData?.voices || [],
+        metadata: {
+          ...(existing.metadata || {}),
+          ...(altVoices
+            ? {
+                alternate: {
+                  ...((existing.metadata && existing.metadata.alternate) || {}),
+                  voices: altVoices,
+                },
+              }
+            : existing.metadata && existing.metadata.alternate
+            ? { alternate: { ...existing.metadata.alternate } }
+            : {}),
+        },
+      };
+
+      cards[matchingFolder] = updated;
       fs.writeFileSync(OUTPUT_FILE, JSON.stringify(cards, null, 2));
       console.log(`✅ Updated ${matchingFolder} in ${OUTPUT_FILE}`);
       return;
@@ -121,10 +157,38 @@ function generateIndex() {
     const cardData = processCard(folder, cards);
     if (!cardData) continue;
 
+    // Detect alternate voices folder `<Card>_Alt`
+    const altFolder = `${folder}_Alt`;
+    const altFilteredPath = path.join(AUDIO_DIR, altFolder);
+    let altVoices = null;
+    if (fs.existsSync(altFilteredPath) && fs.statSync(altFilteredPath).isDirectory()) {
+      const altData = processCard(altFolder, cards);
+      altVoices = altData && altData.voices ? altData.voices : null;
+    }
+
     // Only update if the card doesn't exist or if we want to force update
     if (!cards[folder] || process.argv.includes('--force')) {
-      cards[folder] = cardData;
-      console.log(`🔄 Updated card: ${folder}`);
+      const existing = cards[folder] || {};
+      const updated = {
+        ...existing,
+        voices: cardData?.voices || [],
+        metadata: {
+          ...(existing.metadata || {}),
+          ...(altVoices
+            ? {
+                alternate: {
+                  ...((existing.metadata && existing.metadata.alternate) || {}),
+                  voices: altVoices,
+                },
+              }
+            : existing.metadata && existing.metadata.alternate
+            ? { alternate: { ...existing.metadata.alternate } }
+            : {}),
+        },
+      };
+
+      cards[folder] = updated;
+      console.log(`🔄 Updated card: ${folder}${altVoices ? ' (+alternate voices)' : ''}`);
     } else {
       console.log(`⏭️  Skipped existing card: ${folder} (use --force to update)`);
     }
@@ -132,6 +196,65 @@ function generateIndex() {
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(cards, null, 2));
   console.log(`✅ Updated ${OUTPUT_FILE} with ${Object.keys(cards).length} cards`);
+}
+
+function backfillAlternateVoices() {
+  if (!fs.existsSync(OUTPUT_FILE)) {
+    console.log("❌ No existing cards.json found to backfill");
+    return;
+  }
+
+  let cards;
+  try {
+    cards = JSON.parse(fs.readFileSync(OUTPUT_FILE, "utf8"));
+  } catch (e) {
+    console.log("❌ Failed to parse cards.json");
+    return;
+  }
+
+  const folders = fs.readdirSync(AUDIO_DIR);
+  let updatedCount = 0;
+
+  for (const folder of folders) {
+    if (!folder.endsWith("_Alt")) continue;
+    const base = folder.replace(/_Alt$/, "");
+    if (!cards[base]) {
+      // Base card not present; skip without creating
+      console.log(`⏭️  Skipping ${folder}: base card \"${base}\" not in cards.json`);
+      continue;
+    }
+
+    const altPath = path.join(AUDIO_DIR, folder);
+    if (!fs.existsSync(altPath) || !fs.statSync(altPath).isDirectory()) continue;
+
+    const altData = processCard(folder, cards);
+    const altVoices = altData && altData.voices ? altData.voices : null;
+    if (!altVoices || altVoices.length === 0) continue;
+
+    const existing = cards[base];
+    const existingMeta = existing.metadata || {};
+    const existingAlt = existingMeta.alternate || {};
+
+    cards[base] = {
+      ...existing,
+      metadata: {
+        ...existingMeta,
+        alternate: {
+          ...existingAlt,
+          voices: altVoices,
+        },
+      },
+    };
+    updatedCount += 1;
+    console.log(`✨ Backfilled alternate voices for ${base} from ${folder}`);
+  }
+
+  if (updatedCount > 0) {
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(cards, null, 2));
+    console.log(`✅ Backfilled ${updatedCount} cards with alternate voices into ${OUTPUT_FILE}`);
+  } else {
+    console.log("ℹ️  No alternate folders matched existing cards. Nothing to update.");
+  }
 }
 
 // Show usage help if requested
@@ -142,6 +265,7 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
 Options:
   --card=<name>    Update only a specific card (partial name matching)
   --force          Force update all existing cards
+  --backfill-alts  Scan *_Alt folders and append voices to existing cards.json
   --help, -h       Show this help message
 
 Examples:
@@ -153,4 +277,8 @@ Examples:
   process.exit(0);
 }
 
-generateIndex();
+if (process.argv.includes('--backfill-alts')) {
+  backfillAlternateVoices();
+} else {
+  generateIndex();
+}

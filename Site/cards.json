@@ -3580,7 +3580,38 @@
         "evo_art_url": "Art/10202111.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Cheretta,_Angelic_Maid_Alt/chunk0.mp3",
+        "en_url": "Audio/EN/Cheretta,_Angelic_Maid_Alt/chunk0.mp3",
+        "label": "Play"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Cheretta,_Angelic_Maid_Alt/chunk1.mp3",
+        "en_url": "Audio/EN/Cheretta,_Angelic_Maid_Alt/chunk1.mp3",
+        "label": "Attack"
+      },
+          {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Cheretta,_Angelic_Maid_Alt/chunk2.mp3",
+        "en_url": "Audio/EN/Cheretta,_Angelic_Maid_Alt/chunk2.mp3",
+        "label": "Death"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Cheretta,_Angelic_Maid_Alt/chunk3.mp3",
+        "en_url": "Audio/EN/Cheretta,_Angelic_Maid_Alt/chunk3.mp3",
+        "label": "Evolve"
+      },
+          {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Cheretta,_Angelic_Maid_Alt/chunk4.mp3",
+        "en_url": "Audio/EN/Cheretta,_Angelic_Maid_Alt/chunk4.mp3",
+        "label": "Super-Evolve"
+      }
+    ],
         "style_data": {
           "card_id": 70202110,
           "base_art_url": "./Art/70202110.png",
@@ -7786,7 +7817,14 @@
       },
       "evo": {},
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Foresight_Alt/chunk0.mp3",
+        "en_url": "Audio/EN/Foresight_Alt/chunk0.mp3",
+        "label": "Play"
+      }
+        ],
         "style_data": {
           "card_id": 70031310,
           "base_art_url": "./Art/70031310.png",
@@ -10087,7 +10125,14 @@
       },
       "evo": {},
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Illusory_Conjuration_Alt/chunk0.mp3",
+        "en_url": "Audio/EN/Illusory_Conjuration_Alt/chunk0.mp3",
+        "label": "Play"
+      }
+        ],
         "style_data": {
           "card_id": 70333310,
           "base_art_url": "./Art/70333310.png",
@@ -22928,7 +22973,7 @@
         "en_url": "Audio/EN/Remnant_of_Hollowness/chunk0.mp3",
         "label": "Play"
       }
-      ],
+    ],
     "metadata": {
       "common": {
         "card_id": 90024310,
