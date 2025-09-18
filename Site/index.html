@@ -28,10 +28,10 @@
             </svg>
           </button>
           <div class="lang-toggle-wrapper">
-            <button id="lang-toggle" class="lang-toggle-btn">
+            <button id="voice-lang-toggle" class="lang-toggle-btn">
               <span class="lang-text">JP</span>
             </button>
-            <span class="lang-hint-text">Click to change Language</span>
+            <span class="lang-hint-text">Voice Language</span>
             <span class="keyboard-shortcut" title="Keyboard shortcut: Ctrl+L">Ctrl+L</span>
           </div>
         </div>
@@ -39,127 +39,131 @@
 
       <section id="voices" class="active" role="tabpanel" aria-labelledby="tab-voices">
         <div class="search-row">
-          <div class="search-wrap">
-            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 21l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <input type="text" id="search" placeholder="Search cards..." aria-label="Search cards" />
-          </div>
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <input type="text" id="search" placeholder="Search cards..." aria-label="Search cards" data-en="Search cards..." data-jp="カードを検索..." />
+        </div>
+          <select id="ui-lang-select" class="ui-lang-select" title="Select UI Language">
+            <option value="jp">日本語</option>
+            <option value="en">English</option>
+          </select>
           <div class="filter" style="background:transparent;border:none;box-shadow:none;padding:0;margin-left:auto;">
-            <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="true">Hide Filters</button>
+            <button id="filters-toggle-btn" type="button" class="filter-reset-btn" aria-expanded="true" data-en="Hide Filters" data-jp="フィルターを隠す">Hide Filters</button>
             <span class="keyboard-shortcut" title="Keyboard shortcut: Ctrl+F">Ctrl+F</span>
           </div>
         </div>
         <div class="filters-section" id="filters">
           <div class="filter-group">
-            <h3 class="filter-group-title">Card Properties</h3>
+            <h3 class="filter-group-title" data-en="Card Properties" data-jp="カードプロパティ">Card Properties</h3>
             <div class="filters-row">
               <div class="filter">
-                <label for="filter-rarity">Rarity</label>
+                <label for="filter-rarity" data-en="Rarity" data-jp="レアリティ">Rarity</label>
                 <select id="filter-rarity">
-                  <option value="">Any</option>
-                  <option value="1">Bronze</option>
-                  <option value="2">Silver</option>
-                  <option value="3">Gold</option>
-                  <option value="4">Legendary</option>
+                  <option value="" data-en="Any" data-jp="すべて">Any</option>
+                  <option value="1" data-en="Bronze" data-jp="ブロンズ">Bronze</option>
+                  <option value="2" data-en="Silver" data-jp="シルバー">Silver</option>
+                  <option value="3" data-en="Gold" data-jp="ゴールド">Gold</option>
+                  <option value="4" data-en="Legendary" data-jp="レジェンド">Legendary</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="filter-type">Type</label>
+                <label for="filter-type" data-en="Type" data-jp="タイプ">Type</label>
                 <select id="filter-type">
-                  <option value="">Any</option>
-                  <option value="1">Follower</option>
-                  <option value="amulet">Amulet</option>
-                  <option value="4">Spell</option>
+                  <option value="" data-en="Any" data-jp="すべて">Any</option>
+                  <option value="1" data-en="Follower" data-jp="フォロワー">Follower</option>
+                  <option value="amulet" data-en="Amulet" data-jp="アミュレット">Amulet</option>
+                  <option value="4" data-en="Spell" data-jp="スペル">Spell</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="filter-class">Class</label>
+                <label for="filter-class" data-en="Class" data-jp="クラス">Class</label>
                 <select id="filter-class">
                   <option value="">Any</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="filter-set">Set</label>
+                <label for="filter-set" data-en="Set" data-jp="セット">Set</label>
                 <select id="filter-set">
-                  <option value="">Any</option>
-                  <option value="10000">Basic</option>
-                  <option value="10001">Legends Rise</option>
-                  <option value="10002">Infinity Evolved</option>
-                  <option value="10003">Heirs of the Omen</option>
+                  <option value="" data-en="Any" data-jp="すべて">Any</option>
+                  <option value="10000" data-en="Basic" data-jp="ベーシック">Basic</option>
+                  <option value="10001" data-en="Legends Rise" data-jp="伝説の幕開">Legends Rise</option>
+                  <option value="10002" data-en="Infinity Evolved" data-jp="インフィニティ・エボルヴ">Infinity Evolved</option>
+                  <option value="10003" data-en="Heirs of the Omen" data-jp="絶傑の継承者">Heirs of the Omen</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="filter-token">Token</label>
+                <label for="filter-token" data-en="Token" data-jp="トークン">Token</label>
                 <select id="filter-token">
-                  <option value="all">All cards</option>
-                  <option value="exclude">No tokens</option>
-                  <option value="only">Tokens only</option>
+                  <option value="all" data-en="All cards" data-jp="すべてのカード">All cards</option>
+                  <option value="exclude" data-en="No tokens" data-jp="トークンなし">No tokens</option>
+                  <option value="only" data-en="Tokens only" data-jp="トークンのみ">Tokens only</option>
                 </select>
               </div>
             </div>
           </div>
 
           <div class="filter-group">
-            <h3 class="filter-group-title">Stats</h3>
+            <h3 class="filter-group-title" data-en="Stats" data-jp="ステータス">Stats</h3>
             <div class="filters-row">
               <div class="filter">
-                <label for="filter-cost-min">Cost</label>
+                <label for="filter-cost-min" data-en="Cost" data-jp="コスト">Cost</label>
                 <div class="range-inputs">
-                  <input type="number" id="filter-cost-min" min="0" placeholder="min" />
+                  <input type="number" id="filter-cost-min" min="0" placeholder="min" data-en="min" data-jp="最小" />
                   <span class="range-separator">–</span>
-                  <input type="number" id="filter-cost-max" min="0" placeholder="max" />
+                  <input type="number" id="filter-cost-max" min="0" placeholder="max" data-en="max" data-jp="最大" />
                 </div>
               </div>
               <div class="filter">
-                <label for="filter-atk-min">ATK</label>
+                <label for="filter-atk-min" data-en="ATK" data-jp="攻撃力">ATK</label>
                 <div class="range-inputs">
-                  <input type="number" id="filter-atk-min" min="0" placeholder="min" />
+                  <input type="number" id="filter-atk-min" min="0" placeholder="min" data-en="min" data-jp="最小" />
                   <span class="range-separator">–</span>
-                  <input type="number" id="filter-atk-max" min="0" placeholder="max" />
+                  <input type="number" id="filter-atk-max" min="0" placeholder="max" data-en="max" data-jp="最大" />
                 </div>
               </div>
               <div class="filter">
-                <label for="filter-life-min">LIFE</label>
+                <label for="filter-life-min" data-en="LIFE" data-jp="体力">LIFE</label>
                 <div class="range-inputs">
-                  <input type="number" id="filter-life-min" min="0" placeholder="min" />
+                  <input type="number" id="filter-life-min" min="0" placeholder="min" data-en="min" data-jp="最小" />
                   <span class="range-separator">–</span>
-                  <input type="number" id="filter-life-max" min="0" placeholder="max" />
+                  <input type="number" id="filter-life-max" min="0" placeholder="max" data-en="max" data-jp="最大" />
                 </div>
               </div>
             </div>
           </div>
 
           <div class="filter-group">
-            <h3 class="filter-group-title">Content & Creators</h3>
+            <h3 class="filter-group-title" data-en="Content & Creators" data-jp="コンテンツとクリエイター">Content & Creators</h3>
             <div class="filters-row">
               <div class="filter">
-                <label for="filter-illustrator">Illustrator</label>
-                <input type="text" id="filter-illustrator" list="illustrator-options" placeholder="Type or select illustrator" />
+                <label for="filter-illustrator" data-en="Illustrator" data-jp="イラストレーター">Illustrator</label>
+                <input type="text" id="filter-illustrator" list="illustrator-options" placeholder="Type or select illustrator" data-en="Type or select illustrator" data-jp="イラストレーターを入力または選択" />
                 <datalist id="illustrator-options">
                 </datalist>
               </div>
               <div class="filter">
-                <label for="filter-cv">CV</label>
-                <input type="text" id="filter-cv" list="cv-options" placeholder="Type or select CV" />
+                <label for="filter-cv" data-en="CV" data-jp="声優">CV</label>
+                <input type="text" id="filter-cv" list="cv-options" placeholder="Type or select CV" data-en="Type or select CV" data-jp="声優を入力または選択" />
                 <datalist id="cv-options">
                 </datalist>
               </div>
               <div class="filter">
-                <label for="filter-voices">Voices</label>
+                <label for="filter-voices" data-en="Voices" data-jp="ボイス">Voices</label>
                 <select id="filter-voices">
-                  <option value="both">Both</option>
-                  <option value="with">With voices</option>
-                  <option value="without">Without voices</option>
+                  <option value="both" data-en="Both" data-jp="両方">Both</option>
+                  <option value="with" data-en="With voices" data-jp="ボイスあり">With voices</option>
+                  <option value="without" data-en="Without voices" data-jp="ボイスなし">Without voices</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="filter-alternate">Alternate Art</label>
+                <label for="filter-alternate" data-en="Alternate Art" data-jp="カードスタイル">Alternate Art</label>
                 <select id="filter-alternate">
-                  <option value="all">All cards</option>
-                  <option value="with">With alternate art</option>
-                  <option value="without">Without alternate art</option>
+                  <option value="all" data-en="All cards" data-jp="すべてのカード">All cards</option>
+                  <option value="with" data-en="With alternate art" data-jp="カードスタイルあり">With alternate art</option>
+                  <option value="without" data-en="Without alternate art" data-jp="カードスタイルなし">Without alternate art</option>
                 </select>
               </div>
               <!-- <div class="filter" id="filter-many-voices-container" style="display: none;">
@@ -174,31 +178,31 @@
           </div>
 
           <div class="filter-group">
-            <h3 class="filter-group-title">Display & Sort</h3>
+            <h3 class="filter-group-title" data-en="Display & Sort" data-jp="表示とソート">Display & Sort</h3>
             <div class="filters-row">
               <div class="filter">
-                <label for="sort-by">Sort by</label>
+                <label for="sort-by" data-en="Sort by" data-jp="ソート順">Sort by</label>
                 <select id="sort-by">
-                  <option value="alpha">Alphabetical</option>
-                  <option value="cost">Cost</option>
-                  <option value="atk">ATK</option>
-                  <option value="life">LIFE</option>
-                  <option value="class">Class</option>
-                  <option value="rarity">Rarity</option>
+                  <option value="alpha" data-en="Alphabetical" data-jp="アルファベット順">Alphabetical</option>
+                  <option value="cost" data-en="Cost" data-jp="コスト">Cost</option>
+                  <option value="atk" data-en="ATK" data-jp="攻撃力">ATK</option>
+                  <option value="life" data-en="LIFE" data-jp="体力">LIFE</option>
+                  <option value="class" data-en="Class" data-jp="クラス">Class</option>
+                  <option value="rarity" data-en="Rarity" data-jp="レアリティ">Rarity</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="sort-order">Order</label>
+                <label for="sort-order" data-en="Order" data-jp="順序">Order</label>
                 <select id="sort-order">
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
+                  <option value="asc" data-en="Ascending" data-jp="昇順">Ascending</option>
+                  <option value="desc" data-en="Descending" data-jp="降順">Descending</option>
                 </select>
               </div>
               <div class="filter">
-                <label for="view-mode">View mode</label>
+                <label for="view-mode" data-en="View mode" data-jp="表示モード">View mode</label>
                 <select id="view-mode">
-                  <option value="list">List</option>
-                  <option value="waterfall">Waterfall</option>
+                  <option value="list" data-en="List" data-jp="リスト">List</option>
+                  <option value="waterfall" data-en="Waterfall" data-jp="ウォーターフォール">Waterfall</option>
                 </select>
               </div>
               <div class="filter filter-actions">
@@ -209,7 +213,7 @@
                     <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  Reset All
+                  <span data-en="Reset All" data-jp="すべてリセット">Reset All</span>
                 </button>
                 <span class="keyboard-shortcut" title="Keyboard shortcut: Ctrl+R">Ctrl+R</span>
               </div>

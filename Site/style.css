@@ -182,6 +182,45 @@ nav.tabs {
   margin: 10px 0 22px 0;
 }
 
+.ui-lang-select {
+  padding: 8px 16px;
+  background: linear-gradient(180deg, rgba(18,25,57,0.7), rgba(15,21,48,0.7));
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e6ecff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 40px;
+  min-width: 120px;
+}
+
+.ui-lang-select:hover {
+  background: linear-gradient(180deg, rgba(18,25,57,0.9), rgba(15,21,48,0.9));
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(108, 140, 255, 0.2);
+}
+
+.ui-lang-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.1);
+}
+
+.ui-lang-select option {
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px;
+}
+
 .filters-row {
   display: flex;
   align-items: center;

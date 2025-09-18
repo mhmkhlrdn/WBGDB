@@ -1,4 +1,5 @@
-let isEnglish = false;
+let isEnglishVoice = false;
+let isEnglishUI = true;
 let allCards = {};
 let currentAudio = null;
 let currentButton = null;
@@ -6,7 +7,270 @@ let currentCardIndex = -1;
 let filteredCards = [];
 let currentCardData = null;
 
-  // Debounce utility function
+const localization = {
+  en: {
+    'Search cards...': 'Search cards...',
+    'Hide Filters': 'Hide Filters',
+    'Show Filters': 'Show Filters',
+    'Card Properties': 'Card Properties',
+    'Rarity': 'Rarity',
+    'Type': 'Type',
+    'Class': 'Class',
+    'Set': 'Set',
+    'Token': 'Token',
+    'Stats': 'Stats',
+    'Cost': 'Cost',
+    'ATK': 'ATK',
+    'LIFE': 'LIFE',
+    'Content & Creators': 'Content & Creators',
+    'Illustrator': 'Illustrator',
+    'CV': 'CV',
+    'Voices': 'Voices',
+    'Alternate Art': 'Alternate Art',
+    'Display & Sort': 'Display & Sort',
+    'Sort by': 'Sort by',
+    'Order': 'Order',
+    'View mode': 'View mode',
+    'Reset All': 'Reset All',
+    'Voice Lines': 'Voice Lines',
+    'No voice lines available': 'No voice lines available',
+    'Show: Evo': 'Show: Evo',
+    'Show: Base': 'Show: Base',
+    'Open Image': 'Open Image',
+    'Download Image': 'Download Image',
+    'Previous card': 'Previous card',
+    'Next card': 'Next card',
+    'Close': 'Close',
+    'Back to top': 'Back to top',
+    'Voice Language': 'Voice Language',
+    'UI Language': 'UI Language',
+    'Download audio': 'Download audio',
+    'Play audio': 'Play audio',
+    'Pause audio': 'Pause audio',
+    'Play': 'Play',
+    'Attack': 'Attack',
+    'Effect': 'Effect',
+    'Death': 'Death',
+    'Evolve': 'Evolve',
+    'Super-Evolve': 'Super-Evolve',
+    'Enhance': 'Enhance',
+    'Any': 'Any',
+    'All cards': 'All cards',
+    'No tokens': 'No tokens',
+    'Tokens only': 'Tokens only',
+    'Both': 'Both',
+    'With voices': 'With voices',
+    'Without voices': 'Without voices',
+    'With alternate art': 'With alternate art',
+    'Without alternate art': 'Without alternate art',
+    'Alphabetical': 'Alphabetical',
+    'Ascending': 'Ascending',
+    'Descending': 'Descending',
+    'List': 'List',
+    'Waterfall': 'Waterfall',
+    'min': 'min',
+    'max': 'max',
+    'Bronze': 'Bronze',
+    'Silver': 'Silver',
+    'Gold': 'Gold',
+    'Legendary': 'Legendary',
+    'Follower': 'Follower',
+    'Amulet': 'Amulet',
+    'Spell': 'Spell',
+    'Basic': 'Basic',
+    'Legends Rise': 'Legends Rise',
+    'Infinity Evolved': 'Infinity Evolved',
+    'Heirs of the Omen': 'Heirs of the Omen',
+    'Neutral': 'Neutral',
+    'Forest': 'Forest',
+    'Sword': 'Sword',
+    'Rune': 'Rune',
+    'Dragon': 'Dragon',
+    'Abyss': 'Abyss',
+    'Haven': 'Haven',
+    'Portal': 'Portal'
+  },
+  jp: {
+    'Neutral': "ニュートラル",
+    "Forest": "エルフ",
+    'Sword': "ロイヤル",
+    'Rune': "ウィッチ",
+    'Dragon': "ドラゴン",
+    'Abyss': "ナイトメア",
+    'Haven': "ビショップ",
+    'Portal': "ネメシス",
+    'ATK': "攻撃力",
+    "Life": "体力",
+    'Search cards...': 'カードを検索...',
+    'Hide Filters': 'フィルターを隠す',
+    'Show Filters': 'フィルターを表示',
+    'Card Properties': 'カードプロパティ',
+    'Rarity': 'レアリティ',
+    'Type': 'タイプ',
+    'Class': 'クラス',
+    'Set': 'セット',
+    'Token': 'トークン',
+    'Stats': 'ステータス',
+    'Cost': 'コスト',
+    'ATK': '攻撃力',
+    'LIFE': '体力',
+    'Content & Creators': 'コンテンツとクリエイター',
+    'Illustrator': 'イラストレーター',
+    'CV': '声優',
+    'Voices': 'ボイス',
+    'Alternate Art': 'アルタネートアート',
+    'Display & Sort': '表示とソート',
+    'Sort by': 'ソート順',
+    'Order': '順序',
+    'View mode': '表示モード',
+    'Reset All': 'すべてリセット',
+    'Voice Lines': 'ボイスライン',
+    'No voice lines available': 'ボイスがありません',
+    'Show: Evo': '進化表示',
+    'Show: Base': '基本表示',
+    'Previous card': '前のカード',
+    'Next card': '次のカード',
+    'Close': '閉じる',
+    'Back to top': 'トップに戻る',
+    'Voice Language': 'ボイス言語',
+    'UI Language': 'UI言語',
+    'Download audio': '音声をダウンロード',
+    'Play audio': '音声を再生',
+    'Pause audio': '音声を一時停止',
+    'Play': 'プレイ',
+    'Attack': '攻撃',
+    'Effect': 'エフェクト',
+    'Death': '死',
+    'Evolve': '進化',
+    'Super-Evolve': '超進化',
+    'Enhance': 'エンハンス',
+    "Open Image":"画像をオープンする",
+    "Download Image":"画像をダウンロード",
+    'Any': 'すべて',
+    'All cards': 'すべてのカード',
+    'No tokens': 'トークンなし',
+    'Tokens only': 'トークンのみ',
+    'Both': '両方',
+    'With voices': 'ボイスあり',
+    'Without voices': 'ボイスなし',
+    'With alternate art': 'カードスタイルあり',
+    'Without alternate art': 'カードスタイルなし',
+    'Alphabetical': 'アルファベット順',
+    'Ascending': '昇順',
+    'Descending': '降順',
+    'List': 'リスト',
+    'Waterfall': 'ウォーターフォール',
+    'min': '最小',
+    'max': '最大',
+    'Bronze': 'ブロンズ',
+    'Silver': 'シルバー',
+    'Gold': 'ゴールド',
+    'Legendary': 'レジェンド',
+    'Follower': 'フォロワー',
+    'Amulet': 'アミュレット',
+    'Spell': 'スペル',
+    'Basic': 'ベーシック',
+    'Legends Rise': '伝説の幕開',
+    'Infinity Evolved': 'インフィニティ・エボルヴ',
+    'Heirs of the Omen': '絶傑の継承者'
+  }
+};
+
+function getLocalizedText(key) {
+  const lang = isEnglishUI ? 'en' : 'jp';
+  return localization[lang][key] || key;
+}
+
+function getLocalizedClassName(classId) {
+  const className = classLabels[classId];
+  return className ? getLocalizedText(className) : String(classId);
+}
+
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+function initializeLanguageFromUrl() {
+  const langParam = getUrlParameter('lang');
+  if (langParam === 'en') {
+    isEnglishUI = true;
+  } else if (langParam === 'jp') {
+    isEnglishUI = false;
+  }
+}
+
+function updateLocalization() {
+  const elements = document.querySelectorAll('[data-en][data-jp]');
+  elements.forEach(element => {
+    const enText = element.getAttribute('data-en');
+    const jpText = element.getAttribute('data-jp');
+    if (enText && jpText) {
+      element.textContent = isEnglishUI ? enText : jpText;
+    }
+  });
+  
+  const searchInput = document.getElementById('search');
+  if (searchInput) {
+    searchInput.placeholder = getLocalizedText('Search cards...');
+  }
+  
+  const filterToggle = document.getElementById('filters-toggle-btn');
+  if (filterToggle) {
+    const isHidden = filterToggle.textContent.includes('Show') || filterToggle.textContent.includes('表示');
+    filterToggle.textContent = isHidden ? getLocalizedText('Show Filters') : getLocalizedText('Hide Filters');
+  }
+  
+  const optionsWithData = document.querySelectorAll('option[data-en][data-jp]');
+  optionsWithData.forEach(option => {
+    const enText = option.getAttribute('data-en');
+    const jpText = option.getAttribute('data-jp');
+    if (enText && jpText) {
+      option.textContent = isEnglishUI ? enText : jpText;
+    }
+  });
+
+  const openBtn = document.getElementById('lightbox-download');
+  const downloadImgBtn = document.getElementById('lightbox-download-img');
+  if (openBtn) openBtn.textContent = getLocalizedText('Open Image');
+  if (downloadImgBtn) downloadImgBtn.textContent = getLocalizedText('Download Image');
+  const voiceHint = document.querySelector('.lang-hint-text');
+  if (voiceHint) voiceHint.textContent = getLocalizedText('Voice Language');
+  
+  const selectOptions = document.querySelectorAll('option:not([data-en])');
+  selectOptions.forEach(option => {
+    const key = option.textContent.trim();
+    if (localization.en[key]) {
+      option.textContent = getLocalizedText(key);
+    }
+  });
+  
+  const inputsWithData = document.querySelectorAll('input[data-en][data-jp]');
+  inputsWithData.forEach(input => {
+    const enText = input.getAttribute('data-en');
+    const jpText = input.getAttribute('data-jp');
+    if (enText && jpText) {
+      input.placeholder = isEnglishUI ? enText : jpText;
+    }
+  });
+
+  document.querySelectorAll('.audio-download-btn').forEach(btn => {
+    btn.setAttribute('aria-label', getLocalizedText('Download audio'));
+  });
+  document.querySelectorAll('.audio-btn').forEach(btn => {
+    const isPlaying = btn.classList.contains('playing');
+    btn.setAttribute('aria-label', getLocalizedText(isPlaying ? 'Pause audio' : 'Play audio'));
+  });
+  
+  const inputs = document.querySelectorAll('input[placeholder]:not([data-en])');
+  inputs.forEach(input => {
+    const key = input.placeholder.trim();
+    if (localization.en[key]) {
+      input.placeholder = getLocalizedText(key);
+    }
+  });
+}
+
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -19,13 +283,11 @@ let currentCardData = null;
     };
   }
 
-  // Global function to populate CV options
   function populateCVOptions() {
     const cvDatalist = document.getElementById("cv-options");
     if (!cvDatalist) return;
     
-    // Use cached CV options if available
-    const cacheKey = isEnglish ? 'en' : 'jp';
+    const cacheKey = isEnglishVoice ? 'en' : 'jp';
     if (cvOptionsCache[cacheKey].size > 0 && cvOptionsPopulated) {
       cvDatalist.innerHTML = "";
       Array.from(cvOptionsCache[cacheKey])
@@ -38,16 +300,14 @@ let currentCardData = null;
       return;
     }
     
-    // Build cache if not available
     cvDatalist.innerHTML = "";
     const cvs = new Set();
     
-    // Use requestAnimationFrame to prevent blocking
     requestAnimationFrame(() => {
       Object.values(allCards).forEach((cardObj) => {
         const meta =
           (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-        const value = isEnglish ? meta.cv || "" : meta.jpCV || "";
+        const value = isEnglishVoice ? (meta.cv || "") : (meta.jpCV || "");
         if (value) {
           cvs.add(value);
           cvOptionsCache[cacheKey].add(value);
@@ -66,7 +326,49 @@ let currentCardData = null;
     });
   }
 
-  // Function to create mobile-friendly dropdown for CV/Illustrator
+  function populateIllustratorOptions() {
+    const illuDatalist = document.getElementById("illustrator-options");
+    if (!illuDatalist) return;
+    
+    const cacheKey = isEnglishUI ? 'en' : 'jp';
+    if (illustratorOptionsCache[cacheKey].size > 0 && illustratorOptionsPopulated) {
+      illuDatalist.innerHTML = "";
+      Array.from(illustratorOptionsCache[cacheKey])
+        .sort()
+        .forEach((v) => {
+          const opt = document.createElement("option");
+          opt.value = v;
+          illuDatalist.appendChild(opt);
+        });
+      return;
+    }
+    
+    illuDatalist.innerHTML = "";
+    const illustrators = new Set();
+    
+    requestAnimationFrame(() => {
+      Object.values(allCards).forEach((cardObj) => {
+        const meta =
+          (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+        const value = isEnglishUI ? meta.illustrator || "" : meta.jpIllustrator || "";
+        if (value) {
+          illustrators.add(value);
+          illustratorOptionsCache[cacheKey].add(value);
+        }
+      });
+      
+      Array.from(illustrators)
+        .sort()
+        .forEach((v) => {
+          const opt = document.createElement("option");
+          opt.value = v;
+          illuDatalist.appendChild(opt);
+        });
+      
+      illustratorOptionsPopulated = true;
+    });
+  }
+
   function createMobileDropdown(inputId, datalistId, placeholder) {
     const input = document.getElementById(inputId);
     const datalist = document.getElementById(datalistId);
@@ -75,14 +377,12 @@ let currentCardData = null;
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     if (!isMobile) return;
 
-    // Create dropdown container
     const dropdownContainer = document.createElement("div");
     dropdownContainer.className = "mobile-dropdown-container";
     dropdownContainer.style.position = "relative";
     dropdownContainer.style.display = "inline-block";
     dropdownContainer.style.width = "100%";
 
-    // Create dropdown button
     const dropdownBtn = document.createElement("button");
     dropdownBtn.type = "button";
     dropdownBtn.className = "mobile-dropdown-btn";
@@ -93,12 +393,10 @@ let currentCardData = null;
       </svg>
     `;
 
-    // Create dropdown menu
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "mobile-dropdown-menu";
     dropdownMenu.style.display = "none";
 
-    // Populate dropdown options
     const options = Array.from(datalist.querySelectorAll("option"));
     options.forEach(option => {
       const menuItem = document.createElement("div");
@@ -108,13 +406,11 @@ let currentCardData = null;
         input.value = option.value;
         dropdownBtn.querySelector(".dropdown-text").textContent = option.value;
         dropdownMenu.style.display = "none";
-        // Trigger input event for filtering
         input.dispatchEvent(new Event("input", { bubbles: true }));
       });
       dropdownMenu.appendChild(menuItem);
     });
 
-    // Add "Clear" option
     const clearItem = document.createElement("div");
     clearItem.className = "mobile-dropdown-item clear-item";
     clearItem.textContent = "Clear";
@@ -126,26 +422,22 @@ let currentCardData = null;
     });
     dropdownMenu.appendChild(clearItem);
 
-    // Toggle dropdown
     dropdownBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
       dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
     });
 
-    // Close dropdown when clicking outside
     document.addEventListener("click", (e) => {
       if (!dropdownContainer.contains(e.target)) {
         dropdownMenu.style.display = "none";
       }
     });
 
-    // Update dropdown text when input changes
     input.addEventListener("input", () => {
       dropdownBtn.querySelector(".dropdown-text").textContent = input.value || placeholder;
     });
 
-    // Replace input with dropdown
     input.style.display = "none";
     dropdownContainer.appendChild(dropdownBtn);
     dropdownContainer.appendChild(dropdownMenu);
@@ -211,13 +503,17 @@ function createAudioButton(line) {
   container.className = "audio-button-container";
 
   const isMeeting = line.label && line.label.startsWith("Meeting");
-  const displayText = isMeeting
+  const rawText = isMeeting
     ? line.label.substring(7)
-    : line.label || line.name;
+    : (line.label || line.name);
+  const displayText = localization.en[rawText]
+    ? getLocalizedText(rawText)
+    : rawText;
 
   const button = document.createElement("button");
   button.className = isMeeting ? "audio-btn meeting-btn" : "audio-btn";
   button.setAttribute("type", "button");
+  button.setAttribute("aria-label", getLocalizedText('Play audio'));
   button.innerHTML = `
     <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
@@ -230,7 +526,7 @@ function createAudioButton(line) {
   const downloadBtn = document.createElement("button");
   downloadBtn.className = "audio-download-btn";
   downloadBtn.setAttribute("type", "button");
-  downloadBtn.setAttribute("aria-label", "Download audio");
+  downloadBtn.setAttribute("aria-label", getLocalizedText('Download audio'));
   downloadBtn.innerHTML = `
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -254,7 +550,7 @@ function createAudioButton(line) {
     }
 
     if (!currentAudio || !isSame) {
-      if (isEnglish == true) {
+      if (isEnglishVoice == true) {
         currentAudio = new Audio(line.en_url);
       } else {
         currentAudio = new Audio(line.url);
@@ -277,6 +573,7 @@ function createAudioButton(line) {
         }
         currentAudio = null;
         currentButton = null;
+        button.setAttribute("aria-label", getLocalizedText('Play audio'));
       });
       currentAudio.addEventListener("loadedmetadata", updateTime);
       currentAudio.addEventListener("timeupdate", updateTime);
@@ -284,22 +581,25 @@ function createAudioButton(line) {
       currentButton = button;
       button.classList.add("playing");
       toggleIcon(button, true);
+      button.setAttribute("aria-label", getLocalizedText('Pause audio'));
       updateTime();
     } else {
       if (currentAudio.paused) {
         currentAudio.play();
         button.classList.add("playing");
         toggleIcon(button, true);
+        button.setAttribute("aria-label", getLocalizedText('Pause audio'));
       } else {
         currentAudio.pause();
         button.classList.remove("playing");
         toggleIcon(button, false);
+        button.setAttribute("aria-label", getLocalizedText('Play audio'));
       }
     }
   });
 
   downloadBtn.addEventListener("click", () => {
-    const audioUrl = isEnglish ? line.en_url : line.url;
+    const audioUrl = isEnglishVoice ? line.en_url : line.url;
     const link = document.createElement("a");
     link.href = audioUrl;
     link.download = `${line.label || line.name || "audio"}.mp3`;
@@ -333,24 +633,26 @@ function toggleIcon(button, playing) {
   }
 }
 
-// Cache for CV options to avoid recalculating
 let cvOptionsCache = { jp: new Set(), en: new Set() };
 let cvOptionsPopulated = false;
+
+let illustratorOptionsCache = { jp: new Set(), en: new Set() };
+let illustratorOptionsPopulated = false;
 
 function renderCards(cards, filter = "") {
   const container = document.getElementById("cards");
   
-  // Use requestAnimationFrame for smooth rendering
   requestAnimationFrame(() => {
     container.innerHTML = "";
     let entries = Object.entries(cards);
     
-    // Early filter by search term to reduce processing
     if (filter) {
       const normalizedFilter = filter.toLowerCase();
-      entries = entries.filter(([cardName]) => {
+      entries = entries.filter(([cardName, cardObj]) => {
+        const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
         const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
-        return normalizedCardName.includes(normalizedFilter);
+        const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
+        return normalizedCardName.includes(normalizedFilter) || jpName.includes(normalizedFilter);
       });
     }
 
@@ -408,9 +710,11 @@ function renderCards(cards, filter = "") {
       if (!passesFilters(lines, meta, cardObj)) return;
     
       // Add to filtered cards for navigation
+      // Use Japanese name if available and language is set to Japanese
+      const cardDisplayName = isEnglishUI ? formatName(cardName) : (meta.jpName || formatName(cardName));
       filteredCards.push({
         id: cardName,
-        name: formatName(cardName),
+        name: cardDisplayName,
         meta,
         metaEvo,
         lines,
@@ -424,7 +728,7 @@ function renderCards(cards, filter = "") {
       cardHeader.className = "card-header";
 
       const title = document.createElement("h2");
-      title.textContent = formatName(cardName);
+      title.textContent = cardDisplayName;
       cardHeader.appendChild(title);
 
       if (meta.class !== undefined) {
@@ -432,8 +736,8 @@ function renderCards(cards, filter = "") {
         classIcon.className = "card-class-icon";
         classIcon.innerHTML = `<img src="Icons/class_${getClassIconName(
           meta.class
-        )}.svg" alt="${classLabels[meta.class]}" title="${
-          classLabels[meta.class]
+        )}.svg" alt="${getLocalizedClassName(meta.class)}" title="${
+          getLocalizedClassName(meta.class)
         }">`;
         cardHeader.appendChild(classIcon);
       }
@@ -442,12 +746,21 @@ function renderCards(cards, filter = "") {
 
       let img = null;
 
-      if (meta.card_image_hash) {
-        const { commonUrl, evoUrl } = buildCardImageUrls(
-          meta.card_image_hash,
-          metaEvo.card_image_hash
+      if (meta.card_image_hash || meta.jpCard_image_hash) {
+        const langSeg = isEnglishUI ? 'eng' : 'jpn';
+        const jpBaseHash = meta.jpCard_image_hash;
+        const baseHash = isEnglishUI ? meta.card_image_hash : (jpBaseHash || meta.card_image_hash);
+        const { commonUrl } = buildCardImageUrls(
+          baseHash,
+          null,
+          langSeg
         );
-        const canToggleEvo = Number(meta.type) === 1 && !!metaEvo.card_image_hash;
+        const jpEvoHash = metaEvo.jpCard_image_hash;
+        const evoHash = isEnglishUI ? metaEvo.card_image_hash : (jpEvoHash || metaEvo.card_image_hash);
+        const evoUrl = evoHash
+          ? `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/${evoHash}.png`
+          : commonUrl;
+        const canToggleEvo = Number(meta.type) === 1 && !!evoHash;
       const imgWrap = document.createElement("div");
       imgWrap.className = "card-image";
 
@@ -460,8 +773,10 @@ function renderCards(cards, filter = "") {
       img.style.cursor = "zoom-in";
       img.addEventListener("click", () => {
         const cardIndex = filteredCards.findIndex(card => card.id === cardName);
+        // Use Japanese name if available and language is set to Japanese
+        const lightboxDisplayName = isEnglishUI ? title.textContent : (meta.jpName || title.textContent);
         openLightbox({
-          name: title.textContent,
+          name: lightboxDisplayName,
           meta,
           metaEvo,
           voices: lines,
@@ -515,13 +830,13 @@ function renderCards(cards, filter = "") {
       if (meta.skill_text) {
         const tooltip = document.createElement("div");
         tooltip.className = "card-tooltip";
-        tooltip.innerHTML = meta.skill_text;
+        const skillText = isEnglishUI ? meta.skill_text : (meta.jpSkill_Text || meta.skill_text);
+        tooltip.innerHTML = skillText;
         tooltip.style.display = "none";
         imgWrap.appendChild(tooltip);
 
         const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-        // Only add hover events on desktop
         if (!isMobile) {
           img.addEventListener("mouseenter", () => {
             tooltip.style.display = "block";
@@ -552,7 +867,6 @@ function renderCards(cards, filter = "") {
           });
         }
 
-        // Add sword button for mobile
         const skillBtn = document.createElement("button");
         skillBtn.className = "card-skill-btn";
         skillBtn.setAttribute("aria-label", "Show card skills");
@@ -572,13 +886,11 @@ function renderCards(cards, filter = "") {
           e.preventDefault();
           e.stopPropagation();
           
-          // Start hold timer for hold functionality (optional)
           holdTimer = setTimeout(() => {
             if (!isTooltipVisible) {
               tooltip.style.display = "block";
               isTooltipVisible = true;
               
-              // Position tooltip above the card
               const rect = img.getBoundingClientRect();
               const tooltipRect = tooltip.getBoundingClientRect();
               const viewportWidth = window.innerWidth;
@@ -589,7 +901,7 @@ function renderCards(cards, filter = "") {
               tooltip.style.left = `${left}px`;
               tooltip.style.top = `${top}px`;
             }
-          }, 500); // 500ms hold
+          }, 500); 
         });
 
         skillBtn.addEventListener("touchend", (e) => {
@@ -612,7 +924,6 @@ function renderCards(cards, filter = "") {
           }
         });
 
-        // Handle click for immediate toggle (primary interaction)
         skillBtn.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -624,7 +935,6 @@ function renderCards(cards, filter = "") {
             tooltip.style.display = "block";
             isTooltipVisible = true;
             
-            // Position tooltip above the card
             const rect = img.getBoundingClientRect();
             const tooltipRect = tooltip.getBoundingClientRect();
             const viewportWidth = window.innerWidth;
@@ -637,7 +947,6 @@ function renderCards(cards, filter = "") {
           }
         });
 
-        // Hide tooltip when clicking outside
         document.addEventListener("click", (e) => {
           if (isTooltipVisible && !imgWrap.contains(e.target) && !skillBtn.contains(e.target)) {
             tooltip.style.display = "none";
@@ -658,23 +967,26 @@ function renderCards(cards, filter = "") {
         const rightMetadata = document.createElement("div");
         rightMetadata.className = "card-metadata";
 
-        const cvValue = isEnglish ? meta.cv || "" : meta.jpCV || "";
+        const cvValue = isEnglishVoice ? meta.cv || "" : meta.jpCV || "";
         if (cvValue) {
           const cvItem = document.createElement("div");
           cvItem.className = "card-metadata-item";
           cvItem.innerHTML = `
-            <div class="card-metadata-label">CV</div>
+            <div class="card-metadata-label">${getLocalizedText('CV')}</div>
             <div class="card-metadata-value">${cvValue}</div>
           `;
           leftMetadata.appendChild(cvItem);
         }
 
-        if (meta.illustrator) {
+        const illustratorValueList = isEnglishUI
+          ? meta.illustrator || ""
+          : meta.jpIllustrator || meta.illustrator || "";
+        if (illustratorValueList) {
           const illustratorItem = document.createElement("div");
           illustratorItem.className = "card-metadata-item";
           illustratorItem.innerHTML = `
-            <div class="card-metadata-label">Illustrator</div>
-            <div class="card-metadata-value">${meta.illustrator}</div>
+            <div class="card-metadata-label">${getLocalizedText('Illustrator')}</div>
+            <div class="card-metadata-value">${illustratorValueList}</div>
           `;
           rightMetadata.appendChild(illustratorItem);
         }
@@ -696,7 +1008,7 @@ function renderCards(cards, filter = "") {
         toggleBtn.type = "button";
         toggleBtn.setAttribute("aria-pressed", "false");
         toggleBtn.innerHTML = `
-         <span>Show: Evo</span>
+         <span>${getLocalizedText('Show: Evo')}</span>
         `;
         toggleBtn.addEventListener("click", () => {
           const isAlternate = img.dataset.artType === "alternate";
@@ -704,7 +1016,8 @@ function renderCards(cards, filter = "") {
 
           if (img.dataset.variant === "common") {
             if (isAlternate && alternateData?.evo_hash) {
-              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.evo_hash}.png`;
+              const altBase = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
+              img.src = `${altBase}${isEnglishUI ? alternateData.evo_hash : (alternateData.evo_hash || '')}.png`;
             } else {
               img.src = evoUrl;
             }
@@ -715,14 +1028,15 @@ function renderCards(cards, filter = "") {
             `;
           } else {
             if (isAlternate && alternateData?.hash) {
-              img.src = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+              const altBase = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
+              img.src = `${altBase}${isEnglishUI ? alternateData.hash : (alternateData.hash || '')}.png`;
             } else {
               img.src = commonUrl;
             }
             img.dataset.variant = "common";
             toggleBtn.setAttribute("aria-pressed", "false");
             toggleBtn.innerHTML = `
-              <span>Show: Evo</span>
+              <span>${getLocalizedText('Show: Evo')}</span>
             `;
           }
 
@@ -763,18 +1077,15 @@ function renderCards(cards, filter = "") {
       fragment.appendChild(cardDiv);
     });
     
-    // Append all cards at once for better performance
     container.appendChild(fragment);
   });
 }
 
 function passesFilters(lines, meta, cardData = null) {
-  // Early exit for most common filters first
   if (activeFilters.rarity && Number(meta.rarity) !== Number(activeFilters.rarity)) {
     return false;
   }
 
-  // Pre-convert numeric values to avoid repeated conversions
   const cost = Number(meta.cost) || 0;
   const atk = Number(meta.atk) || 0;
   const life = Number(meta.life) || 0;
@@ -782,7 +1093,6 @@ function passesFilters(lines, meta, cardData = null) {
   const typeNum = Number(meta.type);
   const setNum = Number(meta.card_set_id);
 
-  // Numeric range filters
   if (activeFilters.costMin !== "" && cost < Number(activeFilters.costMin)) return false;
   if (activeFilters.costMax !== "" && cost > Number(activeFilters.costMax)) return false;
   if (activeFilters.atkMin !== "" && atk < Number(activeFilters.atkMin)) return false;
@@ -790,19 +1100,19 @@ function passesFilters(lines, meta, cardData = null) {
   if (activeFilters.lifeMin !== "" && life < Number(activeFilters.lifeMin)) return false;
   if (activeFilters.lifeMax !== "" && life > Number(activeFilters.lifeMax)) return false;
 
-  // String filters with early exit
   if (activeFilters.cv) {
-    const targetCV = isEnglish ? meta.cv || "" : meta.jpCV || "";
+    const targetCV = isEnglishVoice ? (meta.cv || "") : (meta.jpCV || "");
     const filterCV = activeFilters.cv.trim();
     if (!targetCV.toLowerCase().includes(filterCV.toLowerCase())) return false;
   }
   if (activeFilters.illustrator) {
-    const illustrator = meta.illustrator || "";
+    const illustrator = isEnglishUI
+      ? (meta.illustrator || "")
+      : (meta.jpIllustrator || meta.illustrator || "");
     const filterIllustrator = activeFilters.illustrator.trim();
     if (!illustrator.toLowerCase().includes(filterIllustrator.toLowerCase())) return false;
   }
 
-  // Use pre-converted values
   if (activeFilters.type) {
     if (activeFilters.type === "amulet") {
       if (!(typeNum === 2 || typeNum === 3)) return false;
@@ -852,11 +1162,11 @@ function passesFilters(lines, meta, cardData = null) {
   return true;
 }
 
-function buildCardImageUrls(cardImageHash, evoCardImageHash) {
-  const base = "https://shadowverse-wb.com/uploads/card_image/eng";
+function buildCardImageUrls(cardImageHash, evoCardImageHash, langSegment = 'eng') {
+  const base = `https://shadowverse-wb.com/uploads/card_image/${langSegment}`;
   return {
-    commonUrl: `${base}/card/${cardImageHash}.png`,
-    evoUrl: `${base}/card/${evoCardImageHash}.png`,
+    commonUrl: cardImageHash ? `${base}/card/${cardImageHash}.png` : '',
+    evoUrl: evoCardImageHash ? `${base}/card/${evoCardImageHash}.png` : '',
   };
 }
 
@@ -874,14 +1184,16 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
   const cvValue =
     isAlternate && alternateData?.cv
       ? alternateData.cv
-      : isEnglish
+      : isEnglishVoice
       ? meta.cv || ""
       : meta.jpCV || "";
 
   const illustratorValue =
     isAlternate && alternateData?.illustrator
       ? alternateData.illustrator
-      : meta.illustrator || "";
+      : isEnglishUI
+      ? meta.illustrator || ""
+      : meta.jpIllustrator || meta.illustrator || "";
 
   if (cvValue) {
     const cvItem = document.createElement("div");
@@ -921,19 +1233,19 @@ function updateLightboxMetadata(
   const cvValue =
     isAlternate && alternateData?.cv
       ? alternateData.cv
-      : isEnglish
+      : isEnglishVoice
       ? meta.cv || ""
       : meta.jpCV || "";
 
   const illustratorValue =
     isAlternate && alternateData?.illustrator
       ? alternateData.illustrator
-      : meta.illustrator || "";
+      : (isEnglishUI ? (meta.illustrator || "") : (meta.jpIllustrator || meta.illustrator || ""));
 
   if (cvValue) {
     const cvItem = document.createElement("div");
     cvItem.innerHTML = `
-      <div class="label">CV</div>
+      <div class="label">${getLocalizedText('CV')}</div>
       <div class="value">${cvValue}</div>
     `;
     metaBox.appendChild(cvItem);
@@ -942,7 +1254,7 @@ function updateLightboxMetadata(
   if (illustratorValue) {
     const illustratorItem = document.createElement("div");
     illustratorItem.innerHTML = `
-      <div class="label">Illustrator</div>
+      <div class="label">${getLocalizedText('Illustrator')}</div>
       <div class="value">${illustratorValue}</div>
     `;
     metaBox.appendChild(illustratorItem);
@@ -958,9 +1270,13 @@ function updateLightboxMetadata(
     flavor.innerHTML = alternateData.evo_flavour_text;
   } else {
     if (showing === "evo" && metaEvo?.flavour_text) {
-      flavor.innerHTML = metaEvo.flavour_text;
+      const jpEvoFlavor = metaEvo.jpFlavour_text;
+      const flavorText = isEnglishUI ? metaEvo.flavour_text : jpEvoFlavor;
+      flavor.innerHTML = flavorText || "";
     } else {
-      flavor.innerHTML = meta.flavour_text || "";
+      const jpFlavor = meta.jpFlavour_Text;
+      const flavorText = isEnglishUI ? meta.flavour_text : (jpFlavor || meta.flavour_text);
+      flavor.innerHTML = flavorText || "";
     }
   }
 }
@@ -975,26 +1291,24 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   const toggle = document.getElementById("lightbox-toggle");
   const openBtn = document.getElementById("lightbox-download");
   const downloadImgBtn = document.getElementById("lightbox-download-img");
+  if (openBtn) openBtn.textContent = getLocalizedText('Open Image');
+  if (downloadImgBtn) downloadImgBtn.textContent = getLocalizedText('Download Image');
   const prevBtn = document.getElementById("lightbox-prev");
   const nextBtn = document.getElementById("lightbox-next");
 
-  // Reset any swipe animation classes
   const lightboxContent = document.querySelector('.lightbox-content');
   if (lightboxContent) {
     lightboxContent.classList.remove('swipe-left', 'swipe-right');
   }
 
-  // Store current card data for navigation
   currentCardIndex = cardIndex;
   currentCardData = cardData;
 
-  // Update navigation button states
   if (prevBtn && nextBtn) {
     prevBtn.disabled = currentCardIndex <= 0;
     nextBtn.disabled = currentCardIndex >= filteredCards.length - 1;
   }
 
-  // Mobile swipe navigation
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
   let touchStartX = 0;
   let touchStartY = 0;
@@ -1008,14 +1322,11 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     const absDeltaX = Math.abs(deltaX);
     const absDeltaY = Math.abs(deltaY);
 
-    // Only process horizontal swipes (ignore vertical scrolling)
     if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
       const lightboxContent = document.querySelector('.lightbox-content');
       
       if (deltaX > 0) {
-        // Swipe right - go to previous card
         if (currentCardIndex > 0) {
-          // Add swipe animation
           lightboxContent.classList.add('swipe-right');
           
           setTimeout(() => {
@@ -1027,8 +1338,9 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               const prevLines = prevCardObj.voices || [];
               const prevAlternate = prevCardObj.metadata?.alternate || null;
               
+              const prevDisplayName = isEnglishUI ? prevCardData.name : (prevMeta.jpName || prevCardData.name);
               openLightbox({
-                name: prevCardData.name,
+                name: prevDisplayName,
                 meta: prevMeta,
                 metaEvo: prevMetaEvo,
                 voices: prevLines,
@@ -1037,12 +1349,10 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
                 cardData: prevCardData
               });
             }
-          }, 150); // Half of the animation duration
+          }, 150); 
         }
       } else {
-        // Swipe left - go to next card
         if (currentCardIndex < filteredCards.length - 1) {
-          // Add swipe animation
           lightboxContent.classList.add('swipe-left');
           
           setTimeout(() => {
@@ -1054,8 +1364,9 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               const nextLines = nextCardObj.voices || [];
               const nextAlternate = nextCardObj.metadata?.alternate || null;
               
+              const nextDisplayName = isEnglishUI ? nextCardData.name : (nextMeta.jpName || nextCardData.name);
               openLightbox({
-                name: nextCardData.name,
+                name: nextDisplayName,
                 meta: nextMeta,
                 metaEvo: nextMetaEvo,
                 voices: nextLines,
@@ -1064,15 +1375,13 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
                 cardData: nextCardData
               });
             }
-          }, 150); // Half of the animation duration
+          }, 150); 
         }
       }
     }
   };
 
-  // Add touch event listeners for mobile swipe navigation
   if (isMobile) {
-    // Clean up any existing touch event listeners
     if (window.cleanupLightboxTouchEvents) {
       window.cleanupLightboxTouchEvents();
     }
@@ -1090,18 +1399,14 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
       const absDeltaX = Math.abs(deltaX);
       const absDeltaY = Math.abs(deltaY);
       
-      // Only show preview for horizontal swipes
       if (absDeltaX > absDeltaY && absDeltaX > 20) {
         const lightboxContent = document.querySelector('.lightbox-content');
         
-        // Remove any existing preview classes
         lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
         
         if (deltaX > 0 && currentCardIndex > 0) {
-          // Swiping right - show preview for previous card
           lightboxContent.classList.add('swipe-preview-right');
         } else if (deltaX < 0 && currentCardIndex < filteredCards.length - 1) {
-          // Swiping left - show preview for next card
           lightboxContent.classList.add('swipe-preview-left');
         }
       }
@@ -1111,7 +1416,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
       touchEndX = e.changedTouches[0].clientX;
       touchEndY = e.changedTouches[0].clientY;
       
-      // Remove preview classes
       const lightboxContent = document.querySelector('.lightbox-content');
       lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
       
@@ -1122,7 +1426,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     lb.addEventListener("touchmove", touchMoveHandler, { passive: true });
     lb.addEventListener("touchend", touchEndHandler, { passive: true });
     
-    // Store handlers for cleanup
     window.currentTouchStartHandler = touchStartHandler;
     window.currentTouchMoveHandler = touchMoveHandler;
     window.currentTouchEndHandler = touchEndHandler;
@@ -1134,24 +1437,28 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     alternateToggle.style.display = "none";
   }
   if (toggle) {
-    toggle.textContent = "Show: Evo";
+    toggle.textContent = getLocalizedText('Show: Evo');
     toggle.style.display = "none";
   }
 
+  const langSegLb = isEnglishUI ? 'eng' : 'jpn';
+  const jpCommonHash = meta.jp_card_image_hash || meta.jpCard_image_hash;
+  const lbCommonHash = isEnglishUI ? meta.card_image_hash : (jpCommonHash || meta.card_image_hash);
   const commonUrl =
     meta?.base_art_url ||
-    (meta.card_image_hash
-      ? `https://shadowverse-wb.com/uploads/card_image/eng/card/${meta.card_image_hash}.png`
-      : "");
+    (lbCommonHash ? `https://shadowverse-wb.com/uploads/card_image/${langSegLb}/card/${lbCommonHash}.png` : "");
   const evoUrl =
     metaEvo?.evo_art_url ||
-    (metaEvo?.card_image_hash
-      ? `https://shadowverse-wb.com/uploads/card_image/eng/card/${metaEvo.card_image_hash}.png`
-      : commonUrl);
+    (() => {
+      const jpEvoHashLb = metaEvo?.jp_card_image_hash || metaEvo?.jpCard_image_hash;
+      const evoHashLb = isEnglishUI ? metaEvo?.card_image_hash : (jpEvoHashLb || metaEvo?.card_image_hash);
+      return evoHashLb ? `https://shadowverse-wb.com/uploads/card_image/${langSegLb}/card/${evoHashLb}.png` : commonUrl;
+    })();
 
   let showing = "common";
   img.src = commonUrl;
-  title.textContent = name;
+  const lightboxTitleName = isEnglishUI ? name : (meta.jpName || name);
+  title.textContent = lightboxTitleName;
   metaBox.innerHTML = "";
 
   updateLightboxMetadata(meta, metaEvo, false, null, "common");
@@ -1175,9 +1482,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         voiceContainer.className = "lightbox-voice-container";
 
         const isMeeting = line.label && line.label.startsWith("Meeting");
-        const displayText = isMeeting
+        const rawText = isMeeting
           ? line.label.substring(7)
-          : line.label || line.name || line;
+          : (line.label || line.name || line);
+        const displayText = localization.en[rawText]
+          ? getLocalizedText(rawText)
+          : rawText;
 
         const voiceBtn = document.createElement("button");
         voiceBtn.className = isMeeting
@@ -1194,7 +1504,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
         const downloadBtn = document.createElement("button");
         downloadBtn.className = "lightbox-download-btn";
-        downloadBtn.setAttribute("aria-label", "Download audio");
+        downloadBtn.setAttribute("aria-label", getLocalizedText('Download audio'));
         downloadBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1221,7 +1531,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
             return;
           }
 
-          const audioUrl = isEnglish ? line.en_url : line.url;
+          const audioUrl = isEnglishVoice ? line.en_url : line.url;
           const audio = new Audio(audioUrl);
           currentAudio = audio;
           currentButton = voiceBtn;
@@ -1260,7 +1570,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         });
 
         downloadBtn.addEventListener("click", () => {
-          const audioUrl = isEnglish ? line.en_url : line.url;
+          const audioUrl = isEnglishVoice ? line.en_url : line.url;
           const link = document.createElement("a");
           link.href = audioUrl;
           link.download = `${line.label || line.name || "audio"}.mp3`;
@@ -1274,8 +1584,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         voicesContainer.appendChild(voiceContainer);
       });
     } else {
-      voicesContainer.innerHTML =
-        '<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">No voice lines available</div>';
+        voicesContainer.innerHTML =
+        `<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">${getLocalizedText('No voice lines available')}</div>`;
     }
   };
 
@@ -1285,7 +1595,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
   if (canToggleEvo) {
     toggle.style.display = "";
-    toggle.textContent = "Show: Evo";
+    toggle.textContent = getLocalizedText('Show: Evo');
     toggle.onclick = () => {
       if (showing === "common") {
         if (showingAlternate && alternate?.style_data?.evo_art_url) {
@@ -1294,7 +1604,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           img.src = evoUrl;
         }
         showing = "evo";
-        toggle.textContent = "Show: Base";
+        toggle.textContent = getLocalizedText('Show: Base');
 
         updateLightboxMetadata(
           meta,
@@ -1310,7 +1620,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           img.src = commonUrl;
         }
         showing = "common";
-        toggle.textContent = "Show: Evo";
+        toggle.textContent = getLocalizedText('Show: Evo');
 
         updateLightboxMetadata(
           meta,
@@ -1391,7 +1701,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     document.body.removeChild(link);
   };
 
-  // Navigation event listeners
   if (prevBtn) {
     prevBtn.onclick = () => {
       if (currentCardIndex > 0) {
@@ -1403,8 +1712,9 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           const prevLines = prevCardObj.voices || [];
           const prevAlternate = prevCardObj.metadata?.alternate || null;
           
+          const prevDisplayName = isEnglishUI ? prevCardData.name : (prevMeta.jpName || prevCardData.name);
           openLightbox({
-            name: prevCardData.name,
+            name: prevDisplayName,
             meta: prevMeta,
             metaEvo: prevMetaEvo,
             voices: prevLines,
@@ -1428,8 +1738,9 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           const nextLines = nextCardObj.voices || [];
           const nextAlternate = nextCardObj.metadata?.alternate || null;
           
+          const nextDisplayName = isEnglishUI ? nextCardData.name : (nextMeta.jpName || nextCardData.name);
           openLightbox({
-            name: nextCardData.name,
+            name: nextDisplayName,
             meta: nextMeta,
             metaEvo: nextMetaEvo,
             voices: nextLines,
@@ -1446,13 +1757,29 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   lb.setAttribute("aria-hidden", "false");
 }
 
+initializeLanguageFromUrl();
+
 fetch("cards.json")
   .then((res) => res.json())
   .then((cards) => {
     allCards = cards;
+    
+    const uiLangSelect = document.getElementById("ui-lang-select");
+    if (uiLangSelect) {
+      uiLangSelect.value = isEnglishUI ? "en" : "jp";
+    }
+    
+    const langText = document.querySelector(".lang-text");
+    if (langText) {
+      langText.textContent = isEnglishUI
+        ? (isEnglishVoice ? "EN" : "JP")
+        : (isEnglishVoice ? "英語" : "日本");
+    }
+    
+    updateLocalization();
+    
     renderCards(allCards);
     
-    // Create debounced render function for search
     const debouncedSearchRender = debounce((searchValue) => {
       renderCards(allCards, searchValue);
     }, 150);
@@ -1461,29 +1788,17 @@ fetch("cards.json")
       debouncedSearchRender(e.target.value);
     });
 
-    const illustrators = new Set();
-    let cvs = new Set();
     const classes = new Set();
     Object.values(allCards).forEach((cardObj) => {
       const meta =
         (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-      if (meta.illustrator) illustrators.add(meta.illustrator);
-
       if (meta.class !== undefined && meta.class !== null)
         classes.add(Number(meta.class));
     });
-    const illuDatalist = document.getElementById("illustrator-options");
-    Array.from(illustrators)
-      .sort()
-      .forEach((v) => {
-        const opt = document.createElement("option");
-        opt.value = v;
-        illuDatalist.appendChild(opt);
-      });
-    // Populate CV options using the global function
-    populateCVOptions();
     
-    // Create mobile dropdowns for CV and Illustrator filters
+    populateCVOptions();
+    populateIllustratorOptions();
+    
     createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
     createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
     
@@ -1493,11 +1808,10 @@ fetch("cards.json")
       .forEach((v) => {
         const opt = document.createElement("option");
         opt.value = String(v);
-        opt.textContent = classLabels[v] ?? String(v);
+        opt.textContent = getLocalizedClassName(v);
         classSel.appendChild(opt);
       });
 
-    // Debounced filter render function
     const debouncedFilterRender = debounce(() => {
       renderCards(allCards, document.getElementById("search").value);
     }, 50);
@@ -1538,7 +1852,6 @@ fetch("cards.json")
         activeFilters.lifeMax = e.target.value;
         debouncedFilterRender();
       });
-    // Use the existing debouncedFilterRender function
     
     document.getElementById("filter-cv").addEventListener("input", (e) => {
       activeFilters.cv = e.target.value;
@@ -1576,6 +1889,133 @@ fetch("cards.json")
         activeFilters.alternate = e.target.value;
         renderCards(allCards, document.getElementById("search").value);
       });
+
+    function createDesktopOverlayMenu(inputId, datalistId) {
+      const input = document.getElementById(inputId);
+      const datalist = document.getElementById(datalistId);
+      if (!input || !datalist) return;
+
+      let menu = null;
+      let isOpen = false;
+
+      input.setAttribute("autocomplete", "off");
+
+      const originalListId = datalistId;
+      function applyListBinding() {
+        const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
+        if (isDesktop) {
+          if (input.hasAttribute("list")) input.removeAttribute("list");
+        } else {
+          input.setAttribute("list", originalListId);
+        }
+      }
+      applyListBinding();
+      window.addEventListener("resize", applyListBinding);
+
+      function buildMenu() {
+        if (menu) menu.remove();
+        menu = document.createElement("div");
+        menu.className = "desktop-overlay-menu";
+        menu.style.position = "absolute";
+        menu.style.zIndex = "1000";
+        menu.style.minWidth = `${input.offsetWidth}px`;
+        menu.style.maxHeight = "260px";
+        menu.style.overflowY = "auto";
+        menu.style.background = "var(--panel, #1e1e1e)";
+        menu.style.border = "1px solid var(--border, #444)";
+        menu.style.borderRadius = "6px";
+        menu.style.boxShadow = "0 6px 24px rgba(0,0,0,0.3)";
+        menu.style.padding = "4px 0";
+
+        const clearItem = document.createElement("div");
+        clearItem.textContent = "Clear";
+        clearItem.style.padding = "6px 10px";
+        clearItem.style.cursor = "pointer";
+        clearItem.style.color = "var(--muted, #aaa)";
+        clearItem.addEventListener("click", () => {
+          input.value = "";
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          closeMenu();
+          input.focus();
+        });
+        menu.appendChild(clearItem);
+
+        const sep = document.createElement("div");
+        sep.style.height = "1px";
+        sep.style.background = "var(--border, #444)";
+        sep.style.margin = "4px 0";
+        menu.appendChild(sep);
+
+        const options = Array.from(datalist.querySelectorAll("option"));
+        options.forEach(option => {
+          const item = document.createElement("div");
+          item.textContent = option.value;
+          item.style.padding = "6px 10px";
+          item.style.cursor = "pointer";
+          item.addEventListener("mouseenter", () => item.style.background = "rgba(255,255,255,0.08)");
+          item.addEventListener("mouseleave", () => item.style.background = "transparent");
+          item.addEventListener("click", () => {
+            input.value = option.value;
+            input.dispatchEvent(new Event("input", { bubbles: true }));
+            closeMenu();
+            input.focus();
+          });
+          menu.appendChild(item);
+        });
+        document.body.appendChild(menu);
+      }
+
+      function positionMenu() {
+        const rect = input.getBoundingClientRect();
+        menu.style.left = `${Math.round(rect.left + window.scrollX)}px`;
+        menu.style.top = `${Math.round(rect.bottom + window.scrollY)}px`;
+        menu.style.minWidth = `${rect.width}px`;
+      }
+
+      function openMenu() {
+        if (isOpen) return;
+        buildMenu();
+        positionMenu();
+        isOpen = true;
+        requestAnimationFrame(() => {
+          document.addEventListener("click", onDocClick, { capture: true });
+          window.addEventListener("resize", closeMenu, { once: true });
+          window.addEventListener("scroll", closeMenu, { once: true });
+        });
+      }
+
+      function closeMenu() {
+        if (!isOpen) return;
+        isOpen = false;
+        if (menu) {
+          menu.remove();
+          menu = null;
+        }
+        document.removeEventListener("click", onDocClick, { capture: true });
+      }
+
+      function onDocClick(e) {
+        if (menu && (e.target === input || menu.contains(e.target))) return;
+        closeMenu();
+      }
+
+      input.addEventListener("click", (e) => {
+        const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
+        if (!isDesktop) return; 
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    }
+
+    createDesktopOverlayMenu("filter-cv", "cv-options");
+    createDesktopOverlayMenu("filter-illustrator", "illustrator-options");
 
     if (ENABLE_MANY_VOICES_FILTER) {
       const manyVoicesContainer = document.getElementById(
@@ -1666,29 +2106,15 @@ fetch("cards.json")
     }
   });
 
-// Debounced language toggle to prevent rapid switching
-const debouncedLanguageToggle = debounce(() => {
-  isEnglish = !isEnglish;
+const debouncedVoiceLanguageToggle = debounce(() => {
+  isEnglishVoice = !isEnglishVoice;
   const langText = document.querySelector(".lang-text");
   if (langText) {
-    langText.textContent = isEnglish ? "EN" : "JP";
+    langText.textContent = isEnglishUI
+      ? (isEnglishVoice ? "EN" : "JP")
+      : (isEnglishVoice ? "英語" : "日本");
   }
 
-  // Clear CV filter when switching languages
-  const cvInput = document.getElementById("filter-cv");
-  if (cvInput) {
-    cvInput.value = "";
-    activeFilters.cv = "";
-  }
-
-  // Repopulate CV options for the new language (now cached)
-  populateCVOptions();
-  
-  // Recreate mobile dropdowns for the new language
-  createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
-  createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
-  
-  // Stop any currently playing audio
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -1701,11 +2127,109 @@ const debouncedLanguageToggle = debounce(() => {
     }
   }
 
-  // Single renderCards call
-  renderCards(allCards, document.getElementById("search").value);
-}, 100);
+  requestAnimationFrame(() => {
+    populateCVOptions();
+  });
 
-document.getElementById("lang-toggle").addEventListener("click", debouncedLanguageToggle);
+  const searchEl = document.getElementById("search");
+  const q = searchEl ? searchEl.value : "";
+  requestAnimationFrame(() => {
+    renderCards(allCards, q);
+  });
+}, 16);
+
+function handleUILanguageChange() {
+  const select = document.getElementById("ui-lang-select");
+  if (select) {
+    isEnglishUI = select.value === "en";
+    
+    const url = new URL(window.location);
+    if (isEnglishUI) {
+      url.searchParams.set('lang', 'en');
+    } else {
+      url.searchParams.set('lang', 'jp');
+    }
+    window.history.replaceState({}, '', url);
+  }
+
+  requestAnimationFrame(() => {
+    updateLocalization();
+  });
+
+  const cvInput = document.getElementById("filter-cv");
+  if (cvInput) {
+    cvInput.value = "";
+    activeFilters.cv = "";
+  }
+
+  const illustratorInput = document.getElementById("filter-illustrator");
+  if (illustratorInput) {
+    illustratorInput.value = "";
+    activeFilters.illustrator = "";
+  }
+
+  requestAnimationFrame(() => {
+    populateCVOptions();
+    populateIllustratorOptions();
+  });
+  
+  const classSel = document.getElementById("filter-class");
+  if (classSel) {
+    classSel.innerHTML = "";
+    const classes = new Set();
+    Object.values(allCards).forEach((cardObj) => {
+      const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+      if (meta.class !== undefined && meta.class !== null) {
+        classes.add(Number(meta.class));
+      }
+    });
+    
+    Array.from(classes)
+      .sort((a, b) => a - b)
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = String(v);
+        opt.textContent = getLocalizedClassName(v);
+        classSel.appendChild(opt);
+      });
+  }
+  
+  requestAnimationFrame(() => {
+    createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
+    createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
+  });
+  
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+    if (currentButton) {
+      currentButton.classList.remove("playing");
+      toggleIcon(currentButton, false);
+      const t = currentButton.querySelector(".time");
+      if (t) t.textContent = "0:00";
+      currentButton = null;
+    }
+  }
+
+  const searchEl2 = document.getElementById("search");
+  const q2 = searchEl2 ? searchEl2.value : "";
+  requestAnimationFrame(() => {
+    renderCards(allCards, q2);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const voiceToggle = document.getElementById("voice-lang-toggle");
+  const uiSelect = document.getElementById("ui-lang-select");
+  
+  if (voiceToggle) {
+    voiceToggle.addEventListener("click", debouncedVoiceLanguageToggle);
+  }
+  
+  if (uiSelect) {
+    uiSelect.addEventListener("change", handleUILanguageChange);
+  }
+});
 
 document.getElementById("back-to-top").addEventListener("click", () => {
   window.scrollTo({
@@ -1739,7 +2263,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   function setVisible(visible) {
     filtersSection.style.display = visible ? "block" : "none";
     if (toggleBtn) {
-      toggleBtn.textContent = visible ? "Hide Filters" : "Show Filters";
+      toggleBtn.textContent = visible ? getLocalizedText('Hide Filters') : getLocalizedText('Show Filters');
       toggleBtn.setAttribute("aria-expanded", String(visible));
     }
   }
@@ -1751,7 +2275,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
-  // Default to hidden on mobile, visible on desktop
   setVisible(!isMobile());
 
   window.addEventListener("resize", () => {
@@ -1759,7 +2282,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       filtersSection.style.display = "block";
       if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "true");
     } else {
-      // On mobile, default to hidden unless user has explicitly shown it
       const expand = toggleBtn
         ? toggleBtn.getAttribute("aria-expanded") === "true"
         : false;
@@ -1773,7 +2295,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   const lb = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
   
-  // Store touch event handlers for cleanup
   let touchStartHandler = null;
   let touchEndHandler = null;
   
@@ -1781,7 +2302,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     
-    // Clean up touch event listeners
     if (touchStartHandler && touchEndHandler) {
       lb.removeEventListener('touchstart', touchStartHandler);
       lb.removeEventListener('touchend', touchEndHandler);
@@ -1794,7 +2314,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   lb?.addEventListener('click', (e) => { if (e.target === lb) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
   
-  // Expose cleanup function for use in openLightbox
   window.cleanupLightboxTouchEvents = () => {
     if (window.currentTouchStartHandler && window.currentTouchMoveHandler && window.currentTouchEndHandler) {
       lb.removeEventListener('touchstart', window.currentTouchStartHandler);
@@ -1807,13 +2326,11 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   };
 })();
 
-// Keyboard shortcuts for accessibility
 (function() {
   let isProcessing = false;
   let lastKeyTime = 0;
   const DEBOUNCE_TIME = 100; // ms
 
-  // Prevent shortcuts from triggering when user is typing in input fields
   function isInputFocused() {
     const activeElement = document.activeElement;
     return activeElement && (
@@ -1823,7 +2340,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     );
   }
 
-  // Show/hide loading indicator
   function setLoadingState(shortcutKey, isLoading) {
     const shortcuts = document.querySelectorAll('.keyboard-shortcut');
     shortcuts.forEach(shortcut => {
@@ -1837,7 +2353,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
-  // Debounced execution to prevent rapid key presses
   function debounceExecute(fn, delay = 50, shortcutKey = '') {
     if (isProcessing) return;
     
@@ -1853,7 +2368,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
-  // Toggle filters visibility (lightweight operation)
   function toggleFilters() {
     const toggleBtn = document.getElementById("filters-toggle-btn");
     if (toggleBtn) {
@@ -1861,58 +2375,11 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     }
   }
 
-  // Optimized language toggle - avoid duplicate renderCards calls
-  function toggleLanguage() {
-    if (isProcessing) return;
-    
-    debounceExecute(() => {
-      isEnglish = !isEnglish;
-      const langText = document.querySelector(".lang-text");
-      if (langText) {
-        langText.textContent = isEnglish ? "EN" : "JP";
-      }
 
-      // Clear CV filter when switching languages
-      const prev = activeFilters.cv;
-      const cvInput = document.getElementById("filter-cv");
-      if (cvInput) {
-        cvInput.value = "";
-        activeFilters.cv = "";
-      }
-
-      // Repopulate CV options for the new language
-      populateCVOptions();
-      
-      // Recreate mobile dropdowns for the new language
-      createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
-      createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
-      
-      // Stop any currently playing audio
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio = null;
-        if (currentButton) {
-          currentButton.classList.remove("playing");
-          toggleIcon(currentButton, false);
-          const t = currentButton.querySelector(".time");
-          if (t) t.textContent = "0:00";
-          currentButton = null;
-        }
-      }
-
-      // Single renderCards call with slight delay for smooth transition
-      setTimeout(() => {
-        renderCards(allCards, document.getElementById("search").value);
-      }, 10);
-    }, 100, 'Ctrl+L');
-  }
-
-  // Optimized reset filters
   function resetFilters() {
     if (isProcessing) return;
     
     debounceExecute(() => {
-      // Reset all filter values
       activeFilters.rarity = "";
       activeFilters.costMin = "";
       activeFilters.costMax = "";
@@ -1931,7 +2398,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       activeFilters.manyVoices = "all";
       activeFilters.alternate = "all";
 
-      // Reset all form elements
       const elements = [
         "filter-rarity", "filter-cost-min", "filter-cost-max", 
         "filter-atk-min", "filter-atk-max", "filter-life-min", 
@@ -1957,7 +2423,6 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         }
       });
 
-      // Handle special cases
       if (ENABLE_MANY_VOICES_FILTER) {
         const manyVoicesSelect = document.getElementById("filter-many-voices");
         if (manyVoicesSelect) {
@@ -1965,20 +2430,17 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         }
       }
 
-      // Reset view mode
       const container = document.querySelector(".container");
       if (container) {
         container.classList.remove("waterfall");
       }
 
-      // Single renderCards call
       setTimeout(() => {
         renderCards(allCards, "");
       }, 10);
     }, 100, 'Ctrl+R');
   }
 
-  // Lightbox navigation functions
   function navigateToPreviousCard() {
     const prevBtn = document.getElementById("lightbox-prev");
     if (prevBtn && !prevBtn.disabled) {
@@ -1993,25 +2455,20 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     }
   }
 
-  // Keyboard event listener with debouncing
   document.addEventListener('keydown', function(e) {
-    // Don't trigger shortcuts when user is typing in input fields
     if (isInputFocused()) {
       return;
     }
 
-    // Debounce rapid key presses
     const now = Date.now();
     if (now - lastKeyTime < DEBOUNCE_TIME) {
       return;
     }
     lastKeyTime = now;
 
-    // Check if lightbox is open
     const lightbox = document.getElementById('lightbox');
     const isLightboxOpen = lightbox && lightbox.classList.contains('open');
 
-    // Lightbox navigation shortcuts (A/D or Left/Right arrows)
     if (isLightboxOpen) {
       switch(e.key.toLowerCase()) {
         case 'a':
@@ -2030,21 +2487,20 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
           if (closeBtn) closeBtn.click();
           break;
       }
-      return; // Don't process other shortcuts when lightbox is open
+      return; 
     }
 
-    // Check for Ctrl/Cmd + key combinations
     const isCtrlOrCmd = e.ctrlKey || e.metaKey;
     
     if (isCtrlOrCmd) {
       switch(e.key.toLowerCase()) {
         case 'f':
           e.preventDefault();
-          toggleFilters(); // This one is already lightweight
+          toggleFilters(); 
           break;
         case 'l':
           e.preventDefault();
-          toggleLanguage();
+          debouncedVoiceLanguageToggle();
           break;
         case 'r':
           e.preventDefault();
