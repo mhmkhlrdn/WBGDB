@@ -6,6 +6,7 @@ append_*.js
 * copy.json
 analyze_*.js
 test_*.js
+.backup_*.mp3
 index.js
 generate-index.js
 normalize_audio.js
