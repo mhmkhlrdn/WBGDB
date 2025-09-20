@@ -88,9 +88,96 @@ const localization = {
     'Dragon': 'Dragon',
     'Abyss': 'Abyss',
     'Haven': 'Haven',
-    'Portal': 'Portal'
+    'Portal': 'Portal',
+    'Maeve': 'Maeve',
+    'Salefa': 'Salefa',
+    'Yurius': 'Yurius',
+    'Vier': 'Vier',
+    'Zwei': 'Zwei',
+    'Wards': 'Wards',
+    'Phildau': 'Phildau',
+    'Bayle': 'Bayle',
+    'Rusty': 'Rusty',
+    'Kit': 'Kit',
+    'Amalia': 'Amalia',
+    'Reno': 'Reno',
+    'Sarissa': 'Sarissa',
+    'Norman': 'Norman',
+    'Heirs': 'Heirs',
+    'Himeka': 'Himeka',
+    'Krulle': 'Krulle',
+    'Sinciro': 'Sinciro',
+    'Sham-Nacha': 'Sham-Nacha',
+    'Velharia': 'Velharia',
+    'Axia': 'Axia',
+    'Lishenna': 'Lishenna',
+    'Galmieux': 'Galmieux',
+    'Raio': 'Raio',
+    'Izudia': 'Izudia',
+    'Rulenye & Valnereik': 'Rulenye & Valnereik',
+    'Marwynn' : 'Marwynn',
+    'Octrice': 'Octrice',
+    'Balto': 'Balto',
+    'Valse': 'Valse',
+    'Orthrus': 'Orthrus',
+    'Cerberus': 'Cerberus',
+    'Mimi': 'Mimi',
+    'Coco': 'Coco',
+    'Aether': 'Aether',
+    'Charon': 'Charon',
+    'Azurifrit': 'Azurifrit',
+    'Inspirational One': 'Inspirational One',
+    'Omens': 'Omens',
+    'Albert': 'Albert',
+    'Seria': 'Seria',
+    'Rosé': 'Rosé',
+    'Orchis': 'Orchis',
+
   },
   jp: {
+    'Rosé': 'ロゼ',
+    'Orchis': 'オーキス',
+    'Orthrus': 'オルトロス',
+    'Inspirational One': '嘆きに立ちし者',
+    'Omens': '絶傑',
+    'Orchis': 'オーキス',
+    'Seria': 'セリエ',
+    'Valse': 'ワルツ',
+    'Coco': 'ココ',
+    'Mimi': 'ミミ',
+    'Albert': 'アルベール',
+    'Azurifrit': 'アジュラフリート',
+    'Aether': 'アイテール',
+    'Charon': 'カローン',
+    'Balto': 'バルト',
+    'Octrice': 'オクトリス',
+    'Raio': 'ライオ',
+    'Marwynn': 'マーウィン',
+    'Izudia': 'エズディア',
+    'Lishenna': 'リーシェナ',
+    'Galmieux': 'ガルミーユ',
+    'Rulenye & Valnereik': 'ルルナイ＆ヴァーナレク',
+    'Axia': 'アクシア',
+    'Himeka': 'ヒメカ',
+    'Krulle': 'クルル',
+    'Sham-Nacha': 'シャム＝ナクア',
+    'Velharia': 'ヴェハリヤー',
+    'Sinciro': 'シンセライズ',
+    'Heirs': '継承者',
+    'Norman': 'ノーマン',
+    'Sarissa': 'サリッサ',
+    'Reno': 'リノ',
+    'Kit': 'キット',
+    'Amalia': 'アマリア',
+    'Bayle': 'ベイル',
+    'Rusty': 'ラスティ',
+    'Phildau': 'フィルドア',
+    'Wards': '天宮',
+    'Zwei':'ツヴァイ',
+    'Vier': 'フィア',
+    'Salefa': 'サレファ',
+    'Maeve': "ミーヴェ",
+    'Yurius': 'ユリウス',
     'Neutral': "ニュートラル",
     "Forest": "エルフ",
     'Sword': "ロイヤル",
@@ -2168,6 +2255,7 @@ function handleUILanguageChange() {
     activeFilters.illustrator = "";
   }
 
+
   requestAnimationFrame(() => {
     populateCVOptions();
     populateIllustratorOptions();
@@ -2351,6 +2439,13 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         }
       }
     });
+  }
+
+  function hideQnATab(){
+    if (!isEnglishUI){
+      qnaTab = document.querySelector('[data-tab = "qna"]')
+      qnaTab.style.display = 'none';
+    }
   }
 
   function debounceExecute(fn, delay = 50, shortcutKey = '') {
