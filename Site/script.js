@@ -499,18 +499,27 @@ function updateLocalization() {
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     if (!isMobile) return;
 
-    const dropdownContainer = document.createElement("div");
-    dropdownContainer.className = "mobile-dropdown-container";
-    dropdownContainer.style.position = "relative";
-    dropdownContainer.style.display = "inline-block";
-    dropdownContainer.style.width = "100%";
+    // Check if dropdown already exists and remove it
+    const existingBtn = input.parentNode.querySelector('.mobile-dropdown-btn');
+    const existingMenu = input.parentNode.querySelector('.mobile-dropdown-menu');
+    if (existingBtn) existingBtn.remove();
+    if (existingMenu) existingMenu.remove();
 
+    // Don't move the input - just add the dropdown button as an overlay
     const dropdownBtn = document.createElement("button");
     dropdownBtn.type = "button";
     dropdownBtn.className = "mobile-dropdown-btn";
+    dropdownBtn.style.position = "absolute";
+    dropdownBtn.style.right = "8px";
+    dropdownBtn.style.top = "50%";
+    dropdownBtn.style.transform = "translateY(-50%)";
+    dropdownBtn.style.background = "transparent";
+    dropdownBtn.style.border = "none";
+    dropdownBtn.style.padding = "4px";
+    dropdownBtn.style.cursor = "pointer";
+    dropdownBtn.style.pointerEvents = "auto";
     dropdownBtn.innerHTML = `
-      <span class="dropdown-text">${input.value || placeholder}</span>
-      <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7 10l5 5 5-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     `;
@@ -518,52 +527,137 @@ function updateLocalization() {
     const dropdownMenu = document.createElement("div");
     dropdownMenu.className = "mobile-dropdown-menu";
     dropdownMenu.style.display = "none";
+    dropdownMenu.style.position = "absolute";
+    dropdownMenu.style.top = "100%";
+    dropdownMenu.style.left = "0";
+    dropdownMenu.style.right = "0";
+    dropdownMenu.style.zIndex = "1000";
+    dropdownMenu.style.background = "var(--panel, #1e1e1e)";
+    dropdownMenu.style.border = "1px solid var(--border, #444)";
+    dropdownMenu.style.borderRadius = "6px";
+    dropdownMenu.style.boxShadow = "0 6px 24px rgba(0,0,0,0.3)";
+    dropdownMenu.style.maxHeight = "200px";
+    dropdownMenu.style.overflowY = "auto";
 
-    const options = Array.from(datalist.querySelectorAll("option"));
-    options.forEach(option => {
-      const menuItem = document.createElement("div");
-      menuItem.className = "mobile-dropdown-item";
-      menuItem.textContent = option.value;
-      menuItem.addEventListener("click", () => {
-        input.value = option.value;
-        dropdownBtn.querySelector(".dropdown-text").textContent = option.value;
-        dropdownMenu.style.display = "none";
-        input.dispatchEvent(new Event("input", { bubbles: true }));
+    const updateDropdownOptions = () => {
+      // Clear existing menu items (except the clear item)
+      const existingItems = dropdownMenu.querySelectorAll('.mobile-dropdown-item:not(.clear-item)');
+      existingItems.forEach(item => item.remove());
+
+      const options = Array.from(datalist.querySelectorAll("option"));
+      const inputValue = input.value.toLowerCase();
+      
+      // Filter options based on input value
+      const filteredOptions = options.filter(option => 
+        option.value.toLowerCase().includes(inputValue)
+      );
+
+      filteredOptions.forEach(option => {
+        const menuItem = document.createElement("div");
+        menuItem.className = "mobile-dropdown-item";
+        menuItem.style.padding = "8px 12px";
+        menuItem.style.cursor = "pointer";
+        menuItem.style.borderBottom = "1px solid var(--border, #444)";
+        menuItem.textContent = option.value;
+        menuItem.addEventListener("click", () => {
+          input.value = option.value;
+          dropdownMenu.style.display = "none";
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+        });
+        menuItem.addEventListener("mouseenter", () => {
+          menuItem.style.background = "rgba(255,255,255,0.08)";
+        });
+        menuItem.addEventListener("mouseleave", () => {
+          menuItem.style.background = "transparent";
+        });
+        dropdownMenu.appendChild(menuItem);
       });
-      dropdownMenu.appendChild(menuItem);
-    });
+    };
 
     const clearItem = document.createElement("div");
     clearItem.className = "mobile-dropdown-item clear-item";
+    clearItem.style.padding = "8px 12px";
+    clearItem.style.cursor = "pointer";
+    clearItem.style.borderBottom = "1px solid var(--border, #444)";
+    clearItem.style.color = "var(--muted, #aaa)";
     clearItem.textContent = "Clear";
     clearItem.addEventListener("click", () => {
       input.value = "";
-      dropdownBtn.querySelector(".dropdown-text").textContent = placeholder;
       dropdownMenu.style.display = "none";
       input.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    clearItem.addEventListener("mouseenter", () => {
+      clearItem.style.background = "rgba(255,255,255,0.08)";
+    });
+    clearItem.addEventListener("mouseleave", () => {
+      clearItem.style.background = "transparent";
     });
     dropdownMenu.appendChild(clearItem);
 
     dropdownBtn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!dropdownContainer.contains(e.target)) {
+      if (dropdownMenu.style.display === "none") {
+        updateDropdownOptions();
+        dropdownMenu.style.display = "block";
+      } else {
         dropdownMenu.style.display = "none";
       }
     });
 
-    input.addEventListener("input", () => {
-      dropdownBtn.querySelector(".dropdown-text").textContent = input.value || placeholder;
+    // Show dropdown when input is focused and has content
+    input.addEventListener("focus", () => {
+      if (input.value) {
+        updateDropdownOptions();
+        dropdownMenu.style.display = "block";
+      }
     });
 
-    input.style.display = "none";
-    dropdownContainer.appendChild(dropdownBtn);
-    dropdownContainer.appendChild(dropdownMenu);
-    input.parentNode.insertBefore(dropdownContainer, input);
+    // Update dropdown when typing - don't interfere with existing event listeners
+    input.addEventListener("input", (e) => {
+      // Don't prevent default or stop propagation to allow other listeners to work
+      if (input.value) {
+        updateDropdownOptions();
+        dropdownMenu.style.display = "block";
+      } else {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target) && !input.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    // Add padding to input to make room for dropdown button
+    input.style.paddingRight = "40px";
+    input.style.position = "relative";
+    input.style.zIndex = "1";
+
+    // Add dropdown button and menu to the input's parent
+    input.parentNode.appendChild(dropdownBtn);
+    input.parentNode.appendChild(dropdownMenu);
+  }
+
+  function updateMobileDropdownMenu(inputId, datalistId) {
+    const input = document.getElementById(inputId);
+    const datalist = document.getElementById(datalistId);
+    if (!input || !datalist) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobile) return;
+
+    const dropdownContainer = input.parentNode.querySelector('.mobile-dropdown-container');
+    if (!dropdownContainer) return;
+
+    const dropdownMenu = dropdownContainer.querySelector('.mobile-dropdown-menu');
+    if (!dropdownMenu) return;
+
+    // The updateMobileDropdownMenu function is no longer needed since
+    // the new implementation updates options dynamically in updateDropdownOptions
+    // which is called whenever the input changes or dropdown is opened
   }
 
 const ENABLE_MANY_VOICES_FILTER = false;
@@ -1002,49 +1096,6 @@ function renderCards(cards, filter = "") {
         `;
 
         let isTooltipVisible = false;
-        let holdTimer = null;
-
-        skillBtn.addEventListener("touchstart", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          holdTimer = setTimeout(() => {
-            if (!isTooltipVisible) {
-              tooltip.style.display = "block";
-              isTooltipVisible = true;
-              
-              const rect = img.getBoundingClientRect();
-              const tooltipRect = tooltip.getBoundingClientRect();
-              const viewportWidth = window.innerWidth;
-              
-              let left = Math.max(10, Math.min(viewportWidth - tooltipRect.width - 10, rect.left + (rect.width - tooltipRect.width) / 2));
-              let top = Math.max(10, rect.top - tooltipRect.height - 10);
-              
-              tooltip.style.left = `${left}px`;
-              tooltip.style.top = `${top}px`;
-            }
-          }, 500); 
-        });
-
-        skillBtn.addEventListener("touchend", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          if (holdTimer) {
-            clearTimeout(holdTimer);
-            holdTimer = null;
-          }
-        });
-
-        skillBtn.addEventListener("touchcancel", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          if (holdTimer) {
-            clearTimeout(holdTimer);
-            holdTimer = null;
-          }
-        });
 
         skillBtn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -2317,9 +2368,10 @@ function handleUILanguageChange() {
       });
   }
   
+  // Update mobile dropdown menu items when language changes
   requestAnimationFrame(() => {
-    createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
-    createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
+    updateMobileDropdownMenu("filter-cv", "cv-options");
+    updateMobileDropdownMenu("filter-illustrator", "illustrator-options");
   });
   
   if (currentAudio) {
@@ -2498,6 +2550,14 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
+  function focusSearchBar() {
+    const searchInput = document.getElementById("search");
+    if (searchInput) {
+      searchInput.focus();
+      searchInput.select();
+    }
+  }
+
   function toggleFilters() {
     const toggleBtn = document.getElementById("filters-toggle-btn");
     if (toggleBtn) {
@@ -2625,6 +2685,10 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     if (isCtrlOrCmd) {
       switch(e.key.toLowerCase()) {
         case 'f':
+          e.preventDefault();
+          focusSearchBar();
+          break;
+        case 'g':
           e.preventDefault();
           toggleFilters(); 
           break;
