@@ -164,6 +164,7 @@ const localization = {
     'Forte': 'フォルテ',
     'Miriam': 'ミリアム',
     'Filene': 'フィルレイン',
+    'Eyfa': 'エイファ',
     'Amelia': 'エミリア',
     'Gelt': 'ゲルト',
     'Luminous Knights': 'ルミナス',
