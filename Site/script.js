@@ -150,8 +150,22 @@ const localization = {
     'Luminous Knights': 'Luminous Knights',
     'Eyfa':'Eyfa',
     'Zell':'Zell',
+    'Forte': 'Forte',
+    'Miriam': 'Miriam',
+    'Filene': 'Filene',
+    'Amelia': 'Amelia',
+    'Gelt': 'Gelt',
+    'Liam': 'Liam',
+    'Anne & Grea': 'Anne & Grea',
   },
   jp: {
+    'Anne & Grea': 'アン＆グレア',
+    'Liam': 'リーアム',
+    'Forte': 'フォルテ',
+    'Miriam': 'ミリアム',
+    'Filene': 'フィルレイン',
+    'Amelia': 'エミリア',
+    'Gelt': 'ゲルト',
     'Luminous Knights': 'ルミナス',
     'Zell': 'ゼル',
     'Odin': 'オーディン',
@@ -1976,6 +1990,8 @@ fetch("cards.json")
     createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
     
     const classSel = document.getElementById("filter-class");
+    // Clear existing options except the first "Any" option
+    classSel.innerHTML = '<option value="">Any</option>';
     Array.from(classes)
       .sort((a, b) => a - b)
       .forEach((v) => {
@@ -2349,7 +2365,7 @@ function handleUILanguageChange() {
   
   const classSel = document.getElementById("filter-class");
   if (classSel) {
-    classSel.innerHTML = "";
+    classSel.innerHTML = '<option value="">Any</option>';
     const classes = new Set();
     Object.values(allCards).forEach((cardObj) => {
       const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};

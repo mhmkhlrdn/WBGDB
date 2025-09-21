@@ -180,6 +180,13 @@ nav.tabs {
   align-items: center;
   gap: 12px;
   margin: 10px 0 22px 0;
+}
+
+.sticky-search-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: -webkit-sticky;
   position: sticky;
   top: 10px;
   z-index: 100;
@@ -191,9 +198,12 @@ nav.tabs {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  flex: 1;
+  /* Debug: Add a temporary border to see if it's working */
+  /* border: 2px solid red; */
 }
 
-.search-row::before {
+.sticky-search-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -209,9 +219,10 @@ nav.tabs {
   pointer-events: none;
 }
 
-.search-row:hover::before {
+.sticky-search-container:hover::before {
   opacity: 1;
 }
+
 
 .ui-lang-select {
   padding: 8px 16px;
@@ -482,7 +493,7 @@ input[type="number"]::after {
     min-height: auto;
   }
   
-  .search-row {
+  .sticky-search-container {
     top: 20px;
     padding: 16px 20px;
   }
@@ -490,13 +501,17 @@ input[type="number"]::after {
 
 @media (max-width: 767px) {
   .search-row {
-    top: 5px;
     margin: 5px 0 15px 0;
+    gap: 8px;
+  }
+  
+  .sticky-search-container {
+    top: 5px;
     padding: 10px 12px;
     gap: 8px;
   }
   
-  .search-row .ui-lang-select {
+  .sticky-search-container .ui-lang-select {
     min-width: 100px;
     padding: 6px 12px;
     font-size: 13px;
