@@ -740,7 +740,44 @@
     }
   },
   "Amelia,_Silver_Captain": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk3.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk5.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk6.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10124120,
@@ -3808,7 +3845,44 @@
         "evo_art_url": "Art/10153111.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk0.mp3"
+          },
+          {
+            "name": "chunk1.mp3",
+            "label": "chunk1.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk1.mp3"
+          },
+          {
+            "name": "chunk2.mp3",
+            "label": "chunk2.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk2.mp3"
+          },
+          {
+            "name": "chunk3.mp3",
+            "label": "chunk3.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk3.mp3"
+          },
+          {
+            "name": "chunk5.mp3",
+            "label": "Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk5.mp3"
+          },
+          {
+            "name": "chunk6.mp3",
+            "label": "Super-Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk6.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70153110,
           "base_art_url": "./Art/70153110.png",
@@ -3944,7 +4018,56 @@
         "evo_art_url": "Art/10254121.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk0.mp3"
+          },
+          {
+            "name": "chunk1.mp3",
+            "label": "chunk1.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk1.mp3"
+          },
+          {
+            "name": "chunk2.mp3",
+            "label": "chunk2.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk2.mp3"
+          },
+          {
+            "name": "chunk3.mp3",
+            "label": "chunk3.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk3.mp3"
+          },
+          {
+            "name": "chunk4.mp3",
+            "label": "chunk4.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk4.mp3"
+          },
+          {
+            "name": "chunk5.mp3",
+            "label": "chunk5.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk5.mp3"
+          },
+          {
+            "name": "chunk7.mp3",
+            "label": "Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk7.mp3"
+          },
+          {
+            "name": "chunk8.mp3",
+            "label": "Super-Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk8.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70254120,
           "base_art_url": "./Art/70254120.png",
@@ -6844,7 +6967,14 @@
       },
       "evo": {},
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Dragonsign_Alt/chunk0.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70042310,
           "base_art_url": "./Art/70042310.png",
@@ -6867,31 +6997,31 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Dwarven_Mallietman/chunk0.mp3",
-        "en_url": "Audio/EN/Dwarven_Mallietman/chunk0.mp3",
+        "en_url": "Audio/EN/Dwarven_Malletman/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Dwarven_Mallietman/chunk1.mp3",
-        "en_url": "Audio/EN/Dwarven_Mallietman/chunk1.mp3",
+        "en_url": "Audio/EN/Dwarven_Malletman/chunk1.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Dwarven_Mallietman/chunk2.mp3",
-        "en_url": "Audio/EN/Dwarven_Mallietman/chunk2.mp3",
+        "en_url": "Audio/EN/Dwarven_Malletman/chunk2.mp3",
         "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Dwarven_Mallietman/chunk4.mp3",
-        "en_url": "Audio/EN/Dwarven_Mallietman/chunk7.mp3",
+        "en_url": "Audio/EN/Dwarven_Malletman/chunk7.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Dwarven_Mallietman/chunk5.mp3",
-        "en_url": "Audio/EN/Dwarven_Mallietman/chunk8.mp3",
+        "en_url": "Audio/EN/Dwarven_Malletman/chunk8.mp3",
         "label": "Super-Evolve"
       }
     ],
@@ -7869,7 +7999,7 @@
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Eyfa,_Windrider/chunk10.mp3",
-        "en_url": "Audio/EN/Eyfa,_Windrider/chunk5.mp3",
+        "en_url": "Audio/EN/Eyfa,_Windrider/undefined",
         "label": "Super-Evolve"
       }
     ],
@@ -8293,7 +8423,38 @@
     }
   },
   "Fennie,_Prismatic_Phoenix": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Fennie,_Prismatic_Phoenix/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Fennie,_Prismatic_Phoenix/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Fennie,_Prismatic_Phoenix/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Fennie,_Prismatic_Phoenix/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Fennie,_Prismatic_Phoenix/chunk4.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10244120,
@@ -8441,7 +8602,50 @@
     }
   },
   "Filene,_Whitefrost_Bloom": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk4.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk6.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk7.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10244110,
@@ -8913,7 +9117,50 @@
         "evo_art_url": "Art/10144121.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk0.mp3"
+          },
+          {
+            "name": "chunk1.mp3",
+            "label": "chunk1.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk1.mp3"
+          },
+          {
+            "name": "chunk2.mp3",
+            "label": "chunk2.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk2.mp3"
+          },
+          {
+            "name": "chunk3.mp3",
+            "label": "chunk3.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk3.mp3"
+          },
+          {
+            "name": "chunk4.mp3",
+            "label": "chunk4.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk4.mp3"
+          },
+          {
+            "name": "chunk6.mp3",
+            "label": "Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk6.mp3"
+          },
+          {
+            "name": "chunk7.mp3",
+            "label": "Super-Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk7.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70144120,
           "base_art_url": "./Art/70144120.png",
@@ -9394,25 +9641,25 @@
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk3.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/chunk4.mp3",
         "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk4.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/chunk5.mp3",
         "label": "Effect"
       },
       {
         "name": "chunk9.mp3",
         "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk9.mp3",
-        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/chunk4.mp3",
+        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/undefined",
         "label": "Evolve"
       },
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Gelt,_Intrepid_Vice-Captain/chunk10.mp3",
-        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/chunk5.mp3",
+        "en_url": "Audio/EN/Gelt,_Intrepid_Vice-Captain/undefined",
         "label": "Super-Evolve"
       }
     ],
@@ -9769,7 +10016,44 @@
     }
   },
   "Gildaria,_Anathema_of_Peace": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk3.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk5.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk6.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10224110,
@@ -9807,7 +10091,44 @@
         "evo_art_url": "Art/10224111.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk0.mp3"
+          },
+          {
+            "name": "chunk1.mp3",
+            "label": "chunk1.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk1.mp3"
+          },
+          {
+            "name": "chunk2.mp3",
+            "label": "chunk2.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk2.mp3"
+          },
+          {
+            "name": "chunk3.mp3",
+            "label": "chunk3.mp3",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk3.mp3"
+          },
+          {
+            "name": "chunk5.mp3",
+            "label": "Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk5.mp3"
+          },
+          {
+            "name": "chunk6.mp3",
+            "label": "Super-Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk6.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70224110,
           "base_art_url": "./Art/70224110.png",
@@ -11263,7 +11584,7 @@
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Hound_of_War/chunk10.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Hound_of_War/undefined",
         "label": "Super-Evolve"
       }
     ],
@@ -12802,7 +13123,56 @@
     }
   },
   "Krulle,_Heir_to_Unkilling": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "chunk5.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk5.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk7.mp3"
+      },
+      {
+        "name": "chunk8.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk8.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10314110,
@@ -14614,6 +14984,12 @@
         "url": "Audio/FILTERED/Maddening_Benison/chunk0.mp3",
         "en_url": "Audio/EN/Maddening_Benison/chunk0.mp3",
         "label": "Play"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk1.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -15814,6 +16190,9 @@
         "url": "Audio/FILTERED/Miriam,_the_Resolute/chunk6.mp3",
         "en_url": "Audio/EN/Miriam,_the_Resolute/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Miriam,_the_Resolute/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -16713,7 +17092,62 @@
     }
   },
   "Norman,_Adamant_Alchemist": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "chunk5.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk5.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "chunk6.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk6.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk7.mp3"
+      },
+      {
+        "name": "chunk8.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk8.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10234120,
@@ -17633,14 +18067,17 @@
       {
         "name": "chunk9.mp3",
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk9.mp3",
-        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
+        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk4.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3",
-        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3",
+        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -18434,7 +18871,38 @@
         "evo_art_url": "Art/90071111.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Puppet_Alt/chunk0.mp3"
+          },
+          {
+            "name": "chunk1.mp3",
+            "label": "Attack",
+            "url": null,
+            "en_url": "Audio/EN/Puppet_Alt/chunk1.mp3"
+          },
+          {
+            "name": "chunk2.mp3",
+            "label": "Death",
+            "url": null,
+            "en_url": "Audio/EN/Puppet_Alt/chunk2.mp3"
+          },
+          {
+            "name": "chunk3.mp3",
+            "label": "Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Puppet_Alt/chunk3.mp3"
+          },
+          {
+            "name": "chunk4.mp3",
+            "label": "Super-Evolve",
+            "url": null,
+            "en_url": "Audio/EN/Puppet_Alt/chunk4.mp3"
+          }
+        ],
         "style_data": {
           "card_id": 70071110,
           "base_art_url": "./Art/70071110.png",
@@ -18986,7 +19454,38 @@
     }
   },
   "Raio,_Elimination_Manifest": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk5.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10334120,
@@ -20485,7 +20984,7 @@
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Sacred_Griffon/chunk6.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Sacred_Griffon/undefined",
         "label": "Super-Evolve"
       }
     ],
@@ -20995,6 +21494,18 @@
         "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3",
         "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk4.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk5.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk6.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk7.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -21073,7 +21584,20 @@
     }
   },
   "Serene_Sanctuary": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Serene_Sanctuary/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Serene_Sanctuary/chunk1.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10161210,
@@ -21650,7 +22174,50 @@
     }
   },
   "Sinciro,_Heir_to_Usurpation": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk5.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk6.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10324110,
@@ -25529,7 +26096,50 @@
     }
   },
   "Yurius,_Levin_Authority": {
-    "voices": [],
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk1.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "chunk5.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk5.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk6.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk7.mp3"
+      }
+    ],
     "metadata": {
       "common": {
         "card_id": 10224120,
@@ -25644,37 +26254,37 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk0.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk1.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/chunk1.mp3",
         "label": "MeetingEyfa"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk2.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/chunk2.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk3.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/chunk3.mp3",
         "label": "Death"
       },
       {
         "name": "chunk9.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk9.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/chunk4.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Zell,_Windreader/chunk10.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Zell,_Windreader/undefined",
         "label": "Super-Evolve"
       }
     ],
@@ -25918,5 +26528,268 @@
       },
       "evo": {}
     }
+  },
+  "Angelic_Prism_Priestess": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Cleric_of_Crushing": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Cleric_of_Crushing/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Cleric_of_Crushing/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Cleric_of_Crushing/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Cleric_of_Crushing/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Cleric_of_Crushing/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Colette,_Barrage_Exorcist": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Darknaven_Grace": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Darknaven_Grace/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Darknaven_Grace/chunk1.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Dose_of_Holiness": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Dose_of_Holiness/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Dose_of_Holiness/chunk1.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Fairy_Convocation": {
+    "metadata": {
+      "alternate": {
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "label": "Play",
+            "url": null,
+            "en_url": "Audio/EN/Fairy_Convocation_Alt/chunk0.mp3"
+          }
+        ]
+      }
+    }
+  },
+  "Holy_Shieldmaiden": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Holy_Shieldmaiden/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Holy_Shieldmaiden/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Holy_Shieldmaiden/chunk2.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Holy_Shieldmaiden/chunk7.mp3"
+      },
+      {
+        "name": "chunk8.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Holy_Shieldmaiden/chunk8.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Shadowcrypt_Memorial": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Supplicant_of_Repose": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk3.mp3"
+      },
+      {
+        "name": "chunk9.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk9.mp3"
+      },
+      {
+        "name": "chunk10.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Supplicant_of_Repose/chunk10.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Whitefrost_Whisper": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Whitefrost_Whisper/chunk0.mp3"
+      }
+    ],
+    "metadata": {}
   }
 }
