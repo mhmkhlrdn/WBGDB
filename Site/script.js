@@ -942,22 +942,45 @@ function renderCards(cards, filter = "") {
   });
     
     // Grouping support
-    const groupBy = activeFilters.groupBy;
-    let grouped = null;
-    if (groupBy !== "none") {
-      grouped = new Map();
-      entries.forEach(([cardName, cardObj]) => {
-        const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-        const key = groupBy === 'illustrator'
-          ? (isEnglishUI ? (meta.illustrator || '') : (meta.jpIllustrator || meta.illustrator || ''))
-          : (isEnglishVoice ? (meta.cv || '') : (meta.jpCV || ''));
-        const groupKey = key && key.trim() ? key.trim() : (groupBy === 'illustrator' ? getLocalizedText('Illustrator') : getLocalizedText('CV'));
-        if (!grouped.has(groupKey)) grouped.set(groupKey, []);
-        grouped.get(groupKey).push([cardName, cardObj]);
-      });
-      // Sort groups alphabetically by key
-      grouped = new Map(Array.from(grouped.entries()).sort((a, b) => a[0].localeCompare(b[0])));
-    }
+   const groupBy = activeFilters.groupBy;
+let grouped = null;
+
+if (groupBy !== "none") {
+  grouped = new Map();
+
+  entries.forEach(([cardName, cardObj]) => {
+    const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+
+    // Pick the correct field based on groupBy
+    const key = groupBy === "illustrator"
+      ? (isEnglishUI ? meta.illustrator : (meta.jpIllustrator || meta.illustrator))
+      : (isEnglishVoice ? meta.cv : (meta.jpCV || meta.cv));
+
+    // Use fallback label if missing/null
+    const isIllustrator = groupBy === "illustrator";
+    const fallback = isIllustrator
+      ? getLocalizedText("No Illustrator Data")
+      : getLocalizedText("No CV Data");
+
+    const groupKey = key && key.trim() ? key.trim() : fallback;
+
+    if (!grouped.has(groupKey)) grouped.set(groupKey, []);
+    grouped.get(groupKey).push([cardName, cardObj]);
+  });
+
+  // Sort groups alphabetically, but push "No ... Data" last
+  grouped = new Map(
+    Array.from(grouped.entries()).sort((a, b) => {
+      const isAFallback = a[0].startsWith("No ");
+      const isBFallback = b[0].startsWith("No ");
+
+      if (isAFallback && !isBFallback) return 1;  // A goes after B
+      if (!isAFallback && isBFallback) return -1; // A goes before B
+      return a[0].localeCompare(b[0]);            // Otherwise normal sort
+    })
+  );
+}
+
 
     // Store filtered cards for navigation
     filteredCards = [];
