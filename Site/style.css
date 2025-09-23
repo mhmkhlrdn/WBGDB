@@ -188,8 +188,8 @@ nav.tabs {
   gap: 12px;
   position: -webkit-sticky;
   position: sticky;
-  top: 10px;
-  z-index: 100;
+  top: 0;
+  z-index: 1000;
   background: rgba(11, 16, 32, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -201,6 +201,16 @@ nav.tabs {
   flex: 1;
   /* Debug: Add a temporary border to see if it's working */
   /* border: 2px solid red; */
+}
+
+.sticky-search-container.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1100px;
+  z-index: 2000;
 }
 
 .sticky-search-container::before {
@@ -494,7 +504,7 @@ input[type="number"]::after {
   }
   
   .sticky-search-container {
-    top: 20px;
+    top: 0;
     padding: 16px 20px;
   }
 }
@@ -506,7 +516,7 @@ input[type="number"]::after {
   }
   
   .sticky-search-container {
-    top: 5px;
+    top: 0;
     padding: 10px 12px;
     gap: 8px;
   }
@@ -612,6 +622,17 @@ input[type="number"]::after {
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
+}
+
+.group-header {
+  grid-column: 1 / -1;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
 }
 
 .card-header {
@@ -739,6 +760,12 @@ input[type="number"]::after {
   user-select: none;
   min-height: 44px;
   font-size: 14px;
+}
+
+.audio-unavailable {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(180deg, rgba(154,164,199,0.12), rgba(154,164,199,0.08));
 }
 
 @media (min-width: 768px) {

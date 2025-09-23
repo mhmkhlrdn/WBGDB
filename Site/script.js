@@ -38,6 +38,7 @@ const localization = {
     'Show: Base': 'Show: Base',
     'Open Image': 'Open Image',
     'Download Image': 'Download Image',
+    'Not available': 'Not available',
     'Previous card': 'Previous card',
     'Next card': 'Next card',
     'Close': 'Close',
@@ -695,6 +696,7 @@ const activeFilters = {
   sortOrder: "asc",
   voices: "both",
   viewMode: "list",
+  groupBy: "none",
   manyVoices: "all",
   alternate: "all",
 };
@@ -741,11 +743,20 @@ function createAudioButton(line) {
     ? getLocalizedText(rawText)
     : rawText;
 
-  const button = document.createElement("button");
+  const isMissing = isEnglishVoice ? !line.en_url : !line.url;
+
+  const button = document.createElement(isMissing ? "div" : "button");
   button.className = isMeeting ? "audio-btn meeting-btn" : "audio-btn";
-  button.setAttribute("type", "button");
-  button.setAttribute("aria-label", getLocalizedText('Play audio'));
-  button.innerHTML = `
+  if (!isMissing) {
+    button.setAttribute("type", "button");
+    button.setAttribute("aria-label", getLocalizedText('Play audio'));
+  } else {
+    button.classList.add("audio-unavailable");
+    button.setAttribute("aria-disabled", "true");
+  }
+  button.innerHTML = isMissing
+    ? `<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg><span>${getLocalizedText('Not available')}</span>`
+    : `
     <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path class="icon-play" d="M8 5v14l11-7-11-7z"/>
       <g class="icon-pause" style="display:none"><rect x="7" y="5" width="4" height="14" rx="1"></rect><rect x="13" y="5" width="4" height="14" rx="1"></rect></g>
@@ -754,10 +765,15 @@ function createAudioButton(line) {
     <span class="time" aria-hidden="true">0:00</span>
   `;
 
-  const downloadBtn = document.createElement("button");
+  const downloadBtn = document.createElement(isMissing ? "div" : "button");
   downloadBtn.className = "audio-download-btn";
-  downloadBtn.setAttribute("type", "button");
-  downloadBtn.setAttribute("aria-label", getLocalizedText('Download audio'));
+  if (!isMissing) {
+    downloadBtn.setAttribute("type", "button");
+    downloadBtn.setAttribute("aria-label", getLocalizedText('Download audio'));
+  } else {
+    downloadBtn.classList.add("audio-unavailable");
+    downloadBtn.setAttribute("aria-disabled", "true");
+  }
   downloadBtn.innerHTML = `
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -766,7 +782,7 @@ function createAudioButton(line) {
     </svg>
   `;
 
-  button.addEventListener("click", () => {
+  if (!isMissing) button.addEventListener("click", () => {
     const isSame = currentButton === button;
 
     if (currentAudio && !isSame) {
@@ -829,7 +845,7 @@ function createAudioButton(line) {
     }
   });
 
-  downloadBtn.addEventListener("click", () => {
+  if (!isMissing) downloadBtn.addEventListener("click", () => {
     const audioUrl = isEnglishVoice ? line.en_url : line.url;
     const link = document.createElement("a");
     link.href = audioUrl;
@@ -924,6 +940,24 @@ function renderCards(cards, filter = "") {
 
     return activeFilters.sortOrder === "desc" ? -result : result;
   });
+    
+    // Grouping support
+    const groupBy = activeFilters.groupBy;
+    let grouped = null;
+    if (groupBy !== "none") {
+      grouped = new Map();
+      entries.forEach(([cardName, cardObj]) => {
+        const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+        const key = groupBy === 'illustrator'
+          ? (isEnglishUI ? (meta.illustrator || '') : (meta.jpIllustrator || meta.illustrator || ''))
+          : (isEnglishVoice ? (meta.cv || '') : (meta.jpCV || ''));
+        const groupKey = key && key.trim() ? key.trim() : (groupBy === 'illustrator' ? getLocalizedText('Illustrator') : getLocalizedText('CV'));
+        if (!grouped.has(groupKey)) grouped.set(groupKey, []);
+        grouped.get(groupKey).push([cardName, cardObj]);
+      });
+      // Sort groups alphabetically by key
+      grouped = new Map(Array.from(grouped.entries()).sort((a, b) => a[0].localeCompare(b[0])));
+    }
 
     // Store filtered cards for navigation
     filteredCards = [];
@@ -931,8 +965,7 @@ function renderCards(cards, filter = "") {
     // Use document fragment for better performance
     const fragment = document.createDocumentFragment();
     
-    // Process all cards (reverted from batch processing for reliability)
-    entries.forEach(([cardName, cardObj], index) => {
+    const renderCardEntry = ([cardName, cardObj], index) => {
       const lines =
         cardObj && Array.isArray(cardObj.voices) ? cardObj.voices : [];
       
@@ -1256,6 +1289,17 @@ function renderCards(cards, filter = "") {
           row.appendChild(btn);
         });
         voiceButtonsContainer.appendChild(row);
+      } else {
+        const row = document.createElement("div");
+        row.className = "btn-row";
+        const placeholder = document.createElement("div");
+        placeholder.className = "audio-btn audio-unavailable";
+        placeholder.innerHTML = `
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg>
+          <span>${getLocalizedText('Not available')}</span>
+        `;
+        row.appendChild(placeholder);
+        voiceButtonsContainer.appendChild(row);
       }
     };
 
@@ -1263,7 +1307,20 @@ function renderCards(cards, filter = "") {
       cardDiv.appendChild(voiceButtonsContainer);
 
       fragment.appendChild(cardDiv);
-    });
+    };
+
+    if (grouped) {
+      grouped.forEach((list, groupKey) => {
+        const groupHeader = document.createElement('div');
+        groupHeader.className = 'group-header';
+        groupHeader.textContent = groupKey || (groupBy === 'illustrator' ? getLocalizedText('Illustrator') : getLocalizedText('CV'));
+        fragment.appendChild(groupHeader);
+        list.forEach((entry, idx) => renderCardEntry(entry, idx));
+      });
+    } else {
+      // Process all cards (reverted from batch processing for reliability)
+      entries.forEach((entry, index) => renderCardEntry(entry, index));
+    }
     
     container.appendChild(fragment);
   });
@@ -2073,6 +2130,10 @@ fetch("cards.json")
       activeFilters.voices = e.target.value;
       renderCards(allCards, document.getElementById("search").value);
     });
+    document.getElementById("group-by").addEventListener("change", (e) => {
+      activeFilters.groupBy = e.target.value;
+      renderCards(allCards, document.getElementById("search").value);
+    });
     document
       .getElementById("filter-alternate")
       .addEventListener("change", (e) => {
@@ -2280,6 +2341,7 @@ fetch("cards.json")
         document.getElementById("filter-voices").value = "both";
         document.getElementById("filter-alternate").value = "all";
         document.getElementById("view-mode").value = "list";
+        document.getElementById("group-by").value = "none";
 
         if (ENABLE_MANY_VOICES_FILTER) {
           const manyVoicesSelect =
@@ -2420,6 +2482,44 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (uiSelect) {
     uiSelect.addEventListener("change", handleUILanguageChange);
+  }
+
+  // Sticky search fallback to fixed when crossing top
+  const sticky = document.querySelector('.sticky-search-container');
+  if (sticky) {
+    const spacer = document.createElement('div');
+    spacer.style.height = `${sticky.offsetHeight}px`;
+    spacer.style.display = 'none';
+    sticky.parentNode.insertBefore(spacer, sticky);
+
+    let lastFixed = false;
+    // Capture the original top position relative to document
+    let originalTop = sticky.getBoundingClientRect().top + window.scrollY;
+
+    const onScroll = () => {
+      const threshold = lastFixed ? spacer.getBoundingClientRect().top + window.scrollY : originalTop;
+      const shouldFix = window.scrollY >= threshold;
+      if (shouldFix !== lastFixed) {
+        lastFixed = shouldFix;
+        if (shouldFix) {
+          spacer.style.display = 'block';
+          sticky.classList.add('is-fixed');
+        } else {
+          spacer.style.display = 'none';
+          sticky.classList.remove('is-fixed');
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      spacer.style.height = `${sticky.offsetHeight}px`;
+      if (!lastFixed) {
+        // Recalculate originalTop only when not fixed to avoid drift
+        originalTop = sticky.getBoundingClientRect().top + window.scrollY;
+      }
+      onScroll();
+    });
+    onScroll();
   }
 });
 

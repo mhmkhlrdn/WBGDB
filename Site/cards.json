@@ -749,19 +749,19 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingGelt",
         "url": null,
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk3.mp3"
       },
@@ -3854,19 +3854,19 @@
           },
           {
             "name": "chunk1.mp3",
-            "label": "chunk1.mp3",
+            "label": "Attack",
             "url": null,
             "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk1.mp3"
           },
           {
             "name": "chunk2.mp3",
-            "label": "chunk2.mp3",
+            "label": "Death",
             "url": null,
             "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk2.mp3"
           },
           {
             "name": "chunk3.mp3",
-            "label": "chunk3.mp3",
+            "label": "Effect",
             "url": null,
             "en_url": "Audio/EN/Ceres,_Blue_Rose_Maiden_Alt/chunk3.mp3"
           },
@@ -4027,31 +4027,31 @@
           },
           {
             "name": "chunk1.mp3",
-            "label": "chunk1.mp3",
+            "label": "MeetingOrthrus",
             "url": null,
             "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk1.mp3"
           },
           {
             "name": "chunk2.mp3",
-            "label": "chunk2.mp3",
+            "label": "MeetingCerberus",
             "url": null,
             "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk2.mp3"
           },
           {
             "name": "chunk3.mp3",
-            "label": "chunk3.mp3",
+            "label": "Attack",
             "url": null,
             "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk3.mp3"
           },
           {
             "name": "chunk4.mp3",
-            "label": "chunk4.mp3",
+            "label": "Death",
             "url": null,
             "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk4.mp3"
           },
           {
             "name": "chunk5.mp3",
-            "label": "chunk5.mp3",
+            "label": "Effect",
             "url": null,
             "en_url": "Audio/EN/Charon,_Stygian_Oarswoman_Alt/chunk5.mp3"
           },
@@ -8611,25 +8611,25 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingForte",
         "url": null,
         "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "MeetingGalmieux",
         "url": null,
         "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
-        "label": "chunk4.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Filene,_Whitefrost_Bloom/chunk4.mp3"
       },
@@ -9126,25 +9126,25 @@
           },
           {
             "name": "chunk1.mp3",
-            "label": "chunk1.mp3",
+            "label": "MeetingMiriam",
             "url": null,
             "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk1.mp3"
           },
           {
             "name": "chunk2.mp3",
-            "label": "chunk2.mp3",
+            "label": "MeetingFilene",
             "url": null,
             "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk2.mp3"
           },
           {
             "name": "chunk3.mp3",
-            "label": "chunk3.mp3",
+            "label": "Attack",
             "url": null,
             "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk3.mp3"
           },
           {
             "name": "chunk4.mp3",
-            "label": "chunk4.mp3",
+            "label": "Death",
             "url": null,
             "en_url": "Audio/EN/Forte,_Blackwing_Dragoon_Alt/chunk4.mp3"
           },
@@ -10025,19 +10025,19 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Effect",
         "url": null,
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk3.mp3"
       },
@@ -10100,19 +10100,19 @@
           },
           {
             "name": "chunk1.mp3",
-            "label": "chunk1.mp3",
+            "label": "Attack",
             "url": null,
             "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk1.mp3"
           },
           {
             "name": "chunk2.mp3",
-            "label": "chunk2.mp3",
+            "label": "Death",
             "url": null,
             "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk2.mp3"
           },
           {
             "name": "chunk3.mp3",
-            "label": "chunk3.mp3",
+            "label": "Effect",
             "url": null,
             "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace_Alt/chunk3.mp3"
           },
@@ -13132,31 +13132,31 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingIzudia",
         "url": null,
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "MeetingHeirs",
         "url": null,
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
-        "label": "chunk4.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
-        "label": "chunk5.mp3",
+        "label": "Effect",
         "url": null,
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk5.mp3"
       },
@@ -17101,37 +17101,37 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "Play",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "Play",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Play",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
-        "label": "chunk4.mp3",
+        "label": "MeetingAnne & Grea",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
-        "label": "chunk5.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
-        "label": "chunk6.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk6.mp3"
       },
@@ -21584,20 +21584,7 @@
     }
   },
   "Serene_Sanctuary": {
-    "voices": [
-      {
-        "name": "chunk0.mp3",
-        "label": "Play",
-        "url": null,
-        "en_url": "Audio/EN/Serene_Sanctuary/chunk0.mp3"
-      },
-      {
-        "name": "chunk1.mp3",
-        "label": "Play",
-        "url": null,
-        "en_url": "Audio/EN/Serene_Sanctuary/chunk1.mp3"
-      }
-    ],
+    "voices": [],
     "metadata": {
       "common": {
         "card_id": 10161210,
@@ -22183,25 +22170,25 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingHeirs",
         "url": null,
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "MeetingOctrice",
         "url": null,
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
-        "label": "chunk4.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk4.mp3"
       },
@@ -26105,25 +26092,25 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingAlbert",
         "url": null,
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk1.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
-        "label": "chunk4.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
-        "label": "chunk5.mp3",
+        "label": "Effect",
         "url": null,
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk5.mp3"
       },
@@ -26562,7 +26549,43 @@
         "en_url": "Audio/EN/Angelic_Prism_Priestess/chunk5.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10161110,
+        "card_set_id": 10001,
+        "type": 1,
+        "class": 6,
+        "is_token": false,
+        "atk": 2,
+        "life": 2,
+        "cost": 3,
+        "rarity": 1,
+        "cv": "Lizzie Freeman",
+        "illustrator": "Maki",
+        "flavour_text": "What is the right thing to do? What is the meaning of justice? There will be times when even the most widely-accepted ideals are called into question. \"I've got some of my own justice right here, and I'm just itchin' to pound you with it!\"",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Draw an amulet.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an amulet in your hand and reduce its cost by 1.</ev>",
+        "card_image_hash": "9e5ee5c369a64a30970bd088f1a44dda",
+        "card_banner_image_hash": "3f9a2243293b439695b9b101019b2874",
+        "base_art_url": "Art/10161110.png",
+        "jpCard_image_hash": "1f01b9ca8d194fa9a8ad406c9f8cef47",
+        "jpCV": "大久保瑠美",
+        "jpName": "聖心のプリズムプリースト",
+        "jpFlavour_Text": "正しきとは何か。義とは如何なるものか。\n迷った時点でそれは正しくなく、義ではない。\n「オーケー！脳天にセーギを叩き込みマース！」",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分のデッキからアミュレット1枚を引く。\n<hr><ev>【<color=Keyword>進化時</color>】自分の手札のアミュレット1枚を選ぶ。それのコストを-1する。</ev>",
+        "jpIllustrator": "巻"
+      },
+      "evo": {
+        "card_resource_id": 101611101,
+        "flavour_text": "Faith lies in the righteous, and loyalty lies with the just... Or something like that! In any case, my justice is immortal, and my power eternal!",
+        "jpFlavour_text": "聖なるは正なり、疑なきは義なり。\n疑いなき聖心は、無尽。\n「ワタシの力はエターナルにイモータルデーッス！」",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Draw an amulet.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an amulet in your hand and reduce its cost by 1.</ev>",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】自分のデッキからアミュレット1枚を引く。\n<hr><ev>【<color=Keyword>進化時</color>】自分の手札のアミュレット1枚を選ぶ。それのコストを-1する。</ev>",
+        "card_image_hash": "07e5b07091ff45dfae10dbcf8752421e",
+        "jpCard_image_hash": "ad9b8ea5e3dd44ac90bf116681de4c0a",
+        "card_banner_image_hash": "9000e17b40ce40beac91128039a039fe",
+        "evo_art_url": "Art/10161111.png"
+      }
+    }
   },
   "Cleric_of_Crushing": {
     "voices": [
@@ -26597,7 +26620,43 @@
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk5.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10261110,
+        "card_set_id": 10002,
+        "type": 1,
+        "class": 6,
+        "is_token": false,
+        "atk": 2,
+        "life": 4,
+        "cost": 3,
+        "rarity": 1,
+        "cv": "Melissa Medina",
+        "illustrator": "",
+        "flavour_text": "She cleanses the wicked in an instant, and I dare say one strike from her hammer could put a sizable dent in any one of our temples. I'm not sure we'll ever know exactly why the divine sanctified her.\n—A priest's memorandum",
+        "skill_text": "<b><color=Keyword>Ward</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a super-evolved enemy follower on the field and destroy it.</ev>",
+        "card_image_hash": "cb4aaca39b0648b8b07f8221c66f1b4e",
+        "card_banner_image_hash": "a72b99e12e7d49bfa71d80d7e7e02477",
+        "base_art_url": "Art/10261110.png",
+        "jpCard_image_hash": "c7d6ab3f5b55414e8df35bd801cf01e6",
+        "jpCV": "中村繪里子",
+        "jpName": "粉砕の聖職者",
+        "jpFlavour_Text": "悪しき魂は即浄化、直撃すれば神殿も変形する程の重み。\n崇高なるご意思は、何故あれを聖別されたのだろうか？\n――『司祭の覚書』",
+        "jpSkill_Text": "【<color=Keyword>守護</color>】\n<hr><ev>【<color=Keyword>進化時</color>】相手の場の超進化後のフォロワー1枚を選ぶ。それを破壊。</ev>",
+        "jpIllustrator": null
+      },
+      "evo": {
+        "card_resource_id": 102611101,
+        "flavour_text": "Man's wickedness isn't something that can be changed so easily. B-but the divine didn't bless me with this hammer just to give up! A good pounding is enough to put anyone back on the path of righteousness!",
+        "jpFlavour_text": "人の悪しき心根は、そう簡単には変えられません。\nで、ですが……聖別されたこの重みならば！\nお導きに従い、皆様の性根をメッタメタに叩き直します！",
+        "skill_text": "<b><color=Keyword>Ward</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a super-evolved enemy follower on the field and destroy it.</ev>",
+        "jpSkill_text": "【<color=Keyword>守護</color>】\n<hr><ev>【<color=Keyword>進化時</color>】相手の場の超進化後のフォロワー1枚を選ぶ。それを破壊。</ev>",
+        "card_image_hash": "969ddec3252b47c8a000d2dc3cf01841",
+        "jpCard_image_hash": "47bd66743299423094f77d861c3da8e7",
+        "card_banner_image_hash": "1c7d4fd9dfb34406bbf64b524de92541",
+        "evo_art_url": "Art/10261111.png"
+      }
+    }
   },
   "Colette,_Barrage_Exorcist": {
     "voices": [
@@ -26632,7 +26691,43 @@
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk5.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10262110,
+        "card_set_id": 10002,
+        "type": 1,
+        "class": 6,
+        "is_token": false,
+        "atk": 2,
+        "life": 2,
+        "cost": 3,
+        "rarity": 2,
+        "cv": "Sarah Anne Williams",
+        "illustrator": "liiko",
+        "flavour_text": "The creed of the demon hunter is one of total eradication—the fewer demons, the better. But this exorcist prefers to exercise compassion. For her, there can be no judgment before acceptance.",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 1 time: \"Deal 2 damage to a random enemy follower.\" If there are at least 2 allied amulets on the field, do it 2 times instead.",
+        "card_image_hash": "efd42b5d04e94c36a1a1c30d3fd79e76",
+        "card_banner_image_hash": "b65d933cf31c45ea90055787c9aa3afe",
+        "base_art_url": "Art/10262110.png",
+        "jpCard_image_hash": "c757e36691eb48eea0e028c41e52f1d7",
+        "jpCV": "田辺留依",
+        "jpName": "バラージエクソシスト・コレット",
+        "jpFlavour_Text": "魔族を憎み、拒んで滅するのが魔物狩りの信条。\n魔族さえ慈しみ、受け入れた上で裁くのが彼女の信条。",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に2ダメージ。」を1回行う。自分の場のアミュレットの枚数が2以上なら、1回ではなく2回。",
+        "jpIllustrator": "liiko"
+      },
+      "evo": {
+        "card_resource_id": 102621101,
+        "flavour_text": "My rationale? It's nothin' deep, really! For example, if I see a cute lil' demon being naughty, I think, \"well there's a bugger that could use a stern talking to!\" Huh? What do you mean there's no such thing as a <i>cute</i> demon?",
+        "jpFlavour_text": "心構え、ですか？そんな大したものはありませんよ！\nたとえ可愛い魔物さんでも悪いことをしたら叱らないと！\n……え、魔物は可愛くない？そ、そんなことないですよ？",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 1 time: \"Deal 2 damage to a random enemy follower.\" If there are at least 2 allied amulets on the field, do it 2 times instead.",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に2ダメージ。」を1回行う。自分の場のアミュレットの枚数が2以上なら、1回ではなく2回。",
+        "card_image_hash": "4bb8b947d0d34116af3d84587cdda8fc",
+        "jpCard_image_hash": "07ce86a9902a4c2cab0ab4b3305b5b42",
+        "card_banner_image_hash": "175e8b508fd14991929d29a0f70e8059",
+        "evo_art_url": "Art/10262111.png"
+      }
+    }
   },
   "Darknaven_Grace": {
     "voices": [
@@ -26666,10 +26761,62 @@
         "en_url": "Audio/EN/Dose_of_Holiness/chunk1.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10162220,
+        "card_set_id": 10001,
+        "type": 2,
+        "class": 6,
+        "is_token": false,
+        "atk": 0,
+        "life": 0,
+        "cost": 3,
+        "rarity": 2,
+        "cv": "Alexa Kahn",
+        "illustrator": "Gen",
+        "flavour_text": "Confessions cannot be forcibly obtained.\n—<i>Rubric of the Holy Police Academy</i>, Article 4\nConfessions cannot be forcibly obtained, except via the use of potions.\n—<i>Rubric of the Holy Police Academy</i>, Article 4 (Revised)",
+        "skill_text": "<b><color=Keyword>Engage</color></b>: Destroy this card. Select an enemy follower on the field and deal it 4 damage. Restore 1 defense to your leader.",
+        "card_image_hash": "4f5a23664f574e19994eb5be918e2746",
+        "card_banner_image_hash": "cda053f46aa5442b8f1ea3a0dc0872db",
+        "base_art_url": "Art/10162220.png",
+        "jpCard_image_hash": "fe04121acdd14c48a15841d28de7bcc6",
+        "jpCV": "西明日香",
+        "jpName": "セイクリッドインジェクション",
+        "jpFlavour_Text": "自白のためなら手段を選ぶな。\n――『警察神官学校の教え』、第四条\n自白のためなら手段を選ぶな（魔法薬の使用は除く）。\n――『警察神官学校の教え』、第四条新年度版",
+        "jpSkill_Text": "【<color=Keyword>アクト</color>】これを破壊。相手の場のフォロワー1枚を選ぶ。それに4ダメージ。自分のリーダーを1回復。",
+        "jpIllustrator": "Gen"
+      },
+      "evo": {}
+    }
   },
   "Fairy_Convocation": {
+    "voices": [],
     "metadata": {
+      "common": {
+        "card_id": 10111310,
+        "card_set_id": 10001,
+        "type": 4,
+        "class": 1,
+        "is_token": false,
+        "atk": 0,
+        "life": 0,
+        "cost": 1,
+        "rarity": 1,
+        "cv": "",
+        "illustrator": "",
+        "flavour_text": "A command from a superior? Means as much to a fairy as a midge's fart. But a cry of help from a friend? Never known the small folk to leave one unheeded.\n—Anonymous wood elf",
+        "skill_text": "Add 2 copies of <b><i><color=Keyword>Fairy</color></i></b> to your hand.",
+        "card_image_hash": "d9a9989833f04024b56cb181474da5d3",
+        "card_banner_image_hash": "867417efce6f494aa254eff5ded8e0fd",
+        "base_art_url": "Art/10111310.png",
+        "jpCard_image_hash": "70bee043bf094b82b94f4e22f1a8e7c7",
+        "jpCV": null,
+        "jpName": "妖精の招集",
+        "jpFlavour_Text": "「妖精は指示や命令をされたら聞こえないフリをする。\nだが友達からのお願いなら、真剣に耳を傾けてくれる」\n――妖精について語るエルフの男",
+        "jpSkill_Text": "『<color=Keyword>フェアリー</color>』2枚を自分の手札に加える。",
+        "jpIllustrator": null
+      },
+      "evo": {},
       "alternate": {
         "voices": [
           {
@@ -26678,7 +26825,12 @@
             "url": null,
             "en_url": "Audio/EN/Fairy_Convocation_Alt/chunk0.mp3"
           }
-        ]
+        ],
+        "style_data": {
+          "card_id": 70111310,
+          "base_art_url": "./Art/70111310.png",
+          "evo_art_url": null
+        }
       }
     }
   },
@@ -26715,7 +26867,43 @@
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk8.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10161120,
+        "card_set_id": 10001,
+        "type": 1,
+        "class": 6,
+        "is_token": false,
+        "atk": 2,
+        "life": 1,
+        "cost": 3,
+        "rarity": 1,
+        "cv": "Marissa Lenti",
+        "illustrator": "",
+        "flavour_text": "The invasion spills forth, causing the demons and hatred to spread. Have faith and remain steadfast of heart, for the demons will disperse and kindness will reign.",
+        "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Barrier</color></b>",
+        "card_image_hash": "c7c05462df424cdea44005173f39fa11",
+        "card_banner_image_hash": "90639477297347d4a73a683f001f6e67",
+        "base_art_url": "Art/10161120.png",
+        "jpCard_image_hash": "7f203b47f61c45828e02f2f1d5a6e238",
+        "jpCV": "田中あいみ",
+        "jpName": "セイントシールダー",
+        "jpFlavour_Text": "侵攻は諍いを生む、魔物は散るが憎しみがつのる。\n信仰は平穏を生む、魔物は散って慈しみが残る。",
+        "jpSkill_Text": "【<color=Keyword>守護</color>】\n【<color=Keyword>バリア</color>】",
+        "jpIllustrator": null
+      },
+      "evo": {
+        "card_resource_id": 101611201,
+        "flavour_text": "No matter how much the fiend raged on, no matter how fierce its onslaught, the shieldmaiden remained steadfast. Lacking the conviction to crack her mighty shield, the fiend would at last prostrate before her. \n\"V-very good. Let us pray t-together, then.\"",
+        "jpFlavour_text": "魔物が暴れても暴れても、狂っても狂っても、\nその盾はヒビ割れず、盾持ちは立ち続けた。\n魔物は精魂尽き果てて、遂にその場にひれ伏した。\n「よ、よかった。一緒にお祈り、し、しましょうね」",
+        "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Barrier</color></b>",
+        "jpSkill_text": "【<color=Keyword>守護</color>】\n【<color=Keyword>バリア</color>】",
+        "card_image_hash": "b590257c4fe04e20bb7b29db09161c7b",
+        "jpCard_image_hash": "55e1560d85da4cad946c99e4e85789f2",
+        "card_banner_image_hash": "cad055d09b1a48119fe7757ba37eaf4c",
+        "evo_art_url": "Art/10161121.png"
+      }
+    }
   },
   "Shadowcrypt_Memorial": {
     "voices": [
@@ -26738,7 +26926,33 @@
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10152210,
+        "card_set_id": 10001,
+        "type": 2,
+        "class": 5,
+        "is_token": false,
+        "atk": 0,
+        "life": 0,
+        "cost": 3,
+        "rarity": 2,
+        "cv": "Lucien Dodge",
+        "illustrator": "Onineko",
+        "flavour_text": "He stands for remembrance, the rabble, and the earth.\nTo the sacrificed and forgotten, his eulogies provide tribute.",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Add 2 shadows to your cemetery.\n<hr><b><color=Keyword>Engage</color></b>: Destroy this card. Summon 2 copies of <b><i><color=Keyword>Ghost</color></i></b>.",
+        "card_image_hash": "cdbf6fa131f0477bb9d44541e83b75a8",
+        "card_banner_image_hash": "a366853d66ff42bebaa77159994eb1cf",
+        "base_art_url": "Art/10152210.png",
+        "jpCard_image_hash": "281370ea7d5746fd9c495cc6f5e06df3",
+        "jpCV": "竹内良太",
+        "jpName": "瞑地の霊園",
+        "jpFlavour_Text": "あるいは土地。あるいは大衆。あるいは勤勉。\n里のため果てた名もなき者たちに、せめてもの歎称を。",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分の墓場を+2する。\n<hr>【<color=Keyword>アクト</color>】これを破壊。『<color=Keyword>ゴースト</color>』2枚を自分の場に出す。",
+        "jpIllustrator": "おにねこ"
+      },
+      "evo": {}
+    }
   },
   "Supplicant_of_Repose": {
     "voices": [
@@ -26750,19 +26964,19 @@
       },
       {
         "name": "chunk1.mp3",
-        "label": "chunk1.mp3",
+        "label": "MeetingHimeka",
         "url": null,
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
-        "label": "chunk2.mp3",
+        "label": "Attack",
         "url": null,
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
-        "label": "chunk3.mp3",
+        "label": "Death",
         "url": null,
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk3.mp3"
       },
@@ -26779,7 +26993,43 @@
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk10.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 10362110,
+        "card_set_id": 10003,
+        "type": 1,
+        "class": 6,
+        "is_token": false,
+        "atk": 1,
+        "life": 4,
+        "cost": 3,
+        "rarity": 2,
+        "cv": "Marissa Meizel",
+        "illustrator": "Sudaka Ao",
+        "flavour_text": "Let's be kind to each other.\nIf everyone were kinder, the world would be a better place!\n—Himeka",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Gain <b><i>Crest: Supplicant of Repose</i></b>.\n<hr><b><color=Keyword>Ward</color></b>",
+        "card_image_hash": "2a0bb18f42a04d5ba1c68e0ce879b778",
+        "card_banner_image_hash": "df08c4bc209d49b1a79bb1a8c90c4b54",
+        "base_art_url": "Art/10362110.png",
+        "jpCard_image_hash": "8b97094c222f45569fe5238aa4d6e374",
+        "jpCV": "和泉風花",
+        "jpName": "安息の祈祷者",
+        "jpFlavour_Text": "「もっと人に優しくしよう！\nみんなが優しくなれば、世界はきっとよくなるよ！」\n――ヒメカの言葉",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分は『クレスト：安息の祈祷者』を持つ。\n<hr>【<color=Keyword>守護</color>】",
+        "jpIllustrator": "巣高あお"
+      },
+      "evo": {
+        "card_resource_id": 103621101,
+        "flavour_text": "\"The words of a daydreamer. First fix your heart and how you see the world,\" the stern worshipper sighed. \"Your words are weightless, for you lack self-reflection.\" Before she had even finished insulting the girl, the worshipper began to sew her own mouth shut.",
+        "jpFlavour_text": "「寝言は寝て言いなさい。正すべきは世界を視る心です」\n生真面目な信徒は、少女の言葉に嘆息する。\n「自問が足りていませんね。貴方の言葉は、軽すぎます」\n罵倒を吐いたその口を、信徒は自ら縫って塞いだ。",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Gain <b><i>Crest: Supplicant of Repose</i></b>.\n<hr><b><color=Keyword>Ward</color></b>",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】自分は『クレスト：安息の祈祷者』を持つ。\n<hr>【<color=Keyword>守護</color>】",
+        "card_image_hash": "abd3ef5f732b4b5e82f9b3efeecb79a1",
+        "jpCard_image_hash": "191388f586304d1b8ba97e9811355f32",
+        "card_banner_image_hash": "2ecad8edb66946c9a0f52c17293ae29e",
+        "evo_art_url": "Art/10362111.png"
+      }
+    }
   },
   "Whitefrost_Whisper": {
     "voices": [
@@ -26788,8 +27038,40 @@
         "label": "Play",
         "url": null,
         "en_url": "Audio/EN/Whitefrost_Whisper/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Whitefrost_Whisper/chunk1.mp3"
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "common": {
+        "card_id": 90044310,
+        "card_set_id": 90000,
+        "type": 4,
+        "class": 4,
+        "is_token": true,
+        "atk": 0,
+        "life": 0,
+        "cost": 3,
+        "rarity": 4,
+        "cv": "Erica Mendez",
+        "illustrator": "Ponzu",
+        "flavour_text": "The Whitefrost Guardian speaks first. \"Prove your strength.\"\nThe Blackwing Conqueror grins. \"Famous last words.\"\n―<i>Blackwing and Whitefrost</i>",
+        "skill_text": "Select a <b><color=Keyword>Mode</color></b> to activate.\n1. Destroy all damaged enemy followers.\n2. Increase the cost of all cards in your opponent's hand by 1 until the end of their turn.",
+        "card_image_hash": "8cf3e74a99ee46be8ec173227616180d",
+        "card_banner_image_hash": "df33fe229bc443a185a6de1bb7d62bc7",
+        "base_art_url": "Art/90044310.png",
+        "jpCard_image_hash": "bfee692fc3bf4f91bc19455e336b4e1c",
+        "jpCV": "雨宮天",
+        "jpName": "銀氷の吐息",
+        "jpFlavour_Text": "「……証明して。あなたの力を」\nそれは、絶対零度の挑戦状。天空の覇者は不敵に微笑む。\n「いいだろう……来い！フィルレイン！」\n――『覇者と銀氷』",
+        "jpSkill_Text": "【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）相手の場のダメージを受けているフォロワーすべてを破壊。\n（2）相手のターン終了まで、相手の手札すべてのコストを+1する。",
+        "jpIllustrator": "ぽんず"
+      },
+      "evo": {}
+    }
   }
 }
