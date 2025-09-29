@@ -6,6 +6,216 @@ let currentButton = null;
 let currentCardIndex = -1;
 let filteredCards = [];
 let currentCardData = null;
+let cvDetailsIndex = new Map();
+let cvDetailsByKey = {};
+
+function splitCVs(value) {
+  if (!value || typeof value !== 'string') return [];
+  return value.split('/').map(s => s.trim()).filter(Boolean);
+}
+
+function getRomajiNameForJpCV(jpCV) {
+  if (!jpCV) return "";
+  const key = cvDetailsIndex.get(jpCV) || jpCV;
+  const entry = cvDetailsByKey[key];
+  return entry?.jikan?.name || "";
+}
+
+function getDisplayCVName(meta, isAlternate = false, alternateData = null) {
+  const altCv = isAlternate ? (alternateData?.cv || '') : '';
+  const jpCV = altCv || meta.jpCV || '';
+  const enCV = altCv || meta.cv || '';
+
+  // Base selection follows voice language
+  const usingEn = isEnglishVoice && !!enCV;
+  const usingJp = !isEnglishVoice && !!jpCV;
+  if (usingEn) {
+    const enParts = splitCVs(enCV);
+    if (enParts.length > 0) return enParts.join(' / ');
+  }
+  if (usingJp) {
+    const jpParts = splitCVs(jpCV);
+    if (isEnglishUI) {
+      const mapped = jpParts.map(p => getRomajiNameForJpCV(p) || p);
+      if (mapped.length > 0) return mapped.join(' / ');
+    }
+    if (jpParts.length > 0) return jpParts.join(' / ');
+  }
+  // Fallbacks
+  if (enCV) return enCV;
+  if (jpCV) return jpCV;
+  return '';
+
+  // If UI is English and we are showing a JP CV, prefer Jikan English name
+  // handled above when building jpParts
+}
+
+function openCvDetailsModal(cvKeyOrName) {
+  const lb = document.getElementById("cv-details-modal");
+  const nameEl = document.getElementById("cv-details-name");
+  const imgEl = document.getElementById("cv-details-img");
+  const linksEl = document.getElementById("cv-details-links");
+  const rolesEl = document.getElementById("cv-details-roles");
+  const searchEl = document.getElementById("cv-details-search");
+  const prevBtn = document.getElementById("cv-details-prev");
+  const nextBtn = document.getElementById("cv-details-next");
+  const pageEl = document.getElementById("cv-details-page");
+  if (!lb || !nameEl || !imgEl || !linksEl || !rolesEl) return;
+
+  const key = cvDetailsIndex.get(cvKeyOrName) || cvKeyOrName;
+  const data = cvDetailsByKey[key];
+  if (!data) {
+    const displayName = key || String(cvKeyOrName || '');
+    nameEl.textContent = displayName;
+    imgEl.src = "";
+    linksEl.innerHTML = "";
+    rolesEl.innerHTML = `<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">${getLocalizedText('Not available')}</div>`;
+    lb.classList.add("open");
+    lb.setAttribute("aria-hidden", "false");
+    return;
+  }
+
+  const displayName = data.jikan?.name || key;
+  const imageUrl = data.jikan?.images?.jpg?.image_url || "";
+  const malUrl = data.jikan?.url || "";
+  const allRoles = Array.isArray(data.jikan?.voices) ? data.jikan.voices : [];
+
+  nameEl.textContent = displayName;
+  imgEl.src = imageUrl;
+  linksEl.innerHTML = "";
+  if (malUrl) {
+    const link = document.createElement("a");
+    link.href = malUrl;
+    link.textContent = "MyAnimeList Profile";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    linksEl.appendChild(link);
+  }
+
+  let filtered = allRoles.slice();
+  let page = 1;
+  const pageSize = 9; // 3 columns x 3 rows
+
+  const applySearch = (q) => {
+    const query = (q || "").trim().toLowerCase();
+    filtered = allRoles.filter(r => {
+      const role = (r.role || "").toLowerCase();
+      const anime = (r.anime?.title || "").toLowerCase();
+      const ch = (r.character?.name || "").toLowerCase();
+      return !query || role.includes(query) || anime.includes(query) || ch.includes(query);
+    });
+    page = 1;
+    renderPage();
+  };
+
+  const renderPage = () => {
+    rolesEl.innerHTML = "";
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    page = Math.min(Math.max(1, page), totalPages);
+    if (pageEl) pageEl.textContent = `${page} / ${totalPages}`;
+    if (prevBtn) prevBtn.disabled = page <= 1;
+    if (nextBtn) nextBtn.disabled = page >= totalPages;
+
+    if (total === 0) {
+      rolesEl.innerHTML = `<div style="grid-column: 1 / -1; color: var(--muted); font-style: italic; text-align: center; padding: 20px;">${getLocalizedText('Not available')}</div>`;
+      return;
+    }
+
+    const start = (page - 1) * pageSize;
+    const end = Math.min(start + pageSize, total);
+    for (let i = start; i < end; i++) {
+      const r = filtered[i];
+      const role = r.role || "";
+      const animeTitle = r.anime?.title || "";
+      const animeImg = r.anime?.image || "";
+      const charName = r.character?.name || "";
+      const charImg = r.character?.image || "";
+
+      // Card layout for each role
+      const item = document.createElement("div");
+      item.className = "cv-role-card";
+      item.style.display = "flex";
+      item.style.gap = "8px";
+      item.style.alignItems = "center";
+      item.style.background = "var(--panel, #232323)";
+      item.style.borderRadius = "8px";
+      item.style.padding = "8px";
+      item.style.boxShadow = "0 2px 8px rgba(0,0,0,0.08)";
+
+      // Anime image
+      const animeImgEl = document.createElement("img");
+      animeImgEl.src = animeImg;
+      animeImgEl.alt = animeTitle ? `${animeTitle} image` : "Anime image";
+  animeImgEl.style.width = "72px";
+  animeImgEl.style.height = "96px";
+      animeImgEl.style.objectFit = "cover";
+      animeImgEl.style.borderRadius = "6px";
+      animeImgEl.style.border = "1px solid var(--card-border, #444)";
+      animeImgEl.loading = "lazy";
+      item.appendChild(animeImgEl);
+
+      // Info block
+      const info = document.createElement("div");
+      info.style.flex = "1";
+      info.style.display = "flex";
+      info.style.flexDirection = "column";
+      info.style.gap = "2px";
+      // Anime title
+      const animeTitleEl = document.createElement("div");
+      animeTitleEl.textContent = animeTitle;
+      animeTitleEl.style.fontWeight = "bold";
+      animeTitleEl.style.fontSize = "1em";
+      info.appendChild(animeTitleEl);
+      // Character name
+      const charNameEl = document.createElement("div");
+      charNameEl.textContent = charName;
+      charNameEl.style.opacity = "0.85";
+      charNameEl.style.fontSize = "0.95em";
+      info.appendChild(charNameEl);
+      // Role
+      const roleEl = document.createElement("div");
+      roleEl.textContent = role;
+      roleEl.style.fontSize = "0.9em";
+      roleEl.style.opacity = "0.7";
+      info.appendChild(roleEl);
+      item.appendChild(info);
+
+      // Character image
+      const charImgEl = document.createElement("img");
+      charImgEl.src = charImg;
+      charImgEl.alt = charName ? `${charName} image` : "Character image";
+  charImgEl.style.width = "72px";
+  charImgEl.style.height = "96px";
+      charImgEl.style.objectFit = "cover";
+      charImgEl.style.borderRadius = "6px";
+      charImgEl.style.border = "1px solid var(--card-border, #444)";
+      charImgEl.loading = "lazy";
+      item.appendChild(charImgEl);
+
+      rolesEl.appendChild(item);
+    }
+  };
+
+  if (searchEl) {
+    searchEl.value = "";
+    searchEl.oninput = (e) => applySearch(e.target.value);
+  }
+  if (prevBtn) prevBtn.onclick = () => { page = Math.max(1, page - 1); renderPage(); };
+  if (nextBtn) nextBtn.onclick = () => { page = page + 1; renderPage(); };
+
+  applySearch("");
+
+  lb.classList.add("open");
+  lb.setAttribute("aria-hidden", "false");
+}
+
+function closeCvDetailsModal() {
+  const lb = document.getElementById("cv-details-modal");
+  if (!lb) return;
+  lb.classList.remove("open");
+  lb.setAttribute("aria-hidden", "true");
+}
 
 const localization = {
   en: {
@@ -1211,14 +1421,55 @@ if (groupBy !== "none") {
         const rightMetadata = document.createElement("div");
         rightMetadata.className = "card-metadata";
 
-        const cvValue = isEnglishVoice ? meta.cv || "" : meta.jpCV || "";
-        if (cvValue) {
+        const shownNames = (() => {
+          const alt = false;
+          const altData = null;
+          const altCv = alt ? (altData?.cv || '') : '';
+          const jp = altCv || meta.jpCV || '';
+          const en = altCv || meta.cv || '';
+          if (isEnglishVoice && en) return splitCVs(en);
+          if (!isEnglishVoice && jp) {
+            const parts = splitCVs(jp);
+            return isEnglishUI ? parts.map(p => getRomajiNameForJpCV(p) || p) : parts;
+          }
+          return [];
+        })();
+        if (shownNames.length > 0) {
           const cvItem = document.createElement("div");
           cvItem.className = "card-metadata-item";
-          cvItem.innerHTML = `
-            <div class="card-metadata-label">${getLocalizedText('CV')}</div>
-            <div class="card-metadata-value">${cvValue}</div>
-          `;
+          const label = document.createElement("div");
+          label.className = "card-metadata-label";
+          label.textContent = getLocalizedText('CV');
+          const valuesWrap = document.createElement("div");
+          valuesWrap.style.display = "flex";
+          valuesWrap.style.flexWrap = "wrap";
+          valuesWrap.style.justifyContent = "center";
+          valuesWrap.style.gap = "4px";
+          shownNames.forEach((name, idx) => {
+            if (idx > 0) {
+              const sep = document.createElement('span');
+              sep.textContent = '/';
+              sep.style.opacity = '0.7';
+              sep.style.margin = '0 2px';
+              valuesWrap.appendChild(sep);
+            }
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'card-metadata-value';
+            btn.style.background = 'transparent';
+            btn.style.border = 'none';
+            btn.style.padding = '0';
+            btn.style.color = 'inherit';
+            btn.style.cursor = 'pointer';
+            btn.textContent = name;
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              openCvDetailsModal(name);
+            });
+            valuesWrap.appendChild(btn);
+          });
+          cvItem.appendChild(label);
+          cvItem.appendChild(valuesWrap);
           leftMetadata.appendChild(cvItem);
         }
 
@@ -1369,9 +1620,13 @@ function passesFilters(lines, meta, cardData = null) {
   if (activeFilters.lifeMax !== "" && life > Number(activeFilters.lifeMax)) return false;
 
   if (activeFilters.cv) {
-    const targetCV = isEnglishVoice ? (meta.cv || "") : (meta.jpCV || "");
-    const filterCV = activeFilters.cv.trim();
-    if (!targetCV.toLowerCase().includes(filterCV.toLowerCase())) return false;
+    const filterCV = activeFilters.cv.trim().toLowerCase();
+    const enParts = splitCVs(meta.cv || "");
+    const jpParts = splitCVs(meta.jpCV || "");
+    const romajiParts = jpParts.map(p => getRomajiNameForJpCV(p)).filter(Boolean);
+    const candidates = [...enParts, ...jpParts, ...romajiParts].filter(Boolean).map(s => s.toLowerCase());
+    const matched = candidates.some(name => name.includes(filterCV));
+    if (!matched) return false;
   }
   if (activeFilters.illustrator) {
     const illustrator = isEnglishUI
@@ -1449,12 +1704,7 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
   leftMetadata.innerHTML = "";
   rightMetadata.innerHTML = "";
 
-  const cvValue =
-    isAlternate && alternateData?.cv
-      ? alternateData.cv
-      : isEnglishVoice
-      ? meta.cv || ""
-      : meta.jpCV || "";
+  const cvValue = getDisplayCVName(meta, isAlternate, alternateData);
 
   const illustratorValue =
     isAlternate && alternateData?.illustrator
@@ -1559,6 +1809,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   const toggle = document.getElementById("lightbox-toggle");
   const openBtn = document.getElementById("lightbox-download");
   const downloadImgBtn = document.getElementById("lightbox-download-img");
+  const lightboxControls = document.querySelector(".lightbox-controls");
   if (openBtn) openBtn.textContent = getLocalizedText('Open Image');
   if (downloadImgBtn) downloadImgBtn.textContent = getLocalizedText('Download Image');
   const prevBtn = document.getElementById("lightbox-prev");
@@ -1859,6 +2110,24 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
   updateLightboxVoices();
 
+  // Ensure CV Details button exists
+  let cvDetailsBtn = document.getElementById('lightbox-cv-details-btn');
+  if (!cvDetailsBtn && lightboxControls) {
+    cvDetailsBtn = document.createElement('button');
+    cvDetailsBtn.id = 'lightbox-cv-details-btn';
+    cvDetailsBtn.className = 'lightbox-btn';
+    cvDetailsBtn.type = 'button';
+    cvDetailsBtn.textContent = 'CV Details';
+    lightboxControls.insertBefore(cvDetailsBtn, lightboxControls.firstChild);
+  }
+  if (cvDetailsBtn) {
+    const cvName = isEnglishVoice ? (meta.cv || '') : (meta.jpCV || meta.cv || '');
+    cvDetailsBtn.style.display = cvName ? '' : 'none';
+    cvDetailsBtn.onclick = () => {
+      if (cvName) openCvDetailsModal(cvName);
+    };
+  }
+
   const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.evo_art_url;
 
   if (canToggleEvo) {
@@ -1905,7 +2174,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     toggle.style.display = "none";
   }
 
-  const lightboxControls = document.querySelector(".lightbox-controls");
+  
 
   if (alternate?.style_data) {
     if (!alternateToggle) {
@@ -2031,6 +2300,38 @@ fetch("cards.json")
   .then((res) => res.json())
   .then((cards) => {
     allCards = cards;
+    // Load cv_data.json if present; support array or single object
+    fetch("cv_data.json")
+      .then(r => r.ok ? r.json() : null)
+      .then((cv) => {
+        if (cv) {
+          const list = Array.isArray(cv) ? cv : [cv];
+          cvDetailsIndex = new Map();
+          cvDetailsByKey = {};
+          list.forEach((entry) => {
+            const key = entry?.source?.jpCV || entry?.source?.name || entry?.jikan?.name || "";
+            if (!key) return;
+            cvDetailsByKey[key] = entry;
+            cvDetailsIndex.set(key, key);
+            const en = entry?.jikan?.name;
+            if (en) cvDetailsIndex.set(en, key);
+          });
+          // Re-render with CV details available so JP CVs show Jikan English name on initial load
+          requestAnimationFrame(() => {
+            populateCVOptions();
+            const q = document.getElementById("search")?.value || "";
+            renderCards(allCards, q);
+          });
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        // Ensure at least one render happens even if cv_data.json missing
+        if (!document.getElementById("cards")?.children?.length) {
+          const q = document.getElementById("search")?.value || "";
+          renderCards(allCards, q);
+        }
+      });
     
     const uiLangSelect = document.getElementById("ui-lang-select");
     if (uiLangSelect) {
@@ -2607,6 +2908,12 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 
 
 (function(){
+  // CV Details modal close handlers
+  const cvModal = document.getElementById('cv-details-modal');
+  const cvClose = document.getElementById('cv-details-close');
+  cvClose?.addEventListener('click', closeCvDetailsModal);
+  cvModal?.addEventListener('click', (e) => { if (e.target === cvModal) closeCvDetailsModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cvModal && cvModal.classList.contains('open')) closeCvDetailsModal(); });
   const lb = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
   
