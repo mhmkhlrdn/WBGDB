@@ -2111,22 +2111,22 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   updateLightboxVoices();
 
   // Ensure CV Details button exists
-  let cvDetailsBtn = document.getElementById('lightbox-cv-details-btn');
-  if (!cvDetailsBtn && lightboxControls) {
-    cvDetailsBtn = document.createElement('button');
-    cvDetailsBtn.id = 'lightbox-cv-details-btn';
-    cvDetailsBtn.className = 'lightbox-btn';
-    cvDetailsBtn.type = 'button';
-    cvDetailsBtn.textContent = 'CV Details';
-    lightboxControls.insertBefore(cvDetailsBtn, lightboxControls.firstChild);
-  }
-  if (cvDetailsBtn) {
-    const cvName = isEnglishVoice ? (meta.cv || '') : (meta.jpCV || meta.cv || '');
-    cvDetailsBtn.style.display = cvName ? '' : 'none';
-    cvDetailsBtn.onclick = () => {
-      if (cvName) openCvDetailsModal(cvName);
-    };
-  }
+  // let cvDetailsBtn = document.getElementById('lightbox-cv-details-btn');
+  // if (!cvDetailsBtn && lightboxControls) {
+  //   cvDetailsBtn = document.createElement('button');
+  //   cvDetailsBtn.id = 'lightbox-cv-details-btn';
+  //   cvDetailsBtn.className = 'lightbox-btn';
+  //   cvDetailsBtn.type = 'button';
+  //   cvDetailsBtn.textContent = 'CV Details';
+  //   lightboxControls.insertBefore(cvDetailsBtn, lightboxControls.firstChild);
+  // }
+  // if (cvDetailsBtn) {
+  //   const cvName = isEnglishVoice ? (meta.cv || '') : (meta.jpCV || meta.cv || '');
+  //   cvDetailsBtn.style.display = cvName ? '' : 'none';
+  //   cvDetailsBtn.onclick = () => {
+  //     if (cvName) openCvDetailsModal(cvName);
+  //   };
+  // }
 
   const canToggleEvo = Number(meta.type) === 1 && !!metaEvo?.evo_art_url;
 
