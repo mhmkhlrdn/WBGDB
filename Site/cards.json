@@ -67,7 +67,8 @@
         "jpCard_image_hash": "3a48d3bafb0740f4a2248e981354cb63",
         "card_banner_image_hash": "996b07f1a35d4dceb514bc89b03ee246",
         "evo_art_url": "Art/10272121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Adventurers'_Guild": {
@@ -97,7 +98,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分のデッキからフォロワー1枚を引く。\n<hr>【<color=Keyword>アクト</color>】これを破壊。自分の場のフォロワー1枚を選ぶ。それは【<color=Keyword>突進</color>】を持つ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Aerin,_Crystalian_Frostward": {
@@ -168,7 +170,8 @@
         "jpCard_image_hash": "703d7803a26e4e80b787378dc9109adb",
         "card_banner_image_hash": "02a35aaed8214fb5831fe1e4e2e8f9e6",
         "evo_art_url": "Art/10112111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Aether,_Empyrean_Guardian": {
@@ -258,8 +261,8 @@
           "card_id": 70264110,
           "base_art_url": "./Art/70264110.png",
           "evo_art_url": "./Art/70264111.png",
-          "hash": "d32b139880584673b2b43c2c2327eebe",
-          "evo_hash": "511c40ff34c042bb81646dfc53dacac6",
+          "hash": "a19fd13cd634408cb9017e1509fa378c",
+          "evo_hash": "49aaeca6acb1451b901117bc03e1e070",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -345,7 +348,8 @@
         "jpCard_image_hash": "0da6cafc636244778fe4acfeac4cea79",
         "card_banner_image_hash": "73bbd19154c744d3a694f7f6f090a30e",
         "evo_art_url": "Art/10263111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Albert,_Levin_Stormsaber": {
@@ -435,8 +439,8 @@
           "card_id": 70124110,
           "base_art_url": "./Art/70124110.png",
           "evo_art_url": "./Art/70124111.png",
-          "hash": "238693b90aa34ace95de1e64a3f1510b",
-          "evo_hash": "13559cc029444d8e8ff0c0f72c66fb3d",
+          "hash": "e410627d07a94e45bc46b79ab844f889",
+          "evo_hash": "a177f925182640b7b4d7322d8065aee8",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -528,7 +532,8 @@
         "jpCard_image_hash": "c448415bedec488b99edf4fdecfaaa24",
         "card_banner_image_hash": "4e2c1a9d0a84497f81c2009fbf5ea0ea",
         "evo_art_url": "Art/10173141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Amalia,_Luxsteel_Paladin": {
@@ -635,7 +640,8 @@
         "jpCard_image_hash": "33c34f53f36d48d8a6b4ed6b72cd68d9",
         "card_banner_image_hash": "2417467ab83b4d49a8d74bcb843a31f8",
         "evo_art_url": "Art/10123141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Amataz,_Origin_Blader": {
@@ -706,7 +712,8 @@
         "jpCard_image_hash": "57a894a1b08f43889d597141c0b1e1d0",
         "card_banner_image_hash": "9b0cdfc16ecf4ab98d143d9469ea90e9",
         "evo_art_url": "Art/10114131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ambush_from_Above": {
@@ -736,7 +743,8 @@
         "jpSkill_Text": "「相手の場のフォロワーからランダム1枚に2ダメージ。」を1回行う。【<color=Keyword>コンボ</color>_3】1回ではなく2回。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Amelia,_Silver_Captain": {
@@ -744,37 +752,37 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk0.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "MeetingGelt",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk1.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk2.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk3.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk3.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk5.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Amelia,_Silver_Captain/chunk6.mp3",
         "en_url": "Audio/EN/Amelia,_Silver_Captain/chunk6.mp3"
       }
     ],
@@ -813,7 +821,8 @@
         "jpCard_image_hash": "bb135182b728496d84fcccd778b02b54",
         "card_banner_image_hash": "723a217d2dcd4049b41d5bb4c962c08d",
         "evo_art_url": "Art/10124121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Amorous_Necromancer": {
@@ -884,7 +893,8 @@
         "jpCard_image_hash": "a5c11f18546f4546a049dbb59ad032e7",
         "card_banner_image_hash": "1dde22c0196c4e54a2047ee0a1425986",
         "evo_art_url": "Art/10052121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ancestral_Crown": {
@@ -914,7 +924,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_4】\n自分のフォロワーが場に出たとき、それは+1/+1する。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Ancient_Cannon": {
@@ -944,40 +955,53 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】『<color=Keyword>フューチャー・コア</color>』1枚を自分の手札に加える。\n<hr>自分が【<color=Keyword>融合</color>】したとき、相手の場のフォロワーからランダム1枚に2ダメージ。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Anne's_Summoning": {
     "voices": [
       {
         "name": "chunk0.mp3",
-        "url": "Audio/FILTERED/Anne's_Summoning/chunk0.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/.normalized_tmp_chunk1.mp3",
         "en_url": "Audio/EN/Anne's_Summoning/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
-        "url": "Audio/FILTERED/Anne's_Summoning/chunk1.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/.normalized_tmp_chunk2.mp3",
         "en_url": "Audio/EN/Anne's_Summoning/chunk1.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
-        "url": "Audio/FILTERED/Anne's_Summoning/chunk2.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/chunk0.mp3",
         "en_url": "Audio/EN/Anne's_Summoning/chunk2.mp3",
         "label": "Death"
       },
       {
         "name": "chunk4.mp3",
-        "url": "Audio/FILTERED/Anne's_Summoning/chunk4.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/chunk1.mp3",
         "en_url": "Audio/EN/Anne's_Summoning/chunk4.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk5.mp3",
-        "url": "Audio/FILTERED/Anne's_Summoning/chunk5.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/chunk2.mp3",
         "en_url": "Audio/EN/Anne's_Summoning/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "name": "chunk4.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/chunk4.mp3",
+        "label": "Evolve",
+        "en_url": "Audio/EN/Anne's_Summoning/undefined"
+      },
+      {
+        "name": "chunk5.mp3",
+        "url": "Audio/FILTERED/Anne's_Summoning/chunk5.mp3",
+        "label": "Super-Evolve",
+        "en_url": "Audio/EN/Anne's_Summoning/undefined"
       }
     ],
     "metadata": {
@@ -1015,7 +1039,8 @@
         "jpCard_image_hash": "873cc1c3dfb7461a9af1b5ff4ad91aa6",
         "card_banner_image_hash": "a65a89e48df34a1ea8ca472400b27b95",
         "evo_art_url": "Art/90034131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Anne_&_Grea,_Mysterian_Duo": {
@@ -1092,7 +1117,8 @@
         "jpCard_image_hash": "3d1c49aafbe2405084a386d65a7f3ce0",
         "card_banner_image_hash": "311872d06cd64c77821f3ec840a2b5c9",
         "evo_art_url": "Art/10134121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Annihilating_Onslaught": {
@@ -1129,7 +1155,8 @@
         "jpSkill_Text": "手札で働く。自分のターン終了時、これのコストを-1する。\n<hr>相手のリーダーに6ダメージ。自分の場に『<color=Keyword>絶命の顕現・エズディア</color>』があるなら、6ダメージではなく20ダメージ。",
         "jpIllustrator": "藤木ゆう"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Apollo,_Heaven's_Envoy": {
@@ -1200,7 +1227,8 @@
         "jpCard_image_hash": "53606348a25245c3bb4ca504cd2aca87",
         "card_banner_image_hash": "0732b7e31ddd4bdfa25eb0b7189d0ae5",
         "evo_art_url": "Art/10102111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Apostle_of_Voracity": {
@@ -1271,7 +1299,8 @@
         "jpCard_image_hash": "183f6a4f4b064f92a131930ec6863efd",
         "card_banner_image_hash": "12994cb7486544819504a7c2382787b1",
         "evo_art_url": "Art/10301111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Apprentice_Astrologer": {
@@ -1342,7 +1371,8 @@
         "jpCard_image_hash": "3d59003e52d541ec956469595bc5ccc1",
         "card_banner_image_hash": "5e257c5e13dc4f7dba92897b364e7307",
         "evo_art_url": "Art/10131121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Aragavy,_Eternal_Hunter": {
@@ -1413,7 +1443,8 @@
         "jpCard_image_hash": "14d7c0cbb2044625a0137ab9826cdea6",
         "card_banner_image_hash": "365857252dec45ea8160714a7529d70a",
         "evo_art_url": "Art/10154131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Arcane_Archivist": {
@@ -1484,7 +1515,8 @@
         "jpCard_image_hash": "c311e0a35bfe489b902ead90eaf1ad3e",
         "card_banner_image_hash": "b0513bf9bdd7420195f0f791a9a84abe",
         "evo_art_url": "Art/10231121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Arcane_Eruption": {
@@ -1514,7 +1546,8 @@
         "jpSkill_Text": "場のフォロワーすべてに2ダメージ。【<color=Keyword>土の秘術</color>_1】自分のデッキから1枚を引く。",
         "jpIllustrator": "Gen"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Aria,_Lady_of_the_Woods": {
@@ -1585,7 +1618,8 @@
         "jpCard_image_hash": "37a819920a0f41b7be311879f229db07",
         "card_banner_image_hash": "cff888c5776a4ef4a4d64ad488861dcb",
         "evo_art_url": "Art/10114111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Arms_Peddler": {
@@ -1656,7 +1690,8 @@
         "jpCard_image_hash": "292fc8b22ee444fa97725ea15f846e8a",
         "card_banner_image_hash": "04d47923ae454dcebaac94e5908989d1",
         "evo_art_url": "Art/10021121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Arriet,_Luxminstrel": {
@@ -1727,7 +1762,8 @@
         "jpCard_image_hash": "53ff2f96dfff4ed8bb586c08e52a3c59",
         "card_banner_image_hash": "8c00893d1a7c4d90a8d119759d00c4d7",
         "evo_art_url": "Art/10002111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Artifact_Catapult": {
@@ -1757,7 +1793,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】『<color=Keyword>フューチャー・コア</color>』1枚を自分の手札に加える。\n<hr>コスト3【<color=Keyword>アクト</color>】これを破壊。自分の手札のコスト5以下のアーティファクト・フォロワー1枚を選ぶ。それのコピー1枚を自分の場に出す。それは「相手のターン終了時、これを破壊。」を持つ。",
         "jpIllustrator": "犬捕り"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Artifact_Recharge": {
@@ -1787,7 +1824,8 @@
         "jpSkill_Text": "『<color=Keyword>フューチャー・コア</color>』1枚と『<color=Keyword>パスト・コア</color>』1枚を自分の手札に加える。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Aryll,_Moonstruck_Vampire": {
@@ -1864,7 +1902,8 @@
         "jpCard_image_hash": "efc96700b62e4ee8a5e15a5a6bf2bc5b",
         "card_banner_image_hash": "531fcf25ce454580a236e139801cbafb",
         "evo_art_url": "Art/10151111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ascetic_of_Wuxing": {
@@ -1935,7 +1974,8 @@
         "jpCard_image_hash": "7ab92fe9d867433da990fdba76031992",
         "card_banner_image_hash": "f17f591eafa94200935cff191eb4ecd2",
         "evo_art_url": "Art/10331121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Astaroth's_Reckoning": {
@@ -1965,7 +2005,8 @@
         "jpSkill_Text": "相手のリーダーの体力の最大値を1にする。",
         "jpIllustrator": "皆葉英夫（CyDesignation）"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Avian_Statue": {
@@ -1995,7 +2036,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_2】\n【<color=Keyword>ラストワード</color>】『<color=Keyword>壮麗なる隼</color>』1枚を自分の場に出す。\n<hr>コスト2【<color=Keyword>アクト</color>】これのカウントを-2する。",
         "jpIllustrator": "チロ"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Axe-Wielding_Dragonslayer": {
@@ -2066,7 +2108,8 @@
         "jpCard_image_hash": "176b37d588594e36b484653ddff61e0e",
         "card_banner_image_hash": "653490cb706d411a867a29a1870b7a66",
         "evo_art_url": "Art/10041121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Axia,_Heir_to_Destruction": {
@@ -2149,7 +2192,8 @@
         "jpCard_image_hash": "5fe20921af864c3b90db25cede79066b",
         "card_banner_image_hash": "801a408e0cb04867a16b0f656e84e16c",
         "evo_art_url": "Art/10374111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Azurifrit,_Heir_to_Disdain": {
@@ -2268,7 +2312,8 @@
         "jpCard_image_hash": "f97fbcba0e70471ba546677bd5db4517",
         "card_banner_image_hash": "4d3b4bddf7c44e2b8eb68979145f2cc9",
         "evo_art_url": "Art/10344111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Baby_Carbuncle": {
@@ -2339,7 +2384,8 @@
         "jpCard_image_hash": "d9e879287e1346f28e4a0059d18cc66f",
         "card_banner_image_hash": "8cdb05d8207b43f880dc74cb76704127",
         "evo_art_url": "Art/10112131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Balto,_Dusk_Bounty_Hunter": {
@@ -2416,7 +2462,8 @@
         "jpCard_image_hash": "4ba59e62fe7a446999b555f5a70b8bb3",
         "card_banner_image_hash": "db0408a088c24ef791226dabcfb44252",
         "evo_art_url": "Art/10153141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Band_of_Battle_Princesses": {
@@ -2459,7 +2506,8 @@
         "jpSkill_Text": "相手の場のフォロワーからランダム1枚に4ダメージ。\n【<color=Keyword>エンハンス</color>_4】1枚ではなく3枚。",
         "jpIllustrator": "根岸千秋"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Bat": {
@@ -2530,7 +2578,8 @@
         "jpCard_image_hash": "47ff4ad07eee400b8148f8bf26cdaed8",
         "card_banner_image_hash": "4ca8c428d3134dbf932328558b3b16a7",
         "evo_art_url": "Art/90051121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Battleforged_Dragon_Keeper": {
@@ -2607,7 +2656,8 @@
         "jpCard_image_hash": "511941dd28c644ea88e4035723e3f65b",
         "card_banner_image_hash": "3aa9e5a1a0044deaafae852d70bbb95c",
         "evo_art_url": "Art/10042121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Bayle,_Luxglaive_Warrior": {
@@ -2708,7 +2758,8 @@
         "jpCard_image_hash": "460531f5e24b4153a26b620b4a189c4e",
         "card_banner_image_hash": "eabe57abde5f4640be73df338248ecf7",
         "evo_art_url": "Art/10113131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Bearer_of_the_Fairy_Blade": {
@@ -2785,7 +2836,8 @@
         "jpCard_image_hash": "71d57ed99c694c8bbc6f0900c4c4a663",
         "card_banner_image_hash": "7081673ac06140a2ac635d5b6daba355",
         "evo_art_url": "Art/10311121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Bergent,_Rejected_Artes": {
@@ -2856,7 +2908,8 @@
         "jpCard_image_hash": "41667a4ed37d4f2589850062035d740b",
         "card_banner_image_hash": "15ffca5eca4048e59d64ea187b3306c0",
         "evo_art_url": "Art/10232111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Beryl,_Nightmare_Incarnate": {
@@ -2927,7 +2980,8 @@
         "jpCard_image_hash": "a38c350a7e7c434cadcdcbc9310c9137",
         "card_banner_image_hash": "59e3f61b7b6b414c8fc9befc1340ba25",
         "evo_art_url": "Art/10152121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Bestial_Swipe": {
@@ -2957,7 +3011,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それに4ダメージ。【<color=Keyword>コンボ</color>_3】自分のデッキから1枚を引く。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Black_Psalm,_New_Revelation": {
@@ -2994,7 +3049,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_1】\n【<color=Keyword>ラストワード</color>】相手のリーダーに1ダメージ。『<color=Keyword>新約・白の章</color>』1枚を自分の場に出す。",
         "jpIllustrator": "Mew"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Blaze_Destroyer": {
@@ -3065,7 +3121,8 @@
         "jpCard_image_hash": "4c8769aef9f4459894a3a4fa3fe5d9fa",
         "card_banner_image_hash": "8f7352af168a4faf91ad5c03c161224f",
         "evo_art_url": "Art/10032121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Blinding_Faith": {
@@ -3095,7 +3152,8 @@
         "jpSkill_Text": "相手の場のフォロワーすべてに3ダメージ。\n【<color=Keyword>エンハンス</color>_8】自分のデッキから3枚を引く。自分のリーダーを3回復。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Bramble_Burst": {
@@ -3132,7 +3190,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚か相手のリーダーを選ぶ。それに3ダメージ。",
         "jpIllustrator": "irua"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Bullet_from_Beyond": {
@@ -3162,7 +3221,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それを破壊。『<color=Keyword>フューチャー・コア</color>』1枚と『<color=Keyword>パスト・コア</color>』1枚を自分の手札に加える。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Burnite,_Anathema_of_Flame": {
@@ -3233,7 +3293,8 @@
         "jpCard_image_hash": "d9e73d7caef04210a6325f3563079dc0",
         "card_banner_image_hash": "3da5158303bf4f56a8f768e1422a1cb9",
         "evo_art_url": "Art/10144111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Calamity_Breath": {
@@ -3263,7 +3324,8 @@
         "jpSkill_Text": "場のフォロワーすべてに5ダメージ。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Call_of_the_Megalorca": {
@@ -3293,7 +3355,8 @@
         "jpSkill_Text": "『<color=Keyword>大海のオルカ</color>』1枚を自分の場に出す。【<color=Keyword>覚醒</color>】なら、自分のデッキから『<color=Keyword>オルカの呼び声</color>』1枚を引く。",
         "jpIllustrator": "強子"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Capricious_Sprite": {
@@ -3364,7 +3427,8 @@
         "jpCard_image_hash": "00a2b1b9eacf49e79a7dd1064183fb7f",
         "card_banner_image_hash": "7b0a7bb8e57d4208834a4b0c24871ecf",
         "evo_art_url": "Art/10111121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Caravan_Mammoth": {
@@ -3435,7 +3499,8 @@
         "jpCard_image_hash": "7b302aa06e0849f498b9dc43a8cd5038",
         "card_banner_image_hash": "9baf275a938945c39b6f951ff6ab8c52",
         "evo_art_url": "Art/10002121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Carnelia,_Ember_of_Darkness": {
@@ -3506,7 +3571,8 @@
         "jpCard_image_hash": "b6e07842fd35439cb29d7a485ee2ecfa",
         "card_banner_image_hash": "3135a4e60fb1407eb0617974110ff6b3",
         "evo_art_url": "Art/10273111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Castle_of_Entwining": {
@@ -3536,7 +3602,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）自分のデッキから1枚を引く。\n（2）自分の場のフォロワーからランダム1枚は+1/+1する。\n<hr>コスト1【<color=Keyword>アクト</color>】これを破壊。【<color=Keyword>ファンファーレ</color>】と同じ能力が働く。",
         "jpIllustrator": "言犬"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Celestial_Shikigami": {
@@ -3607,7 +3674,8 @@
         "jpCard_image_hash": "e5476a4f0f0145c98b940e5fde543c5f",
         "card_banner_image_hash": "05d35d5898744bc08fb6e06d8b282602",
         "evo_art_url": "Art/90034111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Centaur_Centurion": {
@@ -3678,7 +3746,8 @@
         "jpCard_image_hash": "dd3c79251673477eac0c9a18f76c4e35",
         "card_banner_image_hash": "d218fe6a2e1c4168962f4daec87328a7",
         "evo_art_url": "Art/10021131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Cerberus,_Hellfire_Unleashed": {
@@ -3756,8 +3825,8 @@
           "card_id": 70154110,
           "base_art_url": "./Art/70154110.png",
           "evo_art_url": "./Art/70154111.png",
-          "hash": "9ffeac9eeb2d490da33d72d7c693d8dc",
-          "evo_hash": "9457cf0efda9400abda8f68275818c1d",
+          "hash": "25dae41466a949aab0b478ae4c3f7e01",
+          "evo_hash": "a20b922e38a341179a59ee615dfc003c",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -3927,7 +3996,8 @@
         "jpSkill_Text": "【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）自分のデッキからフォロワー1枚を引く。\n（2）【<color=Keyword>リアニメイト</color>_2】を行う。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Charon,_Stygian_Oarswoman": {
@@ -4272,7 +4342,8 @@
         "jpCard_image_hash": "ed0fe465b6b640b7a497203ecc4c811e",
         "card_banner_image_hash": "0a7179af77ae45ac9d449c9a15578589",
         "evo_art_url": "Art/90031111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Coco,_Left_Paw_Hellhound": {
@@ -4349,7 +4420,8 @@
         "jpCard_image_hash": "eb6d38794e4644029e5e6ea8ddb10237",
         "card_banner_image_hash": "002991852c3e4095afd7a21fc9f447cc",
         "evo_art_url": "Art/90054121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Comrade_of_the_Swordmaster": {
@@ -4420,7 +4492,8 @@
         "jpCard_image_hash": "27db9706defe4c7985aaa4089226b893",
         "card_banner_image_hash": "70491e6a8077450880a67e43d4c73f83",
         "evo_art_url": "Art/10321121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Destruction": {
@@ -4497,7 +4570,8 @@
         "jpCard_image_hash": "21f24874ac7d4de88c21c39b4f0c6ed0",
         "card_banner_image_hash": "335c1175ccd34f6e8ffb73fbe4840e61",
         "evo_art_url": "Art/10373111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Disdain": {
@@ -4580,7 +4654,8 @@
         "jpCard_image_hash": "d1fda50f68f34a8fbb63e8826e0447d7",
         "card_banner_image_hash": "674bc2c2c62f47989cb634eade86d7d1",
         "evo_art_url": "Art/10343111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Entwining": {
@@ -4675,7 +4750,8 @@
         "jpCard_image_hash": "d1cb974112744fa8bde61fb83a9a35b3",
         "card_banner_image_hash": "43c80773a88e4cc390b23fbcfa1994f5",
         "evo_art_url": "Art/10353111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Repose": {
@@ -4752,7 +4828,8 @@
         "jpCard_image_hash": "f85893429f4a4e7f9768376e8631daa6",
         "card_banner_image_hash": "440e4f7b5d3a47039246e017078c865b",
         "evo_art_url": "Art/10363111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Truth": {
@@ -4829,7 +4906,8 @@
         "jpCard_image_hash": "1e8c518ca73e407ebf3bc2a2d3734a94",
         "card_banner_image_hash": "5db5169a80c9421db6bc9110e91d49e7",
         "evo_art_url": "Art/10333111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Unkilling": {
@@ -4906,7 +4984,8 @@
         "jpCard_image_hash": "5324c428a8e649f6a1ad01908adc615b",
         "card_banner_image_hash": "b483f18e93634f53bb1d4fd7f398e3f2",
         "evo_art_url": "Art/10313111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Congregant_of_Usurpation": {
@@ -4989,7 +5068,8 @@
         "jpCard_image_hash": "4c0d2de7febd49439e0886e5af5d7b09",
         "card_banner_image_hash": "a57d9d9812054d20b4431c81a6f3b786",
         "evo_art_url": "Art/10323111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Crystal_Gazing": {
@@ -5019,7 +5099,8 @@
         "jpSkill_Text": "自分は『クレスト：クリスタルゲイジング』を持つ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Cultivator_of_Malice": {
@@ -5090,7 +5171,8 @@
         "jpCard_image_hash": "0a4bee4736ba469cb7719c57ac92d725",
         "card_banner_image_hash": "c81825c91394432eb0d59b44480844e1",
         "evo_art_url": "Art/10251121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Cynthia,_Chivalrous_Elf": {
@@ -5161,7 +5243,8 @@
         "jpCard_image_hash": "c07eee960eef4278a7a2da9d6c6d074f",
         "card_banner_image_hash": "a0c7b5fb5adb400bb0c6beb1a00a8f92",
         "evo_art_url": "Art/10213111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Damus,_Oracle_of_Malice": {
@@ -5232,7 +5315,8 @@
         "jpCard_image_hash": "0a4fe8fd42dc460f93cde0d5dda86b13",
         "card_banner_image_hash": "3678cc3b5d6f469ca7518c58ac72b80b",
         "evo_art_url": "Art/10261121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Darkhaven_Grace": {
@@ -5275,7 +5359,8 @@
         "jpSkill_Text": "コスト1【<color=Keyword>アクト</color>】自分の場のフォロワー1枚を選ぶ。それは+1/+1する。自分のリーダーを1回復。",
         "jpIllustrator": "ni02"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Darkseal_Demon": {
@@ -5346,7 +5431,8 @@
         "jpCard_image_hash": "0154b504d65947e0a343d62257558c1f",
         "card_banner_image_hash": "e3a4575a428f4730b77e7a4b3cf496d0",
         "evo_art_url": "Art/10151151.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Dark_Side": {
@@ -5383,7 +5469,8 @@
         "jpSkill_Text": "場のフォロワー1枚を選ぶ。それは+2/-2する。",
         "jpIllustrator": "Saika"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Dazzling_Runeknight": {
@@ -5454,7 +5541,8 @@
         "jpCard_image_hash": "aa552da6c8cb46fb85e974d0d333575b",
         "card_banner_image_hash": "e5dea90a1444496eb1ba7d003c279078",
         "evo_art_url": "Art/10031111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Deepwood_Bounty": {
@@ -5484,7 +5572,8 @@
         "jpSkill_Text": "自分のリーダーを1回復。",
         "jpIllustrator": "Mew"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Deepwood_Fairy_Beast": {
@@ -5555,7 +5644,8 @@
         "jpCard_image_hash": "57adfc42e45642f8856c8526638d2a9d",
         "card_banner_image_hash": "ce2f1fe48fae4e8081d505906dd3643b",
         "evo_art_url": "Art/10111131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Demonic_Call": {
@@ -5585,7 +5675,8 @@
         "jpSkill_Text": "【<color=Keyword>スペルブースト時</color>】これのコストを-1する。\n<hr>『<color=Keyword>式神・暴鬼</color>』1枚を自分の場に出す。",
         "jpIllustrator": "モノクロ"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Demonic_Shikigami": {
@@ -5656,7 +5747,8 @@
         "jpCard_image_hash": "182231c248324bd7bddcf7df32846fa4",
         "card_banner_image_hash": "f066a2db681b49399fd040654246d8db",
         "evo_art_url": "Art/90031141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Demon_of_Purgatory": {
@@ -5727,7 +5819,8 @@
         "jpCard_image_hash": "61511755fc2a4b778174f084a0101288",
         "card_banner_image_hash": "27720d0f6faf4f41934f398ff244e0c6",
         "evo_art_url": "Art/90004131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Detective's_Lens": {
@@ -5757,7 +5850,8 @@
         "jpSkill_Text": "【<color=Keyword>アクト</color>】これを破壊。相手の場のフォロワー1枚を選ぶ。それは【<color=Keyword>守護</color>】を失う。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Devastating_Soprano": {
@@ -5882,7 +5976,8 @@
         "jpCard_image_hash": "8a09b96c8147453eaf59cf85a9950bef",
         "card_banner_image_hash": "5576df766b274250960b63d7aea5f908",
         "evo_art_url": "Art/10051131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Destruction": {
@@ -5959,7 +6054,8 @@
         "jpCard_image_hash": "04fe8d01ffc44b118f16c2dabf7c56cb",
         "card_banner_image_hash": "199158681de54fb19375ee54542dac36",
         "evo_art_url": "Art/10371111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Disdain": {
@@ -6042,7 +6138,8 @@
         "jpCard_image_hash": "9ac0f42a47944864939fe9f644c66115",
         "card_banner_image_hash": "a4603bb44a114c84a5dcf0f387740b2b",
         "evo_art_url": "Art/10341111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Entwining": {
@@ -6143,7 +6240,8 @@
         "jpCard_image_hash": "3ae03408f07b4f6f9d2045a1497e7490",
         "card_banner_image_hash": "9b1dc76b0de84e90b2487c7fe21fb4a0",
         "evo_art_url": "Art/10351111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Repose": {
@@ -6220,7 +6318,8 @@
         "jpCard_image_hash": "411d9e3a06844e7c9579a4389c82f5c9",
         "card_banner_image_hash": "b08260ae960247a48cb8e33065e518af",
         "evo_art_url": "Art/10361111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Truth": {
@@ -6297,7 +6396,8 @@
         "jpCard_image_hash": "36318e373d7d4bc9ac4ec95c7e825f16",
         "card_banner_image_hash": "9d738760200046d1bb80357ff4013dbc",
         "evo_art_url": "Art/10331111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Unkilling": {
@@ -6374,7 +6474,8 @@
         "jpCard_image_hash": "d4637a5af6944925ac3fa72df48b5363",
         "card_banner_image_hash": "98b0dbd2d25448218f0a7876f2db6ee4",
         "evo_art_url": "Art/10311111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Devotee_of_Usurpation": {
@@ -6451,7 +6552,8 @@
         "jpCard_image_hash": "f6e35624bec74f519b7864b13a82cf00",
         "card_banner_image_hash": "f553c43e2dac4e2e9ff775caedf7ab81",
         "evo_art_url": "Art/10321111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Dimension_Climb": {
@@ -6495,7 +6597,7 @@
           "card_id": 70134310,
           "base_art_url": "./Art/70134310.png",
           "evo_art_url": null,
-          "hash": "d0577dac8d53464a91be0fdd1447b8dd",
+          "hash": "33dc9f9b1fd24b9ba315c810c8076bce",
           "evo_hash": "",
           "name": "",
           "name_ruby": "",
@@ -6576,7 +6678,8 @@
         "jpCard_image_hash": "1ed6da6cae0942a8a26638a48ee43a9f",
         "card_banner_image_hash": "1bef03ffa12b4d9888766a2d440b0ce2",
         "evo_art_url": "Art/10171121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Divine_Guard": {
@@ -6606,7 +6709,8 @@
         "jpSkill_Text": "自分の場の【<color=Keyword>守護</color>】を持つフォロワー1枚を選ぶ。それは+0/+1する。相手の場のフォロワーからランダム1枚にXダメージ。Xは選んだフォロワーの体力である。",
         "jpIllustrator": "Saika"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Divine_Thunder": {
@@ -6643,7 +6747,8 @@
         "jpSkill_Text": "相手の場の攻撃力最大のフォロワーからランダム1枚を破壊。相手の場のフォロワーすべてに1ダメージ。",
         "jpIllustrator": "tricky胡坐"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Dogged_One": {
@@ -6726,7 +6831,8 @@
         "jpCard_image_hash": "0c4f9f8fa29d4ac08da5cce07c060d36",
         "card_banner_image_hash": "ce189d4f627c475d99b646329d7ff4a7",
         "evo_art_url": "Art/10303111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Doll_Slayer": {
@@ -6797,7 +6903,8 @@
         "jpCard_image_hash": "01f5d7d5ba7a472bb47981b30536fcb1",
         "card_banner_image_hash": "827b1fb7b5ea415490d1bf074b394a5e",
         "evo_art_url": "Art/90072131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Doomwright_Resurgence": {
@@ -6834,7 +6941,8 @@
         "jpSkill_Text": "自分の手札のコスト5以下のアーティファクト・フォロワー2枚を選ぶ。それのコピー1枚を自分の場に出す。それは「相手のターン終了時、これを破壊。」を持つ。",
         "jpIllustrator": "あめや"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Draconic_Berserker": {
@@ -6905,7 +7013,8 @@
         "jpCard_image_hash": "a88c5d76316e45dbbde62ce5d07a117c",
         "card_banner_image_hash": "d2d1d1b4c544410794f5f1032ebb075d",
         "evo_art_url": "Art/10042111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Draconic_Strike": {
@@ -6935,7 +7044,8 @@
         "jpSkill_Text": "自分の手札1枚を選ぶ。それのコストを-2する。相手の場のフォロワーすべてに3ダメージ。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Dragonsign": {
@@ -7060,7 +7170,8 @@
         "jpCard_image_hash": "617cad672e2a486780eb1dca769bb7e9",
         "card_banner_image_hash": "0aef135773354b72ac55c930a693fd29",
         "evo_art_url": "Art/10211121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Edelweiss,_Sagelight_Ward": {
@@ -7143,7 +7254,8 @@
         "jpCard_image_hash": "62c76eb0b6dd4cd6a5b506fb89707d27",
         "card_banner_image_hash": "f8a4de339052422482146f66905f23d9",
         "evo_art_url": "Art/10133131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Elder_Sagebrush": {
@@ -7214,7 +7326,8 @@
         "jpCard_image_hash": "607ad9ccde0b463f8d99fbcfac251a13",
         "card_banner_image_hash": "d68a220ce40c413ca9a7d380cd25a13d",
         "evo_art_url": "Art/10111151.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Electric_Whip_Lass": {
@@ -7285,7 +7398,8 @@
         "jpCard_image_hash": "7956954e8e9c427ebe8f0e93bd12513f",
         "card_banner_image_hash": "8c5dd2c3132848f1a5c349865e9d5023",
         "evo_art_url": "Art/10072111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Elise,_Electrifying_Inventor": {
@@ -7356,7 +7470,8 @@
         "jpCard_image_hash": "466cabd96f034ea9920a64a6112f495b",
         "card_banner_image_hash": "a57abaeebff741ccbe328439f3ad319c",
         "evo_art_url": "Art/10171111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Emmylou,_Witch_of_Wonder": {
@@ -7427,7 +7542,8 @@
         "jpCard_image_hash": "93aaa3cf80d440c5bb651c9477463677",
         "card_banner_image_hash": "9e2fc01761f24c91bc7ba9cf3d3bba2b",
         "evo_art_url": "Art/10132121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Enchanting_Perfumer": {
@@ -7498,7 +7614,8 @@
         "jpCard_image_hash": "947619410fb74ac3aa885a5ac2eb69af",
         "card_banner_image_hash": "e99fdfdd20bc4a6b8df1f23a0afc4266",
         "evo_art_url": "Art/10232121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Engineblade_Maven": {
@@ -7569,7 +7686,8 @@
         "jpCard_image_hash": "cf39c4c67095439295444c330732769a",
         "card_banner_image_hash": "f8ea5c5c6fad4d8996ee96e6fdf83cfd",
         "evo_art_url": "Art/10271111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Enhanced_Puppet": {
@@ -7640,7 +7758,8 @@
         "jpCard_image_hash": "5ba8980316274a95a8153f232508ec1b",
         "card_banner_image_hash": "05cb8c387791431fb6fb793db8b48d6a",
         "evo_art_url": "Art/90071121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ephemeral_Demon_Princess": {
@@ -7711,7 +7830,8 @@
         "jpCard_image_hash": "cabc7a1dd54e47058db6f043f6e68e0a",
         "card_banner_image_hash": "ece58a34b95c416cac3d5f99c769b822",
         "evo_art_url": "Art/10351121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Eradicating_Arrow": {
@@ -7748,7 +7868,8 @@
         "jpSkill_Text": "「相手の場のフォロワーからランダム1枚は-0/-1する。」をX回行う。Xは自分の【<color=Keyword>コンボ</color>】である。",
         "jpIllustrator": "Budi"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Ernesta,_Peace_Hawker": {
@@ -7819,7 +7940,8 @@
         "jpCard_image_hash": "d0983c1f7f37498389a82b64dd8a2ccc",
         "card_banner_image_hash": "a71d1f8c645349338549a73393120fdf",
         "evo_art_url": "Art/10121121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Eudie,_Maiden_Reborn": {
@@ -7890,7 +8012,8 @@
         "jpCard_image_hash": "11c40f5ef60c4efb9ddb0005649f081d",
         "card_banner_image_hash": "01829177245a41aca9777dcc32829bd2",
         "evo_art_url": "Art/10174111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Exella,_Nocturnal_General": {
@@ -7961,7 +8084,8 @@
         "jpCard_image_hash": "6453ee8f193849b6b71ff0f11bc1d1d6",
         "card_banner_image_hash": "2f9e607bb29c4fbcacb5ecfe9b1e4ede",
         "evo_art_url": "Art/10253121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Eyfa,_Windrider": {
@@ -8038,7 +8162,8 @@
         "jpCard_image_hash": "b624c7ce3d1046a59f3f5eecd2c12be3",
         "card_banner_image_hash": "3d4cc1e9cc874aa39786d77c1b090853",
         "evo_art_url": "Art/10142121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fairy": {
@@ -8109,7 +8234,8 @@
         "jpCard_image_hash": "0f4835207339482d904c2f6e46c2178c",
         "card_banner_image_hash": "16ed037f7939481db1ece7dbc17a1d88",
         "evo_art_url": "Art/90011111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fairy_Fencer": {
@@ -8180,7 +8306,8 @@
         "jpCard_image_hash": "a7f44186c90243f49f92f2e28fe56eb4",
         "card_banner_image_hash": "9bf85d9738234e5d95e074a2db8d6914",
         "evo_art_url": "Art/10212121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fairy_Tamer": {
@@ -8251,7 +8378,8 @@
         "jpCard_image_hash": "713002ecf243490e838f68081804f1d1",
         "card_banner_image_hash": "50ac6cbdcc0d40eab18399521d7a5fee",
         "evo_art_url": "Art/10011111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fangs_of_Ardent_Destruction": {
@@ -8288,7 +8416,8 @@
         "jpSkill_Text": "場のフォロワーすべてに1ダメージ。",
         "jpIllustrator": "77gl"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Fan_of_Otohime": {
@@ -8318,7 +8447,8 @@
         "jpSkill_Text": "コスト3【<color=Keyword>アクト</color>】『<color=Keyword>乙姫お守り隊</color>』1枚を自分の場に出す。自分の手札1枚を選ぶ。それを捨てる。",
         "jpIllustrator": "りょうへい"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Fay_Twinkletoes": {
@@ -8389,7 +8519,8 @@
         "jpCard_image_hash": "9f81437cd8584258ba393d25b65db758",
         "card_banner_image_hash": "a20abfefb94c47d4a4c5e12ba2a20463",
         "evo_art_url": "Art/10111111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Featherfall": {
@@ -8419,7 +8550,8 @@
         "jpSkill_Text": "相手の場のフォロワーすべてに3ダメージ。『<color=Keyword>ホーリーファルコン</color>』1枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Fennie,_Prismatic_Phoenix": {
@@ -8490,7 +8622,8 @@
         "jpCard_image_hash": "2e3b0d4595dc44eeb687f09025f7d863",
         "card_banner_image_hash": "badf1fa773934b2bacb70f09a2d03320",
         "evo_art_url": "Art/10244121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ferocious_Flame": {
@@ -8527,7 +8660,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚を選ぶ。それに1ダメージ。相手の場のフォロワーからランダム1枚に3ダメージ。【<color=Keyword>覚醒</color>】なら、自分のデッキからドラゴン・フォロワー1枚を引く。",
         "jpIllustrator": "Gen"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Field_Scientist": {
@@ -8598,7 +8732,8 @@
         "jpCard_image_hash": "38ba7d18a9ea46a6bb88b83c565b768c",
         "card_banner_image_hash": "e62fdfeb886f4b049cf7aecc7f1aab0c",
         "evo_art_url": "Art/10372121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Filene,_Whitefrost_Bloom": {
@@ -8688,8 +8823,8 @@
           "card_id": 70244110,
           "base_art_url": "./Art/70244110.png",
           "evo_art_url": "./Art/70244111.png",
-          "hash": "7fe848aabb184a888e6cfc69ef264985",
-          "evo_hash": "6179454efe784831a1c82b2438d17628",
+          "hash": "a9eff1a58cfe47b796597c86f66273e6",
+          "evo_hash": "08c3d50a5ea14f1b983ac25e855aacc7",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -8769,7 +8904,8 @@
         "jpCard_image_hash": "949254f2a18b486ea208337df105b800",
         "card_banner_image_hash": "d89425abe74a4fe5ae22a5856eb146fc",
         "evo_art_url": "Art/90041111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Flames_of_Chaos": {
@@ -8799,7 +8935,8 @@
         "jpSkill_Text": "Xは0から始まる。\n【<color=Keyword>スペルブースト時</color>】これのXを+1する。\n<hr>相手の場のフォロワーすべてにXダメージを割りふる。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Flashstep_Quickblader": {
@@ -8870,7 +9007,8 @@
         "jpCard_image_hash": "79989b1746bb4e14a118cf7cf6b28e2f",
         "card_banner_image_hash": "1601ef56e5df4a2a9e9925875b5bdc01",
         "evo_art_url": "Art/10021111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fledgling_Dragonslayer": {
@@ -8941,7 +9079,8 @@
         "jpCard_image_hash": "5f1f9b52950d48e5be8db3d2767fb29c",
         "card_banner_image_hash": "6f52e500ec8b46a4acaf8ba4fac831ba",
         "evo_art_url": "Art/10141131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Flight_of_Icarus": {
@@ -8978,7 +9117,8 @@
         "jpSkill_Text": "自分の手札のアーティファクト・フォロワー1枚を選ぶ。それは【<color=Keyword>突進</color>】と「【<color=Keyword>ラストワード</color>】自分のデッキから1枚を引く。」を持つ。",
         "jpIllustrator": "Gen"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Foresight": {
@@ -9246,7 +9386,8 @@
         "jpCard_image_hash": "ac8db9452d974e43a78865de607e5fdd",
         "card_banner_image_hash": "89953ee2604b4ec899801febedba5692",
         "evo_art_url": "Art/90072121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fox_of_Purity": {
@@ -9317,7 +9458,8 @@
         "jpCard_image_hash": "5c5e9894b44c486a96455d2c2e827b77",
         "card_banner_image_hash": "8958b28090c5411295c8ea3c8724e370",
         "evo_art_url": "Art/10061121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Fragrantwood_Whispers": {
@@ -9354,7 +9496,8 @@
         "jpSkill_Text": "『<color=Keyword>森の神秘</color>』1枚を自分の手札に加える。自分のデッキから1枚を引く。",
         "jpIllustrator": "ヤナガワ"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Galmieux,_Ardor_Manifest": {
@@ -9444,8 +9587,8 @@
           "card_id": 70344120,
           "base_art_url": "./Art/70344120.png",
           "evo_art_url": "./Art/70344121.png",
-          "hash": "349a6da33869423384f4b9d182288ede",
-          "evo_hash": "f79efdcbe74c45f69687c26006ee5b9c",
+          "hash": "73f5a92149da4662add5a524cf57e6fc",
+          "evo_hash": "4107614ec8994cc381dde3113caba825",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -9484,7 +9627,8 @@
         "jpSkill_Text": "【<color=Keyword>融合</color>】エルフ・カード\n<hr>自分のデッキから1枚を引く。これに【<color=Keyword>融合</color>】していたなら、1枚ではなく2枚。",
         "jpIllustrator": "PEPPY"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Garyu,_Fabled_Dragonkin": {
@@ -9555,7 +9699,8 @@
         "jpCard_image_hash": "09421dad7bc64df69ffb1b5251d7804f",
         "card_banner_image_hash": "bcf7bf18d4114ff4b68f20bd1af44103",
         "evo_art_url": "Art/10144131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Gear_of_Ambition": {
@@ -9585,7 +9730,8 @@
         "jpSkill_Text": "【<color=Keyword>融合</color>】アーティファクト・アミュレット\nこれに【<color=Keyword>融合</color>】したとき、これは『<color=Keyword>アタックアーティファクト</color>』に変身する。\n<hr>プレイできない。",
         "jpIllustrator": "AOGIRI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gear_of_Remembrance": {
@@ -9615,7 +9761,8 @@
         "jpSkill_Text": "【<color=Keyword>融合</color>】アーティファクト・アミュレット\nこれに【<color=Keyword>融合</color>】したとき、これは『<color=Keyword>キャッスルアーティファクト</color>』に変身する。\n<hr>プレイできない。",
         "jpIllustrator": "AOGIRI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gelt,_Intrepid_Vice-Captain": {
@@ -9698,7 +9845,8 @@
         "jpCard_image_hash": "5ba4b198eecc483b8e7dafffb550db53",
         "card_banner_image_hash": "ee3636ca6a87499787fd417ac4bd9e95",
         "evo_art_url": "Art/10222111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Genesis_Dragon_Reborn": {
@@ -9769,7 +9917,8 @@
         "jpCard_image_hash": "36d025a51c8948759fe541879c4b7a79",
         "card_banner_image_hash": "5ed4acf8e2f343cbb9e38d727299e711",
         "evo_art_url": "Art/10143111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Gentle_Treant": {
@@ -9840,7 +9989,8 @@
         "jpCard_image_hash": "5971073cb5014767a52d85496b007a5e",
         "card_banner_image_hash": "b62d54790b87432fb62bb99e573fb414",
         "evo_art_url": "Art/10011131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ghastly_Soiree": {
@@ -9870,7 +10020,8 @@
         "jpSkill_Text": "『<color=Keyword>ゴースト</color>』1枚と『<color=Keyword>スケルトン</color>』1枚と『<color=Keyword>腐臭のゾンビ</color>』1枚を自分の手札に加える。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Ghost": {
@@ -9941,7 +10092,8 @@
         "jpCard_image_hash": "bf0ad9fd257744db8e64674b943a53e8",
         "card_banner_image_hash": "5a8466a5e9754d80a84082ab6593c856",
         "evo_art_url": "Art/90051131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ghost_Juggler": {
@@ -10012,7 +10164,8 @@
         "jpCard_image_hash": "e41021918a084e6faefffccf46d4e2cf",
         "card_banner_image_hash": "7556612f660c40adb69ef779f599e2ed",
         "evo_art_url": "Art/10151141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Gildaria,_Anathema_of_Peace": {
@@ -10020,37 +10173,37 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk0.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk1.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk2.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Effect",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk3.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk3.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk5.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Gildaria,_Anathema_of_Peace/chunk6.mp3",
         "en_url": "Audio/EN/Gildaria,_Anathema_of_Peace/chunk6.mp3"
       }
     ],
@@ -10173,7 +10326,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚か相手のリーダーを選ぶ。それに1ダメージ。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gilded_Boots": {
@@ -10203,7 +10357,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚を選ぶ。それは+1/+0して【<color=Keyword>突進</color>】を持つ。",
         "jpIllustrator": "あかかがち"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gilded_Goblet": {
@@ -10233,7 +10388,8 @@
         "jpSkill_Text": "自分のリーダーを2回復。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gilded_Necklace": {
@@ -10263,7 +10419,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚を選ぶ。それは+0/+1して【<color=Keyword>守護</color>】を持つ。",
         "jpIllustrator": "あかかがち"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Gilnelise,_Voracity_Manifest": {
@@ -10334,7 +10491,8 @@
         "jpCard_image_hash": "da9cd39082da4683b24668f870b98fd8",
         "card_banner_image_hash": "f15236919d9a4df8a9ccdb3de56ebacf",
         "evo_art_url": "Art/10304121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ginsetsu_&_Yuzuki,_Twin_Calamities": {
@@ -10417,7 +10575,8 @@
         "jpCard_image_hash": "dbf4ec2037c64d01a0548bed02afb464",
         "card_banner_image_hash": "b5e426112181432d8f4a1de15f82c711",
         "evo_art_url": "Art/10254111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Glacial_Crash": {
@@ -10447,7 +10606,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それを破壊。【<color=Keyword>土の秘術</color>_1】相手のリーダーに2ダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Glade,_Fragrantwood_Ward": {
@@ -10530,7 +10690,8 @@
         "jpCard_image_hash": "0b805944f46448ea915e6ba68b701390",
         "card_banner_image_hash": "c014258eff1145a498168be215615d24",
         "evo_art_url": "Art/10113121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Goblin": {
@@ -10601,7 +10762,8 @@
         "jpCard_image_hash": "7c46ee5358d14580926c9b36c396763e",
         "card_banner_image_hash": "caed0fdd65154a30ae021cef4dcec085",
         "evo_art_url": "Art/90001111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Goblin_Foray": {
@@ -10638,7 +10800,8 @@
         "jpSkill_Text": "『<color=Keyword>ゴブリン</color>』5枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Godwood_Staff": {
@@ -10687,7 +10850,8 @@
         "jpSkill_Text": "自分のターン終了時、【<color=Keyword>コンボ</color>_3】自分のデッキから1枚を引く。\n<hr>【<color=Keyword>アクト</color>】これを破壊。自分の場の他のカード1枚を選ぶ。それを手札に戻す。",
         "jpIllustrator": "乃木Lief"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Goldennote_Melody": {
@@ -10724,7 +10888,8 @@
         "jpSkill_Text": "自分のデッキから2枚を引く。【<color=Keyword>覚醒</color>】なら、自分のリーダーを2回復。",
         "jpIllustrator": "ezusuke"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Good_Fairy_of_the_Pond": {
@@ -10795,7 +10960,8 @@
         "jpCard_image_hash": "9511bc8488b84e1f8a74e952016c6cc1",
         "card_banner_image_hash": "4e7cafe580ad45fcbe07ae0a59022ecd",
         "evo_art_url": "Art/10112121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Greatness_Ascended": {
@@ -10832,7 +10998,8 @@
         "jpSkill_Text": "自分のデッキから3枚を引く。自分のデッキに重複するカードがないなら、自分のPPを3回復。",
         "jpIllustrator": "伊吹つくば"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Greatwood_Warrior": {
@@ -10903,7 +11070,8 @@
         "jpCard_image_hash": "66aad27be3e341afac5cef509e4f2b57",
         "card_banner_image_hash": "0e884797c11642369c0de703100cb6b9",
         "evo_art_url": "Art/10312121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Great_Testimony": {
@@ -10940,7 +11108,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それを破壊。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Grimnir,_Heavenly_Gale": {
@@ -11023,7 +11192,8 @@
         "jpCard_image_hash": "3bba80a08e494092b94c6d71a4f536a0",
         "card_banner_image_hash": "c1cb97f359ef4db08b639295a02953d5",
         "evo_art_url": "Art/10204121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Guardian_Golem": {
@@ -11094,7 +11264,8 @@
         "jpCard_image_hash": "d19c1811c7384e5caa2028254cb74a28",
         "card_banner_image_hash": "f1343ae491a7409ab1c6404ba5ffcdf5",
         "evo_art_url": "Art/90031121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Hamlet_of_Unkilling": {
@@ -11124,7 +11295,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分の手札1枚を選ぶ。それを捨てる。自分のデッキから2枚を引く。\n<hr>【<color=Keyword>アクト</color>】これを破壊。相手の場のフォロワー1枚を選ぶ。それは-0/-2する。",
         "jpIllustrator": "林"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Himeka,_Heir_to_Repose": {
@@ -11207,7 +11379,8 @@
         "jpCard_image_hash": "3ef946ea4c7f4d9b824c8c3c497f5672",
         "card_banner_image_hash": "4732bc9048be4797b6005e5c107b26ed",
         "evo_art_url": "Art/10364111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Hnikar_&_Jafnhar,_Firestorm_Duo": {
@@ -11253,6 +11426,9 @@
         "url": "Audio/FILTERED/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk6.mp3",
         "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk7.mp3",
         "label": "Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -11290,7 +11466,8 @@
         "jpCard_image_hash": "96d229452664482f913294caad2d5782",
         "card_banner_image_hash": "29a54b6a4d4246828117c1eb8b7944f8",
         "evo_art_url": "Art/10203121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Holyflame_Tiger": {
@@ -11361,7 +11538,8 @@
         "jpCard_image_hash": "b8573772b73f42ecb224ef01bb7a1cd3",
         "card_banner_image_hash": "84297148e7a043d489d3c1bf671a74e9",
         "evo_art_url": "Art/90061121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Holy_Cavalier": {
@@ -11432,7 +11610,8 @@
         "jpCard_image_hash": "9b786c4ac74f4ecb8733e32cbfd779f6",
         "card_banner_image_hash": "8bc1132f794c46d9aedfa81d1de6385e",
         "evo_art_url": "Art/90064111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Holy_Falcon": {
@@ -11503,7 +11682,8 @@
         "jpCard_image_hash": "0e90b4776ad54becb4aeb106fa37af8d",
         "card_banner_image_hash": "3670822edf534817adea3dfd2f15e84a",
         "evo_art_url": "Art/90061111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Homework_Time!": {
@@ -11540,7 +11720,8 @@
         "jpSkill_Text": "Xは0から始まる。\n【<color=Keyword>スペルブースト時</color>】これのXを+1する。その後、Xが5以上なら、これは『<color=Keyword>成長したですぅ！</color>』に変身する。\n<hr>自分のデッキから2枚を引く。",
         "jpIllustrator": "えなれいん"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Hound_of_War": {
@@ -11617,7 +11798,8 @@
         "jpCard_image_hash": "4ff84627c0c04545a5d649bc96be88c4",
         "card_banner_image_hash": "a1d6542c33e643119b5d93c6c8c696f0",
         "evo_art_url": "Art/10121141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ignominious_Samurai": {
@@ -11688,6 +11870,23 @@
         "jpCard_image_hash": "b98fb3fc4aab40378598c24b0084382d",
         "card_banner_image_hash": "8a7949fa75e943ee8a73d03dab090fa1",
         "evo_art_url": "Art/10121151.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70121150,
+          "base_art_url": "./Art/70121150.png",
+          "evo_art_url": "./Art/70121151.png",
+          "hash": "f42311c741fd4c549bbbee9d3d4278aa",
+          "evo_hash": "2edc1607bef84959b194865ef1c61fa8",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Lizzie Freeman",
+          "illustrator": "Ko Shirogane",
+          "skill_text": "",
+          "flavour_text": "A samurai lives and dies by their honor, you say? Hah! You can keep looking down your nose at me, but cunning and self-interest are what keep you alive on the battlefield.",
+          "evo_flavour_text": "She responded to the warrior's honorable speech with a courteous sweep of her blade. \"Those were some pretty words, but I'd rather get to the <i>point,</i> if you know what I mean.\""
+        }
       }
     }
   },
@@ -11820,7 +12019,8 @@
         "jpCard_image_hash": "38d1649d746a4fab8db8df7911963f6b",
         "card_banner_image_hash": "41fb2be12bd0452b9f46250af07544d6",
         "evo_art_url": "Art/10262121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Indomitable_Fighter": {
@@ -11897,7 +12097,8 @@
         "jpCard_image_hash": "8f1ab12418fc4d0aa41f96eff6211593",
         "card_banner_image_hash": "b6302d89e64a482b813b487ba7d62d51",
         "evo_art_url": "Art/10001111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Inspirational_One": {
@@ -11974,7 +12175,8 @@
         "jpCard_image_hash": "b0157fab8c6944f1a93ca8b2710b6c3c",
         "card_banner_image_hash": "53fbda2593bb48eda5843e2ccdac2830",
         "evo_art_url": "Art/10302111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Institute_of_Truth": {
@@ -12004,7 +12206,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_5】\n自分がコストが変化しているフォロワーをプレイしたとき、自分のデッキから1枚を引く。これのカウントを-1する。\n<hr>【<color=Keyword>アクト</color>】自分の手札のフォロワー1枚を選ぶ。それのコストを+1する。それは+1/+1する。",
         "jpIllustrator": "AOGIRI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Intent_Dragonewt_Princess": {
@@ -12075,7 +12278,8 @@
         "jpCard_image_hash": "0c95f509d17044ee8338464920747c7e",
         "card_banner_image_hash": "cbc1856e4dc54237b730bf59e958141a",
         "evo_art_url": "Art/10242111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ironcrown_Majesty": {
@@ -12112,7 +12316,8 @@
         "jpSkill_Text": "【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）『<color=Keyword>スティールナイト</color>』1枚と『<color=Keyword>ナイト</color>』1枚を自分の場に出す。\n（2）自分の場のフォロワーすべては+1/+1する。",
         "jpIllustrator": "ねつき"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Ironfist_Priest": {
@@ -12183,7 +12388,8 @@
         "jpCard_image_hash": "950d8592ed2e418c9b0984d3ca6258b2",
         "card_banner_image_hash": "bdda333af2a14f39b499435d52b18926",
         "evo_art_url": "Art/10062111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ironheart_Hunter": {
@@ -12254,7 +12460,8 @@
         "jpCard_image_hash": "c24b344ae2704ddfbd87e32119628291",
         "card_banner_image_hash": "d768722559af4bbe8e7eee3817b3be73",
         "evo_art_url": "Art/10171131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Izudia,_Annihilation_Manifest": {
@@ -12325,7 +12532,8 @@
         "jpCard_image_hash": "e7d77acdde8e4f579eba46acb1b640a6",
         "card_banner_image_hash": "2387253705d24d55a39f36ebbb44a9f2",
         "evo_art_url": "Art/10314121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Jeanne,_Saintly_Knight": {
@@ -12396,7 +12604,8 @@
         "jpCard_image_hash": "cbaba77a89f64516b445ba6ccb52cb69",
         "card_banner_image_hash": "0faeab49ef334821b2f18ce849b90a3d",
         "evo_art_url": "Art/10164121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Jeno,_Levin_Axeraider": {
@@ -12479,7 +12688,8 @@
         "jpCard_image_hash": "e52762ba15214ada81e84516cd403ee9",
         "card_banner_image_hash": "5c5d07bcc48e47219a1023378df358fa",
         "evo_art_url": "Art/10123111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Juno,_Visionary_Alchemist": {
@@ -12550,7 +12760,8 @@
         "jpCard_image_hash": "9c405ae55ed34ea495a4f7c689101a49",
         "card_banner_image_hash": "fb0e63d8e08643728bf1c7ff596275ea",
         "evo_art_url": "Art/10133111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Kagemitsu,_Enduring_Warrior": {
@@ -12621,7 +12832,8 @@
         "jpCard_image_hash": "6f051ad105b24399ab5323fd81d6b3ce",
         "card_banner_image_hash": "d28967a17e6c4b36acf4061145b27fab",
         "evo_art_url": "Art/10124131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Karula,_Eternal_Arts": {
@@ -12692,7 +12904,8 @@
         "jpCard_image_hash": "9ccb44edce494c829338fb71549f1541",
         "card_banner_image_hash": "532d9104096946f4b0cdad24e7d02edd",
         "evo_art_url": "Art/10274121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Killer_Rhinoceroach": {
@@ -12763,7 +12976,8 @@
         "jpCard_image_hash": "5c58c16653494c7b9e2a840da755e77d",
         "card_banner_image_hash": "35c733152d0848e1ab79bae1c3263580",
         "evo_art_url": "Art/10113141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Kit,_Luxfang_Champion": {
@@ -12864,7 +13078,8 @@
         "jpCard_image_hash": "c76684e65e8d41a3b9264189c9a24fe9",
         "card_banner_image_hash": "8eb2c1d8fb0a494d89f49bdd568367c2",
         "evo_art_url": "Art/10142111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Kitty_Cannoneer": {
@@ -12935,7 +13150,8 @@
         "jpCard_image_hash": "5dedd16212934aaebe973ab4192171ea",
         "card_banner_image_hash": "690780a2ff164e888017b744e6132b6e",
         "evo_art_url": "Art/10071111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Knight": {
@@ -13006,7 +13222,8 @@
         "jpCard_image_hash": "d81dba2d7db94a599c88f176914783b4",
         "card_banner_image_hash": "ebf56a6803a94093badd3452ade6df9e",
         "evo_art_url": "Art/90021111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Knightly_Rending": {
@@ -13036,7 +13253,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それを破壊。『<color=Keyword>スティールナイト</color>』1枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Knight_of_the_Holy_Order": {
@@ -13113,7 +13331,8 @@
         "jpCard_image_hash": "3be39474bf9c4c62817bef0496cfab76",
         "card_banner_image_hash": "746db6aceeec4a6ea795704cc3efd00d",
         "evo_art_url": "Art/10361121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Krulle,_Heir_to_Unkilling": {
@@ -13121,49 +13340,49 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk0.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "MeetingIzudia",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk1.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "MeetingHeirs",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk2.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk3.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk4.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Effect",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk5.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk5.mp3"
       },
       {
         "name": "chunk7.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk7.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk7.mp3"
       },
       {
         "name": "chunk8.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Krulle,_Heir_to_Unkilling/chunk8.mp3",
         "en_url": "Audio/EN/Krulle,_Heir_to_Unkilling/chunk8.mp3"
       }
     ],
@@ -13202,7 +13421,8 @@
         "jpCard_image_hash": "85120756f45c4dfda70d557c3e34fb4b",
         "card_banner_image_hash": "96ef1b54f7c543baabd0fe7b9e9ec86c",
         "evo_art_url": "Art/10314111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Kuon,_Fivefold_Master": {
@@ -13279,7 +13499,8 @@
         "jpCard_image_hash": "614e893562f448cb889248f006775488",
         "card_banner_image_hash": "777bf8a257454e2899890a9726d66481",
         "evo_art_url": "Art/10134111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lair_of_Usurpation": {
@@ -13309,7 +13530,8 @@
         "jpSkill_Text": "【<color=Keyword>アクト</color>】これを破壊。【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）『<color=Keyword>黄金の小剣</color>』1枚と『<color=Keyword>黄金の首飾り</color>』1枚を自分の手札に加える。\n（2）『<color=Keyword>黄金の杯</color>』1枚と『<color=Keyword>黄金の靴</color>』1枚を自分の手札に加える。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Lambent_Cairn": {
@@ -13339,7 +13561,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】『<color=Keyword>フェアリー</color>』1枚を自分の手札に加える。【<color=Keyword>コンボ</color>_3】『<color=Keyword>森の神秘</color>』1枚を自分の手札に加える。\n<hr>【<color=Keyword>アクト</color>】これを破壊。自分の場のフォロワー1枚を選ぶ。それは+1/+1する。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Ian,_Lovebound_Knight": {
@@ -13410,7 +13633,8 @@
         "jpCard_image_hash": "7a8469f1bcd449e2a61fa947daf489ec",
         "card_banner_image_hash": "41fecc2511744d73aa03b4c7cf4f25e4",
         "evo_art_url": "Art/10121111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lapis,_Shining_Seraph": {
@@ -13569,7 +13793,8 @@
         "jpCard_image_hash": "47fc6ede74524eb3a347e6c2e33c7114",
         "card_banner_image_hash": "24449428456f45f5a5ea9677be6cc48c",
         "evo_art_url": "Art/10253111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Leah,_Bellringer_Angel": {
@@ -13640,6 +13865,51 @@
         "jpCard_image_hash": "88004bc92d9742e093cc8a1abc6cb208",
         "card_banner_image_hash": "d92aa798363d449a92132339a09482aa",
         "evo_art_url": "Art/10001121.png"
+      },
+      "alternate": {
+        "style_data": {
+          "hash": "3bbcd52876c240f7baabfdc176a92c53",
+          "evo_hash": "bf95464626f446d28535470be0a14e6d",
+          "name": "Haru Urara",
+          "name_ruby": "Haru Urara",
+          "cv": "Yukina Shuto",
+          "illustrator": "",
+          "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Last Words</color></b>: Draw a card.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a card.</ev>\n\n(This card is treated as <b><i>Leah, Bellringer Angel</i></b>.)",
+          "flavour_text": "I... I won't lose to anyone! So please, watch me race!\n—Haru Urara",
+          "evo_flavour_text": "Oh my gosh! I did it! I got first place! No one was in front of me for once! \n—Haru Urara"
+        },
+        "voices": [
+          {
+            "name": "untitled.mp3",
+            "url": "Audio/FILTERED/Leah,_Bellringer_Angel_Alt/chunk0.mp3",
+            "en_url": null,
+            "label": "Play"
+          },
+          {
+            "name": "chunk1.mp3",
+            "url": "Audio/FILTERED/Leah,_Bellringer_Angel_Alt/chunk1.mp3",
+            "label": "Attack",
+            "en_url": null
+          },
+          {
+            "name": "chunk2.mp3",
+            "url": "Audio/FILTERED/Leah,_Bellringer_Angel_Alt/chunk2.mp3",
+            "label": "Death",
+            "en_url": null
+          },
+          {
+            "name": "chunk4.mp3",
+            "url": "Audio/FILTERED/Leah,_Bellringer_Angel_Alt/chunk4.mp3",
+            "label": "Evolve",
+            "en_url": null
+          },
+          {
+            "name": "chunk5.mp3",
+            "url": "Audio/FILTERED/Leah,_Bellringer_Angel_Alt/chunk5.mp3",
+            "label": "Super-Evolve",
+            "en_url": null
+          }
+        ]
       }
     }
   },
@@ -13671,15 +13941,39 @@
       },
       {
         "name": "chunk11.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk4.mp3",
         "en_url": "Audio/EN/Liam,_Crazed_Creator/chunk11.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk12.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk5.mp3",
         "en_url": "Audio/EN/Liam,_Crazed_Creator/chunk12.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk6.mp3",
+        "label": "chunk6.mp3",
+        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
+      },
+      {
+        "name": "chunk10.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk10.mp3",
+        "label": "chunk10.mp3",
+        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
+      },
+      {
+        "name": "chunk11.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3",
+        "label": "Evolve",
+        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
+      },
+      {
+        "name": "chunk12.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3",
+        "label": "Super-Evolve",
+        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
       }
     ],
     "metadata": {
@@ -13717,7 +14011,8 @@
         "jpCard_image_hash": "3e0cedda70314940bee5c51b0460ae2f",
         "card_banner_image_hash": "26a20ed4322f4ee59e2da1f3bf772377",
         "evo_art_url": "Art/10173131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lilanthim,_Anathema_of_Edacity": {
@@ -13788,7 +14083,8 @@
         "jpCard_image_hash": "6353c702ef6d42e8bf4d8872b4edb37f",
         "card_banner_image_hash": "ae523492afe842ac848e6666d18e28bb",
         "evo_art_url": "Art/10234111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lilith,_Enchanting_Succubus": {
@@ -13859,7 +14155,8 @@
         "jpCard_image_hash": "a5d669014aab44f2963b8b0fc23bf1ca",
         "card_banner_image_hash": "057321bd4a7945eeba8d7673618a0abc",
         "evo_art_url": "Art/10052111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lily,_Crystalian_Innocence": {
@@ -13930,7 +14227,8 @@
         "jpCard_image_hash": "3850d6882c19405aac8f6e894b801a9b",
         "card_banner_image_hash": "c7c65c1d8c9448778c0618a138a42d13",
         "evo_art_url": "Art/10113111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lionel,_Ardent_Elf": {
@@ -14001,7 +14299,8 @@
         "jpCard_image_hash": "a784135d92f147b0953c8850a807d305",
         "card_banner_image_hash": "1581838b171b404abb8195a170901772",
         "evo_art_url": "Art/10212111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lishenna,_Melody_Manifest": {
@@ -14160,7 +14459,8 @@
         "jpCard_image_hash": "747669327ea54cd2b23dab07f034c805",
         "card_banner_image_hash": "2ae8416db2b647dc96b267ce2425289a",
         "evo_art_url": "Art/10141141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Little_Miss_Bonemancer": {
@@ -14231,7 +14531,8 @@
         "jpCard_image_hash": "4bef818dcf3e4fe7b5d9f8d87c70e03d",
         "card_banner_image_hash": "5eef9e62d88b44feb06c65f741d858d2",
         "evo_art_url": "Art/10151131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Liu_Feng,_Goldennote_Ward": {
@@ -14314,7 +14615,8 @@
         "jpCard_image_hash": "2799d0b8e9d34937b7aecd40789d4a10",
         "card_banner_image_hash": "200493a5b4b940c4a0fee95f7839fdc4",
         "evo_art_url": "Art/10143121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lloyd": {
@@ -14385,7 +14687,8 @@
         "jpCard_image_hash": "407f0b11affa4ed4a88522eac95b2c13",
         "card_banner_image_hash": "4110c532c83b474b89f243a0e91a1277",
         "evo_art_url": "Art/90074121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Looking_Smart!": {
@@ -14422,7 +14725,8 @@
         "jpSkill_Text": "自分のデッキから2枚を引く。相手の場のフォロワーからランダム1枚に2ダメージ。",
         "jpIllustrator": "えなれいん"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Lovestruck_Puppeteer": {
@@ -14493,7 +14797,8 @@
         "jpCard_image_hash": "6da227472791416ca54592a874d67237",
         "card_banner_image_hash": "9b37a601cdf5414e8506f9c12d8f048b",
         "evo_art_url": "Art/10172121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lucrative_Deal": {
@@ -14523,7 +14828,8 @@
         "jpSkill_Text": "自分のデッキから2枚を引く。相手は自身のデッキから1枚を引く。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Luminous_Censer": {
@@ -14553,7 +14859,8 @@
         "jpSkill_Text": "コスト1【<color=Keyword>アクト</color>】これを破壊。自分のリーダーを4回復。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Luminous_Commander": {
@@ -14636,7 +14943,8 @@
         "jpCard_image_hash": "6fa7ccf9750e43aa8249c5bbfd8e2fd4",
         "card_banner_image_hash": "2247fa59fafd4d669ea2ffcd49b9872e",
         "evo_art_url": "Art/10122111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Luminous_Lancetrooper": {
@@ -14719,7 +15027,8 @@
         "jpCard_image_hash": "7930636100414cf3aabb6425a9313f91",
         "card_banner_image_hash": "67e72f13586b47509dd3a622d3195b7e",
         "evo_art_url": "Art/10122131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Luminous_Magus": {
@@ -14802,7 +15111,8 @@
         "jpCard_image_hash": "4a533e2340f147ba8ce3f11a1390794e",
         "card_banner_image_hash": "8f6b3f65b20841db8e4feeee426c8d50",
         "evo_art_url": "Art/10122121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lymaga,_Untamed_Wild": {
@@ -14873,7 +15183,8 @@
         "jpCard_image_hash": "d18168f2ad85489ebedaea04eff0dc64",
         "card_banner_image_hash": "15c667fc8410438d9843475b19026c10",
         "evo_art_url": "Art/10214121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Lyrala,_Luminous_Potionwright": {
@@ -14968,7 +15279,8 @@
         "jpCard_image_hash": "90363a5155be402193f5d98af062484a",
         "card_banner_image_hash": "f36fd6fd3bd44413bb10ae262dbed33a",
         "evo_art_url": "Art/10121131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Maddening_Benison": {
@@ -14978,6 +15290,12 @@
         "url": "Audio/FILTERED/Maddening_Benison/chunk0.mp3",
         "en_url": "Audio/EN/Maddening_Benison/chunk0.mp3",
         "label": "Play"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk1.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -15005,7 +15323,8 @@
         "jpSkill_Text": "自分のリーダーを10回復。自分は『クレスト：狂おしき恩寵』を持つ。",
         "jpIllustrator": "Akefumi"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Maeve,_Guardian_of_Earth": {
@@ -15088,7 +15407,8 @@
         "jpCard_image_hash": "eaee474fd83944e39cdeb3bd57d398ab",
         "card_banner_image_hash": "cb5c6626ee374c649fa52485eeaa4cde",
         "evo_art_url": "Art/10162131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Magic_Sediment": {
@@ -15118,7 +15438,8 @@
         "jpSkill_Text": "【<color=Keyword>土の印</color>】\n<hr>コスト1【<color=Keyword>アクト</color>】自分の場の土の印を+1する。",
         "jpIllustrator": "えなれいん"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Mainyu,_Darkdweller": {
@@ -15195,7 +15516,8 @@
         "jpCard_image_hash": "3970d0d6d0434ba690b2f0d7ccd389a7",
         "card_banner_image_hash": "224b362ff838446082a4186a00c323af",
         "evo_art_url": "Art/10161141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Majestic_Megalorca": {
@@ -15266,7 +15588,8 @@
         "jpCard_image_hash": "44c7b0ae4a9a4ecbbe6455fcb1f22b36",
         "card_banner_image_hash": "8961a9a690f3438d97f30a5c41fa800d",
         "evo_art_url": "Art/90041131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "March_of_the_Brutes": {
@@ -15296,7 +15619,8 @@
         "jpSkill_Text": "相手の場のフォロワーからランダム2枚と相手のリーダーに2ダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Marion,_Ravishing_Dragonewt": {
@@ -15367,7 +15691,8 @@
         "jpCard_image_hash": "9790528a5d0d437dbda6c3a5ebe8d0a1",
         "card_banner_image_hash": "ab2da04c0a8440d48a0b96e7e7baecd1",
         "evo_art_url": "Art/10142141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Marwynn,_Despair_Manifest": {
@@ -15438,7 +15763,8 @@
         "jpCard_image_hash": "990fc56221f94c27a6b11efd9b69eb41",
         "card_banner_image_hash": "b9b49d2a760744f8b7dad96f7946c574",
         "evo_art_url": "Art/10364121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Masterwork_Artifact_Ω": {
@@ -15509,7 +15835,8 @@
         "jpCard_image_hash": "2c4e2241fa5246929fa53dfc5161259d",
         "card_banner_image_hash": "4a87afc612a34fd09db8bfdca39c16c4",
         "evo_art_url": "Art/90074111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "May,_Journey_Elf": {
@@ -15580,7 +15907,8 @@
         "jpCard_image_hash": "78faa1d45c44480681864b2389cbba02",
         "card_banner_image_hash": "88deda3486e14c7697bf63fa02690aea",
         "evo_art_url": "Art/10012111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mechanized_Beast": {
@@ -15651,7 +15979,8 @@
         "jpCard_image_hash": "e387fd3f6e394ce69b4c32acb2603009",
         "card_banner_image_hash": "774193b8830046bda64daab0023c46fe",
         "evo_art_url": "Art/10071131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mecha_Cavalier": {
@@ -15722,7 +16051,8 @@
         "jpCard_image_hash": "f18add0774974a608526697f246e7b24",
         "card_banner_image_hash": "ce8ede88c9904b8086be32531291b571",
         "evo_art_url": "Art/10072121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Medical-Grade_Assassin": {
@@ -15799,7 +16129,8 @@
         "jpCard_image_hash": "4197b57d76674426bdb03137c392d47c",
         "card_banner_image_hash": "be2bce9358fe4f0cb8160698f52a7344",
         "evo_art_url": "Art/10171141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Medusa,_Venomfang_Royalty": {
@@ -15870,7 +16201,8 @@
         "jpCard_image_hash": "3dca5489e03248098f1ca5b5538e4a5d",
         "card_banner_image_hash": "42b747a343b54d32a16caed2692c4c63",
         "evo_art_url": "Art/10154121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Melodious_Monody": {
@@ -15907,7 +16239,8 @@
         "jpSkill_Text": "自分の場のカード1枚を選ぶ。それを破壊。相手の場のフォロワーからランダム1枚に4ダメージ。",
         "jpIllustrator": "ヘスン"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Melvie,_Adoring_Witch": {
@@ -15978,7 +16311,8 @@
         "jpCard_image_hash": "9181254d602143eda30d29686404c593",
         "card_banner_image_hash": "e788ac396a804fdeb7599142fddcee04",
         "evo_art_url": "Art/10231111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mimi,_Right_Paw_Hellhound": {
@@ -16055,7 +16389,8 @@
         "jpCard_image_hash": "9cb590337c9149b7805d24ee81d1c3bf",
         "card_banner_image_hash": "76338657737e41a4821673408e3ac786",
         "evo_art_url": "Art/90054111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mino,_Shrewd_Reaper": {
@@ -16138,7 +16473,8 @@
         "jpCard_image_hash": "4f1664c62c4b49e590817d56aa5aa7be",
         "card_banner_image_hash": "9e0679a1c4154f248ac7f5ee8634e0df",
         "evo_art_url": "Art/10152111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Miriam,_the_Resolute": {
@@ -16178,6 +16514,9 @@
         "url": "Audio/FILTERED/Miriam,_the_Resolute/chunk6.mp3",
         "en_url": "Audio/EN/Miriam,_the_Resolute/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Miriam,_the_Resolute/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -16215,7 +16554,8 @@
         "jpCard_image_hash": "82f15526de0a41a296d70b4ac47715e2",
         "card_banner_image_hash": "47f611fc4e0d494aa4b619f34b207fda",
         "evo_art_url": "Art/10173111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mistress_of_the_Fanged": {
@@ -16286,7 +16626,8 @@
         "jpCard_image_hash": "6d525bc3edb14fa4aee8d8122013c6cc",
         "card_banner_image_hash": "adc567cc868f4221b3323499028b78d4",
         "evo_art_url": "Art/10051111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mjerrabaine,_Great_Manifest": {
@@ -16357,7 +16698,8 @@
         "jpCard_image_hash": "c2ef86ddef35439a8a3519aac9ee42c2",
         "card_banner_image_hash": "e5f89befc53d45e4809852a51703b9d9",
         "evo_art_url": "Art/10304111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ms._Miranda,_Adored_Academic": {
@@ -16428,7 +16770,8 @@
         "jpCard_image_hash": "2a9aac6e1a7e4fafab8c350c5696239e",
         "card_banner_image_hash": "33e9712d48744355be6d2876495c7b75",
         "evo_art_url": "Art/10132111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Mukan,_Shadowcrypt_Ward": {
@@ -16517,7 +16860,8 @@
         "jpCard_image_hash": "d67527e4570b423e99cdc1b71267ecf4",
         "card_banner_image_hash": "2438835b053f4fa68acb2b3e48d34a3d",
         "evo_art_url": "Art/10153131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Nameless_Demon": {
@@ -16588,7 +16932,8 @@
         "jpCard_image_hash": "fabe32af5ee84586914c1ba8886cd953",
         "card_banner_image_hash": "97b10282743344c99d227490d97b8174",
         "evo_art_url": "Art/10151121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Nation_of_Disdain": {
@@ -16618,7 +16963,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_4】\n<hr>コスト1【<color=Keyword>アクト</color>】場のフォロワーすべてに1ダメージ。",
         "jpIllustrator": "伊吹つくば"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Neptune,_Arbiter_of_Tides": {
@@ -16777,7 +17123,8 @@
         "jpCard_image_hash": "6cb40b2c00e344a49486d6a8a849d3ac",
         "card_banner_image_hash": "595ed345f9a64054ada5b6f5c8dd0bfe",
         "evo_art_url": "Art/10221121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Night_Fiend": {
@@ -16848,7 +17195,8 @@
         "jpCard_image_hash": "ea40d49f3ac0487fb4ee17dc65ff673a",
         "card_banner_image_hash": "093d6050939a4a878b907af172439958",
         "evo_art_url": "Art/10051121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Noah,_Thread_of_Death": {
@@ -16925,7 +17273,8 @@
         "jpCard_image_hash": "22d4b50f1e204879ad4da8c50ebe6976",
         "card_banner_image_hash": "789b6bdf5adc45bbafde94c7c36feb79",
         "evo_art_url": "Art/10172131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Noble_Shikigami": {
@@ -16996,7 +17345,8 @@
         "jpCard_image_hash": "47359aa9557f44d182f8689f6962d4ff",
         "card_banner_image_hash": "543edb15b82e4a2680765c488c163895",
         "evo_art_url": "Art/90034121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Nonja,_Silent_Maid": {
@@ -17073,7 +17423,8 @@
         "jpCard_image_hash": "45cc3d4d553b4d21a5993e4446a69286",
         "card_banner_image_hash": "f38fd942bc854f9ea2545933c497814a",
         "evo_art_url": "Art/90023111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Norman,_Adamant_Alchemist": {
@@ -17081,55 +17432,55 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk0.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk1.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk2.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk3.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "MeetingAnne & Grea",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk4.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk5.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk6.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk6.mp3"
       },
       {
         "name": "chunk7.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk8.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk7.mp3"
       },
       {
         "name": "chunk8.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Norman,_Adamant_Alchemist/chunk9.mp3",
         "en_url": "Audio/EN/Norman,_Adamant_Alchemist/chunk8.mp3"
       }
     ],
@@ -17168,7 +17519,8 @@
         "jpCard_image_hash": "b0cc74219cf742cc86706858ff3f485c",
         "card_banner_image_hash": "37e8a46b66d841f7a1be916809219ae3",
         "evo_art_url": "Art/10234121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ocean_Rider": {
@@ -17245,7 +17597,8 @@
         "jpCard_image_hash": "c40712738a9a41faa6e156040b3c3353",
         "card_banner_image_hash": "94d04a672b7541d5b86125abfd84fb98",
         "evo_art_url": "Art/10342121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Octrice,_Hollowness_Manifest": {
@@ -17316,7 +17669,8 @@
         "jpCard_image_hash": "9cabd8c959e04428b9dcc3bfae040fbe",
         "card_banner_image_hash": "54949c61ac524b15965e7dcec68a7d70",
         "evo_art_url": "Art/10324121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Odin,_Twilit_Fate": {
@@ -17399,6 +17753,86 @@
         "jpCard_image_hash": "8e9e935c5ac74e7c97f1d56dfe56a05a",
         "card_banner_image_hash": "8c8298dd726a4c7697ebd93ee6a590e7",
         "evo_art_url": "Art/10204111.png"
+      },
+      "alternate": {
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "url": "Audio/FILTERED/Odin,_Twilit_Fate_Alt/chunk0.mp3",
+            "en_url": null,
+            "label": "Play"
+          },
+          {
+            "name": "chunk1.mp3",
+            "url": "Audio/FILTERED/Odin,_Twilit_Fate_Alt/chunk1.mp3",
+            "en_url": null,
+            "label": "Attack"
+          },
+          {
+            "name": "chunk2.mp3",
+            "url": "Audio/FILTERED/Odin,_Twilit_Fate_Alt/chunk2.mp3",
+            "en_url": null,
+            "label": "Death"
+          },
+          {
+            "name": "chunk4.mp3",
+            "url": "Audio/FILTERED/Odin,_Twilit_Fate_Alt/chunk4.mp3",
+            "en_url": null,
+            "label": "Evolve"
+          },
+          {
+            "name": "chunk5.mp3",
+            "url": "Audio/FILTERED/Odin,_Twilit_Fate_Alt/chunk5.mp3",
+            "en_url": null,
+            "label": "Super-Evolve"
+          }
+        ],
+        "style_data": {
+          "hash": "a699d05afa554ca1be83e0c0515de5ea",
+          "evo_hash": "d878642c464c47b88f51e23f50934af9",
+          "name": "Oguri Cap",
+          "name_ruby": "Oguri Cap",
+          "cv": "Tomoyo Takayanagi",
+          "illustrator": "",
+          "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
+          "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
+          "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
+        },
+        "styles": [
+          {
+            "hash": "a699d05afa554ca1be83e0c0515de5ea",
+            "evo_hash": "d878642c464c47b88f51e23f50934af9",
+            "name": "Oguri Cap",
+            "name_ruby": "Oguri Cap",
+            "cv": "Tomoyo Takayanagi",
+            "illustrator": "",
+            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
+            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
+            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
+          },
+          {
+            "hash": "a699d05afa554ca1be83e0c0515de5ea",
+            "evo_hash": "d878642c464c47b88f51e23f50934af9",
+            "name": "Oguri Cap",
+            "name_ruby": "Oguri Cap",
+            "cv": "Tomoyo Takayanagi",
+            "illustrator": "",
+            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
+            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
+            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
+          },
+          {
+            "hash": "a699d05afa554ca1be83e0c0515de5ea",
+            "evo_hash": "d878642c464c47b88f51e23f50934af9",
+            "name": "Oguri Cap",
+            "name_ruby": "Oguri Cap",
+            "cv": "Tomoyo Takayanagi",
+            "illustrator": "",
+            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
+            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
+            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
+          }
+        ]
       }
     }
   },
@@ -17570,7 +18004,8 @@
         "jpCard_image_hash": "1ecadc110fba4561aec184f0d58f8e50",
         "card_banner_image_hash": "0693e377bd69482994518f88feaaea37",
         "evo_art_url": "Art/90073111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ominous_Artifact_γ": {
@@ -17647,7 +18082,8 @@
         "jpCard_image_hash": "5b8cb6244fd94ecdb9744b9537dc0f44",
         "card_banner_image_hash": "078ae0d75404473e9dd4f0bc044e3d62",
         "evo_art_url": "Art/90073131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ominous_Artifact_β": {
@@ -17724,7 +18160,8 @@
         "jpCard_image_hash": "52ffcc22829244bf88205a81c00f1988",
         "card_banner_image_hash": "dba540656a23460d8eddcbe3159ada2c",
         "evo_art_url": "Art/90073121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "One-Tailed_Fox": {
@@ -17795,7 +18232,8 @@
         "jpCard_image_hash": "cd6666569e7647c094b48392fae86dc7",
         "card_banner_image_hash": "eac4ba5986d04de9b39101432fe719e0",
         "evo_art_url": "Art/90054131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Onion_Patch": {
@@ -17866,7 +18304,8 @@
         "jpCard_image_hash": "87884c11725c47688a15dda01b413464",
         "card_banner_image_hash": "7f6c6a48729e40d1a5a104205203ba62",
         "evo_art_url": "Art/90032111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Opulent_Rose_Queen": {
@@ -17937,7 +18376,8 @@
         "jpCard_image_hash": "3c7bf63565de40599ad56c8cb3611498",
         "card_banner_image_hash": "b4c8da3ff75d4d99810e90d2bf12dec6",
         "evo_art_url": "Art/10114121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Orchis,_Newfound_Heart": {
@@ -17974,15 +18414,21 @@
       },
       {
         "name": "chunk14.mp3",
-        "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk14.mp3",
+        "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk5.mp3",
         "en_url": "Audio/EN/Orchis,_Newfound_Heart/chunk6.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk15.mp3",
-        "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk15.mp3",
+        "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk14.mp3",
         "en_url": "Audio/EN/Orchis,_Newfound_Heart/chunk7.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "name": "chunk15.mp3",
+        "url": "Audio/FILTERED/Orchis,_Newfound_Heart/chunk15.mp3",
+        "label": "Super-Evolve",
+        "en_url": "Audio/EN/Orchis,_Newfound_Heart/undefined"
       }
     ],
     "metadata": {
@@ -18020,7 +18466,8 @@
         "jpCard_image_hash": "7ed8a25d2be54674b65e60e966a3ae45",
         "card_banner_image_hash": "d31e79fcf3594044ae78c9011b197598",
         "evo_art_url": "Art/10174121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Orthrus,_Hellhound_Blader": {
@@ -18060,6 +18507,9 @@
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3",
         "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -18097,7 +18547,8 @@
         "jpCard_image_hash": "4dc75faa0db643c3b67295bcdfe2d521",
         "card_banner_image_hash": "bb81a28c722446b7ad148a9ce9de91a9",
         "evo_art_url": "Art/10153121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Otohime's_Bodyguard": {
@@ -18168,7 +18619,8 @@
         "jpCard_image_hash": "7602bea23f8b4779b2af7d6807d78501",
         "card_banner_image_hash": "29fc912f5acd432c8555fe36c04775fd",
         "evo_art_url": "Art/90043111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Owen,_Mysterian_Swordsman": {
@@ -18245,7 +18697,8 @@
         "jpCard_image_hash": "98951ab695394eadad1676c423349078",
         "card_banner_image_hash": "7ddfd4edd86c4f06b066f1cfc8eaf501",
         "evo_art_url": "Art/10233111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Owl_Summoner": {
@@ -18316,7 +18769,8 @@
         "jpCard_image_hash": "32ce7705af5b46a094d24abbc5674bfa",
         "card_banner_image_hash": "1f64f2d26f7947a7b16c6c60b2020bbd",
         "evo_art_url": "Art/10131131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Pact_of_the_Beast_Princess": {
@@ -18346,7 +18800,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_2】\n【<color=Keyword>ラストワード</color>】『<color=Keyword>ホーリーフレイムタイガー</color>』1枚を自分の場に出す。\n<hr>コスト1【<color=Keyword>アクト</color>】これのカウントを-1する。",
         "jpIllustrator": "やまもも"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Paper_Shikigami": {
@@ -18417,7 +18872,8 @@
         "jpCard_image_hash": "69bdcbc974e2461e8331f7ae0c353f67",
         "card_banner_image_hash": "abe6953052434903a87436c802bdf67c",
         "evo_art_url": "Art/90031131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Pascale's_Dance": {
@@ -18454,7 +18910,8 @@
         "jpSkill_Text": "自分の場の土の印を+1する。自分は『クレスト：パメラの舞踏』を持つ。",
         "jpIllustrator": "Akefumi"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Penelope,_Potions_Prodigy": {
@@ -18525,7 +18982,8 @@
         "jpCard_image_hash": "9d33769c62c644898f7fb09689245983",
         "card_banner_image_hash": "ef167834623440bfba5a95bf819eca6a",
         "evo_art_url": "Art/10133121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Peppy_Scout": {
@@ -18596,7 +19054,8 @@
         "jpCard_image_hash": "c8e4e5db1c944ef98a19c9ade98acf9d",
         "card_banner_image_hash": "9f5cc754000c49aab9acbc68c0a06a00",
         "evo_art_url": "Art/10322121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Phildau,_Lionheart_Ward": {
@@ -18709,7 +19168,8 @@
         "jpCard_image_hash": "d6bf6a7c9eab4178827f31bc34707ef0",
         "card_banner_image_hash": "f21276f39cd647909b5c907137ea0c9a",
         "evo_art_url": "Art/10103111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Prim,_Princess's_Picnic": {
@@ -18780,7 +19240,8 @@
         "jpCard_image_hash": "b14a13a591ad4a23965accd236808820",
         "card_banner_image_hash": "24ce13b0bc7944f4b601dd9910de7b91",
         "evo_art_url": "Art/10223121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Puppet": {
@@ -18961,7 +19422,8 @@
         "jpCard_image_hash": "9eb4bf009ad44a4c912950129accb638",
         "card_banner_image_hash": "1e1c66b748634441b37ad030c96e257e",
         "evo_art_url": "Art/10271121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Puppet_Lancer": {
@@ -19032,7 +19494,8 @@
         "jpCard_image_hash": "0354c99b082341d892d7b2860bfab264",
         "card_banner_image_hash": "67305e990d33400c9a8e4aa9010a02c1",
         "evo_art_url": "Art/10071121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Puppet_Shield": {
@@ -19062,7 +19525,8 @@
         "jpSkill_Text": "『<color=Keyword>改良型・操り人形</color>』2枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Puppet_Theater": {
@@ -19092,7 +19556,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】『<color=Keyword>操り人形</color>』1枚を自分の手札に加える。\n<hr>【<color=Keyword>カウントダウン</color>_2】\n自分のターン終了時、『<color=Keyword>操り人形</color>』1枚を自分の手札に加える。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Pyrewyrm_Blade": {
@@ -19122,7 +19587,8 @@
         "jpSkill_Text": "コスト1【<color=Keyword>アクト</color>】これを破壊。自分の場のフォロワー1枚を選ぶ。それは+1/+1して「【<color=Keyword>ラストワード</color>】『<color=Keyword>炎竜の剣</color>』1枚を自分の場に出す。」を持つ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Quake_Goliath": {
@@ -19193,7 +19659,8 @@
         "jpCard_image_hash": "8c69095445bf44b2b6125ca365b7b0db",
         "card_banner_image_hash": "20c6eda055c144a488b63cee911462bc",
         "evo_art_url": "Art/10001131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rackhir,_Ordinary_Knight": {
@@ -19264,7 +19731,8 @@
         "jpCard_image_hash": "a90afe26a78b47ac9b752f74526f0640",
         "card_banner_image_hash": "c329db79918946e2916db6003abd3efe",
         "evo_art_url": "Art/10222121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Radiant_Guiding_Angel": {
@@ -19335,7 +19803,8 @@
         "jpCard_image_hash": "f970f1b2ed0745bcada91caa8a22cada",
         "card_banner_image_hash": "b59f10c71a12439189a096ea431ae58c",
         "evo_art_url": "Art/10161131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Radiant_Rainbow": {
@@ -19365,7 +19834,8 @@
         "jpSkill_Text": "自分の手札の【<color=Keyword>スペルブースト時</color>】を持つカード1枚を選ぶ。それは1回スペルブーストする。自分のデッキから1枚を引く。",
         "jpIllustrator": "虚猫"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Rage_of_Serpents": {
@@ -19402,7 +19872,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚か相手のリーダーを選ぶ。それに3ダメージ。自分のリーダーに2ダメージ。",
         "jpIllustrator": "久方綜司"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Raging_Lightning": {
@@ -19432,7 +19903,8 @@
         "jpSkill_Text": "場の体力最大のフォロワーすべてに5ダメージ。【<color=Keyword>覚醒</color>】なら、体力最大のリーダーすべてに3ダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Raio,_Elimination_Manifest": {
@@ -19440,31 +19912,31 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Raio,_Elimination_Manifest/chunk0.mp3",
         "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Raio,_Elimination_Manifest/chunk1.mp3",
         "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Raio,_Elimination_Manifest/chunk2.mp3",
         "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk2.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Raio,_Elimination_Manifest/chunk4.mp3",
         "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Raio,_Elimination_Manifest/chunk5.mp3",
         "en_url": "Audio/EN/Raio,_Elimination_Manifest/chunk5.mp3"
       }
     ],
@@ -19503,7 +19975,8 @@
         "jpCard_image_hash": "73b6ca563ae247b5a7719010a1647d59",
         "card_banner_image_hash": "b06708853c9641bf895717506a27cfd1",
         "evo_art_url": "Art/10334121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ralmia,_Sonic_Boom": {
@@ -19574,7 +20047,8 @@
         "jpCard_image_hash": "446bd18ad8d542d5830dfd3b573b109b",
         "card_banner_image_hash": "4fd5d2f368c6498b8bfef929e9a136b4",
         "evo_art_url": "Art/10174131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ravening_Tentacles": {
@@ -19611,7 +20085,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚か相手のリーダーを選ぶ。それに5ダメージ。自分のリーダーを5回復。",
         "jpIllustrator": "Saika"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Rayvn,_the_Silver_Bullet": {
@@ -19682,7 +20157,8 @@
         "jpCard_image_hash": "c0590871718b4a138f8cb2dadd4f84d2",
         "card_banner_image_hash": "cd2f91c8b7d9466c8b1dc8098c108a9f",
         "evo_art_url": "Art/10251111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Reaper's_Deathslash": {
@@ -19712,7 +20188,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚と相手の場のフォロワー1枚を選ぶ。それを破壊。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Regal_Falcon": {
@@ -19783,7 +20260,8 @@
         "jpCard_image_hash": "8c6fedbdd4824a498a862ad6a5fe405a",
         "card_banner_image_hash": "e5a9108c21fc47ed9112ff6d89361650",
         "evo_art_url": "Art/90061131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Reina,_Angelic_Partner": {
@@ -19854,7 +20332,8 @@
         "jpCard_image_hash": "247b879522264ad6ab5c48eb0c01c7fe",
         "card_banner_image_hash": "f41554112df34fb8a6d5b2f2925e0eb2",
         "evo_art_url": "Art/10203111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Remi_&_Rami,_Two-Faced_Witch": {
@@ -19925,7 +20404,8 @@
         "jpCard_image_hash": "05c916591d0b48cb863c82829a827d9b",
         "card_banner_image_hash": "9420e6faffd641d7b46a3387a6107853",
         "evo_art_url": "Art/10032111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Reno,_Luxwing_Featherfolk": {
@@ -20014,7 +20494,8 @@
         "jpCard_image_hash": "329326e7ec0e4dfeba41c06b6ef1aa70",
         "card_banner_image_hash": "5ec67532da5847aab0d9d28f75d41cd6",
         "evo_art_url": "Art/10162121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Returning_Slash": {
@@ -20051,7 +20532,8 @@
         "jpSkill_Text": "【<color=Keyword>融合</color>】財宝・カード\n<hr>相手の場のフォロワーからランダム1枚に2ダメージ。『<color=Keyword>黄金の小剣</color>』1枚を自分の手札に加える。これに【<color=Keyword>融合</color>】していたなら、自分のデッキから1枚を引く。",
         "jpIllustrator": "高梨子なかご"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Risky_Amalgamation": {
@@ -20081,7 +20563,8 @@
         "jpSkill_Text": "『<color=Keyword>ガーディアンゴーレム</color>』1枚と『<color=Keyword>クレイゴーレム</color>』1枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Rodeo,_Anathema_of_Judgment": {
@@ -20152,7 +20635,8 @@
         "jpCard_image_hash": "7a84eb64e3304f86aef74b62396fb4ce",
         "card_banner_image_hash": "83e608e8d5a64710b7c3288a1f527270",
         "evo_art_url": "Art/10164111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ronavero,_Darkhaven_Ward": {
@@ -20235,7 +20719,8 @@
         "jpCard_image_hash": "2d88820de3b34f25a66ecfaf8a9d1fcf",
         "card_banner_image_hash": "69f2c757907a4f8ca70531c0f773d4c2",
         "evo_art_url": "Art/10163121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rosé,_Princess_Knight": {
@@ -20318,7 +20803,8 @@
         "jpCard_image_hash": "48b7f14e3872452cb4c92bed486a3837",
         "card_banner_image_hash": "22b0d868e409458f946528fc6f023e21",
         "evo_art_url": "Art/10223111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rotting_Zombie": {
@@ -20389,7 +20875,8 @@
         "jpCard_image_hash": "a2f6a1445f684764814ca3ac89b8eb01",
         "card_banner_image_hash": "64049bf1f39942e69a3a30054e59b312",
         "evo_art_url": "Art/90051141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Royal_Coachwoman": {
@@ -20460,7 +20947,8 @@
         "jpCard_image_hash": "020cc163bcdd4dbca60cceb2549f83d4",
         "card_banner_image_hash": "ccc2db98c87447129230758de9601047",
         "evo_art_url": "Art/10022111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ruby,_Greedy_Cherub": {
@@ -20531,7 +21019,8 @@
         "jpCard_image_hash": "3e0ee0e903fc4cb8aba9483609050353",
         "card_banner_image_hash": "1f9f0075c32946359d9df88b8bfb5082",
         "evo_art_url": "Art/10101111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rukina,_Resistance_Leader": {
@@ -20602,7 +21091,8 @@
         "jpCard_image_hash": "7be4ed9e44e24d1c980dd2384f3092c9",
         "card_banner_image_hash": "f43a5ef733084885818f6a8201280781",
         "evo_art_url": "Art/10172111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rulenye_&_Valnareik": {
@@ -20685,7 +21175,8 @@
         "jpCard_image_hash": "973d1bd8c0154288baed8a6bc036e0cd",
         "card_banner_image_hash": "a8da07d33e094011a25c9a4b282d1572",
         "evo_art_url": "Art/10354121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Ruler_of_Cocytus": {
@@ -20756,7 +21247,8 @@
         "jpCard_image_hash": "ceab3234f5b649f89541a40293785ccb",
         "card_banner_image_hash": "5ee0ec8260d84ccd820e28aa002cc065",
         "evo_art_url": "Art/10104121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Runeblade_Conductor": {
@@ -20827,7 +21319,8 @@
         "jpCard_image_hash": "2912d73680914da69c5059e33267bbb6",
         "card_banner_image_hash": "fb852535c2fe463692f2a389610a22de",
         "evo_art_url": "Art/10131111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Rusty,_Luxcard_Trickster": {
@@ -20928,7 +21421,8 @@
         "jpCard_image_hash": "21b9a5e2c077489f9a45eca9cbfd5443",
         "card_banner_image_hash": "dac34ac7726b48499fa8cd65cc8f886a",
         "evo_art_url": "Art/10022121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sacred_Griffon": {
@@ -21005,7 +21499,8 @@
         "jpCard_image_hash": "5db993ff021549b78816517e0ad4ae82",
         "card_banner_image_hash": "00bc4fde72f94ad09f964a644a3e9ca5",
         "evo_art_url": "Art/10062121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sagelight_Teachings": {
@@ -21042,7 +21537,8 @@
         "jpSkill_Text": "【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）自分の場の土の印を+4する。\n（2）自分のリーダーを4回復。\n（3）【<color=Keyword>土の秘術</color>_3】相手の場のフォロワーすべてに4ダメージ。",
         "jpIllustrator": "巻羊"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Salefa,_Guardian_of_Water": {
@@ -21119,7 +21615,8 @@
         "jpCard_image_hash": "07dfbba93fcf46e1b1b61509632c041a",
         "card_banner_image_hash": "3ab207c90a7e4b7d96f3b07c6a4f01ec",
         "evo_art_url": "Art/10164131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sarissa,_Luxspear_Al-mi'raj": {
@@ -21214,7 +21711,8 @@
         "jpCard_image_hash": "8e94d87d3e95474f84167adc5642e24d",
         "card_banner_image_hash": "069f22091bd045c396d5e73231116ccd",
         "evo_art_url": "Art/10162111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Screaming_and_Loathing": {
@@ -21263,7 +21761,8 @@
         "jpSkill_Text": "【<color=Keyword>モード</color>】2つを選んでその能力が働く。\n（1）自分のPPを1回復。\n（2）自分のデッキからフォロワー1枚を引く。\n（3）自分のデッキからコスト3のスペル1枚を引く。\n（4）相手の場のフォロワーからランダム1枚に4ダメージ。",
         "jpIllustrator": "irua"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Scream_Diffusion": {
@@ -21300,7 +21799,8 @@
         "jpSkill_Text": "『<color=Keyword>絶叫と愛絶の顕現・ルルナイ＆ヴァーナレク</color>』2枚を自分の場に出す。それは【<color=Keyword>突進</color>】を持つ。",
         "jpIllustrator": "薄雲ねず"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Searing_Firenewt": {
@@ -21371,7 +21871,8 @@
         "jpCard_image_hash": "8028b123c53d4a9490731375c9946b00",
         "card_banner_image_hash": "decddd6f749d4125b9991fa9e86ca6f3",
         "evo_art_url": "Art/10041111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Seasoned_Merman": {
@@ -21442,7 +21943,8 @@
         "jpCard_image_hash": "68e411f1056a4738ba6a50402e102dbb",
         "card_banner_image_hash": "a121e2e2e52b4824aaa4d228dfeb41bd",
         "evo_art_url": "Art/10242121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Selwyn,_Sonic_Archer": {
@@ -21476,6 +21978,18 @@
         "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3",
         "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk4.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk5.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk6.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk7.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -21513,7 +22027,8 @@
         "jpCard_image_hash": "a0bddd68053c40f2a0ad748ded0220ad",
         "card_banner_image_hash": "df55e4e759e947ec9f344a796e7bfeb3",
         "evo_art_url": "Art/10012121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Seraphic_Tidings": {
@@ -21550,7 +22065,8 @@
         "jpSkill_Text": "自分のデッキから2枚を引く。",
         "jpIllustrator": "やまもも"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Serene_Sanctuary": {
@@ -21558,13 +22074,13 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Serene_Sanctuary/chunk0.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Serene_Sanctuary/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Serene_Sanctuary/chunk1.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Serene_Sanctuary/chunk1.mp3",
         "label": "Play"
       }
     ],
@@ -21700,7 +22216,8 @@
         "jpCard_image_hash": "7e4aed68db0640bea124f3f4bc24369a",
         "card_banner_image_hash": "d1ce2b71b3264052816c6fbc008778ff",
         "evo_art_url": "Art/10221111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Servant_of_Cocytus": {
@@ -21771,7 +22288,8 @@
         "jpCard_image_hash": "285c70415c824edb839348ee740c106b",
         "card_banner_image_hash": "e6e8679d9b4647d9b61f4f87c82530fe",
         "evo_art_url": "Art/90004121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sham-Nacha,_Heir_to_Entwining": {
@@ -21854,7 +22372,8 @@
         "jpCard_image_hash": "6eea46a5c5b2499ba805a7c8e54fa26a",
         "card_banner_image_hash": "d15113279f6847cfa42cd43e8d3043b4",
         "evo_art_url": "Art/10354111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Shield_Bash": {
@@ -21884,7 +22403,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚を選ぶ。それは【<color=Keyword>守護</color>】を持つ。相手の場のフォロワーからランダム1枚に4ダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Shining_Disenchantment": {
@@ -21927,7 +22447,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_4】\n【<color=Keyword>ラストワード</color>】相手の場のフォロワーすべてと相手のリーダーに4ダメージを割りふる。自分のリーダーを4回復。\n<hr>【<color=Keyword>アクト</color>】これのカウントを-Xする。Xは自分のクレストの数である。",
         "jpIllustrator": "林"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Shinobi_Squirrel": {
@@ -21998,7 +22519,8 @@
         "jpCard_image_hash": "ca1918ca13d9411ab54a2d87edd2a437",
         "card_banner_image_hash": "68e2aed27cdc45bf95c5e5aa0c7cbf15",
         "evo_art_url": "Art/10122141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Silent_Rider": {
@@ -22069,7 +22591,8 @@
         "jpCard_image_hash": "b3fe865d030d4ffcb14b6536ace8de0a",
         "card_banner_image_hash": "c4994d5c42de463db1c26253532793ac",
         "evo_art_url": "Art/90004111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Silvercloud_Dragonrider": {
@@ -22140,7 +22663,8 @@
         "jpCard_image_hash": "a10eda8af9ca4d67ae2b511700356061",
         "card_banner_image_hash": "3e62c4563bad4f6182f7b7ed51204c08",
         "evo_art_url": "Art/10141111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sinciro,_Heir_to_Usurpation": {
@@ -22148,43 +22672,43 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk0.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "MeetingHeirs",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk1.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "MeetingOctrice",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk2.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk3.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk4.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk6.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Sinciro,_Heir_to_Usurpation/chunk7.mp3",
         "en_url": "Audio/EN/Sinciro,_Heir_to_Usurpation/chunk6.mp3"
       }
     ],
@@ -22230,8 +22754,8 @@
           "card_id": 70324110,
           "base_art_url": "./Art/70324110.png",
           "evo_art_url": "./Art/70324111.png",
-          "hash": "72daf1408778476ca9e3ee8df0b17277",
-          "evo_hash": "728d8b7a9370471f89a68f9bcb0981a4",
+          "hash": "7bed2c3289634f159866391eaad4c5a6",
+          "evo_hash": "e502dbf8dc2b4e84865757bc15c2a31a",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -22311,7 +22835,8 @@
         "jpCard_image_hash": "098111265b3b4ee38da7369073ccfb35",
         "card_banner_image_hash": "b1bda0abe3414d4cbaa1b356656b1db0",
         "evo_art_url": "Art/90051111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Skullfane_of_Demise": {
@@ -22382,7 +22907,8 @@
         "jpCard_image_hash": "d9f51ffce5954137bdea85ef61d180ce",
         "card_banner_image_hash": "6c89c89ee0ea40978b4a05387453750a",
         "evo_art_url": "Art/10163111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Snowstorm_Dragonewt": {
@@ -22453,7 +22979,8 @@
         "jpCard_image_hash": "a92451c660434c5e80d1032dafbc135a",
         "card_banner_image_hash": "c6f1488581234983a19ccb142b7caf53",
         "evo_art_url": "Art/10341121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Soaring_Ivory_Dragon": {
@@ -22524,7 +23051,8 @@
         "jpCard_image_hash": "122f2b90799c44cbb22cbe1722e29536",
         "card_banner_image_hash": "ddc33187b7e54f8c8b4df0a830e51020",
         "evo_art_url": "Art/10241121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Soulcure_Sister": {
@@ -22595,7 +23123,8 @@
         "jpCard_image_hash": "9f4df86f397841208ea81470f1c4a06c",
         "card_banner_image_hash": "06ff19f233d64652b7b02ea3422a48be",
         "evo_art_url": "Art/10061111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Soul_Predation": {
@@ -22632,7 +23161,8 @@
         "jpSkill_Text": "自分の場のフォロワー1枚を選ぶ。それを破壊。自分のデッキから2枚を引く。",
         "jpIllustrator": "林"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Spirited_Gravekeeper": {
@@ -22709,7 +23239,8 @@
         "jpCard_image_hash": "15d1f86d76544ac59ded0f35a5a52a83",
         "card_banner_image_hash": "90a5b4267984448292277360b9bf529e",
         "evo_art_url": "Art/10352121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Starry-Eyed_Penguin_Wizard": {
@@ -22780,7 +23311,8 @@
         "jpCard_image_hash": "e0c5937255fc4f32b3d35e04b4cffffc",
         "card_banner_image_hash": "21fad934f7ab4bcfaf0b07b4832aa9ec",
         "evo_art_url": "Art/10131141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Steelclad_Knight": {
@@ -22851,7 +23383,8 @@
         "jpCard_image_hash": "72dd1a71149a48f5bc7d6a89eca8034a",
         "card_banner_image_hash": "19ae320b6df94d62b071364e698cadc2",
         "evo_art_url": "Art/90021121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Stormy_Blast": {
@@ -22881,7 +23414,8 @@
         "jpSkill_Text": "Xは2から始まる。\n【<color=Keyword>スペルブースト時</color>】これのXを+1する。\n<hr>相手の場のフォロワー1枚を選ぶ。それにXダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Stray_Beastman": {
@@ -22952,7 +23486,8 @@
         "jpCard_image_hash": "a758999cfa3a483fa78a8ed1ac3569c1",
         "card_banner_image_hash": "6d51e5ba65264e4f94964dbb45f00ed7",
         "evo_art_url": "Art/10011121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Stream_of_Life": {
@@ -22989,7 +23524,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それに3ダメージ。『<color=Keyword>パスト・コア</color>』1枚を自分の手札に加える。",
         "jpIllustrator": "apt"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Striker_Artifact": {
@@ -23060,7 +23596,8 @@
         "jpCard_image_hash": "4ff866a8abee44ac94d03fba845498d1",
         "card_banner_image_hash": "b3bdfaf4121b44c38714af4e09571735",
         "evo_art_url": "Art/90072111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Strike_of_the_Dragonewt": {
@@ -23090,7 +23627,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それに2ダメージ。【<color=Keyword>覚醒</color>】なら、2ダメージではなく4ダメージ。",
         "jpIllustrator": "あかかがち"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Supersonic_Fighter": {
@@ -23161,7 +23699,8 @@
         "jpCard_image_hash": "5e6ff2a340a24a4193c4b44e66da54a4",
         "card_banner_image_hash": "3e701e0ad3d54ce287a009a5f2b669dc",
         "evo_art_url": "Art/10371121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supplicant_of_Destruction": {
@@ -23238,7 +23777,8 @@
         "jpCard_image_hash": "67fcb475d676423eacd9c6e8df86725e",
         "card_banner_image_hash": "6d6bd3e136e54159af87b92f04b46e9c",
         "evo_art_url": "Art/10372111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supplicant_of_Disdain": {
@@ -23321,7 +23861,8 @@
         "jpCard_image_hash": "c8eb3b784d9448e5b7667a1da2e05e49",
         "card_banner_image_hash": "79d7b9ea30964fab81d4ee3f5ecec542",
         "evo_art_url": "Art/10342111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supplicant_of_Entwining": {
@@ -23410,6 +23951,23 @@
         "jpCard_image_hash": "92c5bc80868541ad91dabf46f66e27a4",
         "card_banner_image_hash": "41eb9868f5a64910ab14f7632adf6ab6",
         "evo_art_url": "Art/10352111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70352110,
+          "base_art_url": "./Art/70352110.png",
+          "evo_art_url": "./Art/70352111.png",
+          "hash": "6ec352ab6609470b8cc94e5ed4429cf0",
+          "evo_hash": "9372befdb20a4e4e98769897ac1dba30",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Tiana Camacho",
+          "illustrator": "liiko",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -23487,7 +24045,8 @@
         "jpCard_image_hash": "d26a1856de6146468599e64b8d03771f",
         "card_banner_image_hash": "5c2aa2b6732241b7a9cb092d71337970",
         "evo_art_url": "Art/10332111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supplicant_of_Unkilling": {
@@ -23564,7 +24123,8 @@
         "jpCard_image_hash": "6fc805a60fcd41318b0142c7af86cf22",
         "card_banner_image_hash": "5be0e4c08679485a8ca3a82dd82ab093",
         "evo_art_url": "Art/10312111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supplicant_of_Usurpation": {
@@ -23641,7 +24201,8 @@
         "jpCard_image_hash": "784a1d87ec7c46d48824ab0251da2fcb",
         "card_banner_image_hash": "dde6a00975154324a0ea34f1a7bb522e",
         "evo_art_url": "Art/10322111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supreme_Golden_Dragon": {
@@ -23718,7 +24279,8 @@
         "jpCard_image_hash": "2bb6a67afa8c4b41bf05457541ab5f1c",
         "card_banner_image_hash": "b8bb2ed390db40c6b19026227f6775ca",
         "evo_art_url": "Art/90044111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Supreme_Silver_Dragon": {
@@ -23795,7 +24357,8 @@
         "jpCard_image_hash": "cf2e7821c0254797b9179ae6108b5e09",
         "card_banner_image_hash": "d6ca5f3863124748a8f46d0803688b9f",
         "evo_art_url": "Art/90044121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sweetness_of_Voracity": {
@@ -23832,7 +24395,8 @@
         "jpSkill_Text": "相手の場のフォロワーからランダム1枚と相手のリーダーに5ダメージ。",
         "jpIllustrator": "Shukei"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Swordsnout_Trencher": {
@@ -23903,7 +24467,8 @@
         "jpCard_image_hash": "bb85ce6c7f054be0be777272aa818981",
         "card_banner_image_hash": "db85c76c15a04cd098f4da4f6f410f57",
         "evo_art_url": "Art/10141121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Sylvia,_Garden_Executioner": {
@@ -23980,7 +24545,8 @@
         "jpCard_image_hash": "4b90fecd377745688c938b9a958f242c",
         "card_banner_image_hash": "1c9ac8d0a1164e0980878ca20ec1a0f7",
         "evo_art_url": "Art/10173121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Synchronous_Hearts": {
@@ -24017,7 +24583,8 @@
         "jpSkill_Text": "『<color=Keyword>ロイド</color>』1枚と『<color=Keyword>ヴィクトリア</color>』1枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Tablet_of_Tribulations": {
@@ -24047,7 +24614,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分のデッキの重複するカードをそれぞれ1枚になるように消滅。\n<hr>【<color=Keyword>アクト</color>】自分のデッキから1枚を引く。",
         "jpIllustrator": "SEMSEI"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Temple_of_Repose": {
@@ -24077,7 +24645,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_4】\n【<color=Keyword>ラストワード</color>】自分のリーダーを2回復。自分のリーダーは【<color=Keyword>バリア</color>】を持つ。\n<hr>【<color=Keyword>アクト</color>】これのカウントを-Xする。Xは自分のクレストの数である。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Titania,_Queen_of_Fairies": {
@@ -24155,8 +24724,8 @@
           "card_id": 70214110,
           "base_art_url": "./Art/70214110.png",
           "evo_art_url": "./Art/70214111.png",
-          "hash": "e208333d9dce4fa987fe89eb94639a96",
-          "evo_hash": "47d422659b41426d9323bdb917fc90ce",
+          "hash": "0934d30414fa46f78a8870774c397131",
+          "evo_hash": "eb2602f1fb3a4a7488fb5225f7859973",
           "name": "",
           "name_ruby": "",
           "cv": "",
@@ -24202,7 +24771,8 @@
         "jpSkill_Text": "相手の場のフォロワーからランダム1枚を消滅。自分のクレストすべてのカウントを+1する。",
         "jpIllustrator": "シュイトン"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Truth_Summons": {
@@ -24232,7 +24802,8 @@
         "jpSkill_Text": "『<color=Keyword>クレイゴーレム</color>』1枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Twilight_Dragon": {
@@ -24303,7 +24874,8 @@
         "jpCard_image_hash": "d952ec23823041968bfefacfaff766ba",
         "card_banner_image_hash": "c23e2a5e03ec46ff9fea05b9435786a5",
         "evo_art_url": "Art/10143141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Twinblade_Goblin": {
@@ -24374,7 +24946,8 @@
         "jpCard_image_hash": "d159fa6ad17d4f51985dbc801c35140e",
         "card_banner_image_hash": "ab4510e79fcb4851990383dbeaf9aaf6",
         "evo_art_url": "Art/10201111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Undead_Soldier": {
@@ -24445,7 +25018,8 @@
         "jpCard_image_hash": "79bd35de428343329b3e1230b81e56b0",
         "card_banner_image_hash": "145ab200e2f74267ac7ad7540e4251cb",
         "evo_art_url": "Art/10252121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Unholy_Vessel": {
@@ -24475,7 +25049,8 @@
         "jpSkill_Text": "【<color=Keyword>アクト</color>】これを破壊。場のフォロワーすべてを破壊。",
         "jpIllustrator": "言犬"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Valse,_Silent_Sniper": {
@@ -24558,7 +25133,8 @@
         "jpCard_image_hash": "2e53964edf0040afb523c6cacac218bc",
         "card_banner_image_hash": "4bbe4aba67db432d9edafba7c386636a",
         "evo_art_url": "Art/10123121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Vastwing_Dragon": {
@@ -24629,7 +25205,8 @@
         "jpCard_image_hash": "93b8f34e8dd64d29ba7c074a09dd6176",
         "card_banner_image_hash": "7eea23fa60b048de830134bd265b8a68",
         "evo_art_url": "Art/90041121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Velharia,_Heir_to_Truth": {
@@ -24712,7 +25289,8 @@
         "jpCard_image_hash": "a290fc164c8643d38f49db4daa5daeef",
         "card_banner_image_hash": "11d459de7fbd4644bc0499065b5be997",
         "evo_art_url": "Art/10334111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Vlad,_Impaler": {
@@ -24783,7 +25361,8 @@
         "jpCard_image_hash": "1ebb767bfca7481d8fe3b2f99e37b243",
         "card_banner_image_hash": "39d74fba6f07469c8f53865cda6e87a1",
         "evo_art_url": "Art/10152141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Victoria": {
@@ -24854,7 +25433,8 @@
         "jpCard_image_hash": "bd8680c581994b97a7f09c690d4c649d",
         "card_banner_image_hash": "14b5a2c896ff46538f2d3b55f754dab3",
         "evo_art_url": "Art/90074131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Vier,_Heart_Slayer": {
@@ -24931,7 +25511,8 @@
         "jpCard_image_hash": "81e8203bfaa14147a9a15570be8f28e4",
         "card_banner_image_hash": "5610348fb4914e6cb05c5fb400f93f9b",
         "evo_art_url": "Art/10272111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Vigilant_Detective": {
@@ -25002,7 +25583,8 @@
         "jpCard_image_hash": "909c75be836549e4a4452b80f77cefae",
         "card_banner_image_hash": "77d5709d747b419b97d4aa8a8c7f2863",
         "evo_art_url": "Art/10101121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Vuella,_the_Blastwing": {
@@ -25079,7 +25661,8 @@
         "jpCard_image_hash": "65bf35b4b3b44b68a95d44b0cac757be",
         "card_banner_image_hash": "763f2eab9dab41eea0ac989ef4b45a40",
         "evo_art_url": "Art/10252111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Warrior_of_the_Deep": {
@@ -25150,7 +25733,8 @@
         "jpCard_image_hash": "d66b208687c046fd9155eea46f2cf375",
         "card_banner_image_hash": "d5d89c3da0ed43d2b8cc2d566d016b41",
         "evo_art_url": "Art/10041131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Wasteland_of_Destruction": {
@@ -25180,7 +25764,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分の場の他のカード1枚を選ぶ。選んだなら、それを破壊。自分のデッキから2枚を引く。\n<hr>【<color=Keyword>ラストワード</color>】自分のデッキから1枚を引く。",
         "jpIllustrator": "Gen"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Way_of_the_Maid": {
@@ -25210,7 +25795,8 @@
         "jpSkill_Text": "自分の手札1枚を選ぶ。それをデッキに戻す。自分のデッキからロイヤル・フォロワー2枚を引く。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Whitescale_Herald": {
@@ -25281,7 +25867,8 @@
         "jpCard_image_hash": "ef5437b5e3aa42948d56eb3326ff62e9",
         "card_banner_image_hash": "ab1d6b7728c7408f9314c11f60656115",
         "evo_art_url": "Art/10141151.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "White_Psalm,_New_Revelation": {
@@ -25318,7 +25905,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_1】\n【<color=Keyword>ラストワード</color>】自分のリーダーを1回復。『<color=Keyword>新約・黒の章</color>』1枚を自分の場に出す。",
         "jpIllustrator": "Mew"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Wilbert,_Desolate_Paladin": {
@@ -25349,7 +25937,7 @@
       },
       {
         "name": "chunk10.mp3",
-        "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk8.mp3",
+        "url": "Audio/FILTERED/Wilbert,_Desolate_Paladin/chunk9.mp3",
         "en_url": "Audio/EN/Wilbert,_Desolate_Paladin/chunk5.mp3",
         "label": "Super-Evolve"
       }
@@ -25389,7 +25977,8 @@
         "jpCard_image_hash": "a8a656352efa4d2d81d414bedba247af",
         "card_banner_image_hash": "4de6066c0e7246ea84404203c26f459e",
         "evo_art_url": "Art/10264121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Wildheart": {
@@ -25460,7 +26049,8 @@
         "jpCard_image_hash": "8e09b86df5b94f659f94695553114f5b",
         "card_banner_image_hash": "776aa8df81034d4ba4aaa67e22f0466e",
         "evo_art_url": "Art/10211111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Wild_Profusion": {
@@ -25490,7 +26080,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】『<color=Keyword>フェアリー</color>』1枚を自分の手札に加える。\n<hr>【<color=Keyword>カウントダウン</color>_2】\n自分の妖精・フォロワーが場に出たとき、相手の場のフォロワーからランダム1枚に1ダメージ。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "William,_Mysterian_Student": {
@@ -25561,7 +26152,8 @@
         "jpCard_image_hash": "05f16376488443c8b6eccdbc1cd7a96b",
         "card_banner_image_hash": "130bfcf72e4149a3b02da3c1bd9ac7d8",
         "evo_art_url": "Art/10132131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Winged_Lion_Statue": {
@@ -25591,7 +26183,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_3】\n【<color=Keyword>ラストワード</color>】『<color=Keyword>ホーリーファルコン</color>』1枚と『<color=Keyword>ホーリーフレイムタイガー</color>』1枚を自分の場に出す。\n<hr>コスト1【<color=Keyword>アクト</color>】これのカウントを-1する。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Winged_Servants": {
@@ -25621,7 +26214,8 @@
         "jpSkill_Text": "『<color=Keyword>バット</color>』2枚を自分の場に出す。",
         "jpIllustrator": "やまもも"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Winged_Statue": {
@@ -25651,7 +26245,8 @@
         "jpSkill_Text": "【<color=Keyword>カウントダウン</color>_4】\n【<color=Keyword>ラストワード</color>】『<color=Keyword>ホーリーファルコン</color>』1枚を自分の場に出す。\n<hr>コスト1【<color=Keyword>アクト</color>】これのカウントを-1する。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Winged_Warrior": {
@@ -25722,7 +26317,8 @@
         "jpCard_image_hash": "17b59ff72fcd4c6bab4c9682c4bcf842",
         "card_banner_image_hash": "fc82c64c86524e5895525417e4f5092e",
         "evo_art_url": "Art/10061131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Wings_of_Desire": {
@@ -25759,7 +26355,8 @@
         "jpSkill_Text": "自分の場の『<color=Keyword>絶叫と愛絶の顕現・ルルナイ＆ヴァーナレク</color>』1枚を選ぶ。それは【<color=Keyword>疾走</color>】を持つ。",
         "jpIllustrator": "conoco"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Wired_Assault": {
@@ -25789,7 +26386,8 @@
         "jpSkill_Text": "相手の場のフォロワー1枚を選ぶ。それを破壊。『<color=Keyword>操り人形</color>』2枚を自分の手札に加える。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Wise_Guardian_Dragon": {
@@ -25860,7 +26458,8 @@
         "jpCard_image_hash": "a4de24a220c345aaa4df91cc8d14a175",
         "card_banner_image_hash": "8ae52df266d54f5faa17193d57ba299b",
         "evo_art_url": "Art/10241111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Witch's_New_Brew": {
@@ -25890,7 +26489,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分のデッキから1枚を引く。\n<hr>【<color=Keyword>土の印</color>】\n<hr>コスト1【<color=Keyword>アクト</color>】自分の場の土の印を+1する。",
         "jpIllustrator": "やまもも"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Woodwalkers": {
@@ -25920,7 +26520,8 @@
         "jpSkill_Text": "『<color=Keyword>温厚なるトレント</color>』3枚を自分の場に出す。",
         "jpIllustrator": null
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Workin'_Grasshopper": {
@@ -25991,7 +26592,8 @@
         "jpCard_image_hash": "707cdf6e852c46709f05b8fa6c4f8cb3",
         "card_banner_image_hash": "9eaa068e62044eaa85cf148c441e1a47",
         "evo_art_url": "Art/10111141.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Yuna,_Occult_Hunter": {
@@ -26062,7 +26664,8 @@
         "jpCard_image_hash": "16043ecf4f8c42a19b5d6150e839eab1",
         "card_banner_image_hash": "16be12a0971d470a8057c46f2bf322c6",
         "evo_art_url": "Art/10152131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Yurius,_Levin_Authority": {
@@ -26070,43 +26673,43 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk0.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "MeetingAlbert",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk1.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk1.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk2.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk3.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk3.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Effect",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk4.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk5.mp3"
       },
       {
         "name": "chunk6.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk6.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk6.mp3"
       },
       {
         "name": "chunk7.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Yurius,_Levin_Authority/chunk7.mp3",
         "en_url": "Audio/EN/Yurius,_Levin_Authority/chunk7.mp3"
       }
     ],
@@ -26145,7 +26748,8 @@
         "jpCard_image_hash": "868baa9f2b3a4082b1ddaa567320a74e",
         "card_banner_image_hash": "8fae56bc2043470b84e270774652d1c8",
         "evo_art_url": "Art/10224121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Zahar,_Stormwave_Dragoon": {
@@ -26216,7 +26820,8 @@
         "jpCard_image_hash": "a7b1add3f69c4d5b85cb752741fcc85a",
         "card_banner_image_hash": "2c45305e81d54d62ae131e28fec38277",
         "evo_art_url": "Art/10143131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Zell,_Windreader": {
@@ -26293,7 +26898,8 @@
         "jpCard_image_hash": "3f1aa03cb2ff48f888d4714c7459939a",
         "card_banner_image_hash": "67e815840ab648bc8abe7ab75a5d7858",
         "evo_art_url": "Art/10142131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Zirconia,_Ironcrown_Ward": {
@@ -26376,7 +26982,8 @@
         "jpCard_image_hash": "71a5cff6415641b9be0c31130b80ce31",
         "card_banner_image_hash": "48ebf2df7c0a45f7b1d0b20ba680de2a",
         "evo_art_url": "Art/10123131.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Zwei,_Symphonic_Heart": {
@@ -26459,7 +27066,8 @@
         "jpCard_image_hash": "5ba5cf05ae974a548bdd85ef2bd0b835",
         "card_banner_image_hash": "1807cbd9d07845b09f89053020656153",
         "evo_art_url": "Art/10274111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Remnant_of_Hollowness": {
@@ -26496,7 +27104,8 @@
         "jpSkill_Text": "相手の場のフォロワーすべてと相手のリーダーに4ダメージを割りふる。",
         "jpIllustrator": "liiko"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Angelic_Prism_Priestess": {
@@ -26567,7 +27176,8 @@
         "jpCard_image_hash": "ad9b8ea5e3dd44ac90bf116681de4c0a",
         "card_banner_image_hash": "9000e17b40ce40beac91128039a039fe",
         "evo_art_url": "Art/10161111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Cleric_of_Crushing": {
@@ -26575,31 +27185,31 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Cleric_of_Crushing/chunk0.mp3",
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Cleric_of_Crushing/chunk1.mp3",
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Cleric_of_Crushing/chunk2.mp3",
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk2.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Cleric_of_Crushing/chunk4.mp3",
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Cleric_of_Crushing/chunk5.mp3",
         "en_url": "Audio/EN/Cleric_of_Crushing/chunk5.mp3"
       }
     ],
@@ -26638,7 +27248,8 @@
         "jpCard_image_hash": "47bd66743299423094f77d861c3da8e7",
         "card_banner_image_hash": "1c7d4fd9dfb34406bbf64b524de92541",
         "evo_art_url": "Art/10261111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Colette,_Barrage_Exorcist": {
@@ -26646,31 +27257,31 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Colette,_Barrage_Exorcist/chunk0.mp3",
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Colette,_Barrage_Exorcist/chunk1.mp3",
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Colette,_Barrage_Exorcist/chunk2.mp3",
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk2.mp3"
       },
       {
         "name": "chunk4.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Colette,_Barrage_Exorcist/chunk4.mp3",
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk4.mp3"
       },
       {
         "name": "chunk5.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Colette,_Barrage_Exorcist/chunk5.mp3",
         "en_url": "Audio/EN/Colette,_Barrage_Exorcist/chunk5.mp3"
       }
     ],
@@ -26709,25 +27320,9 @@
         "jpCard_image_hash": "07ce86a9902a4c2cab0ab4b3305b5b42",
         "card_banner_image_hash": "175e8b508fd14991929d29a0f70e8059",
         "evo_art_url": "Art/10262111.png"
-      }
-    }
-  },
-  "Darknaven_Grace": {
-    "voices": [
-      {
-        "name": "chunk0.mp3",
-        "label": "Play",
-        "url": null,
-        "en_url": "Audio/EN/Darknaven_Grace/chunk0.mp3"
       },
-      {
-        "name": "chunk1.mp3",
-        "label": "Play",
-        "url": null,
-        "en_url": "Audio/EN/Darknaven_Grace/chunk1.mp3"
-      }
-    ],
-    "metadata": {}
+      "alternate": {}
+    }
   },
   "Dose_of_Holiness": {
     "voices": [
@@ -26769,7 +27364,8 @@
         "jpSkill_Text": "【<color=Keyword>アクト</color>】これを破壊。相手の場のフォロワー1枚を選ぶ。それに4ダメージ。自分のリーダーを1回復。",
         "jpIllustrator": "Gen"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Fairy_Convocation": {
@@ -26812,7 +27408,16 @@
         "style_data": {
           "card_id": 70111310,
           "base_art_url": "./Art/70111310.png",
-          "evo_art_url": null
+          "evo_art_url": null,
+          "hash": "13e272dc66754058b67cabb6e7c14b03",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Erin Yvette",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -26822,31 +27427,31 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Holy_Shieldmaiden/chunk0.mp3",
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Holy_Shieldmaiden/chunk1.mp3",
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Holy_Shieldmaiden/chunk2.mp3",
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk2.mp3"
       },
       {
         "name": "chunk7.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Holy_Shieldmaiden/chunk4.mp3",
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk7.mp3"
       },
       {
         "name": "chunk8.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Holy_Shieldmaiden/chunk5.mp3",
         "en_url": "Audio/EN/Holy_Shieldmaiden/chunk8.mp3"
       }
     ],
@@ -26885,7 +27490,8 @@
         "jpCard_image_hash": "55e1560d85da4cad946c99e4e85789f2",
         "card_banner_image_hash": "cad055d09b1a48119fe7757ba37eaf4c",
         "evo_art_url": "Art/10161121.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Shadowcrypt_Memorial": {
@@ -26893,19 +27499,16 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Shadowcrypt_Memorial/chunk0.mp3",
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Shadowcrypt_Memorial/chunk1.mp3",
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk1.mp3"
       },
       {
-        "name": "chunk2.mp3",
-        "label": "Play",
-        "url": null,
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
       }
     ],
@@ -26934,7 +27537,8 @@
         "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分の墓場を+2する。\n<hr>【<color=Keyword>アクト</color>】これを破壊。『<color=Keyword>ゴースト</color>』2枚を自分の場に出す。",
         "jpIllustrator": "おにねこ"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   },
   "Supplicant_of_Repose": {
@@ -26942,37 +27546,37 @@
       {
         "name": "chunk0.mp3",
         "label": "Play",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk0.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk0.mp3"
       },
       {
         "name": "chunk1.mp3",
         "label": "MeetingHimeka",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk1.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk1.mp3"
       },
       {
         "name": "chunk2.mp3",
         "label": "Attack",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk2.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk2.mp3"
       },
       {
         "name": "chunk3.mp3",
         "label": "Death",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk3.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk3.mp3"
       },
       {
         "name": "chunk9.mp3",
         "label": "Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk5.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk9.mp3"
       },
       {
         "name": "chunk10.mp3",
         "label": "Super-Evolve",
-        "url": null,
+        "url": "Audio/FILTERED/Supplicant_of_Repose/chunk6.mp3",
         "en_url": "Audio/EN/Supplicant_of_Repose/chunk10.mp3"
       }
     ],
@@ -27011,7 +27615,8 @@
         "jpCard_image_hash": "191388f586304d1b8ba97e9811355f32",
         "card_banner_image_hash": "2ecad8edb66946c9a0f52c17293ae29e",
         "evo_art_url": "Art/10362111.png"
-      }
+      },
+      "alternate": {}
     }
   },
   "Whitefrost_Whisper": {
@@ -27054,7 +27659,436 @@
         "jpSkill_Text": "【<color=Keyword>モード</color>】1つを選んでその能力が働く。\n（1）相手の場のダメージを受けているフォロワーすべてを破壊。\n（2）相手のターン終了まで、相手の手札すべてのコストを+1する。",
         "jpIllustrator": "ぽんず"
       },
+      "evo": {},
+      "alternate": {}
+    }
+  },
+  "Ersatz_Elimination": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Ersatz_Elimination/chunk0.mp3",
+        "en_url": "Audio/EN/Ersatz_Elimination/chunk0.mp3",
+        "label": "Play"
+      }
+    ],
+    "metadata": {
+      "common": {
+        "card_id": 90034310,
+        "card_set_id": 90000,
+        "type": 4,
+        "class": 3,
+        "is_token": true,
+        "atk": 0,
+        "life": 0,
+        "cost": 4,
+        "rarity": 4,
+        "cv": "Taliesin Jaffe",
+        "illustrator": "Tricky Agura",
+        "flavour_text": "Truth—all that is revealed after wants and wishes fade away. Elimination—all that is left when bluster and concealment are spent. In this, they are alike: you must defy them or be unraveled.",
+        "skill_text": "Increase the cost of all followers in your hand by 1. Destroy all enemy followers.",
+        "card_image_hash": "c13dddfd85984f24a87170e3d57d1569",
+        "card_banner_image_hash": "b2e2fedd2c414f8eb8924bd3cd7420a5",
+        "base_art_url": "Art/90034310.png",
+        "jpCard_image_hash": "af0c262df6c3496daf72cddbfdcc188f",
+        "jpCV": "小山力也",
+        "jpName": "絶尽の偽証",
+        "jpFlavour_Text": "真実。それは欲すもの願うものの底、暴かれし本性。\n絶尽。それは嘯くこと繕うことの末、残される本性。\n等しく真実。抗わねば、ただ曝け出すのみ。",
+        "jpSkill_Text": "自分の手札のフォロワーすべてのコストを+1する。相手の場のフォロワーすべてを破壊。",
+        "jpIllustrator": "tricky胡坐"
+      },
       "evo": {}
     }
+  },
+  "Darknaven_Grace": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Darknaven_Grace/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Darknaven_Grace/chunk1.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Gentile_Treant": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Gentile_Treant/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Gentile_Treant/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Gentile_Treant/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Gentile_Treant/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Gentile_Treant/chunk4.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Holytlame_Tiger": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Holytlame_Tiger/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Holytlame_Tiger/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Holytlame_Tiger/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Holytlame_Tiger/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Holytlame_Tiger/chunk4.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "lan,_Lovebound_Knight": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/lan,_Lovebound_Knight/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/lan,_Lovebound_Knight/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/lan,_Lovebound_Knight/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/lan,_Lovebound_Knight/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/lan,_Lovebound_Knight/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Lionel,_Ardent_Elt": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Lionel,_Ardent_Elt/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Lionel,_Ardent_Elt/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Lionel,_Ardent_Elt/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Lionel,_Ardent_Elt/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Lionel,_Ardent_Elt/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Masterwork_Artifact": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Masterwork_Artifact/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Masterwork_Artifact/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Masterwork_Artifact/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Masterwork_Artifact/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Masterwork_Artifact/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Ominous_Artifact_y": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_y/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Ominous_Artifact_[5": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Ominous_Artifact_[5/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Owl!_Summoner": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Owl!_Summoner/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Owl!_Summoner/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Owl!_Summoner/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Owl!_Summoner/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Owl!_Summoner/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Rose,_Princess_Knight": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "chunk1.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "chunk2.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "label": "chunk3.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "chunk4.mp3",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk4.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk6.mp3"
+      },
+      {
+        "name": "chunk7.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Rose,_Princess_Knight/chunk7.mp3"
+      }
+    ],
+    "metadata": {}
+  },
+  "Viad,_Impaler": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "label": "Play",
+        "url": null,
+        "en_url": "Audio/EN/Viad,_Impaler/chunk0.mp3"
+      },
+      {
+        "name": "chunk1.mp3",
+        "label": "Attack",
+        "url": null,
+        "en_url": "Audio/EN/Viad,_Impaler/chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "label": "Death",
+        "url": null,
+        "en_url": "Audio/EN/Viad,_Impaler/chunk2.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "label": "Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Viad,_Impaler/chunk4.mp3"
+      },
+      {
+        "name": "chunk5.mp3",
+        "label": "Super-Evolve",
+        "url": null,
+        "en_url": "Audio/EN/Viad,_Impaler/chunk5.mp3"
+      }
+    ],
+    "metadata": {}
   }
 }
