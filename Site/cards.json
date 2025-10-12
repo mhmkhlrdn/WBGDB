@@ -13900,6 +13900,25 @@
             "label": "Super-Evolve",
             "en_url": null
           }
+        ],
+        "styles": [
+          {
+            "hash": "3bbcd52876c240f7baabfdc176a92c53",
+            "evo_hash": "bf95464626f446d28535470be0a14e6d",
+            "name": "Haru Urara",
+            "jpName": "ハルウララ",
+            "name_ruby": "Haru Urara",
+            "njpName_ruby": "ハルウララ",
+            "cv": "Yukina Shuto",
+            "jpCv": "首藤志奈",
+            "illustrator": "",
+            "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Last Words</color></b>: Draw a card.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a card.</ev>\n\n(This card is treated as <b><i>Leah, Bellringer Angel</i></b>.)",
+            "flavour_text": "I... I won't lose to anyone! So please, watch me race!\n—Haru Urara",
+            "evo_flavour_text": "Oh my gosh! I did it! I got first place! No one was in front of me for once! \n—Haru Urara",
+            "jpFlavour_text": "わたし……わたし、誰にも負けないぞっ！ \nだから、ちゃんと見ててねー！\n――ハルウララ",
+            "jpEvo_flavour_text": "すごいすごーいっ！ わたし、1着だよーっ！\n前に誰もいないなんて、はじめて！\n――ハルウララ"
+          }
+     
         ]
       }
     }
@@ -17803,27 +17822,17 @@
             "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
             "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
           },
+         
           {
-            "hash": "a699d05afa554ca1be83e0c0515de5ea",
-            "evo_hash": "d878642c464c47b88f51e23f50934af9",
-            "name": "Oguri Cap",
-            "name_ruby": "Oguri Cap",
-            "cv": "Tomoyo Takayanagi",
+            "hash": "b0119dc31b534fc287059a66cf1e4047",
+            "evo_hash": "64f2913c197c4fe58bf48944765cd40a",
+            "name": "オグリキャップ",
+            "name_ruby": "オグリキャップ",
+            "cv": "高柳知葉",
             "illustrator": "",
-            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
-            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
-            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
-          },
-          {
-            "hash": "a699d05afa554ca1be83e0c0515de5ea",
-            "evo_hash": "d878642c464c47b88f51e23f50934af9",
-            "name": "Oguri Cap",
-            "name_ruby": "Oguri Cap",
-            "cv": "Tomoyo Takayanagi",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
-            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
-            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
+            "skill_text": "【<color=Keyword>ファンファーレ</color>】相手の場のカード1枚を選ぶ。それを消滅。\n<hr>【<color=Keyword>疾走</color>】\n\n※このカードは『運命の黄昏・オーディン』として扱う。",
+            "flavour_text": "走りたい。\n故郷に、 私の名前が届くほどに！\n――オグリキャップ",
+            "evo_flavour_text": "声援が私の力になる。 \nいまの私は……負ける気がしない！\n――オグリキャップ"
           }
         ]
       }
@@ -27690,7 +27699,8 @@
         "jpSkill_Text": "自分の手札のフォロワーすべてのコストを+1する。相手の場のフォロワーすべてを破壊。",
         "jpIllustrator": "tricky胡坐"
       },
-      "evo": {}
+      "evo": {},
+      "alternate": {}
     }
   }
 }

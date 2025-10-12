@@ -2281,6 +2281,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         }
         alternateToggle.textContent = "Show: Alternate";
         showingAlternate = false;
+        const normalTitleName = isEnglishUI ? name : (meta.jpName || name);
+        title.textContent = normalTitleName;
 
         updateLightboxMetadata(meta, metaEvo, false, null, showing);
       } else {
@@ -2291,7 +2293,10 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         }
         alternateToggle.textContent = "Show: Normal";
         showingAlternate = true;
-
+        const alternateTitleName = alternate.style_data?.name && alternate.style_data.name.trim() 
+        ? alternate.style_data.name 
+        : (isEnglishUI ? name : (meta.jpName || name));
+      title.textContent = alternateTitleName;
         updateLightboxMetadata(
           meta,
           metaEvo,
