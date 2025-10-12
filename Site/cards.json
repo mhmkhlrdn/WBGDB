@@ -11416,7 +11416,9 @@
         "label": "Evolve"
       },
       {
-        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3"
+        // NOTICE: need to add
+        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3",
+        "label": "Super-Evolve"
       }
     ],
     "metadata": {
