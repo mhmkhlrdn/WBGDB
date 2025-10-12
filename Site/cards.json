@@ -11416,7 +11416,6 @@
         "label": "Evolve"
       },
       {
-        // NOTICE: need to add
         "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3",
         "label": "Super-Evolve"
       }
@@ -13861,6 +13860,8 @@
           "hash": "3bbcd52876c240f7baabfdc176a92c53",
           "evo_hash": "bf95464626f446d28535470be0a14e6d",
           "name": "Haru Urara",
+          "base_art_url": "./Art/70001120.png",
+          "evo_art_url": "./Art/70001121.png",
           "name_ruby": "Haru Urara",
           "cv": "Yukina Shuto",
           "illustrator": "",
@@ -17783,6 +17784,8 @@
           "name": "Oguri Cap",
           "name_ruby": "Oguri Cap",
           "cv": "Tomoyo Takayanagi",
+          "base_art_url": "./Art/70204110.png",
+          "evo_art_url": "./Art/70204111.png",
           "illustrator": "",
           "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
           "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",

@@ -1778,14 +1778,14 @@ function updateLightboxMetadata(
     metaBox.appendChild(illustratorItem);
   }
 
-  if (isAlternate && alternateData?.flavour_text) {
-    flavor.innerHTML = alternateData.flavour_text;
-  } else if (
+  if (
     isAlternate &&
     alternateData?.evo_flavour_text &&
     showing === "evo"
   ) {
     flavor.innerHTML = alternateData.evo_flavour_text;
+  } else if (isAlternate && alternateData?.flavour_text) {
+    flavor.innerHTML = alternateData.flavour_text;
   } else {
     if (showing === "evo" && metaEvo?.flavour_text) {
       const jpEvoFlavor = metaEvo.jpFlavour_text;
