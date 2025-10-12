@@ -1597,7 +1597,91 @@ if (groupBy !== "none") {
     }
     
     container.appendChild(fragment);
+    
+    // Apply masonry layout for waterfall view
+    if (activeFilters.viewMode === "waterfall") {
+      applyMasonryLayout(container);
+    }
   });
+}
+
+function applyMasonryLayout(container) {
+  // Get all cards and group headers
+  const allElements = Array.from(container.children);
+  const cards = allElements.filter(el => el.classList.contains('card'));
+  const groupHeaders = allElements.filter(el => el.classList.contains('group-header'));
+  
+  if (cards.length === 0) return;
+  
+  // Get the number of columns based on screen width
+  const getColumnCount = () => {
+    const width = window.innerWidth;
+    if (width >= 1200) return 4;
+    if (width >= 900) return 3;
+    if (width >= 600) return 2;
+    return 1;
+  };
+  
+  const columnCount = getColumnCount();
+  
+  // If only one column, no masonry needed
+  if (columnCount === 1) return;
+  
+  // Create masonry columns
+  const columns = Array.from({ length: columnCount }, () => []);
+  const columnHeights = Array.from({ length: columnCount }, () => 0);
+  
+  // Distribute cards to columns (horizontal-first flow)
+  cards.forEach((card, index) => {
+    const columnIndex = index % columnCount;
+    columns[columnIndex].push(card);
+  });
+  
+  // Clear container
+  container.innerHTML = '';
+  
+  // Rebuild container with masonry layout
+  let cardIndex = 0;
+  
+  if (groupHeaders.length > 0) {
+    // Handle grouped layout
+    allElements.forEach(el => {
+      if (el.classList.contains('group-header')) {
+        container.appendChild(el);
+      } else if (el.classList.contains('card')) {
+        if (cardIndex < cards.length) {
+          const columnIndex = cardIndex % columnCount;
+          container.appendChild(cards[cardIndex]);
+          cardIndex++;
+        }
+      }
+    });
+  } else {
+    // Handle non-grouped layout - create columns
+    const columnContainers = Array.from({ length: columnCount }, () => {
+      const col = document.createElement('div');
+      col.style.display = 'flex';
+      col.style.flexDirection = 'column';
+      col.style.gap = '16px';
+      col.style.flex = '1';
+      return col;
+    });
+    
+    // Distribute cards to columns
+    cards.forEach((card, index) => {
+      const columnIndex = index % columnCount;
+      columnContainers[columnIndex].appendChild(card);
+    });
+    
+    // Create flex container for columns
+    const flexContainer = document.createElement('div');
+    flexContainer.style.display = 'flex';
+    flexContainer.style.gap = '16px';
+    flexContainer.style.alignItems = 'flex-start';
+    
+    columnContainers.forEach(col => flexContainer.appendChild(col));
+    container.appendChild(flexContainer);
+  }
 }
 
 function passesFilters(lines, meta, cardData = null) {

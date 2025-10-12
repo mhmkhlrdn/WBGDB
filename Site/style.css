@@ -560,29 +560,14 @@ input[type="number"]::after {
 }
 
 .waterfall #cards {
-  column-count: 1;
-  -webkit-column-count: 1;
-  -moz-column-count: 1;
-  column-gap: 16px;
-  -webkit-column-gap: 16px;
-  -moz-column-gap: 16px;
-}
-
-@media (min-width: 600px) {
-  .waterfall #cards { column-count: 2; -webkit-column-count: 2; -moz-column-count: 2; }
-}
-
-@media (min-width: 900px) {
-  .waterfall #cards { column-count: 3; -webkit-column-count: 3; -moz-column-count: 3; }
-}
-
-@media (min-width: 1200px) {
-  .waterfall #cards { column-count: 4; -webkit-column-count: 4; -moz-column-count: 4; }
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .waterfall .card {
-  break-inside: avoid;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -678,7 +663,6 @@ input[type="number"]::after {
 }
 
 .waterfall #cards {
-  display: block;
   max-width: none;
   margin: 0;
 }
