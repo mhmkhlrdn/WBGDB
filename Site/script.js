@@ -1791,8 +1791,8 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
   const cvValue = getDisplayCVName(meta, isAlternate, alternateData);
 
   const illustratorValue =
-    isAlternate && alternateData?.illustrator
-      ? alternateData.illustrator
+    isAlternate
+      ? (alternateData?.illustrator || "")
       : isEnglishUI
       ? meta.illustrator || ""
       : meta.jpIllustrator || meta.illustrator || "";
@@ -1840,8 +1840,8 @@ function updateLightboxMetadata(
       : meta.jpCV || "";
 
   const illustratorValue =
-    isAlternate && alternateData?.illustrator
-      ? alternateData.illustrator
+    isAlternate
+      ? (alternateData?.illustrator || "")
       : (isEnglishUI ? (meta.illustrator || "") : (meta.jpIllustrator || meta.illustrator || ""));
 
   if (cvValue) {
