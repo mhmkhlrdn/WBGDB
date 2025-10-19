@@ -1104,7 +1104,8 @@ function renderCards(cards, filter = "") {
     let entries = Object.entries(cards);
     
     if (filter) {
-      const individualSearchQueries = filter.toLowerCase().split('|').map(term => term.trim()).filter(term => term.length > 0);
+      // Split by '|' for OR logic
+      const orGroups = filter.toLowerCase().split('|').map(group => group.trim()).filter(Boolean);
 
       entries = entries.filter(([cardName, cardObj]) => {
         const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
@@ -1113,16 +1114,45 @@ function renderCards(cards, filter = "") {
         const skillText = (meta.skill_text || '').toLowerCase();
         const jpSkillText = (meta.jpSkill_Text || '').toLowerCase();
 
-        // A card passes if it matches ANY of the individual search queries
-        return individualSearchQueries.some(query => {
-          if (query.startsWith('skill:')) {
-            const skillTerm = query.substring(6).trim();
-            if (!skillTerm) return true; // If "skill:" is typed but no term, consider it a match for this query
-            return skillText.includes(skillTerm) || jpSkillText.includes(skillTerm);
-          } else {
-            // Regular name search
-            return normalizedCardName.includes(query) || jpName.includes(query);
-          }
+        // A card passes if it matches ANY of the OR groups
+        return orGroups.some(orGroup => {
+          // Split each OR group by '&&' for AND logic
+          const andTerms = orGroup.split('&&').map(term => term.trim()).filter(Boolean);
+
+          // A card passes an OR group if it matches ALL of its AND terms
+          return andTerms.every(term => {
+            if (term.startsWith('skill:')) {
+              const skillTerm = term.substring(6).trim();
+              if (!skillTerm) return true;
+              return skillText.includes(skillTerm) || jpSkillText.includes(skillTerm);
+            } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:')) {
+              const parts = term.split(':');
+              const statType = parts[0]; // 'atk', 'life', 'cost'
+              const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
+
+              if (!statQuery) return true;
+
+              const valueMatch = statQuery.match(/\d+/);
+              const value = valueMatch ? Number(valueMatch[0]) : NaN;
+              if (isNaN(value)) return false;
+
+              const operator = statQuery.match(/[<>=!]+/)?.[0] || '=';
+              const cardStat = Number(meta[statType]);
+
+              switch (operator) {
+                case '>': return cardStat > value;
+                case '<': return cardStat < value;
+                case '>=': return cardStat >= value;
+                case '<=': return cardStat <= value;
+                case '!=': return cardStat !== value;
+                case '=':
+                default: return cardStat === value;
+              }
+            } else {
+              // Regular name search
+              return normalizedCardName.includes(term) || jpName.includes(term);
+            }
+          });
         });
       });
     }
@@ -2213,7 +2243,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   // if (!cvDetailsBtn && lightboxControls) {
   //   cvDetailsBtn = document.createElement('button');
   //   cvDetailsBtn.id = 'lightbox-cv-details-btn';
-  //   cvDetailsBtn.className = 'lightbox-btn';
+  //   cvDetailsBtn.className = "lightbox-btn";
   //   cvDetailsBtn.type = 'button';
   //   cvDetailsBtn.textContent = 'CV Details';
   //   lightboxControls.insertBefore(cvDetailsBtn, lightboxControls.firstChild);
@@ -3169,15 +3199,11 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
           manyVoicesSelect.value = "all";
         }
       }
+      
+      document.querySelector(".container").classList.remove("waterfall");
+      document.getElementById("search").value = "";
 
-      const container = document.querySelector(".container");
-      if (container) {
-        container.classList.remove("waterfall");
-      }
-
-      setTimeout(() => {
-        renderCards(allCards, "");
-      }, 10);
+      renderCards(allCards, document.getElementById("search").value);
     }, 100, 'Ctrl+R');
   }
 
