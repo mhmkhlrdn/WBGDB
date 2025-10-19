@@ -1111,6 +1111,9 @@ function renderCards(cards, filter = "") {
         const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
         const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
         const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
+  const rarity = meta.rarity ? getLocalizedText(activeFilters.rarity).toLowerCase() : '';
+  const type = meta.type ? getLocalizedText(activeFilters.type).toLowerCase() : '';
+  const cardClass = meta.class ? getLocalizedText(classLabels[meta.class]).toLowerCase() : '';
         const skillText = (meta.skill_text || '').toLowerCase();
         const jpSkillText = (meta.jpSkill_Text || '').toLowerCase();
 
@@ -1125,7 +1128,7 @@ function renderCards(cards, filter = "") {
               const skillTerm = term.substring(6).trim();
               if (!skillTerm) return true;
               return skillText.includes(skillTerm) || jpSkillText.includes(skillTerm);
-            } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:')) {
+            } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:') ) {
               const parts = term.split(':');
               const statType = parts[0]; // 'atk', 'life', 'cost'
               const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
@@ -1148,7 +1151,43 @@ function renderCards(cards, filter = "") {
                 case '=':
                 default: return cardStat === value;
               }
-            } else {
+            } else if (term.startsWith('type:')) {
+    const typeMap = {
+      follower: 1,
+      amulet: 2,
+      spell: 4,
+    };
+    const typeTerm = term.substring(5).trim();
+    console.log(typeTerm);
+    if (!typeTerm) return true;
+    return meta.type === typeMap[typeTerm];
+
+  } else if (term.startsWith('class:')) {
+    const classMap = {
+      neutral: 0,
+      forest: 1,
+      sword: 2,
+      rune: 3,
+      dragon: 4,
+      abyss: 5,
+      haven: 6,
+      portal: 7,
+    };
+    const classTerm = term.substring(6).trim();
+    if (!classTerm) return true;
+    return meta.class === classMap[classTerm];
+
+  } else if (term.startsWith('rarity:')) {
+    const rarityMap = {
+      bronze: 1,
+      silver: 2,
+      gold: 3,
+      legendary: 4,
+    };
+    const rarityTerm = term.substring(7).trim();
+    if (!rarityTerm) return true;
+    return meta.rarity === rarityMap[rarityTerm];
+  }else {
               // Regular name search
               return normalizedCardName.includes(term) || jpName.includes(term);
             }
