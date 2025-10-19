@@ -1157,10 +1157,10 @@ function renderCards(cards, filter = "") {
       amulet: 2,
       spell: 4,
     };
-    const typeTerm = term.substring(5).trim();
-    console.log(typeTerm);
+    const typeTerm = term.substring(5).trim().toLowerCase();
     if (!typeTerm) return true;
-    return meta.type === typeMap[typeTerm];
+    const matchedKey = Object.keys(typeMap).find(k => k.startsWith(typeTerm));
+    return matchedKey ? meta.type === typeMap[matchedKey] : false;
 
   } else if (term.startsWith('class:')) {
     const classMap = {
@@ -1173,9 +1173,10 @@ function renderCards(cards, filter = "") {
       haven: 6,
       portal: 7,
     };
-    const classTerm = term.substring(6).trim();
+    const classTerm = term.substring(6).trim().toLowerCase();
     if (!classTerm) return true;
-    return meta.class === classMap[classTerm];
+    const matchedKey = Object.keys(classMap).find(k => k.startsWith(classTerm));
+    return matchedKey ? meta.class === classMap[matchedKey] : false;
 
   } else if (term.startsWith('rarity:')) {
     const rarityMap = {
@@ -1184,10 +1185,12 @@ function renderCards(cards, filter = "") {
       gold: 3,
       legendary: 4,
     };
-    const rarityTerm = term.substring(7).trim();
+    const rarityTerm = term.substring(7).trim().toLowerCase();
     if (!rarityTerm) return true;
-    return meta.rarity === rarityMap[rarityTerm];
-  }else {
+    const matchedKey = Object.keys(rarityMap).find(k => k.startsWith(rarityTerm));
+    return matchedKey ? meta.rarity === rarityMap[matchedKey] : false;
+
+  } else {
               // Regular name search
               return normalizedCardName.includes(term) || jpName.includes(term);
             }
