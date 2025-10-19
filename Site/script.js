@@ -1098,11 +1098,14 @@ let illustratorOptionsPopulated = false;
 
 function renderCards(cards, filter = "") {
   const container = document.getElementById("cards");
-  
+
   requestAnimationFrame(() => {
     container.innerHTML = "";
     let entries = Object.entries(cards);
-    
+
+    // Pre-filter based on active filters
+    entries = entries.filter(([cardName, cardObj]) => passesFilters(cardObj.voices, cardObj.metadata?.common, cardObj));
+
     if (filter) {
       // Split by '|' for OR logic
       const orGroups = filter.toLowerCase().split('|').map(group => group.trim()).filter(Boolean);
