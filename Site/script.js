@@ -1104,16 +1104,26 @@ function renderCards(cards, filter = "") {
     let entries = Object.entries(cards);
     
     if (filter) {
-      const searchTerms = filter.toLowerCase().split('|').map(term => term.trim()).filter(term => term.length > 0);
+      const individualSearchQueries = filter.toLowerCase().split('|').map(term => term.trim()).filter(term => term.length > 0);
+
       entries = entries.filter(([cardName, cardObj]) => {
         const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
         const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
         const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
+        const skillText = (meta.skill_text || '').toLowerCase();
+        const jpSkillText = (meta.jpSkill_Text || '').toLowerCase();
 
-        // Check if the card name (English or Japanese) includes any of the search terms
-        return searchTerms.some(term =>
-          normalizedCardName.includes(term) || jpName.includes(term)
-        );
+        // A card passes if it matches ANY of the individual search queries
+        return individualSearchQueries.some(query => {
+          if (query.startsWith('skill:')) {
+            const skillTerm = query.substring(6).trim();
+            if (!skillTerm) return true; // If "skill:" is typed but no term, consider it a match for this query
+            return skillText.includes(skillTerm) || jpSkillText.includes(skillTerm);
+          } else {
+            // Regular name search
+            return normalizedCardName.includes(query) || jpName.includes(query);
+          }
+        });
       });
     }
 
@@ -3244,5 +3254,3 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     }
   });
 })();
-
-
