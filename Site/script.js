@@ -1580,10 +1580,16 @@ function renderCardsOptimized(cards, filter = "") {
         const andTerms = orGroup.split('&&').map(t => t.trim()).filter(Boolean);
         return andTerms.every(term => {
           if (term.startsWith('skill:')) {
-              const skillTerm = term.substring(6).trim();
-              if (!skillTerm) return true;
-              return skillText.includes(skillTerm) || jpSkillText.includes(skillTerm);
-            } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:') ) {
+            const skillTerm = term.substring(6).trim();
+            if (!skillTerm) return true;
+            if (skillTerm.startsWith('"') && skillTerm.endsWith('"')) {
+              const strictSkillTerm = skillTerm.slice(1, -1);
+              return skillText.includes(strictSkillTerm) || jpSkillText.includes(strictSkillTerm);
+            } else {
+              const words = skillTerm.split(" ");
+              return words.every(word => skillText.includes(word) || jpSkillText.includes(word));
+            }
+          } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:') ) {
               const parts = term.split(':');
               const statType = parts[0]; // 'atk', 'life', 'cost'
               const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
