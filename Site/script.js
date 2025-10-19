@@ -1104,12 +1104,16 @@ function renderCards(cards, filter = "") {
     let entries = Object.entries(cards);
     
     if (filter) {
-      const normalizedFilter = filter.toLowerCase();
+      const searchTerms = filter.toLowerCase().split('|').map(term => term.trim()).filter(term => term.length > 0);
       entries = entries.filter(([cardName, cardObj]) => {
         const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
         const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
         const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
-        return normalizedCardName.includes(normalizedFilter) || jpName.includes(normalizedFilter);
+
+        // Check if the card name (English or Japanese) includes any of the search terms
+        return searchTerms.some(term =>
+          normalizedCardName.includes(term) || jpName.includes(term)
+        );
       });
     }
 
