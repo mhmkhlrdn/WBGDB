@@ -1388,6 +1388,7 @@ function hydrateCard(skeletonEl) {
     : { commonUrl: "" };
 
   const canToggleEvo = !!evoUrl;
+  
   if (canToggleEvo) {
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "img-toggle";
@@ -1428,6 +1429,7 @@ function hydrateCard(skeletonEl) {
   }
 
   imgWrap.appendChild(toggleContainer);
+  
 
     
 
@@ -2197,10 +2199,6 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     alternateToggle.textContent = "Show: Alternate";
     alternateToggle.style.display = "none";
   }
-  if (toggle) {
-    toggle.textContent = getLocalizedText('Show: Evo');
-    toggle.style.display = "none";
-  }
 
   const langSegLb = isEnglishUI ? 'eng' : 'jpn';
   const jpCommonHash = meta.jp_card_image_hash || meta.jpCard_image_hash;
@@ -2223,6 +2221,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   metaBox.innerHTML = "";
 
   updateLightboxMetadata(meta, metaEvo, false, null, "common");
+  
 
   let showingAlternate = false;
 
@@ -2353,6 +2352,55 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   updateLightboxVoices();
 
 
+
+  {
+    const canToggleEvo = Number(meta.type) === 1 && !!evoUrl;
+    if (toggle) {
+      if (canToggleEvo) {
+        toggle.style.display = "";
+        toggle.textContent = getLocalizedText('Show: Evo');
+        toggle.onclick = () => {
+          if (showing === "common") {
+            if (showingAlternate && alternate?.style_data?.evo_art_url) {
+              img.src = alternate.style_data.evo_art_url;
+            } else {
+              img.src = evoUrl;
+            }
+            showing = "evo";
+            toggle.textContent = getLocalizedText('Show: Base');
+
+            updateLightboxMetadata(
+              meta,
+              metaEvo,
+              showingAlternate,
+              showingAlternate ? alternate?.style_data : null,
+              "evo"
+            );
+          } else {
+            if (showingAlternate && alternate?.style_data?.base_art_url) {
+              img.src = alternate.style_data.base_art_url;
+            } else {
+              img.src = commonUrl;
+            }
+            showing = "common";
+            toggle.textContent = getLocalizedText('Show: Evo');
+
+            updateLightboxMetadata(
+              meta,
+              metaEvo,
+              showingAlternate,
+              showingAlternate ? alternate?.style_data : null,
+              "common"
+            );
+          }
+
+          updateLightboxVoices();
+        };
+      } else {
+        toggle.style.display = "none";
+      }
+    }
+  }
 
 
   if (alternate?.style_data) {
