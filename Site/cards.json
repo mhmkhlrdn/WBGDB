@@ -13957,45 +13957,21 @@
       },
       {
         "name": "chunk3.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk3.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk6.mp3",
         "en_url": "Audio/EN/Liam,_Crazed_Creator/chunk3.mp3",
         "label": "Death"
       },
       {
         "name": "chunk11.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk4.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk10.mp3",
         "en_url": "Audio/EN/Liam,_Crazed_Creator/chunk11.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk12.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk5.mp3",
+        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3",
         "en_url": "Audio/EN/Liam,_Crazed_Creator/chunk12.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "name": "chunk6.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk6.mp3",
-        "label": "chunk6.mp3",
-        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
-      },
-      {
-        "name": "chunk10.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk10.mp3",
-        "label": "chunk10.mp3",
-        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
-      },
-      {
-        "name": "chunk11.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk11.mp3",
-        "label": "Evolve",
-        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
-      },
-      {
-        "name": "chunk12.mp3",
-        "url": "Audio/FILTERED/Liam,_Crazed_Creator/chunk12.mp3",
-        "label": "Super-Evolve",
-        "en_url": "Audio/EN/Liam,_Crazed_Creator/undefined"
       }
     ],
     "metadata": {
@@ -27826,7 +27802,7 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Alfheimr/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
@@ -27882,25 +27858,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Almeida,_Headstrong_Miner/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Almeida,_Headstrong_Miner/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingVaseraga"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Almeida,_Headstrong_Miner/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Almeida,_Headstrong_Miner/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk11.mp3",
@@ -28038,19 +28014,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Arthur,_Staunch_Dragon/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingMordred"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Arthur,_Staunch_Dragon/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Arthur,_Staunch_Dragon/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -28160,37 +28136,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingNezha"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingSatyr"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Baal,_Elemental_Resonance/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk8.mp3",
@@ -28256,31 +28232,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Beelzebub,_Supreme_King/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSandalphon"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Beelzebub,_Supreme_King/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingCagliostro"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Beelzebub,_Supreme_King/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingBelial"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Beelzebub,_Supreme_King/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Beelzebub,_Supreme_King/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk7.mp3",
@@ -28346,37 +28322,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Super Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingSandalphon"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingBeelzebub"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Belial,_Archangel_of_Cunning/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk8.mp3",
@@ -28442,31 +28418,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Cassius,_Sky-Yearning_Arrival/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingZeta & Bea"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Cassius,_Sky-Yearning_Arrival/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingIsaac"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Cassius,_Sky-Yearning_Arrival/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingEustace"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Cassius,_Sky-Yearning_Arrival/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Cassius,_Sky-Yearning_Arrival/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk7.mp3",
@@ -28576,19 +28552,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Chloe,_What_a_Gal/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Chloe,_What_a_Gal/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Chloe,_What_a_Gal/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk11.mp3",
@@ -28774,19 +28750,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Cupitan,_Iridescent_Archer/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Super Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Cupitan,_Iridescent_Archer/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Cupitan,_Iridescent_Archer/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -28910,19 +28886,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Elmott,_Remembrance_Aflame/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSho/Tsubasa"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Elmott,_Remembrance_Aflame/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Elmott,_Remembrance_Aflame/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -28988,31 +28964,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Eustace,_Howl_of_Thunder/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Eustace,_Howl_of_Thunder/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingZeta & Bea"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Eustace,_Howl_of_Thunder/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingCassius"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Eustace,_Howl_of_Thunder/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Eustace,_Howl_of_Thunder/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk7.mp3",
@@ -29078,25 +29054,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Ewiyar,_Wind_Personified/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Ewiyar,_Wind_Personified/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingSix Dragons"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Ewiyar,_Wind_Personified/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Ewiyar,_Wind_Personified/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk11.mp3",
@@ -29234,19 +29210,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Feather,_Bombastic_Brawler/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingRandall"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Feather,_Bombastic_Brawler/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Feather,_Bombastic_Brawler/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -29312,25 +29288,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Fediel,_Darkness_Personified/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSix Dragons"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Fediel,_Darkness_Personified/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Fediel,_Darkness_Personified/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Fediel,_Darkness_Personified/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk6.mp3",
@@ -29468,25 +29444,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Galleon,_Earth_Personified/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSix Dragons"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Galleon,_Earth_Personified/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Galleon,_Earth_Personified/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Galleon,_Earth_Personified/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk6.mp3",
@@ -29587,37 +29563,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Golden_Knight,_True_King's_Blade/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk8.mp3",
@@ -29683,43 +29659,43 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingVyrn"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "MeetingLyria"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk7.mp3",
         "url": "Audio/FILTERED/Gran_&_Djeeta,_Valiant_Skyfarers/chunk7.mp3",
         "en_url": null,
-        "label": "chunk7.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk9.mp3",
@@ -29785,37 +29761,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingZeta & Bea"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingVaseraga"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Ilsa,_Brutal_Drill_Sergeant/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk8.mp3",
@@ -29881,19 +29857,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Isaac,_Congenial_Engineer/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingCassius"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Isaac,_Congenial_Engineer/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Isaac,_Congenial_Engineer/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -30103,37 +30079,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingVyrn"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingLyria"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingVira"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Katalina,_Sky's_Protector/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk8.mp3",
@@ -30199,7 +30175,7 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Knightly_Ardor/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Play"
       },
       {
         "name": "chunk2.mp3",
@@ -30255,19 +30231,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Kou_&_You,_Love_and_Hatred/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingYuel & Societte"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Kou_&_You,_Love_and_Hatred/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Kou_&_You,_Love_and_Hatred/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -30333,19 +30309,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Lamretta,_Sisterly_Shepherd/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Lamretta,_Sisterly_Shepherd/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Lamretta,_Sisterly_Shepherd/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk5.mp3",
@@ -30411,37 +30387,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingKatalina"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingVyrn"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingGran & Djeeta"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Lyria,_Skydestined/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk11.mp3",
@@ -30507,19 +30483,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Manamel,_Super_Cutest/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Manamel,_Super_Cutest/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Manamel,_Super_Cutest/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk5.mp3",
@@ -30585,25 +30561,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Mari,_Meg's_Bestie/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingMeg"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Mari,_Meg's_Bestie/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Mari,_Meg's_Bestie/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Mari,_Meg's_Bestie/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk6.mp3",
@@ -30707,31 +30683,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Meg,_Girl_Next_Door/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Meg,_Girl_Next_Door/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingMari"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Meg,_Girl_Next_Door/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Meg,_Girl_Next_Door/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Meg,_Girl_Next_Door/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk7.mp3",
@@ -30797,19 +30773,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Mireille_&_Risette,_Penitent_Duo/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingCagliostro"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Mireille_&_Risette,_Penitent_Duo/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Mireille_&_Risette,_Penitent_Duo/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -30875,19 +30851,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Mordred,_Illusory_Lion/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingArthur"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Mordred,_Illusory_Lion/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Mordred,_Illusory_Lion/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -30953,25 +30929,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Mugen,_Steel-Bodied_Honesty/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Super Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Mugen,_Steel-Bodied_Honesty/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingNehan"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Mugen,_Steel-Bodied_Honesty/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Mugen,_Steel-Bodied_Honesty/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -31037,19 +31013,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Nehan,_Dispenser_of_Samsara/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingMugen"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Nehan,_Dispenser_of_Samsara/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Nehan,_Dispenser_of_Samsara/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -31115,31 +31091,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Nezha,_Soaring_War_God/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSatyr"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Nezha,_Soaring_War_God/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingBaal"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Nezha,_Soaring_War_God/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Nezha,_Soaring_War_God/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Nezha,_Soaring_War_God/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk7.mp3",
@@ -31315,25 +31291,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Randall,_Feet_Fighter/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Randall,_Feet_Fighter/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingFeather"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Randall,_Feet_Fighter/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Randall,_Feet_Fighter/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk11.mp3",
@@ -31387,53 +31363,6 @@
       "alternate": {}
     }
   },
-  "Rulenye_&_Vainareik": {
-    "voices": [
-      {
-        "name": "chunk0.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk0.mp3",
-        "en_url": null,
-        "label": "Play"
-      },
-      {
-        "name": "chunk1.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk1.mp3",
-        "en_url": null,
-        "label": "chunk1.mp3"
-      },
-      {
-        "name": "chunk2.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk2.mp3",
-        "en_url": null,
-        "label": "chunk2.mp3"
-      },
-      {
-        "name": "chunk3.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk3.mp3",
-        "en_url": null,
-        "label": "chunk3.mp3"
-      },
-      {
-        "name": "chunk4.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk4.mp3",
-        "en_url": null,
-        "label": "chunk4.mp3"
-      },
-      {
-        "name": "chunk9.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk9.mp3",
-        "en_url": null,
-        "label": "Evolve"
-      },
-      {
-        "name": "chunk10.mp3",
-        "url": "Audio/FILTERED/Rulenye_&_Vainareik/chunk10.mp3",
-        "en_url": null,
-        "label": "Super-Evolve"
-      }
-    ],
-    "metadata": {}
-  },
   "Rune_Portal": {
     "voices": [
       {
@@ -31484,31 +31413,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Sandalphon,_Primarch_Successor/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Invoke"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Sandalphon,_Primarch_Successor/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingBelial"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Sandalphon,_Primarch_Successor/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingBeelzebub"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Sandalphon,_Primarch_Successor/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Sandalphon,_Primarch_Successor/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk7.mp3",
@@ -31574,19 +31503,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Sara,_Graphos's_Chosen/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Sara,_Graphos's_Chosen/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Sara,_Graphos's_Chosen/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -31652,25 +31581,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Satyr,_Open-Hearted_Rover/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingNezha"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Satyr,_Open-Hearted_Rover/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingBaal"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Satyr,_Open-Hearted_Rover/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Satyr,_Open-Hearted_Rover/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -31736,25 +31665,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Seofon,_Leader_of_the_Eternals/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Seofon,_Leader_of_the_Eternals/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Super Skybound Art"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Seofon,_Leader_of_the_Eternals/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Seofon,_Leader_of_the_Eternals/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -31820,25 +31749,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Sho,_Reborn_Night_King/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingElmott"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Sho,_Reborn_Night_King/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingTsubasa"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Sho,_Reborn_Night_King/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Sho,_Reborn_Night_King/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -32096,19 +32025,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Suframare,_Wandering_Tutor/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Suframare,_Wandering_Tutor/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Suframare,_Wandering_Tutor/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk5.mp3",
@@ -32174,19 +32103,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Tikoh,_Asclepian_Surgeon/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Tikoh,_Asclepian_Surgeon/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Tikoh,_Asclepian_Surgeon/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk11.mp3",
@@ -32252,19 +32181,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Troue,_Heroic_Visionary/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Troue,_Heroic_Visionary/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Troue,_Heroic_Visionary/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk5.mp3",
@@ -32330,25 +32259,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Tsubasa,_Blazing_Gearcyclist/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingElmott"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Tsubasa,_Blazing_Gearcyclist/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingSho"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Tsubasa,_Blazing_Gearcyclist/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Tsubasa,_Blazing_Gearcyclist/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -32496,25 +32425,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Vaseraga,_Unyielding_Scythe/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingZeta & Bea"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Vaseraga,_Unyielding_Scythe/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingIlsa"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Vaseraga,_Unyielding_Scythe/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Vaseraga,_Unyielding_Scythe/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
@@ -32615,31 +32544,31 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Vira,_Luminous_Primal_Knight/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Super Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Vira,_Luminous_Primal_Knight/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingKatalina"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Vira,_Luminous_Primal_Knight/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingVyrn"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Vira,_Luminous_Primal_Knight/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Vira,_Luminous_Primal_Knight/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk7.mp3",
@@ -32705,37 +32634,37 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingKatalina"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingGran & Djeeta"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingLyria"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingVira"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Vyrn,_Bestest_Pal/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk8.mp3",
@@ -32801,19 +32730,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Wamdus,_Water_Personified/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSix Dragons"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Wamdus,_Water_Personified/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Wamdus,_Water_Personified/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -32879,19 +32808,19 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Wilnas,_Flame_Personified/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingSix Dragons"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Wilnas,_Flame_Personified/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Wilnas,_Flame_Personified/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk5.mp3",
@@ -32957,25 +32886,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Yuni,_Cosmic_Legacy/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "MeetingZooey"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Yuni,_Cosmic_Legacy/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Yuni,_Cosmic_Legacy/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Yuni,_Cosmic_Legacy/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Effect"
       },
       {
         "name": "chunk6.mp3",
@@ -33041,43 +32970,43 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingVaseraga"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "MeetingEustace"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "MeetingIlsa"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk5.mp3",
         "en_url": null,
-        "label": "chunk5.mp3"
+        "label": "MeetingCassius"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk6.mp3",
         "en_url": null,
-        "label": "chunk6.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk7.mp3",
         "url": "Audio/FILTERED/Zeta_&_Bea,_Crimson_and_Blue/chunk7.mp3",
         "en_url": null,
-        "label": "chunk7.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk9.mp3",
@@ -33143,25 +33072,25 @@
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Zooey,_Ally_of_the_World/chunk1.mp3",
         "en_url": null,
-        "label": "chunk1.mp3"
+        "label": "Enhance"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Zooey,_Ally_of_the_World/chunk2.mp3",
         "en_url": null,
-        "label": "chunk2.mp3"
+        "label": "MeetingYuni"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Zooey,_Ally_of_the_World/chunk3.mp3",
         "en_url": null,
-        "label": "chunk3.mp3"
+        "label": "Attack"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Zooey,_Ally_of_the_World/chunk4.mp3",
         "en_url": null,
-        "label": "chunk4.mp3"
+        "label": "Death"
       },
       {
         "name": "chunk6.mp3",
