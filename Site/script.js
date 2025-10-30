@@ -1845,6 +1845,10 @@ function applyMasonryLayout(container) {
 }
 
 function passesFilters(lines, meta, cardData = null) {
+  // Guard against missing metadata
+  meta = meta || {};
+  lines = Array.isArray(lines) ? lines : [];
+
   if (activeFilters.rarity && Number(meta.rarity) !== Number(activeFilters.rarity)) {
     return false;
   }
@@ -2532,7 +2536,6 @@ fetch("cards.json")
   .then((res) => res.json())
   .then((cards) => {
     allCards = cards;
-    // Load cv_data.json if present; support array or single object
     fetch("cv_data.json")
       .then(r => r.ok ? r.json() : null)
       .then((cv) => {
@@ -2548,7 +2551,6 @@ fetch("cards.json")
             const en = entry?.jikan?.name;
             if (en) cvDetailsIndex.set(en, key);
           });
-          // Re-render with CV details available so JP CVs show Jikan English name on initial load
           requestAnimationFrame(() => {
             populateCVOptions();
             const q = document.getElementById("search")?.value || "";
@@ -2558,7 +2560,6 @@ fetch("cards.json")
       })
       .catch(() => {})
       .finally(() => {
-        // Ensure at least one render happens even if cv_data.json missing
         if (!document.getElementById("cards")?.children?.length) {
           const q = document.getElementById("search")?.value || "";
           renderCards(allCards, q);

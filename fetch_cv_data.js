@@ -14,13 +14,9 @@ function sleep(ms) {
 }
 
 async function waitForJikanRateLimit() {
-  // Enforce both: spacing >=1000ms (1/sec) and <=50 in last 60s
-  // We'll check and wait until both constraints are satisfied.
-  // This simple limiter is sufficient for sequential usage.
-  // If used concurrently, wrap calls through a single queue in the future.
+
   while (true) {
     const now = Date.now();
-    // Drop timestamps older than 60 seconds
     while (jikanRequestTimes.length && now - jikanRequestTimes[0] > 60000) {
       jikanRequestTimes.shift();
     }
@@ -41,7 +37,6 @@ async function waitForJikanRateLimit() {
       waitMs = Math.max(waitMs, 1000 - sinceLast);
     }
     if (needWaitForMinute) {
-      // Wait until the oldest timestamp exits the 60s window
       const oldest = jikanRequestTimes[0];
       waitMs = Math.max(waitMs, 60001 - (now - oldest));
     }
@@ -91,8 +86,6 @@ async function searchMalPrefix(fetchImpl, name) {
     throw new Error(`MAL prefix request failed: ${res.status} ${res.statusText}`);
   }
   const data = await res.json();
-  // Follow step 4 strictly: get the id of the first object in the items array
-  // Some responses return categories with items; take the first non-empty items across categories
   const categories = Array.isArray(data?.categories) ? data.categories : [];
   let firstItem = null;
   for (const cat of categories) {
@@ -102,7 +95,6 @@ async function searchMalPrefix(fetchImpl, name) {
       break;
     }
   }
-  // Fallback: some responses include top-level items
   if (!firstItem && Array.isArray(data?.items) && data.items.length > 0) {
     firstItem = data.items[0];
   }
