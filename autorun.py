@@ -25,7 +25,7 @@ os.makedirs(VOICES_DIR, exist_ok=True)
 GRID_START_X = 161
 GRID_START_Y = [288, 543]
 COL_SPACING = 187
-NUM_COLS = 3
+NUM_COLS = 7
 CLOSE_BUTTON = (1255, 81)
 VOICE_INDICATOR = cv.imread(os.path.join(BASE_DIR, 'voice_button.png'), cv.IMREAD_COLOR)
 EVOLVE_INDICATOR = cv.imread(os.path.join(BASE_DIR, 'evolve_indicator.png'), cv.IMREAD_COLOR)
@@ -199,7 +199,7 @@ def get_card_positions():
 
 def process_all_cards():
     positions = get_card_positions()
-    for _ in range(1):
+    for _ in range(5):
         for pos in positions:
             gw.getWindowsWithTitle("ShadowverseWB")[0].activate()
             time.sleep(2)
