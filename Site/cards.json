@@ -11414,9 +11414,6 @@
         "url": "Audio/FILTERED/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk6.mp3",
         "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk7.mp3",
         "label": "Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -15309,12 +15306,6 @@
         "url": "Audio/FILTERED/Maddening_Benison/chunk0.mp3",
         "en_url": "Audio/EN/Maddening_Benison/chunk0.mp3",
         "label": "Play"
-      },
-      {
-        "en_url": "Audio/EN/Maddening_Benison/chunk1.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Maddening_Benison/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -16533,9 +16524,6 @@
         "url": "Audio/FILTERED/Miriam,_the_Resolute/chunk6.mp3",
         "en_url": "Audio/EN/Miriam,_the_Resolute/chunk5.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Miriam,_the_Resolute/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -18528,9 +18516,6 @@
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3",
         "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -21999,18 +21984,6 @@
         "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3",
         "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk4.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk5.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk6.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk7.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -27528,9 +27501,6 @@
         "label": "Play",
         "url": "Audio/FILTERED/Shadowcrypt_Memorial/chunk1.mp3",
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk1.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -28133,7 +28103,44 @@
         "evo_art_url": "Art/10421121.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "chunk0.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk0.mp3",
+            "en_url": null,
+            "label": "Play"
+          },
+          {
+            "name": "chunk1.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk1.mp3",
+            "en_url": null,
+            "label": "MeetMordred"
+          },
+          {
+            "name": "chunk2.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk2.mp3",
+            "en_url": null,
+            "label": "Attack"
+          },
+          {
+            "name": "chunk3.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk3.mp3",
+            "en_url": null,
+            "label": "Death"
+          },
+          {
+            "name": "chunk5.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk5.mp3",
+            "en_url": null,
+            "label": "Evolve"
+          },
+          {
+            "name": "chunk6.mp3",
+            "url": "Audio/FILTERED/Arthur,_Staunch_Dragon_Alt/chunk6.mp3",
+            "en_url": null,
+            "label": "Super-Evolve"
+          }
+        ],
         "style_data": {
           "card_id": 70421120,
           "base_art_url": "./Art/70421120.png",
@@ -33251,6 +33258,190 @@
         "jpIllustrator": null
       },
       "evo": {}
+    }
+  },
+  "Cagliostro,_Genius_Alchemist": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk0.mp3",
+        "en_url": null,
+        "label": "Play"
+      },
+      {
+        "name": "chunk1.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk1.mp3",
+        "en_url": null,
+        "label": "Skybound Art"
+      },
+      {
+        "name": "chunk2.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk2.mp3",
+        "en_url": null,
+        "label": "Super Skybound Art"
+      },
+      {
+        "name": "chunk3.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk3.mp3",
+        "en_url": null,
+        "label": "MeetMireille & Risette"
+      },
+      {
+        "name": "chunk4.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk4.mp3",
+        "en_url": null,
+        "label": "MeetBeelzebub"
+      },
+      {
+        "name": "chunk5.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk5.mp3",
+        "en_url": null,
+        "label": "Attack"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk6.mp3",
+        "en_url": null,
+        "label": "Death"
+      },
+      {
+        "name": "chunk8.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk8.mp3",
+        "en_url": null,
+        "label": "Evolve"
+      },
+      {
+        "name": "chunk9.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk9.mp3",
+        "en_url": null,
+        "label": "Super Evolve"
+      },
+      {
+        "name": "chunk10.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk10.mp3",
+        "en_url": null,
+        "label": "Attack"
+      },
+      {
+        "name": "chunk11.mp3",
+        "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk11.mp3",
+        "en_url": null,
+        "label": "Death"
+      }
+    ],
+    "metadata": {
+      "common": {
+        "card_id": 10434120,
+        "card_set_id": 10004,
+        "type": 1,
+        "class": 3,
+        "is_token": false,
+        "atk": 5,
+        "life": 3,
+        "cost": 4,
+        "rarity": 4,
+        "cv": "Sarah Williams",
+        "illustrator": "",
+        "flavour_text": "Hey, hey, Captain? Why do you think Cagliostro's the cutest? Because she was crafted by the most beautiful of alchemists, that's why! There's no truthier truth than that!",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Gain 2 earth sigils. Add an <b><i><color=Keyword>Ars Magna</color></i></b> to your hand. <b><color=Keyword>Skybound Art</color></b> - Evolve this follower. <b><color=Keyword>Super Skybound Art</color></b> - Gain <b><i>Crest: Cagliostro, Genius Alchemist</i></b>.",
+        "card_image_hash": "c57af30ffee646908087b30152cbc1a3",
+        "card_banner_image_hash": "2766ebee3d2444febb890d128be91493",
+        "base_art_url": "Art/10434120.png",
+        "jpCard_image_hash": "6e606a49094f4b069341e199fab1c278",
+        "jpCV": "丹下桜",
+        "jpName": "天才美少女錬金術師・カリオストロ",
+        "jpFlavour_Text": "ねぇねぇ、団長さん☆\nどうしてカリオストロはこんなにカワイイと思う？\nそれはね……天才美少女錬金術師ご謹製だからだ。\nこれ以上の真理が存在するわけねーよな？",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】自分の場の土の印を+2する。『<color=Keyword>アルス・マグナ</color>』1枚を自分の手札に加える。【<color=Keyword>奥義</color>】これは進化する。【<color=Keyword>解放奥義</color>】自分は『クレスト：天才美少女錬金術師・カリオストロ』を持つ。",
+        "jpIllustrator": null
+      },
+      "evo": {
+        "card_resource_id": 104341201,
+        "flavour_text": "Crushing insects like you bores me to tears, but you're in luck! As part of today's lesson plan for my apprentice, I, the founder of alchemy, shall turn you into paste!",
+        "jpFlavour_text": "雑魚と戦うのは退屈だから嫌だけど～、今日は特別☆\n……そこの有象無象共、ありがたく思えよ？\n錬金術師の開祖たるオレ様が相手をしてやるぜ。\n弟子の講義のついでにな。",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Gain 2 earth sigils. Add an <b><i><color=Keyword>Ars Magna</color></i></b> to your hand. <b><color=Keyword>Skybound Art</color></b> - Evolve this follower. <b><color=Keyword>Super Skybound Art</color></b> - Gain <b><i>Crest: Cagliostro, Genius Alchemist</i></b>.",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】自分の場の土の印を+2する。『<color=Keyword>アルス・マグナ</color>』1枚を自分の手札に加える。【<color=Keyword>奥義</color>】これは進化する。【<color=Keyword>解放奥義</color>】自分は『クレスト：天才美少女錬金術師・カリオストロ』を持つ。",
+        "card_image_hash": "683c96aa4e804bcea779849576c491eb",
+        "jpCard_image_hash": "8fcb5d278b0d45988201fd268abf288a",
+        "card_banner_image_hash": "031f3d63748e4396a8499acfd6402859",
+        "evo_art_url": "Art/10434121.png"
+      }
+    }
+  },
+  "Yuel_&_Societte,_Dancing_Duo": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk0.mp3",
+        "en_url": null,
+        "label": "Play"
+      },
+      {
+        "name": "chunk1.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk1.mp3",
+        "en_url": null,
+        "label": "MeetKou & You"
+      },
+      {
+        "name": "chunk2.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk2.mp3",
+        "en_url": null,
+        "label": "Attack"
+      },
+      {
+        "name": "chunk3.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk3.mp3",
+        "en_url": null,
+        "label": "Death"
+      },
+      {
+        "name": "chunk5.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk5.mp3",
+        "en_url": null,
+        "label": "Evolve"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk6.mp3",
+        "en_url": null,
+        "label": "Super-Evolve"
+      }
+    ],
+    "metadata": {
+      "common": {
+        "card_id": 10414120,
+        "card_set_id": 10004,
+        "type": 1,
+        "class": 1,
+        "is_token": false,
+        "atk": 4,
+        "life": 3,
+        "cost": 5,
+        "rarity": 4,
+        "cv": "Melissa Medina / Lauren Mayfield",
+        "illustrator": "",
+        "flavour_text": "The only thing on my mind is dancin' with ya, Societte! So let's whirl, twirl, and swirl!\n—Yuel",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Deal 4 damage to a random enemy follower.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Gain <b><i>Crest: Yuel & Societte, Dancing Duo</i></b>.</sev>",
+        "card_image_hash": "92bd8eac974b43df934e44e12f60ca6d",
+        "card_banner_image_hash": "df5b72be4a4c411a93bcfbc7dea514d7",
+        "base_art_url": "Art/10414120.png",
+        "jpCard_image_hash": "959f9cf214d5427aad9783275b8a47d6",
+        "jpCV": "植田佳奈/白石涼子",
+        "jpName": "調和の舞手・ユエル＆ソシエ",
+        "jpFlavour_Text": "「ソシエと踊りたいだけやで♪\nちゅうことで、ほな！\n一緒におーどろ！ソシエ♪」\n――ユエル",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に4ダメージ。」を2回行う。\n<hr><sev>【<color=Keyword>超進化時</color>】自分は『クレスト：調和の舞手・ユエル＆ソシエ』を持つ。</sev>",
+        "jpIllustrator": null
+      },
+      "evo": {
+        "card_resource_id": 104141201,
+        "flavour_text": "Honestly? As long as I'm accompanied by Yuel and everyone else, anything goes.\n—Societte",
+        "jpFlavour_text": "「うーん、そうやなぁ。\nうちはユエルちゃんと、\nみんなと一緒やったら、何でもええよ」\n――ソシエ",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Deal 4 damage to a random enemy follower.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Gain <b><i>Crest: Yuel & Societte, Dancing Duo</i></b>.</sev>",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に4ダメージ。」を2回行う。\n<hr><sev>【<color=Keyword>超進化時</color>】自分は『クレスト：調和の舞手・ユエル＆ソシエ』を持つ。</sev>",
+        "card_image_hash": "67414d10c8c8452a903e5d8f62be00ce",
+        "jpCard_image_hash": "ad1c5f75b6f64dadb4e3f79140332a24",
+        "card_banner_image_hash": "c4e1348732fe4d3facabee55a0db11f8",
+        "evo_art_url": "Art/10414121.png"
+      }
     }
   }
 }
