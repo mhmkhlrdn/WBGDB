@@ -11414,6 +11414,9 @@
         "url": "Audio/FILTERED/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk6.mp3",
         "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk7.mp3",
         "label": "Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -15306,6 +15309,12 @@
         "url": "Audio/FILTERED/Maddening_Benison/chunk0.mp3",
         "en_url": "Audio/EN/Maddening_Benison/chunk0.mp3",
         "label": "Play"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk1.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Maddening_Benison/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -16524,6 +16533,9 @@
         "url": "Audio/FILTERED/Miriam,_the_Resolute/chunk6.mp3",
         "en_url": "Audio/EN/Miriam,_the_Resolute/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Miriam,_the_Resolute/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -18516,6 +18528,9 @@
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3",
         "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -21984,6 +21999,18 @@
         "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3",
         "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk4.mp3",
         "label": "Super-Evolve"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk5.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk6.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk7.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -27501,6 +27528,9 @@
         "label": "Play",
         "url": "Audio/FILTERED/Shadowcrypt_Memorial/chunk1.mp3",
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk1.mp3"
+      },
+      {
+        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -33265,67 +33295,67 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk0.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk1.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk1.mp3",
         "label": "Skybound Art"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk2.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk2.mp3",
         "label": "Super Skybound Art"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk3.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk3.mp3",
         "label": "MeetingMireille & Risette"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk4.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk4.mp3",
         "label": "MeetingBeelzebub"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk5.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk5.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk6.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk6.mp3",
         "label": "Death"
       },
       {
         "name": "chunk8.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk8.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk8.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk9.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk9.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk9.mp3",
         "label": "Super Evolve"
       },
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk10.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk10.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk11.mp3",
         "url": "Audio/FILTERED/Cagliostro,_Genius_Alchemist/chunk11.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Cagliostro,_Genius_Alchemist/chunk11.mp3",
         "label": "Death"
       }
     ],
@@ -33372,37 +33402,37 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk0.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk1.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk1.mp3",
         "label": "MeetingKou & You"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk2.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk2.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk3.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk3.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk3.mp3",
         "label": "Death"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk5.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk5.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk6.mp3",
         "url": "Audio/FILTERED/Yuel_&_Societte,_Dancing_Duo/chunk6.mp3",
-        "en_url": null,
+        "en_url": "Audio/EN/Yuel_&_Societte,_Dancing_Duo/chunk6.mp3",
         "label": "Super-Evolve"
       }
     ],
@@ -33441,6 +33471,126 @@
         "jpCard_image_hash": "ad1c5f75b6f64dadb4e3f79140332a24",
         "card_banner_image_hash": "c4e1348732fe4d3facabee55a0db11f8",
         "evo_art_url": "Art/10414121.png"
+      }
+    }
+  },
+  "Ars_Magna": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Ars_Magna/chunk0.mp3",
+        "en_url": "Audio/EN/Ars_Magna/chunk0.mp3",
+        "label": "Play"
+      }
+    ],
+    "metadata": {
+      "common": {
+        "card_id": 90034320,
+        "card_set_id": 90000,
+        "type": 4,
+        "class": 3,
+        "is_token": true,
+        "atk": 0,
+        "life": 0,
+        "cost": 1,
+        "rarity": 4,
+        "cv": "Sarah Williams",
+        "illustrator": "",
+        "flavour_text": "The invincible goddess Cagliostro is also the world's cutest being! If you take home anything at all today, make sure it's that!",
+        "skill_text": "Select an enemy and deal it 2 damage. Restore 1 defense to your leader.",
+        "card_image_hash": "ba48673df3e24a06a3ded8055738089e",
+        "card_banner_image_hash": "5461519fbd714867b800033a979a7cfd",
+        "base_art_url": "Art/90034320.png",
+        "jpCard_image_hash": "a423c9082a4548068a5e1c515a2a2978",
+        "jpCV": "丹下桜",
+        "jpName": "アルス・マグナ",
+        "jpFlavour_Text": "世界で一番可愛いのは、\n最強無敵のカリオストロ様だ！\n今日はそれだけ覚えていきな！",
+        "jpSkill_Text": "相手の場のフォロワー1枚か相手のリーダーを選ぶ。それに2ダメージ。自分のリーダーを1回復。",
+        "jpIllustrator": null
+      },
+      "evo": {}
+    }
+  },
+  "Lu_Woh,_Light_Personified": {
+    "voices": [
+      {
+        "name": "chunk0.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk0.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk0.mp3",
+        "label": "Play"
+      },
+      {
+        "name": "chunk1.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk1.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk1.mp3",
+        "label": "chunk1.mp3"
+      },
+      {
+        "name": "chunk2.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk2.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk2.mp3",
+        "label": "chunk2.mp3"
+      },
+      {
+        "name": "chunk3.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk3.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk3.mp3",
+        "label": "chunk3.mp3"
+      },
+      {
+        "name": "chunk4.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk4.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk4.mp3",
+        "label": "chunk4.mp3"
+      },
+      {
+        "name": "chunk6.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk6.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk6.mp3",
+        "label": "Evolve"
+      },
+      {
+        "name": "chunk7.mp3",
+        "url": "Audio/FILTERED/Lu_Woh,_Light_Personified/chunk7.mp3",
+        "en_url": "Audio/EN/Lu_Woh,_Light_Personified/chunk7.mp3",
+        "label": "Super-Evolve"
+      }
+    ],
+    "metadata": {
+      "common": {
+        "card_id": 10474110,
+        "card_set_id": 10004,
+        "type": 1,
+        "class": 7,
+        "is_token": false,
+        "atk": 6,
+        "life": 6,
+        "cost": 5,
+        "rarity": 4,
+        "cv": "Daman Mills",
+        "illustrator": "",
+        "flavour_text": "The Omnipotent erred in the creation of the Sky Realm. I, Lu Woh the White of the Six Dragons, will mend the faults of this world and bring dawn's light to every corner. You may join my struggle if you wish, children of man.",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 6 times: \"Deal 1 damage to a random enemy follower.\" Give all followers in your opponent's hand +1/+0. <b><color=Keyword>Skybound Art</color></b> - Gain <b><i>Crest: Lu Woh, Light Personified</i></b>.",
+        "card_image_hash": "3b52b2d2b30d4d48b73644ac47f4cbe8",
+        "card_banner_image_hash": "c2ec5b0fe7af41d0a34bd41e39617a3e",
+        "base_art_url": "Art/10474110.png",
+        "jpCard_image_hash": "482de80f06ed45b59a9124955d952999",
+        "jpCV": "佐藤拓也",
+        "jpName": "光の理・ル・オー",
+        "jpFlavour_Text": "創世の神は不手際をした。空の世界は歪である。\n因って私、六竜の『白』、光のル・オーは宣言する。\n必ずやこの不完全を是正し、空の世界に夜明けを齎すと。\n……望むならば。私と共に足掻き給え、ヒトの子よ。",
+        "jpSkill_Text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に1ダメージ。」を6回行う。相手の手札のフォロワーすべては+1/+0する。【<color=Keyword>奥義</color>】自分は『クレスト：光の理・ル・オー』を持つ。",
+        "jpIllustrator": null
+      },
+      "evo": {
+        "card_resource_id": 104741101,
+        "flavour_text": "Spare me your misgivings. The wishes of mortals will be restored to the skies and exert influence on the Six Dragons—providence incarnate. You behold and glorify my light, and so I must be just as radiant in return.",
+        "jpFlavour_text": "私の行動、姿勢に、勝手な解釈はやめ給えよ。\n……されど。ヒトの子の想いは空へ還元され、\n摂理そのものたる六竜へと、僅かながら影響を及ぼす。\n君が見た光に、同じ輝きを還さぬとはいかないだろうね。",
+        "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 6 times: \"Deal 1 damage to a random enemy follower.\" Give all followers in your opponent's hand +1/+0. <b><color=Keyword>Skybound Art</color></b> - Gain <b><i>Crest: Lu Woh, Light Personified</i></b>.",
+        "jpSkill_text": "【<color=Keyword>ファンファーレ</color>】「相手の場のフォロワーからランダム1枚に1ダメージ。」を6回行う。相手の手札のフォロワーすべては+1/+0する。【<color=Keyword>奥義</color>】自分は『クレスト：光の理・ル・オー』を持つ。",
+        "card_image_hash": "fde8f0b7f47649e4a561217e3323d363",
+        "jpCard_image_hash": "5ba5932e847b4b2bbe1745dc8762d2f5",
+        "card_banner_image_hash": "cbc55619a5af4d9a8096ec3a1406b317",
+        "evo_art_url": "Art/10474111.png"
       }
     }
   }
