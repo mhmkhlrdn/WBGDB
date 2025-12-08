@@ -1,0 +1,485 @@
+@import url('../style.css');
+
+/* Override some defaults to fit the game context */
+body {
+  display: block; /* Reset flex from game style if needed, but main style uses block */
+  background: radial-gradient(
+      1200px 800px at 80% -10%,
+      rgba(138, 92, 255, 0.25),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 700px at -10% 10%,
+      rgba(108, 140, 255, 0.18),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #0a0f21 0%, #0b1020 100%);
+}
+
+.container {
+  max-width: 1100px; /* Match main site */
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+}
+
+/* Header adjustments to match main site */
+header {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 18px;
+}
+
+/* Game specific styles that fit the theme */
+.game-container {
+  background: linear-gradient(180deg, rgba(18,25,57,0.7), rgba(15,21,48,0.7));
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.score-board {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.score-value {
+  color: var(--success);
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px rgba(25, 211, 167, 0.3);
+}
+
+.play-btn {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(108, 140, 255, 0.4);
+}
+
+.play-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(108, 140, 255, 0.5);
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn svg {
+  width: 40px;
+  height: 40px;
+  fill: currentColor;
+  margin-left: 6px;
+}
+
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* For dropdown positioning */
+}
+
+.hints-display {
+  min-height: 30px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.hint-tag {
+  background: rgba(108, 140, 255, 0.15);
+  border: 1px solid rgba(108, 140, 255, 0.3);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: slideIn 0.3s ease-out;
+}
+
+.hint-btn {
+  padding: 0 24px;
+  background: linear-gradient(135deg, rgba(138, 92, 255, 0.2), rgba(108, 140, 255, 0.2));
+  color: var(--accent);
+  border: 1px solid rgba(138, 92, 255, 0.4);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(138, 92, 255, 0.2);
+}
+
+.hint-btn:hover {
+  background: linear-gradient(135deg, rgba(138, 92, 255, 0.3), rgba(108, 140, 255, 0.3));
+  border-color: rgba(138, 92, 255, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(138, 92, 255, 0.3);
+}
+
+.hint-btn:active {
+  transform: translateY(1px);
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(18, 25, 57, 0.6);
+  color: var(--text);
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 140, 255, 0.2);
+  background: rgba(18, 25, 57, 0.9);
+}
+
+/* Custom Dropdown Styles */
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1e2540;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+  margin-top: 8px;
+  overflow: hidden;
+  display: none; /* Hidden by default */
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* We need to adjust the dropdown width to match the input exactly. 
+   Since input is flex:1, we can wrap the input in a div or set the dropdown to match input's width.
+   Let's wrap input in a relative container in HTML for easier positioning.
+*/
+.input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.custom-dropdown.active {
+  display: block;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover, .dropdown-item.selected {
+  background: rgba(108, 140, 255, 0.15);
+}
+
+.dropdown-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 16px;
+  border: 1px solid var(--card-border);
+  background-color: #000;
+}
+
+.dropdown-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.dropdown-name-en {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.dropdown-name-jp {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+
+.submit-btn {
+  padding: 0 28px;
+  background: var(--success);
+  color: #0b1020;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(25, 211, 167, 0.3);
+}
+
+.submit-btn:hover {
+  background: #1ce6b6;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(25, 211, 167, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.message-area {
+  min-height: 30px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.message-correct {
+  color: var(--success);
+  text-shadow: 0 0 10px rgba(25, 211, 167, 0.2);
+}
+
+.message-wrong {
+  color: var(--danger);
+  text-shadow: 0 0 10px rgba(255, 92, 138, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid var(--card-border);
+  padding-top: 24px;
+  gap: 20px;
+}
+
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* History Container */
+.history-container {
+  background: linear-gradient(180deg, rgba(18,25,57,0.5), rgba(15,21,48,0.5));
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.history-title {
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(108, 140, 255, 0.3);
+}
+
+.history-item-name {
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.history-item-divider {
+  color: var(--muted);
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.history-item-label {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.history-item-hints {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.history-item-time {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Session Groups */
+.session-group {
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(108, 140, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.session-header:hover {
+  background: rgba(108, 140, 255, 0.12);
+}
+
+.session-header.open .session-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.session-toggle-icon {
+  transition: transform 0.3s ease;
+  color: var(--primary);
+}
+
+.session-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.session-date {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.session-score {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.session-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.session-details {
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.session-details .history-item {
+  margin-bottom: 4px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.session-details .history-item:last-child {
+  margin-bottom: 0;
+}

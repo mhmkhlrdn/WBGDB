@@ -1412,6 +1412,7 @@ section.active {
 .lightbox.open { display: flex; }
 
 .lightbox-content {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 16px;
@@ -1435,6 +1436,18 @@ section.active {
     grid-template-columns: 1fr 1fr;
     gap: 10px 16px;
   }
+}
+
+.lightbox-credit {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.6;
+  font-style: italic;
+  pointer-events: none;
+  user-select: none;
 }
 
 .lightbox-img-wrap {

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="../Art/logo.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Guess the Voice - Shadowverse: Worlds Beyond</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <img src="../Art/logo.png" alt="Worlds Beyond" width="28" height="28" />
+          <h1>Shadowverse: Worlds Beyond • Web of the Entwining</h1>
+        </div>
+        <nav class="tabs" role="tablist">
+          <a href="../index.html" class="tab-btn" role="tab" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Cards</a>
+          <button class="tab-btn active" role="tab" aria-selected="true">Guess the Voice</button>
+        </nav>
+        <div class="lang-toggle-container">
+            <!-- Placeholder to balance flex layout if needed, or can add site-wide settings here -->
+        </div>
+      </header>
+
+      <main>
+        <div class="game-container">
+          <div class="score-board">Score: <span id="score" class="score-value">0</span></div>
+          
+          <div class="game-area">
+            <div class="audio-controls">
+              <button id="play-btn" class="play-btn" aria-label="Play Audio">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="message-area">
+              <span id="message"></span>
+            </div>
+
+            <div id="hints-display" class="hints-display"></div>
+
+            <div class="input-area">
+              <div class="input-wrapper">
+                <input type="text" id="guess-input" placeholder="Type card name..." autocomplete="off">
+                <div id="custom-dropdown" class="custom-dropdown"></div>
+              </div>
+              <button id="hint-btn" class="hint-btn">Hint</button>
+              <button id="submit-btn" class="submit-btn">Guess</button>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="lang-toggle" class="lang-toggle">Voice: JP</button>
+          </div>
+        </div>
+
+        <div id="history-container" class="history-container" style="display: none;">
+          <h3 class="history-title">Correct Guesses History</h3>
+          <div id="history-list" class="history-list"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

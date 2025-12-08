@@ -2066,6 +2066,15 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   const lightboxContent = document.querySelector('.lightbox-content');
   if (lightboxContent) {
     lightboxContent.classList.remove('swipe-left', 'swipe-right');
+    
+    // Add or update credit text
+    let creditEl = lightboxContent.querySelector('.lightbox-credit');
+    if (!creditEl) {
+      creditEl = document.createElement('div');
+      creditEl.className = 'lightbox-credit';
+      creditEl.textContent = 'Full art by Xtopher17';
+      lightboxContent.appendChild(creditEl);
+    }
   }
 
   currentCardIndex = cardIndex;
@@ -3208,12 +3217,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     });
   }
 
-  function hideQnATab(){
-    if (!isEnglishUI){
-      qnaTab = document.querySelector('[data-tab = "qna"]')
-      qnaTab.style.display = 'none';
-    }
-  }
+
 
   function debounceExecute(fn, delay = 50, shortcutKey = '') {
     if (isProcessing) return;
