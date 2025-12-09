@@ -679,3 +679,27 @@ input[type="text"]:focus {
   color: var(--primary);
   font-weight: 700;
 }
+
+/* Hide keyboard shortcuts on mobile */
+@media (max-width: 767px) {
+  .shortcut-hint,
+  .dropdown-shortcut {
+    display: none !important;
+  }
+  
+  /* Stack input area vertically on mobile */
+  .input-area {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input-wrapper {
+    width: 100%;
+  }
+  
+  .hint-btn,
+  .submit-btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
+}
