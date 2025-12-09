@@ -9,9 +9,18 @@ let currentVoiceIndex = 0; // Track which voice to play next in Normal mode
 let cardSearchList = []; // Array of {key, en, jp, img}
 let timerStart = null; // Timestamp when play button was pressed
 let guessHistory = []; // Array of {name, time, label, hints} - current session
-let sessionHistory = []; // Array of completed sessions {date, score, guesses, mode}
+let sessionHistory = []; // Array of completed sessions {date, score, guesses, mode, failedCard, incorrectGuess, filters}
 let usedHints = []; // Track which hints have been shown for current round
 let hintsUsedCount = 0; // Count of hints used for current round
+
+// Filter state
+let selectedSets = new Set(['10000', '10001', '10002', '10003', '10004']);
+let selectedRarities = new Set([1, 2, 3, 4]);
+let includeNonHuman = false;
+
+// Dropdown navigation state
+let currentDropdownResults = [];
+let selectedDropdownIndex = -1;
 
 // DOM Elements
 const scoreEl = document.getElementById('score');
@@ -51,7 +60,10 @@ function saveSessionHistoryToStorage() {
       date: session.date.toISOString(),
       score: session.score,
       guesses: session.guesses,
-      mode: session.mode || 'Hard' // Default to Hard for backward compatibility
+      mode: session.mode || 'Hard', // Default to Hard for backward compatibility
+      failedCard: session.failedCard || null,
+      incorrectGuess: session.incorrectGuess || null,
+      filters: session.filters || null
     }));
     localStorage.setItem('guessTheVoiceHistory', JSON.stringify(storageData));
   } catch (error) {
@@ -69,7 +81,10 @@ function loadSessionHistory() {
         date: new Date(session.date),
         score: session.score,
         guesses: session.guesses,
-        mode: session.mode || 'Hard' // Default to Hard for backward compatibility
+        mode: session.mode || 'Hard', // Default to Hard for backward compatibility
+        failedCard: session.failedCard || null,
+        incorrectGuess: session.incorrectGuess || null,
+        filters: session.filters || null
       }));
       renderSessionHistory();
     }
@@ -86,14 +101,29 @@ function resetSession() {
   guessHistory = []; // Clear current session history only
   // Don't clear historyList - session history should persist
   
-  // Build available clips map
+  // Build available clips map with filters applied
   Object.keys(allCards).forEach(key => {
     const card = allCards[key];
+    const meta = card.metadata?.common;
     const voices = card.voices || [];
-    if (voices.length > 0) {
-      // Store indices of available voices
-      availableClips[key] = voices.map((_, index) => index);
-    }
+    
+    // Skip if no voices
+    if (voices.length === 0) return;
+    
+    // Apply filters
+    if (!meta) return;
+    
+    // Filter by set
+    if (!selectedSets.has(String(meta.card_set_id))) return;
+    
+    // Filter by rarity
+    if (!selectedRarities.has(meta.rarity)) return;
+    
+    // Filter by CV data (non-human voices)
+    if (!includeNonHuman && (!meta.cv || meta.cv.trim() === '')) return;
+    
+    // Store indices of available voices
+    availableClips[key] = voices.map((_, index) => index);
   });
 }
 
@@ -266,12 +296,13 @@ function checkGuess() {
     setTimeout(startRound, 1000);
   } else {
     // Incorrect
+    const userGuess = guessInput.value.trim();
     messageEl.textContent = `Game Over! It was: ${currentRound.cardNameEn} / ${currentRound.cardNameJp || ''}`;
     messageEl.className = 'message-wrong';
     
     // Save current session to history if there were any correct guesses
     if (guessHistory.length > 0) {
-      saveSessionToHistory(score);
+      saveSessionToHistory(score, currentRound.cardNameEn, userGuess);
     }
     
     score = 0;
@@ -423,12 +454,19 @@ function addToHistory(cardName, time, label, hints) {
   historyList.appendChild(item);
 }
 
-function saveSessionToHistory(finalScore) {
+function saveSessionToHistory(finalScore, failedCard = null, incorrectGuess = null) {
   const session = {
     date: new Date(),
     score: finalScore,
     guesses: [...guessHistory], // Copy the array
-    mode: isHardMode ? 'Hard' : 'Normal'
+    mode: isHardMode ? 'Hard' : 'Normal',
+    failedCard: failedCard,
+    incorrectGuess: incorrectGuess,
+    filters: {
+      sets: Array.from(selectedSets),
+      rarities: Array.from(selectedRarities),
+      includeNonHuman: includeNonHuman
+    }
   };
   
   sessionHistory.push(session);
@@ -466,17 +504,28 @@ function renderSessionHistory() {
     const header = document.createElement('div');
     header.className = 'session-header';
     const modeLabel = session.mode || 'Hard';
-    header.innerHTML = `
+    
+    // Build header HTML with failed card info if available
+    let headerHTML = `
       <span class="session-info">
         <span class="session-date">${dateStr}</span>
         <span class="session-mode">${modeLabel}</span>
         <span class="session-score">Score: ${session.score}</span>
-        <span class="session-count">${session.guesses.length} guess${session.guesses.length > 1 ? 'es' : ''}</span>
+        <span class="session-count">${session.guesses.length} guess${session.guesses.length > 1 ? 'es' : ''}</span>`;
+    
+    if (session.failedCard) {
+      headerHTML += `
+        <span class="session-failed">Failed: ${session.failedCard}</span>`;
+    }
+    
+    headerHTML += `
       </span>
       <svg class="session-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M6 9l6 6 6-6"/>
       </svg>
     `;
+    
+    header.innerHTML = headerHTML;
     
     // Session details (collapsible)
     const details = document.createElement('div');
@@ -498,6 +547,35 @@ function renderSessionHistory() {
       details.appendChild(item);
     });
     
+    // Add failed guess info if available
+    if (session.failedCard && session.incorrectGuess) {
+      const failedItem = document.createElement('div');
+      failedItem.className = 'history-item history-item-failed';
+      failedItem.innerHTML = `
+        <span class="history-item-name">
+          <span class="failed-label">❌ Failed:</span> ${session.failedCard}
+          <span class="history-item-divider">•</span>
+          <span class="incorrect-guess">Guessed: ${session.incorrectGuess}</span>
+        </span>
+      `;
+      details.appendChild(failedItem);
+    }
+    
+    // Add filter info if available
+    if (session.filters) {
+      const filterInfo = buildFilterInfoText(session.filters);
+      if (filterInfo) {
+        const filterItem = document.createElement('div');
+        filterItem.className = 'history-item history-item-filters';
+        filterItem.innerHTML = `
+          <span class="history-item-name">
+            <span class="filter-info-label">🔍 Filters:</span> ${filterInfo}
+          </span>
+        `;
+        details.appendChild(filterItem);
+      }
+    }
+    
     // Toggle functionality
     header.addEventListener('click', () => {
       const isOpen = details.style.display === 'block';
@@ -509,6 +587,52 @@ function renderSessionHistory() {
     sessionDiv.appendChild(details);
     historyList.appendChild(sessionDiv);
   });
+}
+
+function buildFilterInfoText(filters) {
+  const parts = [];
+  
+  // Check sets
+  const allSets = ['10000', '10001', '10002', '10003', '10004'];
+  const setNames = {
+    '10000': 'Basic',
+    '10001': 'Legends Rise',
+    '10002': 'Infinity Evolved',
+    '10003': 'Heirs of the Omen',
+    '10004': 'Skybound Dragons'
+  };
+  
+  if (filters.sets && filters.sets.length < allSets.length) {
+    const excludedSets = allSets.filter(s => !filters.sets.includes(s));
+    if (excludedSets.length > 0) {
+      const excludedNames = excludedSets.map(s => setNames[s]).join(', ');
+      parts.push(`Excluded sets: ${excludedNames}`);
+    }
+  }
+  
+  // Check rarities
+  const allRarities = [1, 2, 3, 4];
+  const rarityNames = {
+    1: 'Bronze',
+    2: 'Silver',
+    3: 'Gold',
+    4: 'Legendary'
+  };
+  
+  if (filters.rarities && filters.rarities.length < allRarities.length) {
+    const excludedRarities = allRarities.filter(r => !filters.rarities.includes(r));
+    if (excludedRarities.length > 0) {
+      const excludedNames = excludedRarities.map(r => rarityNames[r]).join(', ');
+      parts.push(`Excluded rarities: ${excludedNames}`);
+    }
+  }
+  
+  // Check non-human filter
+  if (filters.includeNonHuman === false) {
+    parts.push('Only cards with human voice');
+  }
+  
+  return parts.length > 0 ? parts.join(' • ') : null;
 }
 
 // Fuzzy Matching Implementation (Levenshtein Distance)
@@ -539,6 +663,8 @@ function handleInput() {
   const val = guessInput.value.trim().toLowerCase();
   if (!val) {
     dropdown.classList.remove('active');
+    currentDropdownResults = [];
+    selectedDropdownIndex = -1;
     return;
   }
   
@@ -574,8 +700,10 @@ function handleInput() {
   results.sort((a, b) => a.score - b.score);
   
   const top5 = results.slice(0, 5);
+  currentDropdownResults = top5.map(r => r.item);
+  selectedDropdownIndex = -1; // Reset selection
   
-  renderDropdown(top5.map(r => r.item));
+  renderDropdown(currentDropdownResults);
 }
 
 function renderDropdown(items) {
@@ -585,23 +713,34 @@ function renderDropdown(items) {
     return;
   }
   
-  items.forEach(item => {
+  items.forEach((item, index) => {
     const div = document.createElement('div');
     div.className = 'dropdown-item';
+    if (index === selectedDropdownIndex) {
+      div.classList.add('selected');
+    }
+    
+    // Build keyboard shortcut indicators
+    let shortcutHTML = '';
+    if (index === selectedDropdownIndex) {
+      shortcutHTML = '<span class="dropdown-shortcut">↵ Enter</span>';
+    } else if (index === 0 && selectedDropdownIndex === -1) {
+      shortcutHTML = '<span class="dropdown-shortcut dropdown-shortcut-muted">↓ or ↵</span>';
+    }
+    
     div.innerHTML = `
       <img src="${item.img}" class="dropdown-img" loading="lazy" alt="">
       <div class="dropdown-text">
         <span class="dropdown-name-en">${item.en}</span>
         <span class="dropdown-name-jp">${item.jp}</span>
       </div>
+      ${shortcutHTML}
     `;
     div.addEventListener('click', () => {
       guessInput.value = item.en;
       dropdown.classList.remove('active');
-      checkGuess(); // Optional: auto-submit on click? Or just fill? User said "inputted a key", usually click fills. Let's just fill.
-      // Actually, let's just fill and let user click guess or press enter.
-      // But wait, if they click, they probably mean that's their guess.
-      // Let's focus input back.
+      currentDropdownResults = [];
+      selectedDropdownIndex = -1;
       guessInput.focus();
     });
     dropdown.appendChild(div);
@@ -610,6 +749,20 @@ function renderDropdown(items) {
   dropdown.classList.add('active');
 }
 
+// Global keyboard listener for spacebar
+document.addEventListener('keydown', (e) => {
+  // Only handle spacebar if not typing in an input/textarea
+  if (e.key === ' ' && 
+      document.activeElement.tagName !== 'INPUT' && 
+      document.activeElement.tagName !== 'TEXTAREA' &&
+      !document.activeElement.isContentEditable) {
+    e.preventDefault();
+    playCurrentAudio();
+    // Focus on input for immediate typing
+    guessInput.focus();
+  }
+});
+
 // Event Listeners
 playBtn.addEventListener('click', playCurrentAudio);
 
@@ -617,10 +770,53 @@ submitBtn.addEventListener('click', checkGuess);
 
 hintBtn.addEventListener('click', showHint);
 
-guessInput.addEventListener('keypress', (e) => {
+guessInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
+    e.preventDefault();
+    
+    // If dropdown is open and has results, select the top one (or currently selected)
+    if (dropdown.classList.contains('active') && currentDropdownResults.length > 0) {
+      const indexToUse = selectedDropdownIndex >= 0 ? selectedDropdownIndex : 0;
+      guessInput.value = currentDropdownResults[indexToUse].en;
+      dropdown.classList.remove('active');
+      currentDropdownResults = [];
+      selectedDropdownIndex = -1;
+    }
+    
+    // Then check the guess
     checkGuess();
+  } else if (e.key === ' ' && guessInput.value.trim() === '') {
+    // Spacebar when input is empty - play audio
+    e.preventDefault();
+    playCurrentAudio();
+  } else if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (currentDropdownResults.length > 0) {
+      selectedDropdownIndex = Math.min(selectedDropdownIndex + 1, currentDropdownResults.length - 1);
+      renderDropdown(currentDropdownResults);
+      
+      // Scroll selected item into view
+      const selectedItem = dropdown.querySelector('.dropdown-item.selected');
+      if (selectedItem) {
+        selectedItem.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (currentDropdownResults.length > 0) {
+      selectedDropdownIndex = Math.max(selectedDropdownIndex - 1, -1);
+      renderDropdown(currentDropdownResults);
+      
+      // Scroll selected item into view
+      const selectedItem = dropdown.querySelector('.dropdown-item.selected');
+      if (selectedItem) {
+        selectedItem.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  } else if (e.key === 'Escape') {
     dropdown.classList.remove('active');
+    currentDropdownResults = [];
+    selectedDropdownIndex = -1;
   }
 });
 
@@ -656,6 +852,71 @@ difficultyToggle.addEventListener('click', () => {
     resetSession();
     startRound();
   }, 1500);
+});
+
+// Filter event listeners
+const setFilters = document.querySelectorAll('.set-filter');
+const rarityFilters = document.querySelectorAll('.rarity-filter');
+const includeNonHumanCheckbox = document.getElementById('include-non-human');
+
+setFilters.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      selectedSets.add(checkbox.value);
+    } else {
+      selectedSets.delete(checkbox.value);
+    }
+    applyFilters();
+  });
+});
+
+rarityFilters.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    const rarityValue = parseInt(checkbox.value);
+    if (checkbox.checked) {
+      selectedRarities.add(rarityValue);
+    } else {
+      selectedRarities.delete(rarityValue);
+    }
+    applyFilters();
+  });
+});
+
+includeNonHumanCheckbox.addEventListener('change', () => {
+  includeNonHuman = includeNonHumanCheckbox.checked;
+  applyFilters();
+});
+
+function applyFilters() {
+  // Save current session if there were any correct guesses
+  if (guessHistory.length > 0) {
+    saveSessionToHistory(score);
+  }
+  
+  // Reset the game session with new filters
+  messageEl.textContent = 'Filters updated. Game reset!';
+  messageEl.className = 'message-correct';
+  
+  setTimeout(() => {
+    resetSession();
+    startRound();
+  }, 1000);
+}
+
+// Filters toggle functionality
+const filtersToggle = document.getElementById('filters-toggle');
+const filtersContent = document.getElementById('filters-content');
+
+filtersToggle.addEventListener('click', () => {
+  const isOpen = filtersContent.classList.contains('open');
+  
+  if (isOpen) {
+    filtersContent.classList.remove('open');
+    filtersToggle.classList.remove('open');
+  } else {
+    filtersContent.classList.add('open');
+    filtersToggle.classList.add('open');
+  }
 });
 
 // Start

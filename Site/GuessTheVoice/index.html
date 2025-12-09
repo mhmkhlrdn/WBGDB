@@ -34,6 +34,7 @@
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </button>
+              <div class="shortcut-hint">Press Space to play</div>
             </div>
 
             <div class="message-area">
@@ -49,6 +50,45 @@
               </div>
               <button id="hint-btn" class="hint-btn">Hint</button>
               <button id="submit-btn" class="submit-btn">Guess</button>
+            </div>
+          </div>
+
+          <div class="filters-container">
+            <button id="filters-toggle" class="filters-toggle">
+              <span>Filters</span>
+              <svg class="filters-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+            
+            <div id="filters-content" class="filters-content">
+              <div class="filter-group">
+                <label class="filter-label">Sets:</label>
+                <div class="filter-options">
+                  <label class="filter-checkbox"><input type="checkbox" class="set-filter" value="10000" checked> Basic</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="set-filter" value="10001" checked> Legends Rise</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="set-filter" value="10002" checked> Infinity Evolved</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="set-filter" value="10003" checked> Heirs of the Omen</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="set-filter" value="10004" checked> Skybound Dragons</label>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-label">Rarities:</label>
+                <div class="filter-options">
+                  <label class="filter-checkbox"><input type="checkbox" class="rarity-filter" value="1" checked> Bronze</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="rarity-filter" value="2" checked> Silver</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="rarity-filter" value="3" checked> Gold</label>
+                  <label class="filter-checkbox"><input type="checkbox" class="rarity-filter" value="4" checked> Legendary</label>
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <label class="filter-checkbox">
+                  <input type="checkbox" id="include-non-human">
+                  Include cards with non-human voices
+                </label>
+              </div>
             </div>
           </div>
 

@@ -89,6 +89,21 @@ header {
   margin-left: 6px;
 }
 
+.shortcut-hint {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  opacity: 0.7;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .input-area {
   display: flex;
   gap: 12px;
@@ -144,7 +159,7 @@ header {
 }
 
 input[type="text"] {
-  flex: 1;
+  width: 100%;
   padding: 14px 18px;
   border-radius: 12px;
   border: 1px solid var(--card-border);
@@ -207,6 +222,26 @@ input[type="text"]:focus {
 
 .dropdown-item:hover, .dropdown-item.selected {
   background: rgba(108, 140, 255, 0.15);
+}
+
+.dropdown-shortcut {
+  margin-left: auto;
+  padding: 4px 10px;
+  background: rgba(108, 140, 255, 0.2);
+  border: 1px solid rgba(108, 140, 255, 0.4);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.dropdown-shortcut-muted {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  opacity: 0.7;
 }
 
 .dropdown-img {
@@ -276,6 +311,95 @@ input[type="text"]:focus {
 .message-wrong {
   color: var(--danger);
   text-shadow: 0 0 10px rgba(255, 92, 138, 0.2);
+}
+
+.filters-container {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.filters-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(108, 140, 255, 0.1);
+  border: 1px solid var(--card-border);
+  color: var(--primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.filters-toggle:hover {
+  background: rgba(108, 140, 255, 0.15);
+  border-color: var(--primary);
+}
+
+.filters-toggle.open .filters-toggle-icon {
+  transform: rotate(180deg);
+}
+
+.filters-toggle-icon {
+  transition: transform 0.3s ease;
+  color: var(--primary);
+}
+
+.filters-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.filters-content.open {
+  max-height: 500px;
+  padding-top: 16px;
+}
+
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.filter-label {
+  display: block;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.filter-checkbox:hover {
+  color: var(--primary);
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary);
 }
 
 .controls {
@@ -485,6 +609,15 @@ input[type="text"]:focus {
   font-size: 0.8rem;
 }
 
+.session-failed {
+  background: rgba(255, 92, 138, 0.2);
+  color: var(--danger);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
 .session-score {
   color: var(--success);
   font-weight: 700;
@@ -509,4 +642,40 @@ input[type="text"]:focus {
 
 .session-details .history-item:last-child {
   margin-bottom: 0;
+}
+
+.history-item-failed {
+  background: rgba(255, 92, 138, 0.08) !important;
+  border-color: rgba(255, 92, 138, 0.3) !important;
+}
+
+.history-item-failed:hover {
+  background: rgba(255, 92, 138, 0.12) !important;
+  border-color: rgba(255, 92, 138, 0.4) !important;
+}
+
+.failed-label {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.incorrect-guess {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.history-item-filters {
+  background: rgba(108, 140, 255, 0.08) !important;
+  border-color: rgba(108, 140, 255, 0.3) !important;
+}
+
+.history-item-filters:hover {
+  background: rgba(108, 140, 255, 0.12) !important;
+  border-color: rgba(108, 140, 255, 0.4) !important;
+}
+
+.filter-info-label {
+  color: var(--primary);
+  font-weight: 700;
 }
