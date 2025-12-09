@@ -871,6 +871,56 @@ section.active {
   color: var(--muted);
   margin: 0;
 }
+
+.social-links-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(180deg, rgba(88, 101, 242, 0.15), rgba(88, 101, 242, 0.1));
+  border: 1px solid rgba(88, 101, 242, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-links-section:hover {
+  background: linear-gradient(180deg, rgba(88, 101, 242, 0.25), rgba(88, 101, 242, 0.18));
+  border-color: rgba(88, 101, 242, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(88, 101, 242, 0.3);
+}
+
+.social-icon {
+  color: #5865F2;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.social-links-section:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-text {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .social-links-section {
+    padding: 10px 12px;
+    min-height: 44px;
+  }
+  
+  .social-text {
+    font-size: 13px;
+  }
+}
+
 .lang-toggle-container {
   display: flex;
   flex-direction: column;

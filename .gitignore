@@ -18,3 +18,5 @@ __pycache__
 *.py
 evolve_indicator.png
 voice_button.png
+generate-*.js
+fetch_cv_data.js
