@@ -3,8 +3,9 @@ let availableClips = {}; // Map<CardName, Array<VoiceIndex>>
 let currentRound = null;
 let score = 0;
 let isEnglishVoice = false;
-let isHardMode = true; // true = Hard (one clip), false = Normal (all clips)
+let isHardMode = false; 
 let currentAudio = null;
+let currentVoiceIndex = 0; // Track which voice to play next in Normal mode
 let cardSearchList = []; // Array of {key, en, jp, img}
 let timerStart = null; // Timestamp when play button was pressed
 let guessHistory = []; // Array of {name, time, label, hints} - current session
@@ -127,6 +128,7 @@ function startRound() {
   messageEl.className = '';
   dropdown.classList.remove('active');
   timerStart = null; // Reset timer
+  currentVoiceIndex = 0; // Reset voice index for Normal mode
   usedHints = []; // Reset hints
   hintsUsedCount = 0;
   hintsDisplay.innerHTML = ''; // Clear hints display
@@ -218,31 +220,20 @@ function playCurrentAudio() {
       messageEl.textContent = "Error playing audio. Try toggling language?";
     });
   } else {
-    // Normal mode: play all voices sequentially
-    playAllVoices(0);
+    // Normal mode: play one voice at a time, cycling through them
+    const voiceObj = currentRound.allVoices[currentVoiceIndex];
+    const url = isEnglishVoice ? voiceObj.en_url : voiceObj.url;
+    const fixedUrl = '../' + url;
+    
+    currentAudio = new Audio(fixedUrl);
+    currentAudio.play().catch(e => {
+      console.error("Audio play failed", e);
+      messageEl.textContent = "Error playing audio. Try toggling language?";
+    });
+    
+    // Move to next voice for next play (cycle back to 0 if at end)
+    currentVoiceIndex = (currentVoiceIndex + 1) % currentRound.allVoices.length;
   }
-}
-
-function playAllVoices(index) {
-  if (!currentRound || !currentRound.allVoices || index >= currentRound.allVoices.length) {
-    return;
-  }
-  
-  const voiceObj = currentRound.allVoices[index];
-  const url = isEnglishVoice ? voiceObj.en_url : voiceObj.url;
-  const fixedUrl = '../' + url;
-  
-  currentAudio = new Audio(fixedUrl);
-  
-  // When this audio ends, play the next one
-  currentAudio.addEventListener('ended', () => {
-    playAllVoices(index + 1);
-  });
-  
-  currentAudio.play().catch(e => {
-    console.error("Audio play failed", e);
-    messageEl.textContent = "Error playing audio. Try toggling language?";
-  });
 }
 
 function checkGuess() {
