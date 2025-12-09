@@ -908,7 +908,6 @@ section.active {
     visibility: hidden;
   }
 }
-
 .lang-toggle-container {
   display: flex;
   flex-direction: column;

@@ -22,6 +22,9 @@ let includeNonHuman = false;
 let currentDropdownResults = [];
 let selectedDropdownIndex = -1;
 
+// Image loading controller
+let imageLoadController = null;
+
 // DOM Elements
 const scoreEl = document.getElementById('score');
 const playBtn = document.getElementById('play-btn');
@@ -134,15 +137,11 @@ function prepareSearchList() {
     const meta = card.metadata?.common;
     if (!meta) return;
     
-    // Determine image URL (use base art)
-    // Path in json is like "Art/1000.png", we need "../Art/1000.png"
-    const imgUrl = meta.base_art_url ? `../${meta.base_art_url}` : '';
-    
     cardSearchList.push({
       key: key,
       en: key.replace(/_/g, ' '),
       jp: meta.jpName || '',
-      img: imgUrl
+      cardKey: key // Store key to get image on-demand
     });
   });
 }
@@ -665,6 +664,13 @@ function handleInput() {
     dropdown.classList.remove('active');
     currentDropdownResults = [];
     selectedDropdownIndex = -1;
+    
+    // Abort any pending image loads
+    if (imageLoadController) {
+      imageLoadController.abort();
+      imageLoadController = null;
+    }
+    
     return;
   }
   
@@ -707,11 +713,19 @@ function handleInput() {
 }
 
 function renderDropdown(items) {
+  // Abort any pending image loads from previous dropdown render
+  if (imageLoadController) {
+    imageLoadController.abort();
+  }
+  
   dropdown.innerHTML = '';
   if (items.length === 0) {
     dropdown.classList.remove('active');
     return;
   }
+  
+  // Create new abort controller for this dropdown render
+  imageLoadController = new AbortController();
   
   items.forEach((item, index) => {
     const div = document.createElement('div');
@@ -728,19 +742,78 @@ function renderDropdown(items) {
       shortcutHTML = '<span class="dropdown-shortcut dropdown-shortcut-muted">↓ or ↵</span>';
     }
     
-    div.innerHTML = `
-      <img src="${item.img}" class="dropdown-img" loading="lazy" alt="">
-      <div class="dropdown-text">
-        <span class="dropdown-name-en">${item.en}</span>
-        <span class="dropdown-name-jp">${item.jp}</span>
-      </div>
-      ${shortcutHTML}
-    `;
+    // Get image URL from card data
+    const card = allCards[item.cardKey];
+    const meta = card?.metadata?.common;
+    const imgUrl = meta?.base_art_url ? `../${meta.base_art_url}` : '';
+    
+    // Create placeholder image element
+    const img = document.createElement('img');
+    img.className = 'dropdown-img';
+    img.alt = '';
+    
+    // Only load image if URL exists
+    if (imgUrl) {
+      // Use a simple 1x1 transparent pixel as placeholder
+      img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+      
+      // Load actual image asynchronously
+      const imageLoader = new Image();
+      imageLoader.onload = () => {
+        // Only update if this dropdown is still active and not aborted
+        if (!imageLoadController.signal.aborted) {
+          img.src = imgUrl;
+        }
+      };
+      imageLoader.onerror = () => {
+        // Silently fail - keep placeholder
+      };
+      
+      // Start loading with abort signal
+      imageLoader.src = imgUrl;
+      
+      // Listen for abort signal to stop the load
+      imageLoadController.signal.addEventListener('abort', () => {
+        imageLoader.src = ''; // Cancel the load
+      });
+    }
+    
+    // Build the dropdown item
+    const textDiv = document.createElement('div');
+    textDiv.className = 'dropdown-text';
+    
+    const nameEn = document.createElement('span');
+    nameEn.className = 'dropdown-name-en';
+    nameEn.textContent = item.en;
+    
+    const nameJp = document.createElement('span');
+    nameJp.className = 'dropdown-name-jp';
+    nameJp.textContent = item.jp;
+    
+    textDiv.appendChild(nameEn);
+    textDiv.appendChild(nameJp);
+    
+    div.appendChild(img);
+    div.appendChild(textDiv);
+    
+    if (shortcutHTML) {
+      const shortcutSpan = document.createElement('span');
+      shortcutSpan.innerHTML = shortcutHTML;
+      div.appendChild(shortcutSpan.firstChild);
+    }
+    
     div.addEventListener('click', () => {
       guessInput.value = item.en;
       dropdown.classList.remove('active');
       currentDropdownResults = [];
       selectedDropdownIndex = -1;
+      
+      // Abort image loads when dropdown closes
+      if (imageLoadController) {
+        imageLoadController.abort();
+        imageLoadController = null;
+      }
+      
       guessInput.focus();
     });
     dropdown.appendChild(div);
@@ -781,6 +854,12 @@ guessInput.addEventListener('keydown', (e) => {
       dropdown.classList.remove('active');
       currentDropdownResults = [];
       selectedDropdownIndex = -1;
+      
+      // Abort image loads when dropdown closes
+      if (imageLoadController) {
+        imageLoadController.abort();
+        imageLoadController = null;
+      }
     }
     
     // Then check the guess
@@ -817,6 +896,12 @@ guessInput.addEventListener('keydown', (e) => {
     dropdown.classList.remove('active');
     currentDropdownResults = [];
     selectedDropdownIndex = -1;
+    
+    // Abort image loads when dropdown closes
+    if (imageLoadController) {
+      imageLoadController.abort();
+      imageLoadController = null;
+    }
   }
 });
 
@@ -826,6 +911,12 @@ guessInput.addEventListener('input', handleInput);
 document.addEventListener('click', (e) => {
   if (!guessInput.contains(e.target) && !dropdown.contains(e.target)) {
     dropdown.classList.remove('active');
+    
+    // Abort any pending image loads
+    if (imageLoadController) {
+      imageLoadController.abort();
+      imageLoadController = null;
+    }
   }
 });
 
