@@ -193,7 +193,6 @@ function startRound() {
     };
   }
   
-  console.log('Round started. Answer:', currentRound.cardNameEn, '/', currentRound.cardNameJp, '| Mode:', isHardMode ? 'Hard' : 'Normal');
 }
 
 function playCurrentAudio() {
