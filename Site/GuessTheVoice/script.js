@@ -3,11 +3,12 @@ let availableClips = {}; // Map<CardName, Array<VoiceIndex>>
 let currentRound = null;
 let score = 0;
 let isEnglishVoice = false;
+let isHardMode = true; // true = Hard (one clip), false = Normal (all clips)
 let currentAudio = null;
 let cardSearchList = []; // Array of {key, en, jp, img}
 let timerStart = null; // Timestamp when play button was pressed
 let guessHistory = []; // Array of {name, time, label, hints} - current session
-let sessionHistory = []; // Array of completed sessions {date, score, guesses}
+let sessionHistory = []; // Array of completed sessions {date, score, guesses, mode}
 let usedHints = []; // Track which hints have been shown for current round
 let hintsUsedCount = 0; // Count of hints used for current round
 
@@ -19,6 +20,7 @@ const submitBtn = document.getElementById('submit-btn');
 const hintBtn = document.getElementById('hint-btn');
 const messageEl = document.getElementById('message');
 const langToggle = document.getElementById('lang-toggle');
+const difficultyToggle = document.getElementById('difficulty-toggle');
 const container = document.querySelector('.game-container');
 const dropdown = document.getElementById('custom-dropdown');
 const historyContainer = document.getElementById('history-container');
@@ -47,7 +49,8 @@ function saveSessionHistoryToStorage() {
     const storageData = sessionHistory.map(session => ({
       date: session.date.toISOString(),
       score: session.score,
-      guesses: session.guesses
+      guesses: session.guesses,
+      mode: session.mode || 'Hard' // Default to Hard for backward compatibility
     }));
     localStorage.setItem('guessTheVoiceHistory', JSON.stringify(storageData));
   } catch (error) {
@@ -64,7 +67,8 @@ function loadSessionHistory() {
       sessionHistory = data.map(session => ({
         date: new Date(session.date),
         score: session.score,
-        guesses: session.guesses
+        guesses: session.guesses,
+        mode: session.mode || 'Hard' // Default to Hard for backward compatibility
       }));
       renderSessionHistory();
     }
@@ -148,29 +152,46 @@ function startRound() {
     } while (currentRound && randomCardKey === currentRound.cardKey);
   }
 
+  const card = allCards[randomCardKey];
   const clipIndices = availableClips[randomCardKey];
   
-  // Pick random clip index
-  const randomClipIndex = getRandomItem(clipIndices);
-  
-  // Remove this clip from available
-  const indexInArray = clipIndices.indexOf(randomClipIndex);
-  clipIndices.splice(indexInArray, 1);
-  if (clipIndices.length === 0) {
+  if (isHardMode) {
+    // Hard mode: Pick one random clip
+    const randomClipIndex = getRandomItem(clipIndices);
+    
+    // Remove this clip from available
+    const indexInArray = clipIndices.indexOf(randomClipIndex);
+    clipIndices.splice(indexInArray, 1);
+    if (clipIndices.length === 0) {
+      delete availableClips[randomCardKey];
+    }
+    
+    const voiceObj = card.voices[randomClipIndex];
+    
+    currentRound = {
+      cardKey: randomCardKey,
+      cardNameEn: randomCardKey.replace(/_/g, ' '),
+      cardNameJp: card.metadata?.common?.jpName,
+      voiceObj: voiceObj,
+      allVoices: null // Only one voice in hard mode
+    };
+  } else {
+    // Normal mode: Use all clips for this card
+    const allVoices = clipIndices.map(idx => card.voices[idx]);
+    
+    // Remove this card entirely from available
     delete availableClips[randomCardKey];
+    
+    currentRound = {
+      cardKey: randomCardKey,
+      cardNameEn: randomCardKey.replace(/_/g, ' '),
+      cardNameJp: card.metadata?.common?.jpName,
+      voiceObj: allVoices[0], // Use first voice for label display
+      allVoices: allVoices // All voices to play
+    };
   }
   
-  const card = allCards[randomCardKey];
-  const voiceObj = card.voices[randomClipIndex];
-  
-  currentRound = {
-    cardKey: randomCardKey,
-    cardNameEn: randomCardKey.replace(/_/g, ' '),
-    cardNameJp: card.metadata?.common?.jpName,
-    voiceObj: voiceObj
-  };
-  
-  console.log('Round started. Answer:', currentRound.cardNameEn, '/', currentRound.cardNameJp);
+  console.log('Round started. Answer:', currentRound.cardNameEn, '/', currentRound.cardNameJp, '| Mode:', isHardMode ? 'Hard' : 'Normal');
 }
 
 function playCurrentAudio() {
@@ -186,12 +207,38 @@ function playCurrentAudio() {
     currentAudio.currentTime = 0;
   }
   
-  const url = isEnglishVoice ? currentRound.voiceObj.en_url : currentRound.voiceObj.url;
-  // The URLs in cards.json are relative to Site root (e.g. "Audio/...")
-  // We are in GuessTheVoice/, so we need to go up one level
+  if (isHardMode || !currentRound.allVoices) {
+    // Hard mode: play single voice
+    const url = isEnglishVoice ? currentRound.voiceObj.en_url : currentRound.voiceObj.url;
+    const fixedUrl = '../' + url;
+    
+    currentAudio = new Audio(fixedUrl);
+    currentAudio.play().catch(e => {
+      console.error("Audio play failed", e);
+      messageEl.textContent = "Error playing audio. Try toggling language?";
+    });
+  } else {
+    // Normal mode: play all voices sequentially
+    playAllVoices(0);
+  }
+}
+
+function playAllVoices(index) {
+  if (!currentRound || !currentRound.allVoices || index >= currentRound.allVoices.length) {
+    return;
+  }
+  
+  const voiceObj = currentRound.allVoices[index];
+  const url = isEnglishVoice ? voiceObj.en_url : voiceObj.url;
   const fixedUrl = '../' + url;
   
   currentAudio = new Audio(fixedUrl);
+  
+  // When this audio ends, play the next one
+  currentAudio.addEventListener('ended', () => {
+    playAllVoices(index + 1);
+  });
+  
   currentAudio.play().catch(e => {
     console.error("Audio play failed", e);
     messageEl.textContent = "Error playing audio. Try toggling language?";
@@ -340,7 +387,7 @@ function showHint() {
         10003: 'Heirs of the Omen',
         10004: 'Skybound Dragons'
       };
-      hintText = `Set: ${setNames[meta.card_set_id] || 'Unknown'}`;
+      hintText = `Set: ${setNames[meta.card_set_id] || 'Token'}`;
       break;
     case 'rarity':
       const rarityNames = {
@@ -390,7 +437,8 @@ function saveSessionToHistory(finalScore) {
   const session = {
     date: new Date(),
     score: finalScore,
-    guesses: [...guessHistory] // Copy the array
+    guesses: [...guessHistory], // Copy the array
+    mode: isHardMode ? 'Hard' : 'Normal'
   };
   
   sessionHistory.push(session);
@@ -427,9 +475,11 @@ function renderSessionHistory() {
     // Session header (clickable)
     const header = document.createElement('div');
     header.className = 'session-header';
+    const modeLabel = session.mode || 'Hard';
     header.innerHTML = `
       <span class="session-info">
         <span class="session-date">${dateStr}</span>
+        <span class="session-mode">${modeLabel}</span>
         <span class="session-score">Score: ${session.score}</span>
         <span class="session-count">${session.guesses.length} guess${session.guesses.length > 1 ? 'es' : ''}</span>
       </span>
@@ -596,6 +646,26 @@ document.addEventListener('click', (e) => {
 langToggle.addEventListener('click', () => {
   isEnglishVoice = !isEnglishVoice;
   langToggle.textContent = isEnglishVoice ? 'Voice: EN' : 'Voice: JP';
+});
+
+difficultyToggle.addEventListener('click', () => {
+  // Save current session if there were any correct guesses
+  if (guessHistory.length > 0) {
+    saveSessionToHistory(score);
+  }
+  
+  // Toggle difficulty mode
+  isHardMode = !isHardMode;
+  difficultyToggle.textContent = isHardMode ? 'Mode: Hard' : 'Mode: Normal';
+  
+  // Reset the game session
+  messageEl.textContent = `Switched to ${isHardMode ? 'Hard' : 'Normal'} mode. Game reset!`;
+  messageEl.className = 'message-correct';
+  
+  setTimeout(() => {
+    resetSession();
+    startRound();
+  }, 1500);
 });
 
 // Start

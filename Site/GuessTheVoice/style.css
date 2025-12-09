@@ -306,6 +306,24 @@ input[type="text"]:focus {
   border-color: var(--muted);
 }
 
+.difficulty-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.difficulty-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-color: var(--muted);
+}
+
 /* Animations */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
@@ -456,6 +474,15 @@ input[type="text"]:focus {
   font-weight: 700;
   color: var(--text);
   font-size: 0.95rem;
+}
+
+.session-mode {
+  background: rgba(108, 140, 255, 0.2);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .session-score {
