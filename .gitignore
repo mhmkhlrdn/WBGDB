@@ -16,6 +16,5 @@ node_modules
 .vscode
 __pycache__
 *.py
-.gitignore
 evolve_indicator.png
 voice_button.png
