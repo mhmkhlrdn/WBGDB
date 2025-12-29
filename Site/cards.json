@@ -35118,31 +35118,31 @@
       {
         "name": "chunk0.mp3",
         "url": "Audio/FILTERED/Imari's_Little_Buddies/chunk0.mp3",
-        "en_url": null,
+        "en_url": "Audio/FILTERED/Imari's_Little_Buddies/chunk0.mp3",
         "label": "Play"
       },
       {
         "name": "chunk1.mp3",
         "url": "Audio/FILTERED/Imari's_Little_Buddies/chunk1.mp3",
-        "en_url": null,
+        "en_url": "Audio/FILTERED/Imari's_Little_Buddies/chunk1.mp3",
         "label": "Attack"
       },
       {
         "name": "chunk2.mp3",
         "url": "Audio/FILTERED/Imari's_Little_Buddies/chunk2.mp3",
-        "en_url": null,
+        "en_url": "Audio/FILTERED/Imari's_Little_Buddies/chunk2.mp3",
         "label": "Death"
       },
       {
         "name": "chunk4.mp3",
         "url": "Audio/FILTERED/Imari's_Little_Buddies/chunk4.mp3",
-        "en_url": null,
+        "en_url": "Audio/FILTERED/Imari's_Little_Buddies/chunk4.mp3",
         "label": "Evolve"
       },
       {
         "name": "chunk5.mp3",
         "url": "Audio/FILTERED/Imari's_Little_Buddies/chunk5.mp3",
-        "en_url": null,
+        "en_url": "Audio/FILTERED/Imari's_Little_Buddies/chunk5.mp3",
         "label": "Super-Evolve"
       }
     ],
@@ -35713,13 +35713,13 @@
         "name": "chunk7.mp3",
         "url": "Audio/FILTERED/Lhynkal,_Wandering_Fool/chunk7.mp3",
         "en_url": "Audio/EN/Lhynkal,_Wandering_Fool/chunk7.mp3",
-        "label": "Evolve"
+        "label": "Attack"
       },
       {
         "name": "chunk8.mp3",
         "url": "Audio/FILTERED/Lhynkal,_Wandering_Fool/chunk8.mp3",
         "en_url": "Audio/EN/Lhynkal,_Wandering_Fool/chunk8.mp3",
-        "label": "Super-Evolve"
+        "label": "Death"
       }
     ],
     "metadata": {

@@ -1152,6 +1152,57 @@ function createSkeletonCard(cardName, cardObj, cardIndex) {
 
   return cardDiv;
 }
+
+function getShownNames(meta, altCv) {
+  const jp = altCv || meta.jpCV || '';
+  const en = altCv || meta.cv || '';
+  if (isEnglishVoice && en) return splitCVs(en);
+  if (!isEnglishVoice && jp) {
+    const parts = splitCVs(jp);
+    return isEnglishUI ? parts.map(p => getRomajiNameForJpCV(p) || p) : parts;
+  }
+  return [];
+}
+
+function renderCVMetadataContent(container, meta, altCv = '') {
+  const shownNames = getShownNames(meta, altCv);
+  if (shownNames.length === 0) return;
+
+  const cvItem = document.createElement("div");
+  cvItem.className = "card-metadata-item";
+
+  const label = document.createElement("div");
+  label.className = "card-metadata-label";
+  label.textContent = getLocalizedText('CV');
+
+  const valuesWrap = document.createElement("div");
+  valuesWrap.style.display = "flex";
+  valuesWrap.style.flexWrap = "wrap";
+  valuesWrap.style.justifyContent = "center";
+  valuesWrap.style.gap = "4px";
+
+  shownNames.forEach((name) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'card-metadata-value';
+    btn.style.background = 'transparent';
+    btn.style.border = 'none';
+    btn.style.padding = '0';
+    btn.style.color = 'inherit';
+    btn.style.cursor = 'pointer';
+    btn.textContent = name;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openCvDetailsModal(name);
+    });
+    valuesWrap.appendChild(btn);
+  });
+
+  cvItem.appendChild(label);
+  cvItem.appendChild(valuesWrap);
+  container.appendChild(cvItem);
+}
+
 function hydrateCard(skeletonEl) {
   if (!skeletonEl || skeletonEl.dataset.hydrated === "1") return;
   const cardId = skeletonEl.dataset.cardId;
@@ -1221,51 +1272,7 @@ function hydrateCard(skeletonEl) {
     const rightMetadata = document.createElement("div");
     rightMetadata.className = "card-metadata";
 
-    const shownNames = (() => {
-      const alt = false;
-      const altData = null;
-      const altCv = alt ? (altData?.cv || '') : '';
-      const jp = altCv || meta.jpCV || '';
-      const en = altCv || meta.cv || '';
-      if (isEnglishVoice && en) return splitCVs(en);
-      if (!isEnglishVoice && jp) {
-        const parts = splitCVs(jp);
-        return isEnglishUI ? parts.map(p => getRomajiNameForJpCV(p) || p) : parts;
-      }
-      return [];
-    })();
-
-    if (shownNames.length > 0) {
-      const cvItem = document.createElement("div");
-      cvItem.className = "card-metadata-item";
-      const label = document.createElement("div");
-      label.className = "card-metadata-label";
-      label.textContent = getLocalizedText('CV');
-      const valuesWrap = document.createElement("div");
-      valuesWrap.style.display = "flex";
-      valuesWrap.style.flexWrap = "wrap";
-      valuesWrap.style.justifyContent = "center";
-      valuesWrap.style.gap = "4px";
-      shownNames.forEach((name) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'card-metadata-value';
-        btn.style.background = 'transparent';
-        btn.style.border = 'none';
-        btn.style.padding = '0';
-        btn.style.color = 'inherit';
-        btn.style.cursor = 'pointer';
-        btn.textContent = name;
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openCvDetailsModal(name);
-        });
-        valuesWrap.appendChild(btn);
-      });
-      cvItem.appendChild(label);
-      cvItem.appendChild(valuesWrap);
-      leftMetadata.appendChild(cvItem);
-    }
+    renderCVMetadataContent(leftMetadata, meta);
 
     const illustratorValueList = isEnglishUI
       ? meta.illustrator || ""
@@ -1952,7 +1959,8 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
   leftMetadata.innerHTML = "";
   rightMetadata.innerHTML = "";
 
-  const cvValue = getDisplayCVName(meta, isAlternate, alternateData);
+  const altCv = isAlternate && alternateData?.cv ? alternateData.cv : '';
+  renderCVMetadataContent(leftMetadata, meta, altCv);
 
   const illustratorValue =
     isAlternate
@@ -1961,25 +1969,220 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
         ? meta.illustrator || ""
         : meta.jpIllustrator || meta.illustrator || "";
 
-  if (cvValue) {
-    const cvItem = document.createElement("div");
-    cvItem.className = "card-metadata-item";
-    cvItem.innerHTML = `
-      <div class="card-metadata-label">CV</div>
-      <div class="card-metadata-value">${cvValue}</div>
-    `;
-    leftMetadata.appendChild(cvItem);
-  }
-
   if (illustratorValue) {
     const illustratorItem = document.createElement("div");
     illustratorItem.className = "card-metadata-item";
     illustratorItem.innerHTML = `
-      <div class="card-metadata-label">Illustrator</div>
+      <div class="card-metadata-label">${getLocalizedText('Illustrator')}</div>
       <div class="card-metadata-value">${illustratorValue}</div>
     `;
     rightMetadata.appendChild(illustratorItem);
   }
+}
+
+function updateOpenLightboxVoiceLanguage() {
+  const lb = document.getElementById("lightbox");
+  if (!lb || !lb.classList.contains("open")) return;
+
+  if (currentCardIndex < 0 || !filteredCards[currentCardIndex]) return;
+  const cardData = filteredCards[currentCardIndex];
+  const cardObj = allCards[cardData.id];
+  if (!cardObj) return;
+
+  // Update voices list (re-render based on isEnglishVoice inside createAudioButton)
+  // We need to know which voices to use.
+  // The lightbox remembers "showingAlternate" state in closure for `updateLightboxVoices`?
+  // `openLightbox` has `showingAlternate` variable.
+  // But we can't access it.
+  // Ideally, valid voice buttons depend on `isEnglishVoice`.
+  // The `openLightbox` logic for voices is complex (meeting, label, etc).
+  // AND it changes when alternate toggle is clicked.
+
+  // Simplest Hack: Re-open the lightbox with current card index.
+  // This will re-run openLightbox logic and pick up new language settings.
+  // But we want to preserve state (like showing alternate).
+  // `openLightbox` accepts `alternate` data. It doesn't accept "start in alternate mode" param though.
+  // So it resets to common art.
+
+  // Improving `openLightbox` to accept `initialMode` would be cleaner but changing signature might be risky.
+
+  // Alternative: Just update what we can: The Metadata text for language details?
+  // The user mainly cares about hearing the other language. 
+
+  // If we just re-run `openLightbox`, it's not a "full refresh" of the page. It's just a UI transition.
+  // It might be acceptable.
+  // Let's try re-opening the lightbox with the SAME data.
+  // To avoid animation flicker, maybe we can temporarily disable transition?
+
+  const currentImg = document.getElementById("lightbox-img");
+  const isEvo = currentImg.dataset.variant === "evo";
+  // We can pass this info? openLightbox doesn't seemingly take "start as evo".
+
+  // Let's rely on the user manually toggling art if they were deep in some state?
+  // Or, better:
+  // We can just update the LIST of cards under the overlay.
+  // The lightbox overlay itself:
+  // We can update the voice list manually here.
+
+  const voicesList = document.getElementById("lightbox-voices-list");
+  if (voicesList) {
+    // Re-render
+    // We need to know if we are showing alternate voices.
+    // We can guess:
+    const altToggle = document.getElementById("lightbox-alternate-toggle");
+    const isAltMode = altToggle && altToggle.classList.contains("active");
+
+    const voices = cardObj.voices || [];
+    const altVoices = cardObj.metadata?.alternate?.voices || [];
+
+    const voicesToUse = isAltMode ? altVoices : voices;
+
+    voicesList.innerHTML = "";
+    if (voicesToUse && voicesToUse.length > 7) {
+      voicesList.parentElement.classList.add("many-voices");
+    } else {
+      voicesList.parentElement.classList.remove("many-voices");
+    }
+
+    if (voicesToUse && voicesToUse.length > 0) {
+      voicesToUse.forEach(line => {
+        // Basic reproduction of openLightbox voice rendering logic
+        // We might lose some "meeting" logic details if duplicate code.
+        // Copied logic:
+        const voiceContainer = document.createElement("div");
+        voiceContainer.className = "lightbox-voice-container";
+
+        const isMeeting = line.label && line.label.startsWith("Meeting");
+        const rawText = isMeeting
+          ? line.label.substring(7)
+          : (line.label || line.name || line);
+
+        // getLocalizedText uses isEnglishUI, not Voice. 
+        // BUT localization.en keys might differ? 
+        // Actually voice labels are usually same.
+
+        const displayText = localization.en[rawText]
+          ? getLocalizedText(rawText)
+          : rawText;
+
+        const btn = createAudioButton(line);
+        // customize button content to match lightbox style (icon + text + duration)
+        // createAudioButton creates a simple button. Lightbox has custom HTML.
+        // We should use createAudioButton for logic but style it.
+        // Actually createAudioButton returns a button element with class `audio-btn`.
+        // Lightbox uses `lightbox-voice-btn`.
+        // Re-implementing lightbox button creation here is messy.
+
+        // Allow `debouncedVoiceLanguageToggle` to just close/reopen lightbox?
+        // "without having to search or scroll to that card again".
+        // Re-opening lightbox is fine.
+      });
+    }
+
+    // Actually, simpler:
+    // If we just call `openLightbox` with the current card, it works.
+    // The user loses "Evolved" state, but they are at the same card.
+
+    const nextDisplayName = isEnglishUI ? cardData.name : (cardData.meta.jpName || cardData.name);
+    openLightbox({
+      name: nextDisplayName,
+      meta: cardData.meta,
+      metaEvo: cardData.metaEvo,
+      voices: cardData.lines,
+      alternate: cardData.alternate,
+      cardIndex: currentCardIndex,
+      cardData: cardData
+    });
+  }
+}
+
+function updateAllCardsForLanguage() {
+  const cards = document.querySelectorAll('.card[data-hydrated="1"]');
+  cards.forEach(cardEl => {
+    const cardId = cardEl.dataset.cardId;
+    const cardObj = allCards[cardId];
+    if (!cardObj) return;
+
+    const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+
+    // Update Card Names
+    const title = cardEl.querySelector(".card-title");
+    if (title) {
+      title.textContent = isEnglishUI ? formatName(cardId) : (meta.jpName || formatName(cardId));
+    }
+
+    // Update Class Icons (title/alt)
+    if (meta.class !== undefined) {
+      const classImg = cardEl.querySelector(".card-class-icon img");
+      if (classImg) {
+        const locName = getLocalizedClassName(meta.class);
+        classImg.alt = locName;
+        classImg.title = locName;
+      }
+    }
+
+    // Update Tooltips
+    const tooltip = cardEl.querySelector(".card-tooltip");
+    if (tooltip) {
+      tooltip.innerHTML = isEnglishUI ? meta.skill_text : (meta.jpSkill_Text || meta.skill_text);
+    }
+
+    // Update Voice Buttons (might change if label logic relies on language, mostly not, but availability msg does)
+    // Also unavailable message is localized.
+    updateVoiceButtonsOnCard(cardEl, cardObj);
+
+    // Update Toggle Buttons
+    const toggleBtn = cardEl.querySelector(".img-toggle span");
+    if (toggleBtn) {
+      // Determine current state
+      const img = cardEl.querySelector("img");
+      const isEvo = img && img.dataset.variant === "evo";
+      // If isEvo, button says "Show: Base"
+      toggleBtn.textContent = getLocalizedText(isEvo ? "Show: Base" : "Show: Evo");
+    }
+
+    const leftMetadata = cardEl.querySelector(".card-metadata");
+    const rightMetadata = cardEl.querySelectorAll(".card-metadata")[1];
+    if (leftMetadata && rightMetadata) {
+      leftMetadata.innerHTML = "";
+      rightMetadata.innerHTML = "";
+
+      const img = cardEl.querySelector("img");
+      const isAlt = img && img.dataset.artType === "alternate";
+      const altCv = isAlt && cardObj.metadata?.alternate?.style_data?.cv;
+
+      renderCVMetadataContent(leftMetadata, meta, altCv);
+
+      const alternateData = cardObj.metadata?.alternate?.style_data;
+      const illustratorValue =
+        isAlt
+          ? (alternateData?.illustrator || "")
+          : isEnglishUI
+            ? meta.illustrator || ""
+            : meta.jpIllustrator || meta.illustrator || "";
+
+      if (illustratorValue) {
+        const illustratorItem = document.createElement("div");
+        illustratorItem.className = "card-metadata-item";
+        illustratorItem.innerHTML = `
+              <div class="card-metadata-label">${getLocalizedText('Illustrator')}</div>
+              <div class="card-metadata-value">${illustratorValue}</div>
+            `;
+        rightMetadata.appendChild(illustratorItem);
+      }
+    }
+
+    // Update entry in filteredCards to reflect name change?
+    // filterCards name property is used for lightbox title.
+    // So yes, we should update usage where possible, but `filteredCards` is just data.
+    // Lightbox update function handles its own title.
+    const entryIndex = Number(cardEl.dataset.cardIndex || -1);
+    if (entryIndex >= 0 && filteredCards[entryIndex]) {
+      filteredCards[entryIndex].name = isEnglishUI ? formatName(cardId) : (meta.jpName || formatName(cardId));
+    }
+  });
+
+  updateOpenLightboxVoiceLanguage();
 }
 
 function updateLightboxMetadata(
@@ -2743,6 +2946,14 @@ fetch("cards.json")
         menu.style.boxShadow = "0 6px 24px rgba(0,0,0,0.3)";
         menu.style.padding = "4px 0";
 
+        // Keep open on hover
+        menu.addEventListener("mouseenter", () => clearTimeout(hoverTimeout));
+        menu.addEventListener("mouseleave", () => {
+          hoverTimeout = setTimeout(() => {
+            closeMenu();
+          }, 300);
+        });
+
         const clearItem = document.createElement("div");
         clearItem.textContent = "Clear";
         clearItem.style.padding = "6px 10px";
@@ -2788,6 +2999,7 @@ fetch("cards.json")
         menu.style.minWidth = `${rect.width}px`;
       }
 
+
       function openMenu() {
         if (isOpen) return;
         buildMenu();
@@ -2814,6 +3026,8 @@ fetch("cards.json")
         if (menu && (e.target === input || menu.contains(e.target))) return;
         closeMenu();
       }
+
+      // Click still toggles for mobile or persistent interaction expectation
 
       input.addEventListener("click", (e) => {
         const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
@@ -2948,10 +3162,9 @@ const debouncedVoiceLanguageToggle = debounce(() => {
     populateCVOptions();
   });
 
-  const searchEl = document.getElementById("search");
-  const q = searchEl ? searchEl.value : "";
+  // Instead of full render, update existing cards in place
   requestAnimationFrame(() => {
-    renderCards(allCards, q);
+    updateAllCardsForLanguage();
   });
 }, 16);
 
@@ -3030,10 +3243,9 @@ function handleUILanguageChange() {
     }
   }
 
-  const searchEl2 = document.getElementById("search");
-  const q2 = searchEl2 ? searchEl2.value : "";
+  // Instead of full render, update existing cards in place for UI language too
   requestAnimationFrame(() => {
-    renderCards(allCards, q2);
+    updateAllCardsForLanguage();
   });
 }
 
@@ -3108,6 +3320,195 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     document.getElementById(id)?.classList.add("active");
   });
 });
+
+// Custom hover dropdowns for filter selects
+(function () {
+  function createCustomDropdown(selectElement) {
+    if (!selectElement || selectElement.classList.contains('custom-hidden')) return;
+    if (selectElement.id === 'ui-lang-select') return; // Skip UI language select
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'custom-select-wrapper';
+
+    const trigger = document.createElement('div');
+    trigger.className = 'custom-select-trigger';
+
+    const dropdown = document.createElement('div');
+    dropdown.className = 'custom-select-dropdown';
+
+    // Function to update trigger text
+    const updateTrigger = () => {
+      const selectedOption = selectElement.options[selectElement.selectedIndex];
+      trigger.textContent = selectedOption ? selectedOption.textContent : '';
+    };
+
+    // Populate dropdown options
+    const populateOptions = () => {
+      dropdown.innerHTML = '';
+      Array.from(selectElement.options).forEach((option, index) => {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'custom-select-option';
+        optionDiv.textContent = option.textContent;
+        optionDiv.dataset.value = option.value;
+        optionDiv.dataset.index = index;
+
+        if (option.selected) {
+          optionDiv.classList.add('selected');
+        }
+
+        optionDiv.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectElement.selectedIndex = index;
+          selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+          updateTrigger();
+          updateSelectedOption();
+          closeDropdown();
+        });
+
+        dropdown.appendChild(optionDiv);
+      });
+    };
+
+    // Update selected option styling
+    const updateSelectedOption = () => {
+      dropdown.querySelectorAll('.custom-select-option').forEach((opt, idx) => {
+        opt.classList.toggle('selected', idx === selectElement.selectedIndex);
+      });
+    };
+
+    let hoverTimeout;
+    let isOpen = false;
+
+    const openDropdown = () => {
+      if (isOpen) return;
+      clearTimeout(hoverTimeout);
+      isOpen = true;
+      wrapper.classList.add('open');
+      populateOptions(); // Refresh options in case they changed
+    };
+
+    const closeDropdown = () => {
+      isOpen = false;
+      wrapper.classList.remove('open');
+    };
+
+    const scheduleClose = () => {
+      hoverTimeout = setTimeout(closeDropdown, 200);
+    };
+
+    const cancelClose = () => {
+      clearTimeout(hoverTimeout);
+    };
+
+    // Desktop: hover to open
+    wrapper.addEventListener('mouseenter', () => {
+      if (!window.matchMedia("(max-width: 767px)").matches) {
+        cancelClose();
+        openDropdown();
+      }
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (!window.matchMedia("(max-width: 767px)").matches) {
+        scheduleClose();
+      }
+    });
+
+    // Click also works
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!wrapper.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    // Initialize
+    updateTrigger();
+    wrapper.appendChild(trigger);
+    wrapper.appendChild(dropdown);
+
+    // Replace select with custom dropdown
+    selectElement.parentNode.insertBefore(wrapper, selectElement);
+    selectElement.classList.add('custom-hidden');
+
+    // Listen for programmatic changes to the select
+    const observer = new MutationObserver(() => {
+      updateTrigger();
+      if (isOpen) {
+        populateOptions();
+      }
+    });
+
+    observer.observe(selectElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['selected']
+    });
+
+    // Store reference for cleanup
+    selectElement._customDropdown = {
+      wrapper,
+      destroy: () => {
+        observer.disconnect();
+        wrapper.remove();
+        selectElement.classList.remove('custom-hidden');
+      }
+    };
+  }
+
+  function initCustomDropdowns() {
+    const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
+    if (!isDesktop) return;
+
+    const filterSelects = document.querySelectorAll('.filter select');
+    filterSelects.forEach(select => {
+      if (select.id !== 'ui-lang-select' && !select.classList.contains('custom-hidden')) {
+        createCustomDropdown(select);
+      }
+    });
+  }
+
+  function destroyCustomDropdowns() {
+    const filterSelects = document.querySelectorAll('.filter select.custom-hidden');
+    filterSelects.forEach(select => {
+      if (select._customDropdown) {
+        select._customDropdown.destroy();
+        delete select._customDropdown;
+      }
+    });
+  }
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCustomDropdowns);
+  } else {
+    initCustomDropdowns();
+  }
+
+  // Handle resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
+      if (isDesktop) {
+        initCustomDropdowns();
+      } else {
+        destroyCustomDropdowns();
+      }
+    }, 250);
+  });
+})();
 
 (function () {
   const toggleBtn = document.getElementById("filters-toggle-btn");

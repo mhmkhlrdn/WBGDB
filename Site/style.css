@@ -450,6 +450,140 @@ input[type="number"]::after {
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.25);
   min-width: 140px;
+  position: relative;
+}
+
+/* Custom dropdown wrapper */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-select-wrapper.open .custom-select-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-select-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 32px 8px 10px;
+  min-height: 36px;
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  min-width: 120px;
+}
+
+.custom-select-trigger:hover {
+  border-color: var(--primary);
+  background: linear-gradient(180deg, rgba(18,25,57,0.95), rgba(15,21,48,0.95));
+}
+
+.custom-select-trigger::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--text);
+  transition: transform 0.2s ease;
+}
+
+.custom-select-wrapper.open .custom-select-trigger::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(18,25,57,0.98), rgba(15,21,48,0.98));
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(108, 140, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+  max-height: 280px;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.custom-select-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(108, 140, 255, 0.3);
+  border-radius: 4px;
+}
+
+.custom-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 140, 255, 0.5);
+}
+
+.custom-select-option {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.custom-select-option:last-child {
+  border-bottom: none;
+}
+
+.custom-select-option:hover {
+  background: linear-gradient(90deg, rgba(108, 140, 255, 0.15), rgba(138, 92, 255, 0.1));
+  color: var(--text);
+}
+
+.custom-select-option.selected {
+  background: linear-gradient(90deg, rgba(108, 140, 255, 0.2), rgba(138, 92, 255, 0.15));
+  font-weight: 600;
+  position: relative;
+}
+
+.custom-select-option.selected::before {
+  content: '✓';
+  position: absolute;
+  left: 14px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.custom-select-option.selected {
+  padding-left: 32px;
+}
+
+/* Hide original select when custom dropdown is active */
+.filter select.custom-hidden {
+  display: none;
 }
 
 .filter-actions {
