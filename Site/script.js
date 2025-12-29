@@ -147,8 +147,8 @@ function openCvDetailsModal(cvKeyOrName) {
       const animeImgEl = document.createElement("img");
       animeImgEl.src = animeImg;
       animeImgEl.alt = animeTitle ? `${animeTitle} image` : "Anime image";
-  animeImgEl.style.width = "72px";
-  animeImgEl.style.height = "96px";
+      animeImgEl.style.width = "72px";
+      animeImgEl.style.height = "96px";
       animeImgEl.style.objectFit = "cover";
       animeImgEl.style.borderRadius = "6px";
       animeImgEl.style.border = "1px solid var(--card-border, #444)";
@@ -185,8 +185,8 @@ function openCvDetailsModal(cvKeyOrName) {
       const charImgEl = document.createElement("img");
       charImgEl.src = charImg;
       charImgEl.alt = charName ? `${charName} image` : "Character image";
-  charImgEl.style.width = "72px";
-  charImgEl.style.height = "96px";
+      charImgEl.style.width = "72px";
+      charImgEl.style.height = "96px";
       charImgEl.style.objectFit = "cover";
       charImgEl.style.borderRadius = "6px";
       charImgEl.style.border = "1px solid var(--card-border, #444)";
@@ -326,7 +326,7 @@ const localization = {
     'Raio': 'Raio',
     'Izudia': 'Izudia',
     'Rulenye & Valnereik': 'Rulenye & Valnereik',
-    'Marwynn' : 'Marwynn',
+    'Marwynn': 'Marwynn',
     'Octrice': 'Octrice',
     'Balto': 'Balto',
     'Valse': 'Valse',
@@ -351,16 +351,16 @@ const localization = {
     'Sylvia': 'Sylvia',
     'Olivia': 'Olivia',
     'Odin': 'Odin',
-    'Glade':'Glade',
-    'Zirconia':'Zirconia',
-    'Edelweiss':'Edelweiss',
-    'Liu Feng':'Liu Feng',
-    'Mukan':'Mukan',
-    'Alouette':'Alouette',
-    'Ronavero':'Ronavero',
+    'Glade': 'Glade',
+    'Zirconia': 'Zirconia',
+    'Edelweiss': 'Edelweiss',
+    'Liu Feng': 'Liu Feng',
+    'Mukan': 'Mukan',
+    'Alouette': 'Alouette',
+    'Ronavero': 'Ronavero',
     'Luminous Knights': 'Luminous Knights',
-    'Eyfa':'Eyfa',
-    'Zell':'Zell',
+    'Eyfa': 'Eyfa',
+    'Zell': 'Zell',
     'Forte': 'Forte',
     'Miriam': 'Miriam',
     'Filene': 'Filene',
@@ -381,20 +381,20 @@ const localization = {
     'Luminous Knights': 'ルミナス',
     'Zell': 'ゼル',
     'Odin': 'オーディン',
-    'Glade':'バックウッド',
-    'Zirconia':'スタチウム',
-    'Edelweiss':'エーデルワイス',
-    'Liu Feng':'リュウフウ',
-    'Mukan':'ムカン',
-    'Alouette':'アルエット',
-    'Ronavero':'ロナヴェロ',
+    'Glade': 'バックウッド',
+    'Zirconia': 'スタチウム',
+    'Edelweiss': 'エーデルワイス',
+    'Liu Feng': 'リュウフウ',
+    'Mukan': 'ムカン',
+    'Alouette': 'アルエット',
+    'Ronavero': 'ロナヴェロ',
     'Sylvia': 'シルヴィア',
     'Olivia': 'オリヴィエ',
     'Cerberus': 'ケルベロス',
     'Hnikar & Jafnhar': 'フニカル＆ヤヴンハール',
     'Grimnir': 'グリームニル',
     'Prim': 'プリム',
-    'Supreme Silver Dragon':'覇道の銀龍',
+    'Supreme Silver Dragon': '覇道の銀龍',
     'Supreme Golden Dragon': '覇道の金龍',
     'Rosé': 'ロゼ',
     'Orchis': 'オーキス',
@@ -434,7 +434,7 @@ const localization = {
     'Rusty': 'ラスティ',
     'Phildau': 'フィルドア',
     'Wards': '天宮',
-    'Zwei':'ツヴァイ',
+    'Zwei': 'ツヴァイ',
     'Vier': 'フィア',
     'Salefa': 'サレファ',
     'Maeve': "ミーヴェ",
@@ -492,8 +492,8 @@ const localization = {
     'Evolve': '進化',
     'Super-Evolve': '超進化',
     'Enhance': 'エンハンス',
-    "Open Image":"画像をオープンする",
-    "Download Image":"画像をダウンロード",
+    "Open Image": "画像をオープンする",
+    "Download Image": "画像をダウンロード",
     'Any': 'すべて',
     'All cards': 'すべてのカード',
     'No tokens': 'トークンなし',
@@ -557,18 +557,18 @@ function updateLocalization() {
       element.textContent = isEnglishUI ? enText : jpText;
     }
   });
-  
+
   const searchInput = document.getElementById('search');
   if (searchInput) {
     searchInput.placeholder = getLocalizedText('Search cards...');
   }
-  
+
   const filterToggle = document.getElementById('filters-toggle-btn');
   if (filterToggle) {
     const isHidden = filterToggle.textContent.includes('Show') || filterToggle.textContent.includes('表示');
     filterToggle.textContent = isHidden ? getLocalizedText('Show Filters') : getLocalizedText('Hide Filters');
   }
-  
+
   const optionsWithData = document.querySelectorAll('option[data-en][data-jp]');
   optionsWithData.forEach(option => {
     const enText = option.getAttribute('data-en');
@@ -584,7 +584,7 @@ function updateLocalization() {
   if (downloadImgBtn) downloadImgBtn.textContent = getLocalizedText('Download Image');
   const voiceHint = document.querySelector('.lang-hint-text');
   if (voiceHint) voiceHint.textContent = getLocalizedText('Voice Language');
-  
+
   const selectOptions = document.querySelectorAll('option:not([data-en])');
   selectOptions.forEach(option => {
     const key = option.textContent.trim();
@@ -592,7 +592,7 @@ function updateLocalization() {
       option.textContent = getLocalizedText(key);
     }
   });
-  
+
   const inputsWithData = document.querySelectorAll('input[data-en][data-jp]');
   inputsWithData.forEach(input => {
     const enText = input.getAttribute('data-en');
@@ -609,7 +609,7 @@ function updateLocalization() {
     const isPlaying = btn.classList.contains('playing');
     btn.setAttribute('aria-label', getLocalizedText(isPlaying ? 'Pause audio' : 'Play audio'));
   });
-  
+
   const inputs = document.querySelectorAll('input[placeholder]:not([data-en])');
   inputs.forEach(input => {
     const key = input.placeholder.trim();
@@ -619,259 +619,259 @@ function updateLocalization() {
   });
 }
 
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
       clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
+      func(...args);
     };
-  }
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
-  function populateCVOptions() {
-    const cvDatalist = document.getElementById("cv-options");
-    if (!cvDatalist) return;
-    
-    const cacheKey = isEnglishVoice ? 'en' : 'jp';
-    if (cvOptionsCache[cacheKey].size > 0 && cvOptionsPopulated) {
-      cvDatalist.innerHTML = "";
-      Array.from(cvOptionsCache[cacheKey])
-        .sort()
-        .forEach((v) => {
-          const opt = document.createElement("option");
-          opt.value = v;
-          cvDatalist.appendChild(opt);
-        });
-      return;
-    }
-    
+function populateCVOptions() {
+  const cvDatalist = document.getElementById("cv-options");
+  if (!cvDatalist) return;
+
+  const cacheKey = isEnglishVoice ? 'en' : 'jp';
+  if (cvOptionsCache[cacheKey].size > 0 && cvOptionsPopulated) {
     cvDatalist.innerHTML = "";
-    const cvs = new Set();
-    
-    requestAnimationFrame(() => {
-      Object.values(allCards).forEach((cardObj) => {
-        const meta =
-          (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-        const value = isEnglishVoice ? (meta.cv || "") : (meta.jpCV || "");
-        if (value) {
-          cvs.add(value);
-          cvOptionsCache[cacheKey].add(value);
-        }
+    Array.from(cvOptionsCache[cacheKey])
+      .sort()
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        cvDatalist.appendChild(opt);
       });
-      
-      Array.from(cvs)
-        .sort()
-        .forEach((v) => {
-          const opt = document.createElement("option");
-          opt.value = v;
-          cvDatalist.appendChild(opt);
-        });
-      
-      cvOptionsPopulated = true;
-    });
+    return;
   }
 
-  function populateIllustratorOptions() {
-    const illuDatalist = document.getElementById("illustrator-options");
-    if (!illuDatalist) return;
-    
-    const cacheKey = isEnglishUI ? 'en' : 'jp';
-    if (illustratorOptionsCache[cacheKey].size > 0 && illustratorOptionsPopulated) {
-      illuDatalist.innerHTML = "";
-      Array.from(illustratorOptionsCache[cacheKey])
-        .sort()
-        .forEach((v) => {
-          const opt = document.createElement("option");
-          opt.value = v;
-          illuDatalist.appendChild(opt);
-        });
-      return;
-    }
-    
+  cvDatalist.innerHTML = "";
+  const cvs = new Set();
+
+  requestAnimationFrame(() => {
+    Object.values(allCards).forEach((cardObj) => {
+      const meta =
+        (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+      const value = isEnglishVoice ? (meta.cv || "") : (meta.jpCV || "");
+      if (value) {
+        cvs.add(value);
+        cvOptionsCache[cacheKey].add(value);
+      }
+    });
+
+    Array.from(cvs)
+      .sort()
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        cvDatalist.appendChild(opt);
+      });
+
+    cvOptionsPopulated = true;
+  });
+}
+
+function populateIllustratorOptions() {
+  const illuDatalist = document.getElementById("illustrator-options");
+  if (!illuDatalist) return;
+
+  const cacheKey = isEnglishUI ? 'en' : 'jp';
+  if (illustratorOptionsCache[cacheKey].size > 0 && illustratorOptionsPopulated) {
     illuDatalist.innerHTML = "";
-    const illustrators = new Set();
-    
-    requestAnimationFrame(() => {
-      Object.values(allCards).forEach((cardObj) => {
-        const meta =
-          (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-        const value = isEnglishUI ? meta.illustrator || "" : meta.jpIllustrator || "";
-        if (value) {
-          illustrators.add(value);
-          illustratorOptionsCache[cacheKey].add(value);
-        }
+    Array.from(illustratorOptionsCache[cacheKey])
+      .sort()
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        illuDatalist.appendChild(opt);
       });
-      
-      Array.from(illustrators)
-        .sort()
-        .forEach((v) => {
-          const opt = document.createElement("option");
-          opt.value = v;
-          illuDatalist.appendChild(opt);
-        });
-      
-      illustratorOptionsPopulated = true;
-    });
+    return;
   }
 
-  function createMobileDropdown(inputId, datalistId, placeholder) {
-    const input = document.getElementById(inputId);
-    const datalist = document.getElementById(datalistId);
-    if (!input || !datalist) return;
+  illuDatalist.innerHTML = "";
+  const illustrators = new Set();
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    if (!isMobile) return;
+  requestAnimationFrame(() => {
+    Object.values(allCards).forEach((cardObj) => {
+      const meta =
+        (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+      const value = isEnglishUI ? meta.illustrator || "" : meta.jpIllustrator || "";
+      if (value) {
+        illustrators.add(value);
+        illustratorOptionsCache[cacheKey].add(value);
+      }
+    });
 
-    const existingBtn = input.parentNode.querySelector('.mobile-dropdown-btn');
-    const existingMenu = input.parentNode.querySelector('.mobile-dropdown-menu');
-    if (existingBtn) existingBtn.remove();
-    if (existingMenu) existingMenu.remove();
+    Array.from(illustrators)
+      .sort()
+      .forEach((v) => {
+        const opt = document.createElement("option");
+        opt.value = v;
+        illuDatalist.appendChild(opt);
+      });
 
-    const dropdownBtn = document.createElement("button");
-    dropdownBtn.type = "button";
-    dropdownBtn.className = "mobile-dropdown-btn";
-    dropdownBtn.style.position = "absolute";
-    dropdownBtn.style.right = "8px";
-    dropdownBtn.style.top = "50%";b
-    dropdownBtn.style.transform = "translateY(-50%)";
-    dropdownBtn.style.background = "transparent";
-    dropdownBtn.style.border = "none";
-    dropdownBtn.style.padding = "4px";
-    dropdownBtn.style.cursor = "pointer";
-    dropdownBtn.style.pointerEvents = "auto";
-    dropdownBtn.innerHTML = `
+    illustratorOptionsPopulated = true;
+  });
+}
+
+function createMobileDropdown(inputId, datalistId, placeholder) {
+  const input = document.getElementById(inputId);
+  const datalist = document.getElementById(datalistId);
+  if (!input || !datalist) return;
+
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  if (!isMobile) return;
+
+  const existingBtn = input.parentNode.querySelector('.mobile-dropdown-btn');
+  const existingMenu = input.parentNode.querySelector('.mobile-dropdown-menu');
+  if (existingBtn) existingBtn.remove();
+  if (existingMenu) existingMenu.remove();
+
+  const dropdownBtn = document.createElement("button");
+  dropdownBtn.type = "button";
+  dropdownBtn.className = "mobile-dropdown-btn";
+  dropdownBtn.style.position = "absolute";
+  dropdownBtn.style.right = "8px";
+  dropdownBtn.style.top = "50%"; b
+  dropdownBtn.style.transform = "translateY(-50%)";
+  dropdownBtn.style.background = "transparent";
+  dropdownBtn.style.border = "none";
+  dropdownBtn.style.padding = "4px";
+  dropdownBtn.style.cursor = "pointer";
+  dropdownBtn.style.pointerEvents = "auto";
+  dropdownBtn.innerHTML = `
       <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7 10l5 5 5-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     `;
 
-    const dropdownMenu = document.createElement("div");
-    dropdownMenu.className = "mobile-dropdown-menu";
-    dropdownMenu.style.display = "none";
-    dropdownMenu.style.position = "absolute";
-    dropdownMenu.style.top = "100%";
-    dropdownMenu.style.left = "0";
-    dropdownMenu.style.right = "0";
-    dropdownMenu.style.zIndex = "1000";
-    dropdownMenu.style.background = "var(--panel, #1e1e1e)";
-    dropdownMenu.style.border = "1px solid var(--border, #444)";
-    dropdownMenu.style.borderRadius = "6px";
-    dropdownMenu.style.boxShadow = "0 6px 24px rgba(0,0,0,0.3)";
-    dropdownMenu.style.maxHeight = "200px";
-    dropdownMenu.style.overflowY = "auto";
+  const dropdownMenu = document.createElement("div");
+  dropdownMenu.className = "mobile-dropdown-menu";
+  dropdownMenu.style.display = "none";
+  dropdownMenu.style.position = "absolute";
+  dropdownMenu.style.top = "100%";
+  dropdownMenu.style.left = "0";
+  dropdownMenu.style.right = "0";
+  dropdownMenu.style.zIndex = "1000";
+  dropdownMenu.style.background = "var(--panel, #1e1e1e)";
+  dropdownMenu.style.border = "1px solid var(--border, #444)";
+  dropdownMenu.style.borderRadius = "6px";
+  dropdownMenu.style.boxShadow = "0 6px 24px rgba(0,0,0,0.3)";
+  dropdownMenu.style.maxHeight = "200px";
+  dropdownMenu.style.overflowY = "auto";
 
-    const updateDropdownOptions = () => {
-      const existingItems = dropdownMenu.querySelectorAll('.mobile-dropdown-item:not(.clear-item)');
-      existingItems.forEach(item => item.remove());
+  const updateDropdownOptions = () => {
+    const existingItems = dropdownMenu.querySelectorAll('.mobile-dropdown-item:not(.clear-item)');
+    existingItems.forEach(item => item.remove());
 
-      const options = Array.from(datalist.querySelectorAll("option"));
-      const inputValue = input.value.toLowerCase();
-      
-      const filteredOptions = options.filter(option => 
-        option.value.toLowerCase().includes(inputValue)
-      );
+    const options = Array.from(datalist.querySelectorAll("option"));
+    const inputValue = input.value.toLowerCase();
 
-      filteredOptions.forEach(option => {
-        const menuItem = document.createElement("div");
-        menuItem.className = "mobile-dropdown-item";
-        menuItem.style.padding = "8px 12px";
-        menuItem.style.cursor = "pointer";
-        menuItem.style.borderBottom = "1px solid var(--border, #444)";
-        menuItem.textContent = option.value;
-        menuItem.addEventListener("click", () => {
-          input.value = option.value;
-          dropdownMenu.style.display = "none";
-          input.dispatchEvent(new Event("input", { bubbles: true }));
-        });
-        menuItem.addEventListener("mouseenter", () => {
-          menuItem.style.background = "rgba(255,255,255,0.08)";
-        });
-        menuItem.addEventListener("mouseleave", () => {
-          menuItem.style.background = "transparent";
-        });
-        dropdownMenu.appendChild(menuItem);
+    const filteredOptions = options.filter(option =>
+      option.value.toLowerCase().includes(inputValue)
+    );
+
+    filteredOptions.forEach(option => {
+      const menuItem = document.createElement("div");
+      menuItem.className = "mobile-dropdown-item";
+      menuItem.style.padding = "8px 12px";
+      menuItem.style.cursor = "pointer";
+      menuItem.style.borderBottom = "1px solid var(--border, #444)";
+      menuItem.textContent = option.value;
+      menuItem.addEventListener("click", () => {
+        input.value = option.value;
+        dropdownMenu.style.display = "none";
+        input.dispatchEvent(new Event("input", { bubbles: true }));
       });
-    };
+      menuItem.addEventListener("mouseenter", () => {
+        menuItem.style.background = "rgba(255,255,255,0.08)";
+      });
+      menuItem.addEventListener("mouseleave", () => {
+        menuItem.style.background = "transparent";
+      });
+      dropdownMenu.appendChild(menuItem);
+    });
+  };
 
-    const clearItem = document.createElement("div");
-    clearItem.className = "mobile-dropdown-item clear-item";
-    clearItem.style.padding = "8px 12px";
-    clearItem.style.cursor = "pointer";
-    clearItem.style.borderBottom = "1px solid var(--border, #444)";
-    clearItem.style.color = "var(--muted, #aaa)";
-    clearItem.textContent = "Clear";
-    clearItem.addEventListener("click", () => {
-      input.value = "";
+  const clearItem = document.createElement("div");
+  clearItem.className = "mobile-dropdown-item clear-item";
+  clearItem.style.padding = "8px 12px";
+  clearItem.style.cursor = "pointer";
+  clearItem.style.borderBottom = "1px solid var(--border, #444)";
+  clearItem.style.color = "var(--muted, #aaa)";
+  clearItem.textContent = "Clear";
+  clearItem.addEventListener("click", () => {
+    input.value = "";
+    dropdownMenu.style.display = "none";
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+  clearItem.addEventListener("mouseenter", () => {
+    clearItem.style.background = "rgba(255,255,255,0.08)";
+  });
+  clearItem.addEventListener("mouseleave", () => {
+    clearItem.style.background = "transparent";
+  });
+  dropdownMenu.appendChild(clearItem);
+
+  dropdownBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dropdownMenu.style.display === "none") {
+      updateDropdownOptions();
+      dropdownMenu.style.display = "block";
+    } else {
       dropdownMenu.style.display = "none";
-      input.dispatchEvent(new Event("input", { bubbles: true }));
-    });
-    clearItem.addEventListener("mouseenter", () => {
-      clearItem.style.background = "rgba(255,255,255,0.08)";
-    });
-    clearItem.addEventListener("mouseleave", () => {
-      clearItem.style.background = "transparent";
-    });
-    dropdownMenu.appendChild(clearItem);
+    }
+  });
 
-    dropdownBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (dropdownMenu.style.display === "none") {
-        updateDropdownOptions();
-        dropdownMenu.style.display = "block";
-      } else {
-        dropdownMenu.style.display = "none";
-      }
-    });
+  input.addEventListener("focus", () => {
+    if (input.value) {
+      updateDropdownOptions();
+      dropdownMenu.style.display = "block";
+    }
+  });
 
-    input.addEventListener("focus", () => {
-      if (input.value) {
-        updateDropdownOptions();
-        dropdownMenu.style.display = "block";
-      }
-    });
+  input.addEventListener("input", (e) => {
+    if (input.value) {
+      updateDropdownOptions();
+      dropdownMenu.style.display = "block";
+    } else {
+      dropdownMenu.style.display = "none";
+    }
+  });
 
-    input.addEventListener("input", (e) => {
-      if (input.value) {
-        updateDropdownOptions();
-        dropdownMenu.style.display = "block";
-      } else {
-        dropdownMenu.style.display = "none";
-      }
-    });
+  document.addEventListener("click", (e) => {
+    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target) && !input.contains(e.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
 
-    document.addEventListener("click", (e) => {
-      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target) && !input.contains(e.target)) {
-        dropdownMenu.style.display = "none";
-      }
-    });
+  input.style.paddingRight = "40px";
+  input.style.position = "relative";
+  input.style.zIndex = "1";
 
-    input.style.paddingRight = "40px";
-    input.style.position = "relative";
-    input.style.zIndex = "1";
+  input.parentNode.appendChild(dropdownBtn);
+  input.parentNode.appendChild(dropdownMenu);
+}
 
-    input.parentNode.appendChild(dropdownBtn);
-    input.parentNode.appendChild(dropdownMenu);
-  }
+function updateMobileDropdownMenu(inputId, datalistId) {
+  const input = document.getElementById(inputId);
+  const datalist = document.getElementById(datalistId);
+  if (!input || !datalist) return;
 
-  function updateMobileDropdownMenu(inputId, datalistId) {
-    const input = document.getElementById(inputId);
-    const datalist = document.getElementById(datalistId);
-    if (!input || !datalist) return;
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  if (!isMobile) return;
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    if (!isMobile) return;
+  const dropdownContainer = input.parentNode.querySelector('.mobile-dropdown-container');
+  if (!dropdownContainer) return;
 
-    const dropdownContainer = input.parentNode.querySelector('.mobile-dropdown-container');
-    if (!dropdownContainer) return;
+  const dropdownMenu = dropdownContainer.querySelector('.mobile-dropdown-menu');
+  if (!dropdownMenu) return;
 
-    const dropdownMenu = dropdownContainer.querySelector('.mobile-dropdown-menu');
-    if (!dropdownMenu) return;
-
-  }
+}
 
 const ENABLE_MANY_VOICES_FILTER = false;
 
@@ -1083,9 +1083,9 @@ let cvOptionsPopulated = false;
 let illustratorOptionsCache = { jp: new Set(), en: new Set() };
 let illustratorOptionsPopulated = false;
 
-const BATCH_SIZE = 200;             
-const HYDRATION_ROOT_MARGIN = "400px"; 
-const IMAGE_ROOT_MARGIN = "600px";   
+const BATCH_SIZE = 200;
+const HYDRATION_ROOT_MARGIN = "400px";
+const IMAGE_ROOT_MARGIN = "600px";
 
 let hydrateObserver = null;
 let imageObserver = null;
@@ -1141,10 +1141,10 @@ function createSkeletonCard(cardName, cardObj, cardIndex) {
 
   const metaWrap = document.createElement("div");
   metaWrap.className = "card-meta-slim";
-  
+
   const enCV = meta.cv || "";
   const jpCV = meta.jpCV || "";
- 
+
 
 
   cardDiv.appendChild(imgWrap);
@@ -1306,24 +1306,24 @@ function hydrateCard(skeletonEl) {
       tooltip.style.display = "none";
     };
     img.addEventListener("mousemove", (e) => {
-            const rect = img.getBoundingClientRect();
-            const tooltipRect = tooltip.getBoundingClientRect();
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
+      const rect = img.getBoundingClientRect();
+      const tooltipRect = tooltip.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-            let left = e.clientX + 10;
-            let top = e.clientY - 10;
+      let left = e.clientX + 10;
+      let top = e.clientY - 10;
 
-            if (left + tooltipRect.width > viewportWidth) {
-              left = e.clientX - tooltipRect.width - 10;
-            }
-            if (top + tooltipRect.height > viewportHeight) {
-              top = e.clientY - tooltipRect.height - 10;
-            }
+      if (left + tooltipRect.width > viewportWidth) {
+        left = e.clientX - tooltipRect.width - 10;
+      }
+      if (top + tooltipRect.height > viewportHeight) {
+        top = e.clientY - tooltipRect.height - 10;
+      }
 
-            tooltip.style.left = `${left}px`;
-            tooltip.style.top = `${top}px`;
-          });
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+    });
 
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
@@ -1388,7 +1388,7 @@ function hydrateCard(skeletonEl) {
     : { commonUrl: "" };
 
   const canToggleEvo = !!evoUrl;
-  
+
   if (canToggleEvo) {
     const toggleBtn = document.createElement("button");
     toggleBtn.className = "img-toggle";
@@ -1429,9 +1429,9 @@ function hydrateCard(skeletonEl) {
   }
 
   imgWrap.appendChild(toggleContainer);
-  
 
-    
+
+
 
 
   if (cardObj.metadata?.alternate?.style_data && !skeletonEl.querySelector(".alternate-toggle")) {
@@ -1591,79 +1591,79 @@ function renderCardsOptimized(cards, filter = "") {
               const words = skillTerm.split(" ");
               return words.every(word => skillText.includes(word) || jpSkillText.includes(word));
             }
-          } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:') ) {
-              const parts = term.split(':');
-              const statType = parts[0]; // 'atk', 'life', 'cost'
-              const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
+          } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:')) {
+            const parts = term.split(':');
+            const statType = parts[0]; // 'atk', 'life', 'cost'
+            const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
 
-              if (!statQuery) return true;
+            if (!statQuery) return true;
 
-              const valueMatch = statQuery.match(/\d+/);
-              const value = valueMatch ? Number(valueMatch[0]) : NaN;
-              if (isNaN(value)) return false;
+            const valueMatch = statQuery.match(/\d+/);
+            const value = valueMatch ? Number(valueMatch[0]) : NaN;
+            if (isNaN(value)) return false;
 
-              const operator = statQuery.match(/[<>=!]+/)?.[0] || '=';
-              const cardStat = Number(meta[statType]);
+            const operator = statQuery.match(/[<>=!]+/)?.[0] || '=';
+            const cardStat = Number(meta[statType]);
 
-              switch (operator) {
-                case '>': return cardStat > value;
-                case '<': return cardStat < value;
-                case '>=': return cardStat >= value;
-                case '<=': return cardStat <= value;
-                case '!=': return cardStat !== value;
-                case '=':
-                default: return cardStat === value;
-              }
-            } else if (term.startsWith('type:')) {
-    const typeMap = {
-      follower: 1,
-      amulet: 2,
-      spell: 4,
-    };
-    const typeTerm = term.substring(5).trim().toLowerCase();
-    if (!typeTerm) return true;
-    const matchedKey = Object.keys(typeMap).find(k => k.startsWith(typeTerm));
-    return matchedKey ? meta.type === typeMap[matchedKey] : false;
-
-  } else if (term.startsWith('class:')) {
-    const classMap = {
-      neutral: 0,
-      forest: 1,
-      sword: 2,
-      rune: 3,
-      dragon: 4,
-      abyss: 5,
-      haven: 6,
-      portal: 7,
-    };
-    const classTerm = term.substring(6).trim().toLowerCase();
-    if (!classTerm) return true;
-    const matchedKey = Object.keys(classMap).find(k => k.startsWith(classTerm));
-    return matchedKey ? meta.class === classMap[matchedKey] : false;
-
-  } else if (term.startsWith('rarity:')) {
-    const rarityMap = {
-      bronze: 1,
-      silver: 2,
-      gold: 3,
-      legendary: 4,
-    };
-    const rarityTerm = term.substring(7).trim().toLowerCase();
-    if (!rarityTerm) return true;
-    const matchedKey = Object.keys(rarityMap).find(k => k.startsWith(rarityTerm));
-    return matchedKey ? meta.rarity === rarityMap[matchedKey] : false;
-
-  } else {
-              // Regular name search
-              return normalizedCardName.includes(term) || jpName.includes(term);
+            switch (operator) {
+              case '>': return cardStat > value;
+              case '<': return cardStat < value;
+              case '>=': return cardStat >= value;
+              case '<=': return cardStat <= value;
+              case '!=': return cardStat !== value;
+              case '=':
+              default: return cardStat === value;
             }
-          });
+          } else if (term.startsWith('type:')) {
+            const typeMap = {
+              follower: 1,
+              amulet: 2,
+              spell: 4,
+            };
+            const typeTerm = term.substring(5).trim().toLowerCase();
+            if (!typeTerm) return true;
+            const matchedKey = Object.keys(typeMap).find(k => k.startsWith(typeTerm));
+            return matchedKey ? meta.type === typeMap[matchedKey] : false;
+
+          } else if (term.startsWith('class:')) {
+            const classMap = {
+              neutral: 0,
+              forest: 1,
+              sword: 2,
+              rune: 3,
+              dragon: 4,
+              abyss: 5,
+              haven: 6,
+              portal: 7,
+            };
+            const classTerm = term.substring(6).trim().toLowerCase();
+            if (!classTerm) return true;
+            const matchedKey = Object.keys(classMap).find(k => k.startsWith(classTerm));
+            return matchedKey ? meta.class === classMap[matchedKey] : false;
+
+          } else if (term.startsWith('rarity:')) {
+            const rarityMap = {
+              bronze: 1,
+              silver: 2,
+              gold: 3,
+              legendary: 4,
+            };
+            const rarityTerm = term.substring(7).trim().toLowerCase();
+            if (!rarityTerm) return true;
+            const matchedKey = Object.keys(rarityMap).find(k => k.startsWith(rarityTerm));
+            return matchedKey ? meta.rarity === rarityMap[matchedKey] : false;
+
+          } else {
+            // Regular name search
+            return normalizedCardName.includes(term) || jpName.includes(term);
+          }
         });
       });
-    }
+    });
+  }
 
   // Sorting (keep your original sort logic)
-  entries.sort((a,b) => {
+  entries.sort((a, b) => {
     const [nameA, objA] = a;
     const [nameB, objB] = b;
     const metaA = (objA && objA.metadata && objA.metadata.common) || {};
@@ -1696,7 +1696,7 @@ function renderCardsOptimized(cards, filter = "") {
       if (!grouped.has(groupKey)) grouped.set(groupKey, []);
       grouped.get(groupKey).push([cardName, cardObj]);
     });
-    grouped = new Map(Array.from(grouped.entries()).sort((a,b) => {
+    grouped = new Map(Array.from(grouped.entries()).sort((a, b) => {
       const isAFallback = a[0].startsWith("No ");
       const isBFallback = b[0].startsWith("No ");
       if (isAFallback && !isBFallback) return 1;
@@ -1745,7 +1745,7 @@ function renderCardsOptimized(cards, filter = "") {
         if (pendingImg && imageObserver) imageObserver.observe(pendingImg);
       }
     }
-    
+
 
     if (idx < jobList.length) {
       requestAnimationFrame(step);
@@ -1770,9 +1770,9 @@ function applyMasonryLayout(container) {
   const allElements = Array.from(container.children);
   const cards = allElements.filter(el => el.classList.contains('card'));
   const groupHeaders = allElements.filter(el => el.classList.contains('group-header'));
-  
+
   if (cards.length === 0) return;
-  
+
   // Get the number of columns based on screen width
   const getColumnCount = () => {
     const width = window.innerWidth;
@@ -1781,28 +1781,28 @@ function applyMasonryLayout(container) {
     if (width >= 600) return 2;
     return 1;
   };
-  
+
   const columnCount = getColumnCount();
-  
+
   // If only one column, no masonry needed
   if (columnCount === 1) return;
-  
+
   // Create masonry columns
   const columns = Array.from({ length: columnCount }, () => []);
   const columnHeights = Array.from({ length: columnCount }, () => 0);
-  
+
   // Distribute cards to columns (horizontal-first flow)
   cards.forEach((card, index) => {
     const columnIndex = index % columnCount;
     columns[columnIndex].push(card);
   });
-  
+
   // Clear container
   container.innerHTML = '';
-  
+
   // Rebuild container with masonry layout
   let cardIndex = 0;
-  
+
   if (groupHeaders.length > 0) {
     // Handle grouped layout
     allElements.forEach(el => {
@@ -1826,19 +1826,19 @@ function applyMasonryLayout(container) {
       col.style.flex = '1';
       return col;
     });
-    
+
     // Distribute cards to columns
     cards.forEach((card, index) => {
       const columnIndex = index % columnCount;
       columnContainers[columnIndex].appendChild(card);
     });
-    
+
     // Create flex container for columns
     const flexContainer = document.createElement('div');
     flexContainer.style.display = 'flex';
     flexContainer.style.gap = '16px';
     flexContainer.style.alignItems = 'flex-start';
-    
+
     columnContainers.forEach(col => flexContainer.appendChild(col));
     container.appendChild(flexContainer);
   }
@@ -1958,8 +1958,8 @@ function updateCardMetadata(cardDiv, meta, isAlternate, alternateData = null) {
     isAlternate
       ? (alternateData?.illustrator || "")
       : isEnglishUI
-      ? meta.illustrator || ""
-      : meta.jpIllustrator || meta.illustrator || "";
+        ? meta.illustrator || ""
+        : meta.jpIllustrator || meta.illustrator || "";
 
   if (cvValue) {
     const cvItem = document.createElement("div");
@@ -2000,8 +2000,8 @@ function updateLightboxMetadata(
     isAlternate && alternateData?.cv
       ? alternateData.cv
       : isEnglishVoice
-      ? meta.cv || ""
-      : meta.jpCV || "";
+        ? meta.cv || ""
+        : meta.jpCV || "";
 
   const illustratorValue =
     isAlternate
@@ -2066,7 +2066,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   const lightboxContent = document.querySelector('.lightbox-content');
   if (lightboxContent) {
     lightboxContent.classList.remove('swipe-left', 'swipe-right');
-    
+
     // Add or update credit text
     let creditEl = lightboxContent.querySelector('.lightbox-credit');
     if (!creditEl) {
@@ -2100,11 +2100,11 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
     if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
       const lightboxContent = document.querySelector('.lightbox-content');
-      
+
       if (deltaX > 0) {
         if (currentCardIndex > 0) {
           lightboxContent.classList.add('swipe-right');
-          
+
           setTimeout(() => {
             const prevCardData = filteredCards[currentCardIndex - 1];
             const prevCardObj = allCards[prevCardData.id];
@@ -2113,7 +2113,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               const prevMetaEvo = prevCardObj.metadata?.evo || {};
               const prevLines = prevCardObj.voices || [];
               const prevAlternate = prevCardObj.metadata?.alternate || null;
-              
+
               const prevDisplayName = isEnglishUI ? prevCardData.name : (prevMeta.jpName || prevCardData.name);
               openLightbox({
                 name: prevDisplayName,
@@ -2125,12 +2125,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
                 cardData: prevCardData
               });
             }
-          }, 150); 
+          }, 150);
         }
       } else {
         if (currentCardIndex < filteredCards.length - 1) {
           lightboxContent.classList.add('swipe-left');
-          
+
           setTimeout(() => {
             const nextCardData = filteredCards[currentCardIndex + 1];
             const nextCardObj = allCards[nextCardData.id];
@@ -2139,7 +2139,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               const nextMetaEvo = nextCardObj.metadata?.evo || {};
               const nextLines = nextCardObj.voices || [];
               const nextAlternate = nextCardObj.metadata?.alternate || null;
-              
+
               const nextDisplayName = isEnglishUI ? nextCardData.name : (nextMeta.jpName || nextCardData.name);
               openLightbox({
                 name: nextDisplayName,
@@ -2151,7 +2151,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
                 cardData: nextCardData
               });
             }
-          }, 150); 
+          }, 150);
         }
       }
     }
@@ -2161,12 +2161,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     if (window.cleanupLightboxTouchEvents) {
       window.cleanupLightboxTouchEvents();
     }
-    
+
     const touchStartHandler = (e) => {
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
     };
-    
+
     const touchMoveHandler = (e) => {
       const currentX = e.touches[0].clientX;
       const currentY = e.touches[0].clientY;
@@ -2174,12 +2174,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
       const deltaY = currentY - touchStartY;
       const absDeltaX = Math.abs(deltaX);
       const absDeltaY = Math.abs(deltaY);
-      
+
       if (absDeltaX > absDeltaY && absDeltaX > 20) {
         const lightboxContent = document.querySelector('.lightbox-content');
-        
+
         lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
-        
+
         if (deltaX > 0 && currentCardIndex > 0) {
           lightboxContent.classList.add('swipe-preview-right');
         } else if (deltaX < 0 && currentCardIndex < filteredCards.length - 1) {
@@ -2187,21 +2187,21 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         }
       }
     };
-    
+
     const touchEndHandler = (e) => {
       touchEndX = e.changedTouches[0].clientX;
       touchEndY = e.changedTouches[0].clientY;
-      
+
       const lightboxContent = document.querySelector('.lightbox-content');
       lightboxContent.classList.remove('swipe-preview-left', 'swipe-preview-right');
-      
+
       handleSwipe();
     };
-    
+
     lb.addEventListener("touchstart", touchStartHandler, { passive: true });
     lb.addEventListener("touchmove", touchMoveHandler, { passive: true });
     lb.addEventListener("touchend", touchEndHandler, { passive: true });
-    
+
     window.currentTouchStartHandler = touchStartHandler;
     window.currentTouchMoveHandler = touchMoveHandler;
     window.currentTouchEndHandler = touchEndHandler;
@@ -2234,7 +2234,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   metaBox.innerHTML = "";
 
   updateLightboxMetadata(meta, metaEvo, false, null, "common");
-  
+
 
   let showingAlternate = false;
 
@@ -2357,7 +2357,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         voicesContainer.appendChild(voiceContainer);
       });
     } else {
-        voicesContainer.innerHTML =
+      voicesContainer.innerHTML =
         `<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">${getLocalizedText('No voice lines available')}</div>`;
     }
   };
@@ -2449,10 +2449,10 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         }
         alternateToggle.textContent = "Show: Normal";
         showingAlternate = true;
-        const alternateTitleName = alternate.style_data?.name && alternate.style_data.name.trim() 
-        ? alternate.style_data.name 
-        : (isEnglishUI ? name : (meta.jpName || name));
-      title.textContent = alternateTitleName;
+        const alternateTitleName = alternate.style_data?.name && alternate.style_data.name.trim()
+          ? alternate.style_data.name
+          : (isEnglishUI ? name : (meta.jpName || name));
+        title.textContent = alternateTitleName;
         updateLightboxMetadata(
           meta,
           metaEvo,
@@ -2475,9 +2475,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
   downloadImgBtn.onclick = () => {
     const link = document.createElement("a");
     link.href = img.src;
-    link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${
-      showing === "evo" ? "evolved" : "base"
-    }.png`;
+    link.download = `${name.replace(/[^a-zA-Z0-9]/g, "_")}_${showing === "evo" ? "evolved" : "base"
+      }.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -2493,7 +2492,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           const prevMetaEvo = prevCardObj.metadata?.evo || {};
           const prevLines = prevCardObj.voices || [];
           const prevAlternate = prevCardObj.metadata?.alternate || null;
-          
+
           const prevDisplayName = isEnglishUI ? prevCardData.name : (prevMeta.jpName || prevCardData.name);
           openLightbox({
             name: prevDisplayName,
@@ -2519,7 +2518,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           const nextMetaEvo = nextCardObj.metadata?.evo || {};
           const nextLines = nextCardObj.voices || [];
           const nextAlternate = nextCardObj.metadata?.alternate || null;
-          
+
           const nextDisplayName = isEnglishUI ? nextCardData.name : (nextMeta.jpName || nextCardData.name);
           openLightbox({
             name: nextDisplayName,
@@ -2567,34 +2566,34 @@ fetch("cards.json")
           });
         }
       })
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => {
         if (!document.getElementById("cards")?.children?.length) {
           const q = document.getElementById("search")?.value || "";
           renderCards(allCards, q);
         }
       });
-    
+
     const uiLangSelect = document.getElementById("ui-lang-select");
     if (uiLangSelect) {
       uiLangSelect.value = isEnglishUI ? "en" : "jp";
     }
-    
+
     const langText = document.querySelector(".lang-text");
     if (langText) {
       langText.textContent = isEnglishUI
         ? (isEnglishVoice ? "EN" : "JP")
         : (isEnglishVoice ? "英語" : "日本");
     }
-    
+
     updateLocalization();
-    
+
     renderCards(allCards);
-    
+
     const debouncedSearchRender = debounce((searchValue) => {
       renderCards(allCards, searchValue);
     }, 150);
-    
+
     document.getElementById("search").addEventListener("input", (e) => {
       debouncedSearchRender(e.target.value);
     });
@@ -2606,13 +2605,13 @@ fetch("cards.json")
       if (meta.class !== undefined && meta.class !== null)
         classes.add(Number(meta.class));
     });
-    
+
     populateCVOptions();
     populateIllustratorOptions();
-    
+
     createMobileDropdown("filter-cv", "cv-options", "Type or select CV");
     createMobileDropdown("filter-illustrator", "illustrator-options", "Type or select illustrator");
-    
+
     const classSel = document.getElementById("filter-class");
     // Clear existing options except the first "Any" option
     classSel.innerHTML = '<option value="">Any</option>';
@@ -2665,7 +2664,7 @@ fetch("cards.json")
         activeFilters.lifeMax = e.target.value;
         debouncedFilterRender();
       });
-    
+
     document.getElementById("filter-cv").addEventListener("input", (e) => {
       activeFilters.cv = e.target.value;
       debouncedFilterRender();
@@ -2818,7 +2817,7 @@ fetch("cards.json")
 
       input.addEventListener("click", (e) => {
         const isDesktop = !window.matchMedia("(max-width: 767px)").matches;
-        if (!isDesktop) return; 
+        if (!isDesktop) return;
         if (isOpen) {
           closeMenu();
         } else {
@@ -2960,7 +2959,7 @@ function handleUILanguageChange() {
   const select = document.getElementById("ui-lang-select");
   if (select) {
     isEnglishUI = select.value === "en";
-    
+
     const url = new URL(window.location);
     if (isEnglishUI) {
       url.searchParams.set('lang', 'en');
@@ -2991,7 +2990,7 @@ function handleUILanguageChange() {
     populateCVOptions();
     populateIllustratorOptions();
   });
-  
+
   const classSel = document.getElementById("filter-class");
   if (classSel) {
     classSel.innerHTML = '<option value="">Any</option>';
@@ -3002,7 +3001,7 @@ function handleUILanguageChange() {
         classes.add(Number(meta.class));
       }
     });
-    
+
     Array.from(classes)
       .sort((a, b) => a - b)
       .forEach((v) => {
@@ -3012,13 +3011,13 @@ function handleUILanguageChange() {
         classSel.appendChild(opt);
       });
   }
-  
+
   // Update mobile dropdown menu items when language changes
   requestAnimationFrame(() => {
     updateMobileDropdownMenu("filter-cv", "cv-options");
     updateMobileDropdownMenu("filter-illustrator", "illustrator-options");
   });
-  
+
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -3041,11 +3040,11 @@ function handleUILanguageChange() {
 document.addEventListener("DOMContentLoaded", () => {
   const voiceToggle = document.getElementById("voice-lang-toggle");
   const uiSelect = document.getElementById("ui-lang-select");
-  
+
   if (voiceToggle) {
     voiceToggle.addEventListener("click", debouncedVoiceLanguageToggle);
   }
-  
+
   if (uiSelect) {
     uiSelect.addEventListener("change", handleUILanguageChange);
   }
@@ -3149,7 +3148,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 })();
 
 
-(function(){
+(function () {
   // CV Details modal close handlers
   const cvModal = document.getElementById('cv-details-modal');
   const cvClose = document.getElementById('cv-details-close');
@@ -3158,14 +3157,14 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && cvModal && cvModal.classList.contains('open')) closeCvDetailsModal(); });
   const lb = document.getElementById('lightbox');
   const closeBtn = document.getElementById('lightbox-close');
-  
+
   let touchStartHandler = null;
   let touchEndHandler = null;
-  
+
   function close() {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
-    
+
     if (touchStartHandler && touchEndHandler) {
       lb.removeEventListener('touchstart', touchStartHandler);
       lb.removeEventListener('touchend', touchEndHandler);
@@ -3173,11 +3172,11 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       touchEndHandler = null;
     }
   }
-  
+
   closeBtn?.addEventListener('click', close);
   lb?.addEventListener('click', (e) => { if (e.target === lb) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
-  
+
   window.cleanupLightboxTouchEvents = () => {
     if (window.currentTouchStartHandler && window.currentTouchMoveHandler && window.currentTouchEndHandler) {
       lb.removeEventListener('touchstart', window.currentTouchStartHandler);
@@ -3190,7 +3189,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   };
 })();
 
-(function() {
+(function () {
   let isProcessing = false;
   let lastKeyTime = 0;
   const DEBOUNCE_TIME = 100; // ms
@@ -3198,8 +3197,8 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   function isInputFocused() {
     const activeElement = document.activeElement;
     return activeElement && (
-      activeElement.tagName === 'INPUT' || 
-      activeElement.tagName === 'TEXTAREA' || 
+      activeElement.tagName === 'INPUT' ||
+      activeElement.tagName === 'TEXTAREA' ||
       activeElement.contentEditable === 'true'
     );
   }
@@ -3221,10 +3220,10 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 
   function debounceExecute(fn, delay = 50, shortcutKey = '') {
     if (isProcessing) return;
-    
+
     isProcessing = true;
     if (shortcutKey) setLoadingState(shortcutKey, true);
-    
+
     requestAnimationFrame(() => {
       fn();
       setTimeout(() => {
@@ -3252,7 +3251,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 
   function resetFilters() {
     if (isProcessing) return;
-    
+
     debounceExecute(() => {
       activeFilters.rarity = "";
       activeFilters.costMin = "";
@@ -3273,19 +3272,19 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       activeFilters.alternate = "all";
 
       const elements = [
-        "filter-rarity", "filter-cost-min", "filter-cost-max", 
-        "filter-atk-min", "filter-atk-max", "filter-life-min", 
-        "filter-life-max", "filter-illustrator", "filter-cv", 
-        "filter-class", "filter-type", "filter-set", "filter-token", 
-        "sort-by", "sort-order", "filter-voices", "filter-alternate", 
+        "filter-rarity", "filter-cost-min", "filter-cost-max",
+        "filter-atk-min", "filter-atk-max", "filter-life-min",
+        "filter-life-max", "filter-illustrator", "filter-cv",
+        "filter-class", "filter-type", "filter-set", "filter-token",
+        "sort-by", "sort-order", "filter-voices", "filter-alternate",
         "view-mode", "search"
       ];
 
       elements.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
-          if (id === "filter-token" || id === "sort-by" || id === "sort-order" || 
-              id === "filter-voices" || id === "filter-alternate" || id === "view-mode") {
+          if (id === "filter-token" || id === "sort-by" || id === "sort-order" ||
+            id === "filter-voices" || id === "filter-alternate" || id === "view-mode") {
             element.value = id === "view-mode" ? "list" : "all";
           } else if (id === "sort-by") {
             element.value = "alpha";
@@ -3303,7 +3302,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
           manyVoicesSelect.value = "all";
         }
       }
-      
+
       document.querySelector(".container").classList.remove("waterfall");
       document.getElementById("search").value = "";
 
@@ -3325,7 +3324,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     }
   }
 
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if (isInputFocused()) {
       return;
     }
@@ -3340,7 +3339,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     const isLightboxOpen = lightbox && lightbox.classList.contains('open');
 
     if (isLightboxOpen) {
-      switch(e.key.toLowerCase()) {
+      switch (e.key.toLowerCase()) {
         case 'a':
         case 'arrowleft':
           e.preventDefault();
@@ -3357,20 +3356,20 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
           if (closeBtn) closeBtn.click();
           break;
       }
-      return; 
+      return;
     }
 
     const isCtrlOrCmd = e.ctrlKey || e.metaKey;
-    
+
     if (isCtrlOrCmd) {
-      switch(e.key.toLowerCase()) {
+      switch (e.key.toLowerCase()) {
         case 'f':
           e.preventDefault();
           focusSearchBar();
           break;
         case 'g':
           e.preventDefault();
-          toggleFilters(); 
+          toggleFilters();
           break;
         case 'l':
           e.preventDefault();

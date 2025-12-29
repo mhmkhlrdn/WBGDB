@@ -38,7 +38,6 @@ function upsertJpVoicesForFolder(folder, cards) {
   if (!fs.existsSync(folderPath) || !fs.statSync(folderPath).isDirectory()) return;
 
   const files = listMp3s(folderPath);
-  if (files.length === 0) return;
 
   const labels = buildLabels(files);
 
@@ -140,7 +139,7 @@ function main() {
   if (fs.existsSync(OUTPUT_FILE)) {
     try {
       cards = JSON.parse(fs.readFileSync(OUTPUT_FILE, "utf8"));
-    } catch {}
+    } catch { }
   }
 
   const specificCard = process.argv.find((a) => a.startsWith('--card='));

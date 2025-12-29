@@ -406,7 +406,8 @@ function showHint() {
         10001: 'Legends Rise',
         10002: 'Infinity Evolved',
         10003: 'Heirs of the Omen',
-        10004: 'Skybound Dragons'
+        10004: 'Skybound Dragons',
+        10005: 'Blossoming Fate'
       };
       hintText = `Set: ${setNames[meta.card_set_id] || 'Token'}`;
       break;
@@ -599,7 +600,8 @@ function buildFilterInfoText(filters) {
     '10001': 'Legends Rise',
     '10002': 'Infinity Evolved',
     '10003': 'Heirs of the Omen',
-    '10004': 'Skybound Dragons'
+    '10004': 'Skybound Dragons',
+    '10005': 'Blossoming Fate'
   };
   
   if (filters.sets && filters.sets.length < allSets.length) {
