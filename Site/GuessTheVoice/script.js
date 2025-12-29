@@ -3,7 +3,7 @@ let availableClips = {}; // Map<CardName, Array<VoiceIndex>>
 let currentRound = null;
 let score = 0;
 let isEnglishVoice = false;
-let isHardMode = false; 
+let isHardMode = false;
 let currentAudio = null;
 let currentVoiceIndex = 0; // Track which voice to play next in Normal mode
 let cardSearchList = []; // Array of {key, en, jp, img}
@@ -14,7 +14,7 @@ let usedHints = []; // Track which hints have been shown for current round
 let hintsUsedCount = 0; // Count of hints used for current round
 
 // Filter state
-let selectedSets = new Set(['10000', '10001', '10002', '10003', '10004']);
+let selectedSets = new Set(['10000', '10001', '10002', '10003', '10004', '10005']);
 let selectedRarities = new Set([1, 2, 3, 4]);
 let includeNonHuman = false;
 
@@ -100,28 +100,28 @@ function resetSession() {
   availableClips = {};
   guessHistory = []; // Clear current session history only
   // Don't clear historyList - session history should persist
-  
+
   // Build available clips map with filters applied
   Object.keys(allCards).forEach(key => {
     const card = allCards[key];
     const meta = card.metadata?.common;
     const voices = card.voices || [];
-    
+
     // Skip if no voices
     if (voices.length === 0) return;
-    
+
     // Apply filters
     if (!meta) return;
-    
+
     // Filter by set
     if (!selectedSets.has(String(meta.card_set_id))) return;
-    
+
     // Filter by rarity
     if (!selectedRarities.has(meta.rarity)) return;
-    
+
     // Filter by CV data (non-human voices)
     if (!includeNonHuman && (!meta.cv || meta.cv.trim() === '')) return;
-    
+
     // Store indices of available voices
     availableClips[key] = voices.map((_, index) => index);
   });
@@ -133,11 +133,11 @@ function prepareSearchList() {
     const card = allCards[key];
     const meta = card.metadata?.common;
     if (!meta) return;
-    
+
     // Determine image URL (use base art)
     // Path in json is like "Art/1000.png", we need "../Art/1000.png"
     const imgUrl = meta.base_art_url ? `../${meta.base_art_url}` : '';
-    
+
     cardSearchList.push({
       key: key,
       en: key.replace(/_/g, ' '),
@@ -166,14 +166,14 @@ function startRound() {
     currentAudio.pause();
     currentAudio = null;
   }
-  
+
   // Check if any clips left
   const cardKeys = Object.keys(availableClips);
   if (cardKeys.length === 0) {
     endGame(true);
     return;
   }
-  
+
   // Pick random card, ensuring it's not the same as last time if possible
   let randomCardKey;
   if (cardKeys.length === 1) {
@@ -186,20 +186,20 @@ function startRound() {
 
   const card = allCards[randomCardKey];
   const clipIndices = availableClips[randomCardKey];
-  
+
   if (isHardMode) {
     // Hard mode: Pick one random clip
     const randomClipIndex = getRandomItem(clipIndices);
-    
+
     // Remove this clip from available
     const indexInArray = clipIndices.indexOf(randomClipIndex);
     clipIndices.splice(indexInArray, 1);
     if (clipIndices.length === 0) {
       delete availableClips[randomCardKey];
     }
-    
+
     const voiceObj = card.voices[randomClipIndex];
-    
+
     currentRound = {
       cardKey: randomCardKey,
       cardNameEn: randomCardKey.replace(/_/g, ' '),
@@ -210,10 +210,10 @@ function startRound() {
   } else {
     // Normal mode: Use all clips for this card
     const allVoices = clipIndices.map(idx => card.voices[idx]);
-    
+
     // Remove this card entirely from available
     delete availableClips[randomCardKey];
-    
+
     currentRound = {
       cardKey: randomCardKey,
       cardNameEn: randomCardKey.replace(/_/g, ' '),
@@ -222,27 +222,27 @@ function startRound() {
       allVoices: allVoices // All voices to play
     };
   }
-  
+
 }
 
 function playCurrentAudio() {
   if (!currentRound || !currentRound.voiceObj) return;
-  
+
   // Start timer on first play
   if (!timerStart) {
     timerStart = Date.now();
   }
-  
+
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
-  
+
   if (isHardMode || !currentRound.allVoices) {
     // Hard mode: play single voice
     const url = isEnglishVoice ? currentRound.voiceObj.en_url : currentRound.voiceObj.url;
     const fixedUrl = '../' + url;
-    
+
     currentAudio = new Audio(fixedUrl);
     currentAudio.play().catch(e => {
       console.error("Audio play failed", e);
@@ -253,13 +253,13 @@ function playCurrentAudio() {
     const voiceObj = currentRound.allVoices[currentVoiceIndex];
     const url = isEnglishVoice ? voiceObj.en_url : voiceObj.url;
     const fixedUrl = '../' + url;
-    
+
     currentAudio = new Audio(fixedUrl);
     currentAudio.play().catch(e => {
       console.error("Audio play failed", e);
       messageEl.textContent = "Error playing audio. Try toggling language?";
     });
-    
+
     // Move to next voice for next play (cycle back to 0 if at end)
     currentVoiceIndex = (currentVoiceIndex + 1) % currentRound.allVoices.length;
   }
@@ -267,47 +267,47 @@ function playCurrentAudio() {
 
 function checkGuess() {
   if (!currentRound) return;
-  
+
   const userGuess = guessInput.value.trim().toLowerCase();
   if (!userGuess) return;
-  
+
   const correctEn = currentRound.cardNameEn.toLowerCase();
   const correctJp = (currentRound.cardNameJp || '').toLowerCase();
-  
+
   if (userGuess === correctEn || userGuess === correctJp) {
     // Correct
     score++;
     updateScore();
-    
+
     // Calculate time taken
     let timeTaken = 0;
     if (timerStart) {
       timeTaken = Date.now() - timerStart;
     }
-    
+
     // Add to history
     addToHistory(currentRound.cardNameEn, timeTaken, currentRound.voiceObj.label, hintsUsedCount);
-    
+
     messageEl.textContent = 'Correct!';
     messageEl.className = 'message-correct';
     container.classList.add('shake'); // Just for fun feedback
     setTimeout(() => container.classList.remove('shake'), 300);
-    
+
     setTimeout(startRound, 1000);
   } else {
     // Incorrect
     const userGuess = guessInput.value.trim();
     messageEl.textContent = `Game Over! It was: ${currentRound.cardNameEn} / ${currentRound.cardNameJp || ''}`;
     messageEl.className = 'message-wrong';
-    
+
     // Save current session to history if there were any correct guesses
     if (guessHistory.length > 0) {
       saveSessionToHistory(score, currentRound.cardNameEn, userGuess);
     }
-    
+
     score = 0;
     updateScore();
-    
+
     // Reset session
     setTimeout(() => {
       resetSession();
@@ -335,13 +335,13 @@ function formatTime(ms) {
 
 function formatLabel(label) {
   if (!label) return '';
-  
+
   // Handle meeting labels (e.g., "MeetingMaeve" -> "Meeting: Maeve")
   if (label.startsWith('Meeting')) {
     const characterName = label.replace('Meeting', '');
     return `Meeting: ${characterName}`;
   }
-  
+
   // Handle other labels - add space before capital letters
   // e.g., "SuperEvolve" -> "Super Evolve"
   return label.replace(/([A-Z])/g, ' $1').trim();
@@ -349,16 +349,16 @@ function formatLabel(label) {
 
 function showHint() {
   if (!currentRound) return;
-  
+
   const meta = allCards[currentRound.cardKey].metadata?.common;
   if (!meta) return;
-  
+
   // Available hint types
   const hintTypes = ['class', 'type', 'set', 'rarity', 'firstLetter'];
-  
+
   // Filter out already used hints
   const availableHints = hintTypes.filter(h => !usedHints.includes(h));
-  
+
   if (availableHints.length === 0) {
     messageEl.textContent = 'No more hints available!';
     messageEl.className = 'message-wrong';
@@ -368,15 +368,15 @@ function showHint() {
     }, 2000);
     return;
   }
-  
+
   // Pick random hint
   const hintType = availableHints[Math.floor(Math.random() * availableHints.length)];
   usedHints.push(hintType);
   hintsUsedCount++;
-  
+
   let hintText = '';
-  
-  switch(hintType) {
+
+  switch (hintType) {
     case 'class':
       // Map class number to name
       const classNames = {
@@ -424,7 +424,7 @@ function showHint() {
       hintText = `First Letter: ${currentRound.cardNameEn.charAt(0)}`;
       break;
   }
-  
+
   // Display hint
   const hintTag = document.createElement('div');
   hintTag.className = 'hint-tag';
@@ -434,13 +434,13 @@ function showHint() {
 
 function addToHistory(cardName, time, label, hints) {
   guessHistory.push({ name: cardName, time: time, label: label, hints: hints });
-  
+
   // Show history container
   historyContainer.style.display = 'block';
-  
+
   // Format the label
   const formattedLabel = formatLabel(label);
-  
+
   // Add new item to the list
   const item = document.createElement('div');
   item.className = 'history-item';
@@ -469,7 +469,7 @@ function saveSessionToHistory(finalScore, failedCard = null, incorrectGuess = nu
       includeNonHuman: includeNonHuman
     }
   };
-  
+
   sessionHistory.push(session);
   saveSessionHistoryToStorage(); // Save to localStorage
   renderSessionHistory();
@@ -478,34 +478,34 @@ function saveSessionToHistory(finalScore, failedCard = null, incorrectGuess = nu
 function renderSessionHistory() {
   // Clear current history display
   historyList.innerHTML = '';
-  
+
   if (sessionHistory.length === 0) {
     historyContainer.style.display = 'none';
     return;
   }
-  
+
   historyContainer.style.display = 'block';
-  
+
   // Render each session in reverse order (newest first)
   sessionHistory.slice().reverse().forEach((session, index) => {
     const sessionIndex = sessionHistory.length - 1 - index;
     const sessionDiv = document.createElement('div');
     sessionDiv.className = 'session-group';
-    
+
     // Format date
-    const dateStr = session.date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric', 
+    const dateStr = session.date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
       year: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
     });
-    
+
     // Session header (clickable)
     const header = document.createElement('div');
     header.className = 'session-header';
     const modeLabel = session.mode || 'Hard';
-    
+
     // Build header HTML with failed card info if available
     let headerHTML = `
       <span class="session-info">
@@ -513,26 +513,26 @@ function renderSessionHistory() {
         <span class="session-mode">${modeLabel}</span>
         <span class="session-score">Score: ${session.score}</span>
         <span class="session-count">${session.guesses.length} guess${session.guesses.length > 1 ? 'es' : ''}</span>`;
-    
+
     if (session.failedCard) {
       headerHTML += `
         <span class="session-failed">Failed: ${session.failedCard}</span>`;
     }
-    
+
     headerHTML += `
       </span>
       <svg class="session-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M6 9l6 6 6-6"/>
       </svg>
     `;
-    
+
     header.innerHTML = headerHTML;
-    
+
     // Session details (collapsible)
     const details = document.createElement('div');
     details.className = 'session-details';
     details.style.display = 'none';
-    
+
     session.guesses.forEach(guess => {
       const formattedLabel = formatLabel(guess.label);
       const item = document.createElement('div');
@@ -547,7 +547,7 @@ function renderSessionHistory() {
       `;
       details.appendChild(item);
     });
-    
+
     // Add failed guess info if available
     if (session.failedCard && session.incorrectGuess) {
       const failedItem = document.createElement('div');
@@ -561,7 +561,7 @@ function renderSessionHistory() {
       `;
       details.appendChild(failedItem);
     }
-    
+
     // Add filter info if available
     if (session.filters) {
       const filterInfo = buildFilterInfoText(session.filters);
@@ -576,14 +576,14 @@ function renderSessionHistory() {
         details.appendChild(filterItem);
       }
     }
-    
+
     // Toggle functionality
     header.addEventListener('click', () => {
       const isOpen = details.style.display === 'block';
       details.style.display = isOpen ? 'none' : 'block';
       header.classList.toggle('open', !isOpen);
     });
-    
+
     sessionDiv.appendChild(header);
     sessionDiv.appendChild(details);
     historyList.appendChild(sessionDiv);
@@ -592,7 +592,7 @@ function renderSessionHistory() {
 
 function buildFilterInfoText(filters) {
   const parts = [];
-  
+
   // Check sets
   const allSets = ['10000', '10001', '10002', '10003', '10004'];
   const setNames = {
@@ -603,7 +603,7 @@ function buildFilterInfoText(filters) {
     '10004': 'Skybound Dragons',
     '10005': 'Blossoming Fate'
   };
-  
+
   if (filters.sets && filters.sets.length < allSets.length) {
     const excludedSets = allSets.filter(s => !filters.sets.includes(s));
     if (excludedSets.length > 0) {
@@ -611,7 +611,7 @@ function buildFilterInfoText(filters) {
       parts.push(`Excluded sets: ${excludedNames}`);
     }
   }
-  
+
   // Check rarities
   const allRarities = [1, 2, 3, 4];
   const rarityNames = {
@@ -620,7 +620,7 @@ function buildFilterInfoText(filters) {
     3: 'Gold',
     4: 'Legendary'
   };
-  
+
   if (filters.rarities && filters.rarities.length < allRarities.length) {
     const excludedRarities = allRarities.filter(r => !filters.rarities.includes(r));
     if (excludedRarities.length > 0) {
@@ -628,12 +628,12 @@ function buildFilterInfoText(filters) {
       parts.push(`Excluded rarities: ${excludedNames}`);
     }
   }
-  
+
   // Check non-human filter
   if (filters.includeNonHuman === false) {
     parts.push('Only cards with human voice');
   }
-  
+
   return parts.length > 0 ? parts.join(' • ') : null;
 }
 
@@ -669,15 +669,15 @@ function handleInput() {
     selectedDropdownIndex = -1;
     return;
   }
-  
+
   // Calculate score for each card
   // We'll use a combination of includes check (high priority) and Levenshtein (low priority)
   const results = cardSearchList.map(item => {
     const en = item.en.toLowerCase();
     const jp = item.jp.toLowerCase();
-    
+
     let score = 1000; // Lower is better
-    
+
     // Exact match
     if (en === val || jp === val) score = 0;
     // Starts with
@@ -690,21 +690,21 @@ function handleInput() {
       const distJp = jp ? levenshtein(val, jp) : 1000;
       score = 50 + Math.min(distEn, distJp);
     }
-    
+
     return { item, score };
   });
-  
+
   // Filter out bad matches (arbitrary threshold) and sort
   // For fuzzy, we only care if it's somewhat close.
   // Let's just take top 5 regardless, but maybe filter really bad ones if input is long?
   // Actually, user asked for "5 most similar result".
-  
+
   results.sort((a, b) => a.score - b.score);
-  
+
   const top5 = results.slice(0, 5);
   currentDropdownResults = top5.map(r => r.item);
   selectedDropdownIndex = -1; // Reset selection
-  
+
   renderDropdown(currentDropdownResults);
 }
 
@@ -714,14 +714,14 @@ function renderDropdown(items) {
     dropdown.classList.remove('active');
     return;
   }
-  
+
   items.forEach((item, index) => {
     const div = document.createElement('div');
     div.className = 'dropdown-item';
     if (index === selectedDropdownIndex) {
       div.classList.add('selected');
     }
-    
+
     // Build keyboard shortcut indicators
     let shortcutHTML = '';
     if (index === selectedDropdownIndex) {
@@ -729,7 +729,7 @@ function renderDropdown(items) {
     } else if (index === 0 && selectedDropdownIndex === -1) {
       shortcutHTML = '<span class="dropdown-shortcut dropdown-shortcut-muted">↓ or ↵</span>';
     }
-    
+
     div.innerHTML = `
       <img src="${item.img}" class="dropdown-img" loading="lazy" alt="">
       <div class="dropdown-text">
@@ -747,17 +747,17 @@ function renderDropdown(items) {
     });
     dropdown.appendChild(div);
   });
-  
+
   dropdown.classList.add('active');
 }
 
 // Global keyboard listener for spacebar
 document.addEventListener('keydown', (e) => {
   // Only handle spacebar if not typing in an input/textarea
-  if (e.key === ' ' && 
-      document.activeElement.tagName !== 'INPUT' && 
-      document.activeElement.tagName !== 'TEXTAREA' &&
-      !document.activeElement.isContentEditable) {
+  if (e.key === ' ' &&
+    document.activeElement.tagName !== 'INPUT' &&
+    document.activeElement.tagName !== 'TEXTAREA' &&
+    !document.activeElement.isContentEditable) {
     e.preventDefault();
     playCurrentAudio();
     // Focus on input for immediate typing
@@ -775,7 +775,7 @@ hintBtn.addEventListener('click', showHint);
 guessInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
-    
+
     // If dropdown is open and has results, select the top one (or currently selected)
     if (dropdown.classList.contains('active') && currentDropdownResults.length > 0) {
       const indexToUse = selectedDropdownIndex >= 0 ? selectedDropdownIndex : 0;
@@ -784,7 +784,7 @@ guessInput.addEventListener('keydown', (e) => {
       currentDropdownResults = [];
       selectedDropdownIndex = -1;
     }
-    
+
     // Then check the guess
     checkGuess();
   } else if (e.key === ' ' && guessInput.value.trim() === '') {
@@ -796,7 +796,7 @@ guessInput.addEventListener('keydown', (e) => {
     if (currentDropdownResults.length > 0) {
       selectedDropdownIndex = Math.min(selectedDropdownIndex + 1, currentDropdownResults.length - 1);
       renderDropdown(currentDropdownResults);
-      
+
       // Scroll selected item into view
       const selectedItem = dropdown.querySelector('.dropdown-item.selected');
       if (selectedItem) {
@@ -808,7 +808,7 @@ guessInput.addEventListener('keydown', (e) => {
     if (currentDropdownResults.length > 0) {
       selectedDropdownIndex = Math.max(selectedDropdownIndex - 1, -1);
       renderDropdown(currentDropdownResults);
-      
+
       // Scroll selected item into view
       const selectedItem = dropdown.querySelector('.dropdown-item.selected');
       if (selectedItem) {
@@ -841,15 +841,15 @@ difficultyToggle.addEventListener('click', () => {
   if (guessHistory.length > 0) {
     saveSessionToHistory(score);
   }
-  
+
   // Toggle difficulty mode
   isHardMode = !isHardMode;
   difficultyToggle.textContent = isHardMode ? 'Mode: Hard' : 'Mode: Normal';
-  
+
   // Reset the game session
   messageEl.textContent = `Switched to ${isHardMode ? 'Hard' : 'Normal'} mode. Game reset!`;
   messageEl.className = 'message-correct';
-  
+
   setTimeout(() => {
     resetSession();
     startRound();
@@ -894,11 +894,11 @@ function applyFilters() {
   if (guessHistory.length > 0) {
     saveSessionToHistory(score);
   }
-  
+
   // Reset the game session with new filters
   messageEl.textContent = 'Filters updated. Game reset!';
   messageEl.className = 'message-correct';
-  
+
   setTimeout(() => {
     resetSession();
     startRound();
@@ -911,7 +911,7 @@ const filtersContent = document.getElementById('filters-content');
 
 filtersToggle.addEventListener('click', () => {
   const isOpen = filtersContent.classList.contains('open');
-  
+
   if (isOpen) {
     filtersContent.classList.remove('open');
     filtersToggle.classList.remove('open');
