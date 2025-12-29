@@ -9,6 +9,59 @@ let currentCardData = null;
 let cvDetailsIndex = new Map();
 let cvDetailsByKey = {};
 
+// Cookie management utilities
+const CookieManager = {
+  set(name, value, days = 365) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+  },
+
+  get(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+  },
+
+  delete(name) {
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+  }
+};
+
+// Settings persistence
+const Settings = {
+  save(key, value) {
+    try {
+      CookieManager.set(`wbgdb_${key}`, JSON.stringify(value));
+    } catch (e) {
+      console.warn('Failed to save setting:', key, e);
+    }
+  },
+
+  load(key, defaultValue = null) {
+    try {
+      const value = CookieManager.get(`wbgdb_${key}`);
+      return value !== null ? JSON.parse(value) : defaultValue;
+    } catch (e) {
+      console.warn('Failed to load setting:', key, e);
+      return defaultValue;
+    }
+  },
+
+  saveFilters(filters) {
+    this.save('filters', filters);
+  },
+
+  loadFilters() {
+    return this.load('filters', {});
+  }
+};
+
 function splitCVs(value) {
   if (!value || typeof value !== 'string') return [];
   return value.split('/').map(s => s.trim()).filter(Boolean);
@@ -508,6 +561,7 @@ const localization = {
     'Descending': '降順',
     'List': 'リスト',
     'Waterfall': 'ウォーターフォール',
+    'Full': 'フル',
     'min': '最小',
     'max': '最大',
     'Bronze': 'ブロンズ',
@@ -540,11 +594,28 @@ function getUrlParameter(name) {
 }
 
 function initializeLanguageFromUrl() {
+  // First check URL parameter
   const langParam = getUrlParameter('lang');
   if (langParam === 'en') {
     isEnglishUI = true;
   } else if (langParam === 'jp') {
     isEnglishUI = false;
+  } else {
+    // If no URL param, check cookies
+    const savedUILang = Settings.load('uiLanguage');
+    if (savedUILang === 'en') {
+      isEnglishUI = true;
+    } else if (savedUILang === 'jp') {
+      isEnglishUI = false;
+    }
+  }
+
+  // Load voice language preference
+  const savedVoiceLang = Settings.load('voiceLanguage');
+  if (savedVoiceLang === 'en') {
+    isEnglishVoice = true;
+  } else if (savedVoiceLang === 'jp') {
+    isEnglishVoice = false;
   }
 }
 
@@ -875,28 +946,37 @@ function updateMobileDropdownMenu(inputId, datalistId) {
 
 const ENABLE_MANY_VOICES_FILTER = false;
 
+
+// Load saved filters from cookies
+const savedFilters = Settings.loadFilters();
+
 const activeFilters = {
-  rarity: "",
-  costMin: "",
-  costMax: "",
-  cv: "",
-  illustrator: "",
-  atkMin: "",
-  atkMax: "",
-  lifeMin: "",
-  lifeMax: "",
-  class: "",
-  set: "",
-  type: "",
-  tokenMode: "all",
-  sortBy: "alpha",
-  sortOrder: "asc",
-  voices: "both",
-  viewMode: "list",
-  groupBy: "none",
-  manyVoices: "all",
-  alternate: "all",
+  rarity: savedFilters.rarity || "",
+  costMin: savedFilters.costMin || "",
+  costMax: savedFilters.costMax || "",
+  cv: savedFilters.cv || "",
+  illustrator: savedFilters.illustrator || "",
+  atkMin: savedFilters.atkMin || "",
+  atkMax: savedFilters.atkMax || "",
+  lifeMin: savedFilters.lifeMin || "",
+  lifeMax: savedFilters.lifeMax || "",
+  class: savedFilters.class || "",
+  set: savedFilters.set || "",
+  type: savedFilters.type || "",
+  tokenMode: savedFilters.tokenMode || "all",
+  sortBy: savedFilters.sortBy || "alpha",
+  sortOrder: savedFilters.sortOrder || "asc",
+  voices: savedFilters.voices || "both",
+  viewMode: savedFilters.viewMode || "list",
+  groupBy: savedFilters.groupBy || "none",
+  manyVoices: savedFilters.manyVoices || "all",
+  alternate: savedFilters.alternate || "all",
 };
+
+// Save filters whenever they change
+function saveCurrentFilters() {
+  Settings.saveFilters(activeFilters);
+}
 
 const classLabels = {
   0: "Neutral",
@@ -2791,6 +2871,34 @@ fetch("cards.json")
 
     updateLocalization();
 
+    // Restore saved filter values to UI elements
+    document.getElementById("filter-rarity").value = activeFilters.rarity;
+    document.getElementById("filter-cost-min").value = activeFilters.costMin;
+    document.getElementById("filter-cost-max").value = activeFilters.costMax;
+    document.getElementById("filter-atk-min").value = activeFilters.atkMin;
+    document.getElementById("filter-atk-max").value = activeFilters.atkMax;
+    document.getElementById("filter-life-min").value = activeFilters.lifeMin;
+    document.getElementById("filter-life-max").value = activeFilters.lifeMax;
+    document.getElementById("filter-cv").value = activeFilters.cv;
+    document.getElementById("filter-illustrator").value = activeFilters.illustrator;
+    document.getElementById("filter-type").value = activeFilters.type;
+    document.getElementById("filter-set").value = activeFilters.set;
+    document.getElementById("filter-token").value = activeFilters.tokenMode;
+    document.getElementById("filter-voices").value = activeFilters.voices;
+    document.getElementById("filter-alternate").value = activeFilters.alternate;
+    document.getElementById("sort-by").value = activeFilters.sortBy;
+    document.getElementById("sort-order").value = activeFilters.sortOrder;
+    document.getElementById("view-mode").value = activeFilters.viewMode;
+    document.getElementById("group-by").value = activeFilters.groupBy;
+
+    // Apply saved view mode class
+    const container = document.querySelector(".container");
+    if (activeFilters.viewMode === "waterfall") {
+      container.classList.add("waterfall");
+    } else if (activeFilters.viewMode === "full") {
+      container.classList.add("full");
+    }
+
     renderCards(allCards);
 
     const debouncedSearchRender = debounce((searchValue) => {
@@ -2833,79 +2941,95 @@ fetch("cards.json")
 
     document.getElementById("filter-rarity").addEventListener("change", (e) => {
       activeFilters.rarity = e.target.value;
+      saveCurrentFilters();
       debouncedFilterRender();
     });
     document
       .getElementById("filter-cost-min")
       .addEventListener("input", (e) => {
         activeFilters.costMin = e.target.value;
+        saveCurrentFilters();
         debouncedFilterRender();
       });
     document
       .getElementById("filter-cost-max")
       .addEventListener("input", (e) => {
         activeFilters.costMax = e.target.value;
+        saveCurrentFilters();
         debouncedFilterRender();
       });
     document.getElementById("filter-atk-min").addEventListener("input", (e) => {
       activeFilters.atkMin = e.target.value;
+      saveCurrentFilters();
       debouncedFilterRender();
     });
     document.getElementById("filter-atk-max").addEventListener("input", (e) => {
       activeFilters.atkMax = e.target.value;
+      saveCurrentFilters();
       debouncedFilterRender();
     });
     document
       .getElementById("filter-life-min")
       .addEventListener("input", (e) => {
         activeFilters.lifeMin = e.target.value;
+        saveCurrentFilters();
         debouncedFilterRender();
       });
     document
       .getElementById("filter-life-max")
       .addEventListener("input", (e) => {
         activeFilters.lifeMax = e.target.value;
+        saveCurrentFilters();
         debouncedFilterRender();
       });
 
     document.getElementById("filter-cv").addEventListener("input", (e) => {
       activeFilters.cv = e.target.value;
+      saveCurrentFilters();
       debouncedFilterRender();
     });
     document
       .getElementById("filter-illustrator")
       .addEventListener("input", (e) => {
         activeFilters.illustrator = e.target.value;
+        saveCurrentFilters();
         debouncedFilterRender();
       });
     document.getElementById("filter-class").addEventListener("change", (e) => {
       activeFilters.class = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("filter-type").addEventListener("change", (e) => {
       activeFilters.type = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("filter-set").addEventListener("change", (e) => {
       activeFilters.set = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("filter-token").addEventListener("change", (e) => {
       activeFilters.tokenMode = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("filter-voices").addEventListener("change", (e) => {
       activeFilters.voices = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("group-by").addEventListener("change", (e) => {
       activeFilters.groupBy = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document
       .getElementById("filter-alternate")
       .addEventListener("change", (e) => {
         activeFilters.alternate = e.target.value;
+        saveCurrentFilters();
         renderCards(allCards, document.getElementById("search").value);
       });
 
@@ -3063,22 +3187,31 @@ fetch("cards.json")
     }
     document.getElementById("sort-by").addEventListener("change", (e) => {
       activeFilters.sortBy = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
 
     document.getElementById("sort-order").addEventListener("change", (e) => {
       activeFilters.sortOrder = e.target.value;
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     document.getElementById("view-mode").addEventListener("change", (e) => {
       const mode = e.target.value;
       activeFilters.viewMode = mode;
       const container = document.querySelector(".container");
+
+      // Remove all view mode classes
+      container.classList.remove("waterfall", "full");
+
+      // Add appropriate class
       if (mode === "waterfall") {
         container.classList.add("waterfall");
-      } else {
-        container.classList.remove("waterfall");
+      } else if (mode === "full") {
+        container.classList.add("full");
       }
+
+      saveCurrentFilters();
       renderCards(allCards, document.getElementById("search").value);
     });
     const resetBtn = document.getElementById("filters-reset");
@@ -3139,6 +3272,10 @@ fetch("cards.json")
 
 const debouncedVoiceLanguageToggle = debounce(() => {
   isEnglishVoice = !isEnglishVoice;
+
+  // Save voice language preference
+  Settings.save('voiceLanguage', isEnglishVoice ? 'en' : 'jp');
+
   const langText = document.querySelector(".lang-text");
   if (langText) {
     langText.textContent = isEnglishUI
@@ -3172,6 +3309,9 @@ function handleUILanguageChange() {
   const select = document.getElementById("ui-lang-select");
   if (select) {
     isEnglishUI = select.value === "en";
+
+    // Save UI language preference
+    Settings.save('uiLanguage', isEnglishUI ? 'en' : 'jp');
 
     const url = new URL(window.location);
     if (isEnglishUI) {
