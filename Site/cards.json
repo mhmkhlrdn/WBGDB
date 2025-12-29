@@ -36144,13 +36144,13 @@
         "name": "chunk7.mp3",
         "url": "Audio/FILTERED/Milteo_&_Luzen/chunk7.mp3",
         "en_url": "Audio/EN/Milteo_&_Luzen/chunk7.mp3",
-        "label": "Evolve"
+        "label": "Attack"
       },
       {
         "name": "chunk8.mp3",
         "url": "Audio/FILTERED/Milteo_&_Luzen/chunk8.mp3",
         "en_url": "Audio/EN/Milteo_&_Luzen/chunk8.mp3",
-        "label": "Super-Evolve"
+        "label": "Death"
       }
     ],
     "metadata": {
@@ -37332,25 +37332,25 @@
         "name": "chunk8.mp3",
         "url": "Audio/FILTERED/Slaus,_Revolving_Wheel_of_Fortune/chunk8.mp3",
         "en_url": "Audio/EN/Slaus,_Revolving_Wheel_of_Fortune/chunk8.mp3",
-        "label": "Evolve"
+        "label": "Attack"
       },
       {
         "name": "chunk9.mp3",
         "url": "Audio/FILTERED/Slaus,_Revolving_Wheel_of_Fortune/chunk9.mp3",
         "en_url": "Audio/EN/Slaus,_Revolving_Wheel_of_Fortune/chunk9.mp3",
-        "label": "Super-Evolve"
+        "label": "Death"
       },
       {
         "name": "chunk10.mp3",
         "url": "Audio/FILTERED/Slaus,_Revolving_Wheel_of_Fortune/chunk10.mp3",
         "en_url": "Audio/EN/Slaus,_Revolving_Wheel_of_Fortune/chunk10.mp3",
-        "label": "Attack"
+        "label": "Effect"
       },
       {
         "name": "chunk11.mp3",
         "url": "Audio/FILTERED/Slaus,_Revolving_Wheel_of_Fortune/chunk11.mp3",
         "en_url": "Audio/EN/Slaus,_Revolving_Wheel_of_Fortune/chunk11.mp3",
-        "label": "Death"
+        "label": "Effect"
       }
     ],
     "metadata": {
