@@ -1633,16 +1633,47 @@ section.active {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
+  /* Needed for absolute positioning of hint */
+}
+
+.zoom-hint {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(11, 16, 32, 0.9);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10000;
+  opacity: 0;
+  transform: translate(-50%, -150%);
+  /* Center above cursor */
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.zoom-hint.visible {
+  opacity: 1;
 }
 
 .lightbox-img {
   max-width: 100%;
   height: auto;
-  width: 100%;
+  /* width: 100%; Removed to allow image to size to content */
   max-height: calc(100vh - 220px);
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  cursor: zoom-in;
+  /* Indicate zoomability */
+  transition: transform 0.1s ease-out;
+  /* Smooth zoom */
+  transform-origin: center center;
 }
 
 .lightbox-side {

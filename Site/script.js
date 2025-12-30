@@ -2069,46 +2069,12 @@ function updateOpenLightboxVoiceLanguage() {
   const cardObj = allCards[cardData.id];
   if (!cardObj) return;
 
-  // Update voices list (re-render based on isEnglishVoice inside createAudioButton)
-  // We need to know which voices to use.
-  // The lightbox remembers "showingAlternate" state in closure for `updateLightboxVoices`?
-  // `openLightbox` has `showingAlternate` variable.
-  // But we can't access it.
-  // Ideally, valid voice buttons depend on `isEnglishVoice`.
-  // The `openLightbox` logic for voices is complex (meeting, label, etc).
-  // AND it changes when alternate toggle is clicked.
-
-  // Simplest Hack: Re-open the lightbox with current card index.
-  // This will re-run openLightbox logic and pick up new language settings.
-  // But we want to preserve state (like showing alternate).
-  // `openLightbox` accepts `alternate` data. It doesn't accept "start in alternate mode" param though.
-  // So it resets to common art.
-
-  // Improving `openLightbox` to accept `initialMode` would be cleaner but changing signature might be risky.
-
-  // Alternative: Just update what we can: The Metadata text for language details?
-  // The user mainly cares about hearing the other language. 
-
-  // If we just re-run `openLightbox`, it's not a "full refresh" of the page. It's just a UI transition.
-  // It might be acceptable.
-  // Let's try re-opening the lightbox with the SAME data.
-  // To avoid animation flicker, maybe we can temporarily disable transition?
 
   const currentImg = document.getElementById("lightbox-img");
   const isEvo = currentImg.dataset.variant === "evo";
-  // We can pass this info? openLightbox doesn't seemingly take "start as evo".
-
-  // Let's rely on the user manually toggling art if they were deep in some state?
-  // Or, better:
-  // We can just update the LIST of cards under the overlay.
-  // The lightbox overlay itself:
-  // We can update the voice list manually here.
 
   const voicesList = document.getElementById("lightbox-voices-list");
   if (voicesList) {
-    // Re-render
-    // We need to know if we are showing alternate voices.
-    // We can guess:
     const altToggle = document.getElementById("lightbox-alternate-toggle");
     const isAltMode = altToggle && altToggle.classList.contains("active");
 
@@ -2126,9 +2092,6 @@ function updateOpenLightboxVoiceLanguage() {
 
     if (voicesToUse && voicesToUse.length > 0) {
       voicesToUse.forEach(line => {
-        // Basic reproduction of openLightbox voice rendering logic
-        // We might lose some "meeting" logic details if duplicate code.
-        // Copied logic:
         const voiceContainer = document.createElement("div");
         voiceContainer.className = "lightbox-voice-container";
 
@@ -2137,31 +2100,16 @@ function updateOpenLightboxVoiceLanguage() {
           ? line.label.substring(7)
           : (line.label || line.name || line);
 
-        // getLocalizedText uses isEnglishUI, not Voice. 
-        // BUT localization.en keys might differ? 
-        // Actually voice labels are usually same.
 
         const displayText = localization.en[rawText]
           ? getLocalizedText(rawText)
           : rawText;
 
         const btn = createAudioButton(line);
-        // customize button content to match lightbox style (icon + text + duration)
-        // createAudioButton creates a simple button. Lightbox has custom HTML.
-        // We should use createAudioButton for logic but style it.
-        // Actually createAudioButton returns a button element with class `audio-btn`.
-        // Lightbox uses `lightbox-voice-btn`.
-        // Re-implementing lightbox button creation here is messy.
 
-        // Allow `debouncedVoiceLanguageToggle` to just close/reopen lightbox?
-        // "without having to search or scroll to that card again".
-        // Re-opening lightbox is fine.
       });
     }
 
-    // Actually, simpler:
-    // If we just call `openLightbox` with the current card, it works.
-    // The user loses "Evolved" state, but they are at the same card.
 
     const nextDisplayName = isEnglishUI ? cardData.name : (cardData.meta.jpName || cardData.name);
     openLightbox({
@@ -2207,8 +2155,6 @@ function updateAllCardsForLanguage() {
       tooltip.innerHTML = isEnglishUI ? meta.skill_text : (meta.jpSkill_Text || meta.skill_text);
     }
 
-    // Update Voice Buttons (might change if label logic relies on language, mostly not, but availability msg does)
-    // Also unavailable message is localized.
     updateVoiceButtonsOnCard(cardEl, cardObj);
 
     // Update Toggle Buttons
@@ -2251,11 +2197,6 @@ function updateAllCardsForLanguage() {
         rightMetadata.appendChild(illustratorItem);
       }
     }
-
-    // Update entry in filteredCards to reflect name change?
-    // filterCards name property is used for lightbox title.
-    // So yes, we should update usage where possible, but `filteredCards` is just data.
-    // Lightbox update function handles its own title.
     const entryIndex = Number(cardEl.dataset.cardIndex || -1);
     if (entryIndex >= 0 && filteredCards[entryIndex]) {
       filteredCards[entryIndex].name = isEnglishUI ? formatName(cardId) : (meta.jpName || formatName(cardId));
@@ -2331,6 +2272,7 @@ function updateLightboxMetadata(
 }
 
 function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, cardIndex = -1, cardData = null }) {
+  if (window.resetLightboxZoom) window.resetLightboxZoom();
   const lb = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
   const title = document.getElementById("lightbox-title");
@@ -3389,7 +3331,140 @@ function handleUILanguageChange() {
   });
 }
 
+// Lightbox Zoom Logic
+function setupLightboxZoom() {
+  const img = document.getElementById("lightbox-img");
+  const wrapper = document.querySelector(".lightbox-img-wrap");
+
+  if (!img || !wrapper) return;
+
+  let zoomScale = 1;
+  let ticking = false;
+
+  let hasInteracted = false;
+
+  window.resetLightboxZoom = () => {
+    zoomScale = 1;
+    hasInteracted = false;
+    img.style.transform = `scale(1)`;
+    setTimeout(() => {
+      img.style.transformOrigin = "center center";
+    }, 100);
+  };
+
+  const updateZoom = () => {
+    img.style.transform = `scale(${zoomScale})`;
+    ticking = false;
+  };
+
+  // Zoom Hint Logic
+  let hintEl = null;
+  const hasSeenZoomTip = Settings.load('hasZoomTip');
+
+  if (!hasSeenZoomTip) {
+    hintEl = document.createElement('div');
+    hintEl.className = 'zoom-hint';
+    hintEl.innerHTML = getLocalizedText('Scroll to zoom') || 'Scroll to zoom';
+    document.body.appendChild(hintEl);
+  }
+
+  const updateHintPosition = (e) => {
+    if (hintEl && hintEl.classList.contains('visible')) {
+      hintEl.style.left = `${e.clientX}px`;
+      hintEl.style.top = `${e.clientY}px`;
+    }
+  };
+
+  const hideHint = () => {
+    if (hintEl) {
+      hintEl.classList.remove('visible');
+      // If triggered by wheel, we disable it permanently
+    }
+  };
+
+  const permanentyHideHint = () => {
+    if (hintEl) {
+      hintEl.classList.remove('visible');
+      setTimeout(() => {
+        if (hintEl && hintEl.parentNode) hintEl.parentNode.removeChild(hintEl);
+        hintEl = null;
+      }, 300);
+      Settings.save('hasZoomTip', true);
+    }
+  };
+
+  wrapper.addEventListener("mouseenter", () => {
+    if (!hasInteracted) {
+      hasInteracted = true;
+      zoomScale = 2;
+      updateZoom();
+
+      // Show hint if applicable
+      if (hintEl) {
+        hintEl.classList.add('visible');
+      }
+    } else if (hintEl) {
+      // Show hint on re-entry if not yet dismissed
+      hintEl.classList.add('visible');
+    }
+  });
+
+  wrapper.addEventListener("mouseleave", () => {
+    // Just hide visually, don't dismiss permanently yet
+    hideHint();
+  });
+
+  wrapper.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    hasInteracted = true;
+
+    // Dismiss hint permanently on first scroll
+    permanentyHideHint();
+
+    const delta = e.deltaY * -0.002;
+    // Smoother scaling
+    zoomScale += delta;
+    zoomScale = Math.min(Math.max(1, zoomScale), 6);
+
+    if (!ticking) {
+      requestAnimationFrame(updateZoom);
+      ticking = true;
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener("mousemove", (e) => {
+    // Update hint position
+    updateHintPosition(e);
+
+    const wRect = wrapper.getBoundingClientRect();
+    // Unscaled dimensions relative to flow
+    const imgW = img.offsetWidth;
+    const imgH = img.offsetHeight;
+
+    // Calculate Image position within Wrapper (Centered)
+    const imgLeft = wRect.left + (wRect.width - imgW) / 2;
+    const imgTop = wRect.top + (wRect.height - imgH) / 2;
+
+    // Mouse position relative to Image
+    let x = e.clientX - imgLeft;
+    let y = e.clientY - imgTop;
+
+    // Clamp to image bounds
+    x = Math.max(0, Math.min(x, imgW));
+    y = Math.max(0, Math.min(y, imgH));
+
+    const xIdx = (x / imgW) * 100;
+    const yIdx = (y / imgH) * 100;
+
+    img.style.transformOrigin = `${xIdx}% ${yIdx}%`;
+  });
+
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setupLightboxZoom();
+
   const voiceToggle = document.getElementById("voice-lang-toggle");
   const uiSelect = document.getElementById("ui-lang-select");
 
