@@ -562,6 +562,7 @@ const localization = {
     'List': 'リスト',
     'Waterfall': 'ウォーターフォール',
     'Full': 'フル',
+    'Fixed': '固定',
     'min': '最小',
     'max': '最大',
     'Bronze': 'ブロンズ',
@@ -968,6 +969,7 @@ const activeFilters = {
   sortOrder: savedFilters.sortOrder || "asc",
   voices: savedFilters.voices || "both",
   viewMode: savedFilters.viewMode || "list",
+  displayMode: savedFilters.displayMode || "fixed",
   groupBy: savedFilters.groupBy || "none",
   manyVoices: savedFilters.manyVoices || "all",
   alternate: savedFilters.alternate || "all",
@@ -1861,7 +1863,17 @@ function applyMasonryLayout(container) {
   if (cards.length === 0) return;
 
   // Get the number of columns based on screen width
+  // Get the number of columns based on screen width
   const getColumnCount = () => {
+    // Check if we are in full display mode
+    if (activeFilters.displayMode === 'full') {
+      // For full mode, calculate columns based on fixed width (~300px per column)
+      // preserving the density of the waterfall layout
+      const width = document.body.clientWidth;
+      return Math.max(1, Math.floor(width / 300));
+    }
+
+    // Fixed mode logic (capped at 4)
     const width = window.innerWidth;
     if (width >= 1200) return 4;
     if (width >= 900) return 3;
@@ -2831,14 +2843,24 @@ fetch("cards.json")
     document.getElementById("sort-by").value = activeFilters.sortBy;
     document.getElementById("sort-order").value = activeFilters.sortOrder;
     document.getElementById("view-mode").value = activeFilters.viewMode;
+    document.getElementById("display-mode").value = activeFilters.displayMode;
     document.getElementById("group-by").value = activeFilters.groupBy;
 
-    // Apply saved view mode class
+    // Apply saved view/display mode classes independently
     const container = document.querySelector(".container");
+
+    // View Mode (Structure)
     if (activeFilters.viewMode === "waterfall") {
       container.classList.add("waterfall");
-    } else if (activeFilters.viewMode === "full") {
+    } else {
+      container.classList.remove("waterfall");
+    }
+
+    // Display Mode (Width)
+    if (activeFilters.displayMode === "full") {
       container.classList.add("full");
+    } else {
+      container.classList.remove("full");
     }
 
     renderCards(allCards);
@@ -3143,14 +3165,27 @@ fetch("cards.json")
       activeFilters.viewMode = mode;
       const container = document.querySelector(".container");
 
-      // Remove all view mode classes
-      container.classList.remove("waterfall", "full");
-
-      // Add appropriate class
+      // Handle View Mode classes
       if (mode === "waterfall") {
         container.classList.add("waterfall");
-      } else if (mode === "full") {
+      } else {
+        container.classList.remove("waterfall");
+      }
+
+      saveCurrentFilters();
+      renderCards(allCards, document.getElementById("search").value);
+    });
+
+    document.getElementById("display-mode").addEventListener("change", (e) => {
+      const mode = e.target.value;
+      activeFilters.displayMode = mode;
+      const container = document.querySelector(".container");
+
+      // Handle Display Mode classes
+      if (mode === "full") {
         container.classList.add("full");
+      } else {
+        container.classList.remove("full");
       }
 
       saveCurrentFilters();

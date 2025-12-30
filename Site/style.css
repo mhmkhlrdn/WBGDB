@@ -747,24 +747,12 @@ input[type="number"]::after {
 
 .container.full #cards {
   max-width: none;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
 }
 
 @media (max-width: 768px) {
   .container.full #cards {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 1400px) {
-  .container.full #cards {
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  }
-}
-
-@media (min-width: 1800px) {
-  .container.full #cards {
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   }
 }
 
