@@ -1648,10 +1648,25 @@ function renderCardsOptimized(cards, filter = "") {
   const container = document.getElementById("cards");
   if (!container) return;
 
+  // 1. Capture existing DOM nodes to reuse
+  const existingCards = new Map();
+  const existingHeaders = new Map();
+
+  // Flatten children (handle Masonry nested columns if present)
+  const allCurrentElements = Array.from(container.querySelectorAll('.card'));
+  const allCurrentHeaders = Array.from(container.querySelectorAll('.group-header'));
+
+  allCurrentElements.forEach(el => {
+    if (el.dataset.cardId) existingCards.set(el.dataset.cardId, el);
+  });
+  allCurrentHeaders.forEach(el => {
+    existingHeaders.set(el.textContent, el);
+  });
+
   // reset
   resetObservers();
   ensureObservers();
-  container.innerHTML = "";
+  // container.innerHTML = "";
 
   // Build entries, apply initial passesFilters (same as old function)
   let entries = Object.entries(cards);
@@ -1811,42 +1826,49 @@ function renderCardsOptimized(cards, filter = "") {
     entries.forEach(entry => jobList.push({ type: "card", entry }));
   }
 
-  let idx = 0;
-  function step() {
-    const end = Math.min(idx + BATCH_SIZE, jobList.length);
-    for (; idx < end; idx++) {
-      const job = jobList[idx];
-      if (job.type === "groupHeader") {
-        const groupHeader = document.createElement('div');
-        groupHeader.className = 'group-header';
-        groupHeader.textContent = job.groupKey;
-        fragment.appendChild(groupHeader);
-      } else if (job.type === "card") {
-        const [cardName, cardObj] = job.entry;
-        const skeleton = createSkeletonCard(cardName, cardObj, fragment.childElementCount);
-        fragment.appendChild(skeleton);
+  // Process all items synchronously (using reusing logic)
+  let currentCardIndex = 0;
 
-        // Observe skeleton for hydration
-        hydrateObserver.observe(skeleton);
-
-        // Observe image if a data-src exists
-        const pendingImg = skeleton.querySelector("img[data-src]");
-        if (pendingImg && imageObserver) imageObserver.observe(pendingImg);
+  jobList.forEach(job => {
+    if (job.type === "groupHeader") {
+      let header = existingHeaders.get(job.groupKey);
+      if (!header) {
+        header = document.createElement('div');
+        header.className = 'group-header';
+        header.textContent = job.groupKey;
       }
-    }
+      fragment.appendChild(header);
+    } else if (job.type === "card") {
+      const [cardName, cardObj] = job.entry;
+      let card = existingCards.get(cardName);
+      // Calculate explicit index for this filtered view
+      const displayIndex = currentCardIndex++;
 
-
-    if (idx < jobList.length) {
-      requestAnimationFrame(step);
-    } else {
-      container.appendChild(fragment);
-      if (activeFilters.viewMode === "waterfall") {
-        applyMasonryLayout(container);
+      if (!card) {
+        card = createSkeletonCard(cardName, cardObj, displayIndex);
+      } else {
+        // Update index on reused card
+        if (card.dataset.cardIndex !== String(displayIndex)) {
+          card.dataset.cardIndex = displayIndex;
+        }
       }
+
+      fragment.appendChild(card);
+
+      // Re-observe
+      hydrateObserver.observe(card);
+      const pendingImg = card.querySelector("img[data-src]");
+      if (pendingImg && imageObserver) imageObserver.observe(pendingImg);
     }
+  });
+
+  // Apply changes to DOM
+  container.innerHTML = "";
+  container.appendChild(fragment);
+
+  if (activeFilters.viewMode === "waterfall") {
+    applyMasonryLayout(container);
   }
-
-  requestAnimationFrame(step);
 }
 
 // Replace existing renderCards with new optimized one
@@ -3497,8 +3519,68 @@ function setupLightboxZoom() {
 
 }
 
+function setupFloatingSidebar() {
+  const filtersSection = document.getElementById('filters');
+  const filtersInner = document.getElementById('filters-inner');
+  const sidebarContainer = document.getElementById('floating-sidebar-container');
+  const sidebarContent = document.getElementById('sidebar-content');
+  const floatingBtn = document.getElementById('floating-filter-btn');
+  const closeBtn = document.getElementById('sidebar-close-btn');
+
+  if (!filtersSection || !floatingBtn || !sidebarContainer) return;
+
+  let isSidebarOpen = false;
+
+  const openSidebar = () => {
+    isSidebarOpen = true;
+    sidebarContainer.classList.add('open');
+    sidebarContent.appendChild(filtersInner);
+  };
+
+  const closeSidebar = () => {
+    isSidebarOpen = false;
+    sidebarContainer.classList.remove('open');
+    filtersSection.appendChild(filtersInner);
+  };
+
+  floatingBtn.addEventListener('click', () => {
+    openSidebar();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    closeSidebar();
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isSidebarOpen &&
+      !sidebarContainer.contains(e.target) &&
+      !floatingBtn.contains(e.target)) {
+      closeSidebar();
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // If we scroll past filters (top < 0) and it is not intersecting
+      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        floatingBtn.classList.add('visible');
+      } else {
+        floatingBtn.classList.remove('visible');
+        // If we scroll back up to filters, dock them back automatically
+        if (isSidebarOpen) {
+          closeSidebar();
+        }
+      }
+    });
+  }, { threshold: 0 });
+
+  observer.observe(filtersSection);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupLightboxZoom();
+  setupFloatingSidebar();
 
   const voiceToggle = document.getElementById("voice-lang-toggle");
   const uiSelect = document.getElementById("ui-lang-select");
