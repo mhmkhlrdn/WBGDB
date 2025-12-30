@@ -3975,7 +3975,21 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   }
 
   function toggleFilters() {
+    const floatingBtn = document.getElementById("floating-filter-btn");
+    const sidebarContainer = document.getElementById("floating-sidebar-container");
+    const sidebarCloseBtn = document.getElementById("sidebar-close-btn");
     const toggleBtn = document.getElementById("filters-toggle-btn");
+
+    // If floating button is visible, we are in scrolled mode -> Toggle Sidebar
+    if (floatingBtn && floatingBtn.classList.contains('visible')) {
+      if (sidebarContainer && sidebarContainer.classList.contains('open')) {
+        if (sidebarCloseBtn) sidebarCloseBtn.click();
+      } else {
+        floatingBtn.click();
+      }
+      return;
+    }
+
     if (toggleBtn) {
       toggleBtn.click();
     }
