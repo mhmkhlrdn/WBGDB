@@ -1844,6 +1844,20 @@ function renderCardsOptimized(cards, filter = "") {
       // Calculate explicit index for this filtered view
       const displayIndex = currentCardIndex++;
 
+      // Populate filteredCards synchronously
+      const meta = (cardObj.metadata && cardObj.metadata.common) || {};
+      const metaEvo = (cardObj.metadata && cardObj.metadata.evolution) || {};
+      const cardDisplayName = isEnglishUI ? formatName(cardName) : (meta.jpName || formatName(cardName));
+
+      filteredCards[displayIndex] = {
+        id: cardName,
+        name: cardDisplayName,
+        meta,
+        metaEvo,
+        lines: cardObj.voices || [],
+        alternate: cardObj.metadata?.alternate
+      };
+
       if (!card) {
         card = createSkeletonCard(cardName, cardObj, displayIndex);
       } else {
@@ -3454,7 +3468,6 @@ function setupLightboxZoom() {
     if (!hasInteracted) {
       hasInteracted = true;
       zoomScale = 2;
-      updateZoom();
 
       // Show hint if applicable
       if (hintEl) {
@@ -3464,11 +3477,16 @@ function setupLightboxZoom() {
       // Show hint on re-entry if not yet dismissed
       hintEl.classList.add('visible');
     }
+
+    // Always restore the zoomed scale visually when re-entering
+    updateZoom();
   });
 
   wrapper.addEventListener("mouseleave", () => {
     // Just hide visually, don't dismiss permanently yet
     hideHint();
+    // Visually reset to scale 1, but preserve zoomScale variable
+    img.style.transform = `scale(1)`;
   });
 
   wrapper.addEventListener("wheel", (e) => {
@@ -3790,6 +3808,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
     // Store reference for cleanup
     selectElement._customDropdown = {
       wrapper,
+      update: () => updateTrigger(),
       destroy: () => {
         observer.disconnect();
         wrapper.remove();
@@ -4030,15 +4049,20 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       elements.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
-          if (id === "filter-token" || id === "sort-by" || id === "sort-order" ||
-            id === "filter-voices" || id === "filter-alternate" || id === "view-mode") {
-            element.value = id === "view-mode" ? "list" : "all";
+          if (id === "view-mode") {
+            element.value = "list";
           } else if (id === "sort-by") {
             element.value = "alpha";
           } else if (id === "sort-order") {
             element.value = "asc";
+          } else if (id === "filter-token" || id === "filter-voices" || id === "filter-alternate") {
+            element.value = "all";
           } else {
             element.value = "";
+          }
+
+          if (element._customDropdown && element._customDropdown.update) {
+            element._customDropdown.update();
           }
         }
       });
@@ -4118,7 +4142,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
           e.preventDefault();
           toggleFilters();
           break;
-        case 'l':
+        case 'q':
           e.preventDefault();
           debouncedVoiceLanguageToggle();
           break;
