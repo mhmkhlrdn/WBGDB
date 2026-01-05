@@ -807,7 +807,7 @@ function createMobileDropdown(inputId, datalistId, placeholder) {
   dropdownBtn.className = "mobile-dropdown-btn";
   dropdownBtn.style.position = "absolute";
   dropdownBtn.style.right = "8px";
-  dropdownBtn.style.top = "50%"; b
+  dropdownBtn.style.top = "50%";
   dropdownBtn.style.transform = "translateY(-50%)";
   dropdownBtn.style.background = "transparent";
   dropdownBtn.style.border = "none";
@@ -2935,103 +2935,114 @@ fetch("cards.json")
         classSel.appendChild(opt);
       });
 
+
+
     const debouncedFilterRender = debounce(() => {
       renderCards(allCards, document.getElementById("search").value);
     }, 50);
 
-    document.getElementById("filter-rarity").addEventListener("change", (e) => {
-      activeFilters.rarity = e.target.value;
-      saveCurrentFilters();
-      debouncedFilterRender();
-    });
-    document
-      .getElementById("filter-cost-min")
-      .addEventListener("input", (e) => {
-        activeFilters.costMin = e.target.value;
-        saveCurrentFilters();
-        debouncedFilterRender();
-      });
-    document
-      .getElementById("filter-cost-max")
-      .addEventListener("input", (e) => {
-        activeFilters.costMax = e.target.value;
-        saveCurrentFilters();
-        debouncedFilterRender();
-      });
-    document.getElementById("filter-atk-min").addEventListener("input", (e) => {
-      activeFilters.atkMin = e.target.value;
-      saveCurrentFilters();
-      debouncedFilterRender();
-    });
-    document.getElementById("filter-atk-max").addEventListener("input", (e) => {
-      activeFilters.atkMax = e.target.value;
-      saveCurrentFilters();
-      debouncedFilterRender();
-    });
-    document
-      .getElementById("filter-life-min")
-      .addEventListener("input", (e) => {
-        activeFilters.lifeMin = e.target.value;
-        saveCurrentFilters();
-        debouncedFilterRender();
-      });
-    document
-      .getElementById("filter-life-max")
-      .addEventListener("input", (e) => {
-        activeFilters.lifeMax = e.target.value;
-        saveCurrentFilters();
-        debouncedFilterRender();
-      });
+    // Document-level delegation to ensure events are caught regardless of element position
+    document.addEventListener("change", (e) => {
+      const target = e.target;
+      const id = target.id;
+      if (!id) return;
 
-    document.getElementById("filter-cv").addEventListener("input", (e) => {
-      activeFilters.cv = e.target.value;
-      saveCurrentFilters();
-      debouncedFilterRender();
+      // Check if the event came from within the filters area
+      if (!target.closest('#filters-inner')) return;
+
+      let handled = false;
+
+      if (id === "filter-rarity") {
+        activeFilters.rarity = target.value;
+        handled = true;
+        debouncedFilterRender();
+      } else if (id === "filter-class") {
+        activeFilters.class = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-type") {
+        activeFilters.type = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-set") {
+        activeFilters.set = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-token") {
+        activeFilters.tokenMode = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-voices") {
+        activeFilters.voices = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-alternate") {
+        activeFilters.alternate = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "group-by") {
+        activeFilters.groupBy = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "filter-many-voices") {
+        activeFilters.manyVoices = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "sort-by") {
+        activeFilters.sortBy = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      } else if (id === "sort-order") {
+        activeFilters.sortOrder = target.value;
+        handled = true;
+        renderCards(allCards, document.getElementById("search").value);
+      }
+
+      if (handled) {
+        saveCurrentFilters();
+      }
     });
-    document
-      .getElementById("filter-illustrator")
-      .addEventListener("input", (e) => {
-        activeFilters.illustrator = e.target.value;
+
+    document.addEventListener("input", (e) => {
+      const target = e.target;
+      const id = target.id;
+      if (!id) return;
+
+      if (!target.closest('#filters-inner')) return;
+
+      let handled = false;
+
+      if (id === "filter-cost-min") {
+        activeFilters.costMin = target.value;
+        handled = true;
+      } else if (id === "filter-cost-max") {
+        activeFilters.costMax = target.value;
+        handled = true;
+      } else if (id === "filter-atk-min") {
+        activeFilters.atkMin = target.value;
+        handled = true;
+      } else if (id === "filter-atk-max") {
+        activeFilters.atkMax = target.value;
+        handled = true;
+      } else if (id === "filter-life-min") {
+        activeFilters.lifeMin = target.value;
+        handled = true;
+      } else if (id === "filter-life-max") {
+        activeFilters.lifeMax = target.value;
+        handled = true;
+      } else if (id === "filter-cv") {
+        activeFilters.cv = target.value;
+        handled = true;
+      } else if (id === "filter-illustrator") {
+        activeFilters.illustrator = target.value;
+        handled = true;
+      }
+
+      if (handled) {
         saveCurrentFilters();
         debouncedFilterRender();
-      });
-    document.getElementById("filter-class").addEventListener("change", (e) => {
-      activeFilters.class = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
+      }
     });
-    document.getElementById("filter-type").addEventListener("change", (e) => {
-      activeFilters.type = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
-    document.getElementById("filter-set").addEventListener("change", (e) => {
-      activeFilters.set = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
-    document.getElementById("filter-token").addEventListener("change", (e) => {
-      activeFilters.tokenMode = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
-    document.getElementById("filter-voices").addEventListener("change", (e) => {
-      activeFilters.voices = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
-    document.getElementById("group-by").addEventListener("change", (e) => {
-      activeFilters.groupBy = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
-    document
-      .getElementById("filter-alternate")
-      .addEventListener("change", (e) => {
-        activeFilters.alternate = e.target.value;
-        saveCurrentFilters();
-        renderCards(allCards, document.getElementById("search").value);
-      });
 
     function createDesktopOverlayMenu(inputId, datalistId) {
       const input = document.getElementById(inputId);
@@ -3185,17 +3196,7 @@ fetch("cards.json")
         });
       }
     }
-    document.getElementById("sort-by").addEventListener("change", (e) => {
-      activeFilters.sortBy = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
 
-    document.getElementById("sort-order").addEventListener("change", (e) => {
-      activeFilters.sortOrder = e.target.value;
-      saveCurrentFilters();
-      renderCards(allCards, document.getElementById("search").value);
-    });
     document.getElementById("view-mode").addEventListener("change", (e) => {
       const mode = e.target.value;
       activeFilters.viewMode = mode;
@@ -3411,7 +3412,6 @@ function setupLightboxZoom() {
 
   let zoomScale = 1;
   let ticking = false;
-
   let hasInteracted = false;
 
   window.resetLightboxZoom = () => {
@@ -3427,6 +3427,31 @@ function setupLightboxZoom() {
     img.style.transform = `scale(${zoomScale})`;
     ticking = false;
   };
+
+  // Shared logic to update transformOrigin based on pointer position
+  const updatePan = (clientX, clientY) => {
+    const wRect = wrapper.getBoundingClientRect();
+    const imgW = img.offsetWidth;
+    const imgH = img.offsetHeight;
+
+    // Calculate Image position within Wrapper (Centered)
+    const imgLeft = wRect.left + (wRect.width - imgW) / 2;
+    const imgTop = wRect.top + (wRect.height - imgH) / 2;
+
+    // Pointer position relative to Image
+    let x = clientX - imgLeft;
+    let y = clientY - imgTop;
+
+    // Clamp to image bounds
+    x = Math.max(0, Math.min(x, imgW));
+    y = Math.max(0, Math.min(y, imgH));
+
+    const xIdx = (x / imgW) * 100;
+    const yIdx = (y / imgH) * 100;
+
+    img.style.transformOrigin = `${xIdx}% ${yIdx}%`;
+  };
+
 
   // Zoom Hint Logic
   let hintEl = null;
@@ -3449,7 +3474,6 @@ function setupLightboxZoom() {
   const hideHint = () => {
     if (hintEl) {
       hintEl.classList.remove('visible');
-      // If triggered by wheel, we disable it permanently
     }
   };
 
@@ -3467,73 +3491,80 @@ function setupLightboxZoom() {
   wrapper.addEventListener("mouseenter", () => {
     if (!hasInteracted) {
       hasInteracted = true;
-      zoomScale = 2;
-
-      // Show hint if applicable
-      if (hintEl) {
-        hintEl.classList.add('visible');
-      }
+      zoomScale = 2; // Auto zoom on hover
+      if (hintEl) hintEl.classList.add('visible');
     } else if (hintEl) {
-      // Show hint on re-entry if not yet dismissed
       hintEl.classList.add('visible');
     }
-
-    // Always restore the zoomed scale visually when re-entering
     updateZoom();
   });
 
   wrapper.addEventListener("mouseleave", () => {
-    // Just hide visually, don't dismiss permanently yet
     hideHint();
-    // Visually reset to scale 1, but preserve zoomScale variable
     img.style.transform = `scale(1)`;
   });
 
   wrapper.addEventListener("wheel", (e) => {
     e.preventDefault();
     hasInteracted = true;
-
-    // Dismiss hint permanently on first scroll
     permanentyHideHint();
-
     const delta = e.deltaY * -0.002;
-    // Smoother scaling
     zoomScale += delta;
     zoomScale = Math.min(Math.max(1, zoomScale), 6);
-
     if (!ticking) {
       requestAnimationFrame(updateZoom);
       ticking = true;
     }
   }, { passive: false });
 
+
   wrapper.addEventListener("mousemove", (e) => {
-    // Update hint position
     updateHintPosition(e);
-
-    const wRect = wrapper.getBoundingClientRect();
-    // Unscaled dimensions relative to flow
-    const imgW = img.offsetWidth;
-    const imgH = img.offsetHeight;
-
-    // Calculate Image position within Wrapper (Centered)
-    const imgLeft = wRect.left + (wRect.width - imgW) / 2;
-    const imgTop = wRect.top + (wRect.height - imgH) / 2;
-
-    // Mouse position relative to Image
-    let x = e.clientX - imgLeft;
-    let y = e.clientY - imgTop;
-
-    // Clamp to image bounds
-    x = Math.max(0, Math.min(x, imgW));
-    y = Math.max(0, Math.min(y, imgH));
-
-    const xIdx = (x / imgW) * 100;
-    const yIdx = (y / imgH) * 100;
-
-    img.style.transformOrigin = `${xIdx}% ${yIdx}%`;
+    updatePan(e.clientX, e.clientY);
   });
 
+  // --- Mobile Touch Logic ---
+  let initialPinchDistance = null;
+  let initialPinchScale = 1;
+
+  wrapper.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 2) {
+      // Pinch start
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      initialPinchDistance = Math.hypot(dx, dy);
+      initialPinchScale = zoomScale;
+    } else if (e.touches.length === 1) {
+      // Pan start (just ensure origin is updated)
+      updatePan(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 2 && initialPinchDistance) {
+      // Pinching
+      e.preventDefault();
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const distance = Math.hypot(dx, dy);
+      const scaleFactor = distance / initialPinchDistance;
+      zoomScale = Math.min(Math.max(1, initialPinchScale * scaleFactor), 6);
+      if (!ticking) {
+        requestAnimationFrame(updateZoom);
+        ticking = true;
+      }
+    } else if (e.touches.length === 1 && zoomScale > 1) {
+      // Panning while zoomed
+      e.preventDefault(); // Prevent page scroll
+      updatePan(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener("touchend", (e) => {
+    if (e.touches.length < 2) {
+      initialPinchDistance = null;
+    }
+  });
 
 }
 
