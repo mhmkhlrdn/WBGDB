@@ -7,7 +7,6 @@ append_*.js
 analyze_*.js
 test_*.js
 .backup*
-index.js
 generate-index.js
 normalize_audio.js
 manual_voice_renamer.js

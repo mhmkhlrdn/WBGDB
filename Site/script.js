@@ -1382,36 +1382,137 @@ function hydrateCard(skeletonEl) {
   if (meta.skill_text && !skeletonEl.querySelector(".card-tooltip")) {
     imgWrap.style.position = "relative";
 
+    // 1. Create Main Tooltip
     const tooltip = document.createElement("div");
     tooltip.className = "card-tooltip";
     tooltip.innerHTML = isEnglishUI ? meta.skill_text : (meta.jpSkill_Text || meta.skill_text);
     tooltip.style.display = "none";
     imgWrap.appendChild(tooltip);
 
+    // 2. Create Related Cards Tooltip (if needed)
+    let relatedTooltip = null;
+    const relatedCardIds = meta.related_card_ids || [];
+
+    if (relatedCardIds.length > 0) {
+      let relatedHTML = "";
+      let hasContent = false;
+
+      relatedCardIds.forEach(relatedId => {
+        let relatedCard = null;
+        for (const [cardName, cardData] of Object.entries(allCards)) {
+          const cardMeta = cardData?.metadata?.common;
+          if (cardMeta && cardMeta.card_id === relatedId) {
+            relatedCard = { name: cardName, meta: cardMeta };
+            break;
+          }
+        }
+
+        if (relatedCard && relatedCard.meta.skill_text) {
+          hasContent = true;
+          const relatedName = isEnglishUI ? formatName(relatedCard.name) : (relatedCard.meta.jpName || formatName(relatedCard.name));
+          const relatedSkillText = isEnglishUI ? relatedCard.meta.skill_text : (relatedCard.meta.jpSkill_Text || relatedCard.meta.skill_text);
+
+          let statsText = "";
+          if (relatedCard.meta.atk !== undefined && relatedCard.meta.life !== undefined) {
+            statsText = ` <span style="font-weight:400; opacity:0.8; font-size:0.9em; margin-left:4px;">${relatedCard.meta.atk}/${relatedCard.meta.life}</span>`;
+          }
+
+          // Re-use same style classes or generic ones, wrapped in a container that matches .card-tooltip style
+          relatedHTML += `
+            <div class="tooltip-related-entry" style="margin-bottom: 12px;">
+              <div class="tooltip-related-name">${relatedName}${statsText}</div>
+              <div class="tooltip-related-skill">${relatedSkillText}</div>
+            </div>`;
+        }
+      });
+
+      if (hasContent) {
+        relatedTooltip = document.createElement("div");
+        relatedTooltip.className = "card-tooltip related-tooltip"; // Same base class for style
+        relatedTooltip.innerHTML = relatedHTML;
+        relatedTooltip.style.display = "none";
+        // Distinct styling to separate it visually if needed, basically a second box
+        imgWrap.appendChild(relatedTooltip);
+      }
+    }
+
     const showTooltip = () => {
       tooltip.style.display = "block";
+      if (relatedTooltip) relatedTooltip.style.display = "block";
     };
     const hideTooltip = () => {
       tooltip.style.display = "none";
+      if (relatedTooltip) relatedTooltip.style.display = "none";
     };
+
     img.addEventListener("mousemove", (e) => {
-      const rect = img.getBoundingClientRect();
-      const tooltipRect = tooltip.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
 
-      let left = e.clientX + 10;
-      let top = e.clientY - 10;
+      // -- Position Main Tooltip --
+      const rect1 = tooltip.getBoundingClientRect();
+      // Default: Right of cursor, slightly down
+      let left1 = e.clientX + 12;
+      let top1 = e.clientY + 12;
 
-      if (left + tooltipRect.width > viewportWidth) {
-        left = e.clientX - tooltipRect.width - 10;
+      // Flip if overflows Right
+      if (left1 + rect1.width > viewportWidth - 10) {
+        left1 = e.clientX - rect1.width - 12;
       }
-      if (top + tooltipRect.height > viewportHeight) {
-        top = e.clientY - tooltipRect.height - 10;
+      // Flip if overflows Bottom
+      if (top1 + rect1.height > viewportHeight - 10) {
+        top1 = e.clientY - rect1.height - 12;
       }
 
-      tooltip.style.left = `${left}px`;
-      tooltip.style.top = `${top}px`;
+      tooltip.style.left = `${left1}px`;
+      tooltip.style.top = `${top1}px`;
+
+      // -- Position Related Tooltip (if exists) --
+      if (relatedTooltip) {
+        const rect2 = relatedTooltip.getBoundingClientRect();
+
+        // Try to place it NEXT to the main tooltip (to the right)
+        // If main tooltip is to the right of cursor -> place related further right
+        // If main tooltip is to the left of cursor -> place related further left
+
+        let left2, top2;
+
+        // Check where main tooltip ended up relative to cursor
+        const mainIsRight = left1 > e.clientX;
+
+        if (mainIsRight) {
+          // Main is Right: Try stacking Related to the Right of active tooltip
+          left2 = left1 + rect1.width + 10;
+          top2 = top1;
+
+          // If that overflows, try moving Related BELOW Main
+          if (left2 + rect2.width > viewportWidth - 10) {
+            left2 = left1;
+            top2 = top1 + rect1.height + 10;
+
+            // If moving below overflows bottom, try moving Main to Left and Related to Left-Left? 
+            // For simplicity, just let it overflow or try to flip to left of cursor if space exists
+            if (top2 + rect2.height > viewportHeight - 10) {
+              // Fallback: Just put it on the left of cursor if there's space
+              left2 = e.clientX - rect2.width - 12;
+              top2 = e.clientY + 12;
+            }
+          }
+        } else {
+          // Main is Left: Try stacking Related to the Left of active tooltip
+          left2 = left1 - rect2.width - 10;
+          top2 = top1;
+
+          // If overflows Left edge
+          if (left2 < 10) {
+            left2 = left1;
+            top2 = top1 + rect1.height + 10;
+          }
+        }
+
+        relatedTooltip.style.left = `${left2}px`;
+        relatedTooltip.style.top = `${top2}px`;
+      }
     });
 
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
