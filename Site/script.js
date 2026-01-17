@@ -3311,6 +3311,7 @@ fetch("cards.json")
       }
 
       saveCurrentFilters();
+      document.getElementById("cards").innerHTML = "";
       renderCards(allCards, document.getElementById("search").value);
     });
 
@@ -3327,6 +3328,7 @@ fetch("cards.json")
       }
 
       saveCurrentFilters();
+      document.getElementById("cards").innerHTML = "";
       renderCards(allCards, document.getElementById("search").value);
     });
     const resetBtn = document.getElementById("filters-reset");
@@ -3349,6 +3351,8 @@ fetch("cards.json")
         activeFilters.sortOrder = "asc";
         activeFilters.manyVoices = "all";
         activeFilters.alternate = "all";
+        activeFilters.viewMode = "list";
+        activeFilters.displayMode = "fixed";
 
         document.getElementById("filter-rarity").value = "";
         document.getElementById("filter-cost-min").value = "";
@@ -3368,6 +3372,7 @@ fetch("cards.json")
         document.getElementById("filter-voices").value = "both";
         document.getElementById("filter-alternate").value = "all";
         document.getElementById("view-mode").value = "list";
+        document.getElementById("display-mode").value = "fixed";
         document.getElementById("group-by").value = "none";
 
         if (ENABLE_MANY_VOICES_FILTER) {
@@ -3378,8 +3383,11 @@ fetch("cards.json")
           }
         }
         document.querySelector(".container").classList.remove("waterfall");
+        document.querySelector(".container").classList.remove("full");
         document.getElementById("search").value = "";
 
+        saveCurrentFilters();
+        document.getElementById("cards").innerHTML = "";
         renderCards(allCards, document.getElementById("search").value);
       });
     }
@@ -4168,6 +4176,8 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       activeFilters.sortOrder = "asc";
       activeFilters.manyVoices = "all";
       activeFilters.alternate = "all";
+      activeFilters.viewMode = "list";
+      activeFilters.displayMode = "fixed";
 
       const elements = [
         "filter-rarity", "filter-cost-min", "filter-cost-max",
@@ -4175,7 +4185,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         "filter-life-max", "filter-illustrator", "filter-cv",
         "filter-class", "filter-type", "filter-set", "filter-token",
         "sort-by", "sort-order", "filter-voices", "filter-alternate",
-        "view-mode", "search"
+        "view-mode", "display-mode", "search"
       ];
 
       elements.forEach(id => {
@@ -4183,6 +4193,8 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         if (element) {
           if (id === "view-mode") {
             element.value = "list";
+          } else if (id === "display-mode") {
+            element.value = "fixed";
           } else if (id === "sort-by") {
             element.value = "alpha";
           } else if (id === "sort-order") {
@@ -4207,7 +4219,11 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
       }
 
       document.querySelector(".container").classList.remove("waterfall");
+      document.querySelector(".container").classList.remove("full");
       document.getElementById("search").value = "";
+
+      saveCurrentFilters();
+      document.getElementById("cards").innerHTML = "";
 
       renderCards(allCards, document.getElementById("search").value);
     }, 100, 'Ctrl+R');
