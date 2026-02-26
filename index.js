@@ -54,7 +54,7 @@ function extractEvo(jpEvo, evo, type, cardId) {
 }
 
 async function scrapeAndAppend() {
-  for (let offset = 0; offset <= 570; offset += 30) {
+  for (let offset = 0; offset <= 670; offset += 30) {
     const url = API_URL.replace("{OFFSET}", offset);
     console.log(`🔎 Fetching offset ${offset}...`);
 

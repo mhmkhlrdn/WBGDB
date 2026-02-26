@@ -39,11 +39,11 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url('https://shadowverse-wb.com/assets/images/kv.2nANxfumMdXr_i7ZwGIu.webp');
+  background-image: url('https://shadowverse-wb.com/assets/_app/immutable/assets/kv.B7zA8lFt.webp');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  opacity: 0.14;
+  opacity: 0.25;
   pointer-events: none;
   z-index: 0;
 }
