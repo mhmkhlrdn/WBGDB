@@ -1598,12 +1598,18 @@ function hydrateCard(skeletonEl) {
 
     toggleBtn.addEventListener("click", () => {
       const isAlternate = img.dataset.artType === "alternate";
-      const alternateData = cardObj.metadata?.alternate?.style_data;
+      const rawAltData = cardObj.metadata?.alternate?.style_data;
+      const alternateData = Array.isArray(rawAltData) ? rawAltData[0] : rawAltData;
 
       if (img.dataset.variant === "common") {
-        if (isAlternate && alternateData?.evo_hash) {
-          const altBase = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
-          img.src = `${altBase}${alternateData.evo_hash}.png`;
+        if (isAlternate && (alternateData?.evo_art_url || alternateData?.evo_hash)) {
+          let altEvoUrl = alternateData.evo_art_url;
+          if (!altEvoUrl && alternateData.evo_hash && alternateData.evo_hash.trim() !== "") {
+            const altBase = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
+            altEvoUrl = `${altBase}${alternateData.evo_hash}.png`;
+          }
+          if (altEvoUrl) img.src = altEvoUrl;
+          else if (evoUrl) img.src = evoUrl;
         } else if (evoUrl) {
           img.src = evoUrl;
         }
@@ -1611,9 +1617,14 @@ function hydrateCard(skeletonEl) {
         toggleBtn.setAttribute("aria-pressed", "true");
         toggleBtn.innerHTML = `<span>${getLocalizedText("Show: Base")}</span>`;
       } else {
-        if (isAlternate && alternateData?.hash) {
-          const altBase = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
-          img.src = `${altBase}${alternateData.hash}.png`;
+        if (isAlternate && (alternateData?.base_art_url || alternateData?.hash)) {
+          let altBaseUrl = alternateData.base_art_url;
+          if (!altBaseUrl && alternateData.hash && alternateData.hash.trim() !== "") {
+            const altBaseUrlPrefix = `https://shadowverse-wb.com/uploads/card_image/${langSeg}/card/`;
+            altBaseUrl = `${altBaseUrlPrefix}${alternateData.hash}.png`;
+          }
+          if (altBaseUrl) img.src = altBaseUrl;
+          else if (commonUrl) img.src = commonUrl;
         } else if (commonUrl) {
           img.src = commonUrl;
         }
@@ -1634,8 +1645,10 @@ function hydrateCard(skeletonEl) {
 
 
 
-  if (cardObj.metadata?.alternate?.style_data && !skeletonEl.querySelector(".alternate-toggle")) {
-    const alternateData = cardObj.metadata.alternate.style_data;
+  const rawAltDataToggle = cardObj.metadata?.alternate?.style_data;
+  const alternateDataToggle = Array.isArray(rawAltDataToggle) ? rawAltDataToggle[0] : rawAltDataToggle;
+  if (alternateDataToggle && !skeletonEl.querySelector(".alternate-toggle")) {
+    const alternateData = alternateDataToggle;
     const alternateToggle = document.createElement("button");
     alternateToggle.className = "alternate-toggle";
     alternateToggle.setAttribute("aria-label", "Toggle alternate art");
@@ -1656,12 +1669,30 @@ function hydrateCard(skeletonEl) {
         alternateToggle.classList.remove("active");
         updateCardMetadata(skeletonEl, meta, false);
       } else {
-        if (alternateData?.hash) {
-          const altUrl = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
-          img.src = altUrl;
-          img.dataset.artType = "alternate";
-          alternateToggle.classList.add("active");
-          updateCardMetadata(skeletonEl, meta, true, alternateData);
+        if (alternateData?.base_art_url || alternateData?.hash) {
+          let altUrl = alternateData.base_art_url;
+          const isEvo = img.dataset.variant === "evo";
+
+          if (isEvo) {
+            if (alternateData?.evo_art_url) {
+              altUrl = alternateData.evo_art_url;
+            } else if (alternateData?.evo_hash && alternateData.evo_hash.trim() !== "") {
+              altUrl = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.evo_hash}.png`;
+            }
+          } else {
+            if (alternateData?.base_art_url) {
+              altUrl = alternateData.base_art_url;
+            } else if (alternateData?.hash && alternateData.hash.trim() !== "") {
+              altUrl = `https://shadowverse-wb.com/uploads/card_image/eng/card/${alternateData.hash}.png`;
+            }
+          }
+
+          if (altUrl) {
+            img.src = altUrl;
+            img.dataset.artType = "alternate";
+            alternateToggle.classList.add("active");
+            updateCardMetadata(skeletonEl, meta, true, alternateData);
+          }
         }
       }
       updateVoiceButtonsOnCard(skeletonEl, cardObj);
@@ -2333,12 +2364,13 @@ function updateAllCardsForLanguage() {
       rightMetadata.innerHTML = "";
 
       const img = cardEl.querySelector("img");
-      const isAlt = img && img.dataset.artType === "alternate";
-      const altCv = isAlt && cardObj.metadata?.alternate?.style_data?.cv;
+      const rawAltDataCv = cardObj.metadata?.alternate?.style_data;
+      const alternateDataCv = Array.isArray(rawAltDataCv) ? rawAltDataCv[0] : rawAltDataCv;
+      const altCv = isAlt && alternateDataCv?.cv;
 
       renderCVMetadataContent(leftMetadata, meta, altCv);
 
-      const alternateData = cardObj.metadata?.alternate?.style_data;
+      const alternateData = alternateDataCv;
       const illustratorValue =
         isAlt
           ? (alternateData?.illustrator || "")
@@ -2768,8 +2800,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         toggle.textContent = getLocalizedText('Show: Evo');
         toggle.onclick = () => {
           if (showing === "common") {
-            if (showingAlternate && alternate?.style_data?.evo_art_url) {
-              img.src = alternate.style_data.evo_art_url;
+            if (showingAlternate && (alternate?.style_data && (Array.isArray(alternate.style_data) ? alternate.style_data[0].evo_art_url : alternate.style_data.evo_art_url))) {
+              img.src = Array.isArray(alternate.style_data) ? alternate.style_data[0].evo_art_url : alternate.style_data.evo_art_url;
             } else {
               img.src = evoUrl;
             }
@@ -2780,12 +2812,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               meta,
               metaEvo,
               showingAlternate,
-              showingAlternate ? alternate?.style_data : null,
+              showingAlternate ? (alternate?.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null) : null,
               "evo"
             );
           } else {
-            if (showingAlternate && alternate?.style_data?.base_art_url) {
-              img.src = alternate.style_data.base_art_url;
+            if (showingAlternate && (alternate?.style_data && (Array.isArray(alternate.style_data) ? alternate.style_data[0].base_art_url : alternate.style_data.base_art_url))) {
+              img.src = Array.isArray(alternate.style_data) ? alternate.style_data[0].base_art_url : alternate.style_data.base_art_url;
             } else {
               img.src = commonUrl;
             }
@@ -2796,7 +2828,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               meta,
               metaEvo,
               showingAlternate,
-              showingAlternate ? alternate?.style_data : null,
+              showingAlternate ? (alternate?.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null) : null,
               "common"
             );
           }
@@ -2836,22 +2868,24 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
         updateLightboxMetadata(meta, metaEvo, false, null, showing);
       } else {
-        if (showing === "evo" && alternate.style_data?.evo_art_url) {
-          img.src = alternate.style_data.evo_art_url;
-        } else if (alternate.style_data?.base_art_url) {
-          img.src = alternate.style_data.base_art_url;
+        const altData = alternate.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null;
+        if (showing === "evo" && altData?.evo_art_url) {
+          img.src = altData.evo_art_url;
+        } else if (altData?.base_art_url) {
+          img.src = altData.base_art_url;
         }
         alternateToggle.textContent = "Show: Normal";
         showingAlternate = true;
-        const alternateTitleName = alternate.style_data?.name && alternate.style_data.name.trim()
-          ? alternate.style_data.name
+        const altDataTitle = alternate.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null;
+        const alternateTitleName = altDataTitle?.name && altDataTitle.name.trim()
+          ? altDataTitle.name
           : (isEnglishUI ? name : (meta.jpName || name));
         title.textContent = alternateTitleName;
         updateLightboxMetadata(
           meta,
           metaEvo,
           true,
-          alternate.style_data,
+          alternate.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null,
           showing
         );
       }
