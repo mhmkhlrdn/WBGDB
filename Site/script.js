@@ -1024,8 +1024,18 @@ function createAudioButton(line) {
 
   const isMissing = isEnglishVoice ? !line.en_url : !line.url;
 
+  let extraClass = "";
+  const lowerLabel = (line.label || "").toLowerCase();
+  if (lowerLabel.includes("enhance") || lowerLabel.includes("enahnce")) {
+    extraClass = " enhance-btn";
+  } else if (lowerLabel.includes("accelerate")) {
+    extraClass = " accelerate-btn";
+  } else if (lowerLabel.includes("crystallize")) {
+    extraClass = " crystallize-btn";
+  }
+
   const button = document.createElement(isMissing ? "div" : "button");
-  button.className = isMeeting ? "audio-btn meeting-btn" : "audio-btn";
+  button.className = (isMeeting ? "audio-btn meeting-btn" : "audio-btn") + extraClass;
   if (!isMissing) {
     button.setAttribute("type", "button");
     button.setAttribute("aria-label", getLocalizedText('Play audio'));
@@ -2636,10 +2646,20 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           ? getLocalizedText(rawText)
           : rawText;
 
+        let extraClass = "";
+        const lowerLabel = (line.label || "").toLowerCase();
+        if (lowerLabel.includes("enhance") || lowerLabel.includes("enahnce")) {
+          extraClass = " enhance-btn";
+        } else if (lowerLabel.includes("accelerate")) {
+          extraClass = " accelerate-btn";
+        } else if (lowerLabel.includes("crystallize")) {
+          extraClass = " crystallize-btn";
+        }
+
         const voiceBtn = document.createElement("button");
-        voiceBtn.className = isMeeting
+        voiceBtn.className = (isMeeting
           ? "lightbox-voice-btn meeting-btn"
-          : "lightbox-voice-btn";
+          : "lightbox-voice-btn") + extraClass;
         voiceBtn.innerHTML = `
         <svg class="voice-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

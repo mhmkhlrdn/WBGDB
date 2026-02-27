@@ -4389,22 +4389,20 @@
             "label": "Super-Evolve"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70202110,
-            "base_art_url": "./Art/70202110.png",
-            "evo_art_url": "./Art/70202111.png",
-            "hash": "d63c2074d6c14e6f9b7aaafc456add77",
-            "evo_hash": "a8930fc8a31c4061b1ce1a5abf520b22",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "hajime",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70202110,
+          "base_art_url": "./Art/70202110.png",
+          "evo_art_url": "./Art/70202111.png",
+          "hash": "d63c2074d6c14e6f9b7aaafc456add77",
+          "evo_hash": "a8930fc8a31c4061b1ce1a5abf520b22",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "hajime",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -6066,22 +6064,20 @@
       "evo": {},
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "card_id": 70373310,
-            "base_art_url": "./Art/70373310.png",
-            "evo_art_url": null,
-            "hash": "314fcb7e9dad40548b249201c22d38c1",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Rwael",
-            "skill_text": "",
-            "flavour_text": "Don't worry, there's plenty of destruction to go around!\n—Lishenna, Omen of Destruction",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70373310,
+          "base_art_url": "./Art/70373310.png",
+          "evo_art_url": null,
+          "hash": "314fcb7e9dad40548b249201c22d38c1",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Rwael",
+          "skill_text": "",
+          "flavour_text": "Don't worry, there's plenty of destruction to go around!\n—Lishenna, Omen of Destruction",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -7291,22 +7287,20 @@
             "en_url": "Audio/EN/Dragonsign_Alt/chunk0.mp3"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70042310,
-            "base_art_url": "./Art/70042310.png",
-            "evo_art_url": null,
-            "hash": "fd544f0f89524ac1944f02a1d581c366",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Cristina \"Vee\" Valenzuela",
-            "illustrator": "netuki",
-            "skill_text": "",
-            "flavour_text": "That's right! This phoenix has risen from the ashes, as glorious as ever. No longer will I answer to that foolish nickname Fennie. No, from now on you will only address me as The Super-Magnificent, Brilliant, and Beau—Hey, wait! I'm not done talking yet!",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70042310,
+          "base_art_url": "./Art/70042310.png",
+          "evo_art_url": null,
+          "hash": "fd544f0f89524ac1944f02a1d581c366",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Cristina \"Vee\" Valenzuela",
+          "illustrator": "netuki",
+          "skill_text": "",
+          "flavour_text": "That's right! This phoenix has risen from the ashes, as glorious as ever. No longer will I answer to that foolish nickname Fennie. No, from now on you will only address me as The Super-Magnificent, Brilliant, and Beau—Hey, wait! I'm not done talking yet!",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -9117,33 +9111,20 @@
       },
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "card_id": 70244110,
-            "base_art_url": "./Art/70244110.png",
-            "evo_art_url": "./Art/70244111.png",
-            "hash": "a9eff1a58cfe47b796597c86f66273e6",
-            "evo_hash": "08c3d50a5ea14f1b983ac25e855aacc7",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Ponzu",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          },
-          {
-            "hash": "565b8d382c8d4a80a50f915950e49f2e",
-            "evo_hash": "7819a4913be24f9685b0b3b60ae6adfe",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Ponzu",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70244110,
+          "base_art_url": "./Art/70244110.png",
+          "evo_art_url": "./Art/70244111.png",
+          "hash": "a9eff1a58cfe47b796597c86f66273e6",
+          "evo_hash": "08c3d50a5ea14f1b983ac25e855aacc7",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Ponzu",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -9475,22 +9456,20 @@
             "label": "Play"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70031310,
-            "base_art_url": "./Art/70031310.png",
-            "evo_art_url": null,
-            "hash": "82b6efe473a3474880a758212fb7e479",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Khoi Dao",
-            "illustrator": "liiko",
-            "skill_text": "",
-            "flavour_text": "The stars guide the practitioner of Onmyodo. Counseled by the heavens above on earthly affairs below, it is not in the nature of the Onmyodo master to miss.",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70031310,
+          "base_art_url": "./Art/70031310.png",
+          "evo_art_url": null,
+          "hash": "82b6efe473a3474880a758212fb7e479",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Khoi Dao",
+          "illustrator": "liiko",
+          "skill_text": "",
+          "flavour_text": "The stars guide the practitioner of Onmyodo. Counseled by the heavens above on earthly affairs below, it is not in the nature of the Onmyodo master to miss.",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -10856,19 +10835,21 @@
         "evo_art_url": "Art/10304121.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "48f01a543aa440c69bd552d00950fedf",
-            "evo_hash": "6aaf56afee4142d39c99a55c2c649ed2",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Mainichi Manichi",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70304120,
+          "base_art_url": "./Art/70304120.png",
+          "evo_art_url": "./Art/70304121.png",
+          "hash": "48f01a543aa440c69bd552d00950fedf",
+          "evo_hash": "6aaf56afee4142d39c99a55c2c649ed2",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Mainichi Manichi",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -12288,22 +12269,20 @@
       },
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "card_id": 70121150,
-            "base_art_url": "./Art/70121150.png",
-            "evo_art_url": "./Art/70121151.png",
-            "hash": "f42311c741fd4c549bbbee9d3d4278aa",
-            "evo_hash": "2edc1607bef84959b194865ef1c61fa8",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Lizzie Freeman",
-            "illustrator": "Ko Shirogane",
-            "skill_text": "",
-            "flavour_text": "A samurai lives and dies by their honor, you say? Hah! You can keep looking down your nose at me, but cunning and self-interest are what keep you alive on the battlefield.",
-            "evo_flavour_text": "She responded to the warrior's honorable speech with a courteous sweep of her blade. \"Those were some pretty words, but I'd rather get to the <i>point,</i> if you know what I mean.\""
-          }
-        ]
+        "style_data": {
+          "card_id": 70121150,
+          "base_art_url": "./Art/70121150.png",
+          "evo_art_url": "./Art/70121151.png",
+          "hash": "f42311c741fd4c549bbbee9d3d4278aa",
+          "evo_hash": "2edc1607bef84959b194865ef1c61fa8",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Lizzie Freeman",
+          "illustrator": "Ko Shirogane",
+          "skill_text": "",
+          "flavour_text": "A samurai lives and dies by their honor, you say? Hah! You can keep looking down your nose at me, but cunning and self-interest are what keep you alive on the battlefield.",
+          "evo_flavour_text": "She responded to the warrior's honorable speech with a courteous sweep of her blade. \"Those were some pretty words, but I'd rather get to the <i>point,</i> if you know what I mean.\""
+        }
       }
     }
   },
@@ -12352,22 +12331,20 @@
             "label": "Play"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70333310,
-            "base_art_url": "./Art/70333310.png",
-            "evo_art_url": null,
-            "hash": "0c3d3053b7f44d2f8f6544caf0897c76",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Julie Park",
-            "illustrator": "Soichi",
-            "skill_text": "",
-            "flavour_text": "No falsehood can deceive my eye. Begone from this place.\n—Velharia, Heir to Truth",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70333310,
+          "base_art_url": "./Art/70333310.png",
+          "evo_art_url": null,
+          "hash": "0c3d3053b7f44d2f8f6544caf0897c76",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Julie Park",
+          "illustrator": "Soichi",
+          "skill_text": "",
+          "flavour_text": "No falsehood can deceive my eye. Begone from this place.\n—Velharia, Heir to Truth",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -14372,32 +14349,6 @@
         "evo_art_url": "Art/10001121.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "3bbcd52876c240f7baabfdc176a92c53",
-            "evo_hash": "bf95464626f446d28535470be0a14e6d",
-            "name": "Haru Urara",
-            "base_art_url": "./Art/70001120.png",
-            "evo_art_url": "./Art/70001121.png",
-            "name_ruby": "Haru Urara",
-            "cv": "Yukina Shuto",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Last Words</color></b>: Draw a card.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a card.</ev>\n\n(This card is treated as <b><i>Leah, Bellringer Angel</i></b>.)",
-            "flavour_text": "I... I won't lose to anyone! So please, watch me race!\n—Haru Urara",
-            "evo_flavour_text": "Oh my gosh! I did it! I got first place! No one was in front of me for once! \n—Haru Urara"
-          },
-          {
-            "hash": "267b96d540c74e3b8107a2c21f2baddc",
-            "evo_hash": "85153911e6c74c98a8173ca2d1f313c6",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ],
         "voices": [
           {
             "name": "untitled.mp3",
@@ -14430,35 +14381,20 @@
             "en_url": null
           }
         ],
-        "styles": [
-          {
-            "hash": "3bbcd52876c240f7baabfdc176a92c53",
-            "evo_hash": "bf95464626f446d28535470be0a14e6d",
-            "name": "Haru Urara",
-            "jpName": "ハルウララ",
-            "name_ruby": "Haru Urara",
-            "njpName_ruby": "ハルウララ",
-            "cv": "Yukina Shuto",
-            "jpCv": "首藤志奈",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Last Words</color></b>: Draw a card.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a card.</ev>\n\n(This card is treated as <b><i>Leah, Bellringer Angel</i></b>.)",
-            "flavour_text": "I... I won't lose to anyone! So please, watch me race!\n—Haru Urara",
-            "evo_flavour_text": "Oh my gosh! I did it! I got first place! No one was in front of me for once! \n—Haru Urara",
-            "jpFlavour_text": "わたし……わたし、誰にも負けないぞっ！ \nだから、ちゃんと見ててねー！\n――ハルウララ",
-            "jpEvo_flavour_text": "すごいすごーいっ！ わたし、1着だよーっ！\n前に誰もいないなんて、はじめて！\n――ハルウララ"
-          },
-          {
-            "hash": "43ae6e0a3698467ebb16a2355492117d",
-            "evo_hash": "a45c37a7804f4a65b65e142581d7210e",
-            "name": "ハルウララ",
-            "name_ruby": "ハルウララ",
-            "cv": "首藤志奈",
-            "illustrator": "",
-            "skill_text": "【<color=Keyword>守護</color>】\n【<color=Keyword>ラストワード</color>】自分のデッキから1枚を引く。\n<hr><ev>【<color=Keyword>進化時</color>】自分のデッキから1枚を引く。</ev>\n\n※このカードは『ベルエンジェル・リア』として扱う。",
-            "flavour_text": "わたし……わたし、誰にも負けないぞっ！ \nだから、ちゃんと見ててねー！\n――ハルウララ",
-            "evo_flavour_text": "すごいすごーいっ！ わたし、1着だよーっ！\n前に誰もいないなんて、はじめて！\n――ハルウララ"
-          }
-        ]
+        "style_data": {
+          "card_id": 70001120,
+          "base_art_url": "./Art/70001120.png",
+          "evo_art_url": "./Art/70001121.png",
+          "hash": "3bbcd52876c240f7baabfdc176a92c53",
+          "evo_hash": "bf95464626f446d28535470be0a14e6d",
+          "name": "Haru Urara",
+          "name_ruby": "Haru Urara",
+          "cv": "Yukina Shuto",
+          "illustrator": "netuki",
+          "skill_text": "<b><color=Keyword>Ward</color></b>\n<b><color=Keyword>Last Words</color></b>: Draw a card.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a card.</ev>\n\n(This card is treated as <b><i>Leah, Bellringer Angel</i></b>.)",
+          "flavour_text": "I... I won't lose to anyone! So please, watch me race!\n—Haru Urara",
+          "evo_flavour_text": "Oh my gosh! I did it! I got first place! No one was in front of me for once! \n—Haru Urara"
+        }
       }
     }
   },
@@ -18436,53 +18372,19 @@
           }
         ],
         "style_data": {
+          "card_id": 70204110,
+          "base_art_url": "./Art/70204110.png",
+          "evo_art_url": "./Art/70204111.png",
           "hash": "a699d05afa554ca1be83e0c0515de5ea",
           "evo_hash": "d878642c464c47b88f51e23f50934af9",
           "name": "Oguri Cap",
           "name_ruby": "Oguri Cap",
           "cv": "Tomoyo Takayanagi",
-          "base_art_url": "./Art/70204110.png",
-          "evo_art_url": "./Art/70204111.png",
-          "illustrator": "",
+          "illustrator": "Ryosuke Aiba (CyDesignation)",
           "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
           "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
           "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
-        },
-        "styles": [
-          {
-            "hash": "a699d05afa554ca1be83e0c0515de5ea",
-            "evo_hash": "d878642c464c47b88f51e23f50934af9",
-            "name": "Oguri Cap",
-            "name_ruby": "Oguri Cap",
-            "cv": "Tomoyo Takayanagi",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select an enemy card on the field and banish it.\n<hr><b><color=Keyword>Storm</color></b>\n\n(This card is treated as <b><i>Odin, Twilit Fate</i></b>.)",
-            "flavour_text": "I gotta run until the folks back home hear my name!\n—Oguri Cap\n",
-            "evo_flavour_text": "Their support is my strength. There's no way I can lose like this!\n—Oguri Cap"
-          },
-          {
-            "hash": "b0119dc31b534fc287059a66cf1e4047",
-            "evo_hash": "64f2913c197c4fe58bf48944765cd40a",
-            "name": "オグリキャップ",
-            "name_ruby": "オグリキャップ",
-            "cv": "高柳知葉",
-            "illustrator": "",
-            "skill_text": "【<color=Keyword>ファンファーレ</color>】相手の場のカード1枚を選ぶ。それを消滅。\n<hr>【<color=Keyword>疾走</color>】\n\n※このカードは『運命の黄昏・オーディン』として扱う。",
-            "flavour_text": "走りたい。\n故郷に、 私の名前が届くほどに！\n――オグリキャップ",
-            "evo_flavour_text": "声援が私の力になる。 \nいまの私は……負ける気がしない！\n――オグリキャップ"
-          },
-          {
-            "hash": "b0119dc31b534fc287059a66cf1e4047",
-            "evo_hash": "64f2913c197c4fe58bf48944765cd40a",
-            "name": "オグリキャップ",
-            "name_ruby": "オグリキャップ",
-            "cv": "高柳知葉",
-            "illustrator": "",
-            "skill_text": "【<color=Keyword>ファンファーレ</color>】相手の場のカード1枚を選ぶ。それを消滅。\n<hr>【<color=Keyword>疾走</color>】\n\n※このカードは『運命の黄昏・オーディン』として扱う。",
-            "flavour_text": "走りたい。\n故郷に、 私の名前が届くほどに！\n――オグリキャップ",
-            "evo_flavour_text": "声援が私の力になる。 \nいまの私は……負ける気がしない！\n――オグリキャップ"
-          }
-        ]
+        }
       }
     }
   },
@@ -20041,7 +19943,16 @@
         "style_data": {
           "card_id": 70071110,
           "base_art_url": "./Art/70071110.png",
-          "evo_art_url": "./Art/70071111.png"
+          "evo_art_url": "./Art/70071111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Kazashino",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -22910,22 +22821,20 @@
             "label": "Play"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70161210,
-            "base_art_url": "./Art/70161210.png",
-            "evo_art_url": null,
-            "hash": "e030ae0a279141ab8edfec5dc0c5267c",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Lizzie Freeman",
-            "illustrator": "Akefumi",
-            "skill_text": "",
-            "flavour_text": "This might sound blasphemous, but if <i>that's</i> what heresy looks like, then sign me right up!\n—A pagan devotee",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70161210,
+          "base_art_url": "./Art/70161210.png",
+          "evo_art_url": null,
+          "hash": "e030ae0a279141ab8edfec5dc0c5267c",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Lizzie Freeman",
+          "illustrator": "Akefumi",
+          "skill_text": "",
+          "flavour_text": "This might sound blasphemous, but if <i>that's</i> what heresy looks like, then sign me right up!\n—A pagan devotee",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -28361,22 +28270,20 @@
             "en_url": "Audio/EN/Fairy_Convocation_Alt/chunk0.mp3"
           }
         ],
-        "style_data": [
-          {
-            "card_id": 70111310,
-            "base_art_url": "./Art/70111310.png",
-            "evo_art_url": null,
-            "hash": "13e272dc66754058b67cabb6e7c14b03",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Erin Yvette",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70111310,
+          "base_art_url": "./Art/70111310.png",
+          "evo_art_url": null,
+          "hash": "13e272dc66754058b67cabb6e7c14b03",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Erin Yvette",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -28785,19 +28692,20 @@
       "evo": {},
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "hash": "0ecfae2926314fa596ef5cffdaaf995a",
-            "evo_hash": "",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "\"All right, people! Get your sunglasses on, 'cause I'm about to light it up with a kapow!\"\n\"You'd better. If I find even a single piece of unburned trash left behind, I'm tripling your training sessions, Clarisse!\"\n—Clarisse and Cagliostro",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70433310,
+          "base_art_url": "./Art/70433310.png",
+          "evo_art_url": null,
+          "hash": "0ecfae2926314fa596ef5cffdaaf995a",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "\"All right, people! Get your sunglasses on, 'cause I'm about to light it up with a kapow!\"\n\"You'd better. If I find even a single piece of unburned trash left behind, I'm tripling your training sessions, Clarisse!\"\n—Clarisse and Cagliostro",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -29134,19 +29042,20 @@
             "label": "Super-Evolve"
           }
         ],
-        "style_data": [
-          {
-            "hash": "d04736d7ab6e4d8e960cd9c800df07c6",
-            "evo_hash": "80ac052c57014e44b113130151ab0ed9",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "People deserve to live in peace. To be happy. I want to become a worthy knight captain who will ensure such a future comes to pass. That's not some pipe dream either; it's our duty as knights.",
-            "evo_flavour_text": "I didn't answer the call of chivalry simply for acclaim and adulation (sure feels nice though!). Nope, I decided from the start I'd walk a righteous path of knighthood with honor and dignity."
-          }
-        ]
+        "style_data": {
+          "card_id": 70421120,
+          "base_art_url": "./Art/70421120.png",
+          "evo_art_url": "./Art/70421121.png",
+          "hash": "d04736d7ab6e4d8e960cd9c800df07c6",
+          "evo_hash": "80ac052c57014e44b113130151ab0ed9",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "People deserve to live in peace. To be happy. I want to become a worthy knight captain who will ensure such a future comes to pass. That's not some pipe dream either; it's our duty as knights.",
+          "evo_flavour_text": "I didn't answer the call of chivalry simply for acclaim and adulation (sure feels nice though!). Nope, I decided from the start I'd walk a righteous path of knighthood with honor and dignity."
+        }
       }
     }
   },
@@ -29387,7 +29296,16 @@
         "style_data": {
           "card_id": 70474120,
           "base_art_url": "./Art/70474120.png",
-          "evo_art_url": "./Art/70474121.png"
+          "evo_art_url": "./Art/70474121.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -29491,7 +29409,16 @@
         "style_data": {
           "card_id": 70454120,
           "base_art_url": "./Art/70454120.png",
-          "evo_art_url": "./Art/70454121.png"
+          "evo_art_url": "./Art/70454121.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -30173,30 +30100,20 @@
       },
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "hash": "cf7a9ec8b5e4408297a1da0cee21bd96",
-            "evo_hash": "b355215917a14ed4b989ec2090c4262b",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          },
-          {
-            "hash": "267f00e064ff441eb81888d803549739",
-            "evo_hash": "92bd01657f6c4e219c077ecf1e901290",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70414110,
+          "base_art_url": "./Art/70414110.png",
+          "evo_art_url": "./Art/70414111.png",
+          "hash": "cf7a9ec8b5e4408297a1da0cee21bd96",
+          "evo_hash": "b355215917a14ed4b989ec2090c4262b",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -30441,7 +30358,16 @@
         "style_data": {
           "card_id": 70454110,
           "base_art_url": "./Art/70454110.png",
-          "evo_art_url": "./Art/70454111.png"
+          "evo_art_url": "./Art/70454111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -30606,7 +30532,16 @@
         "style_data": {
           "card_id": 70464110,
           "base_art_url": "./Art/70464110.png",
-          "evo_art_url": "./Art/70464111.png"
+          "evo_art_url": "./Art/70464111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -31582,19 +31517,20 @@
       },
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "hash": "1ded640f094e4342ae98866f0ddc3746",
-            "evo_hash": "dbcb9f0e89624aae8c6fd1a724a3bc7f",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "Yay! It's swimsuit time! Doesn't wearing one somehow make everything seem more fun? We definitely have to go jump into the water later!",
-            "evo_flavour_text": "Teehee, it kind of tickles when the waves wash over my feet. But it's so nice and cool... Ooh, I can't wait anymore! Let's go for a swim right now!"
-          }
-        ]
+        "style_data": {
+          "card_id": 70403120,
+          "base_art_url": "./Art/70403120.png",
+          "evo_art_url": "./Art/70403121.png",
+          "hash": "1ded640f094e4342ae98866f0ddc3746",
+          "evo_hash": "dbcb9f0e89624aae8c6fd1a724a3bc7f",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "Yay! It's swimsuit time! Doesn't wearing one somehow make everything seem more fun? We definitely have to go jump into the water later!",
+          "evo_flavour_text": "Teehee, it kind of tickles when the waves wash over my feet. But it's so nice and cool... Ooh, I can't wait anymore! Let's go for a swim right now!"
+        }
       }
     }
   },
@@ -33963,30 +33899,20 @@
       },
       "alternate": {
         "voices": [],
-        "style_data": [
-          {
-            "hash": "89ee2ba550754a49b83b19de9f1bcf66",
-            "evo_hash": "fcfd53f0c43e4984b3dbce8eb078cc38",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          },
-          {
-            "hash": "ac36f2d3f01840ad87c77f5ca1f7ce51",
-            "evo_hash": "2b6871c88b7c4cac8446040223779988",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "style_data": {
+          "card_id": 70434110,
+          "base_art_url": "./Art/70434110.png",
+          "evo_art_url": "./Art/70434111.png",
+          "hash": "89ee2ba550754a49b83b19de9f1bcf66",
+          "evo_hash": "fcfd53f0c43e4984b3dbce8eb078cc38",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -34071,7 +33997,16 @@
         "style_data": {
           "card_id": 70444110,
           "base_art_url": "./Art/70444110.png",
-          "evo_art_url": "./Art/70444111.png"
+          "evo_art_url": "./Art/70444111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
         }
       }
     }
@@ -34709,6 +34644,23 @@
         "jpCard_image_hash": "5ba5932e847b4b2bbe1745dc8762d2f5",
         "card_banner_image_hash": "cbc55619a5af4d9a8096ec3a1406b317",
         "evo_art_url": "Art/10474111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70474110,
+          "base_art_url": "./Art/70474110.png",
+          "evo_art_url": "./Art/70474111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -34941,6 +34893,23 @@
         "jpCard_image_hash": "ffb58dc4ce2c40e59c378fdf32dc1cc1",
         "card_banner_image_hash": "c27c8149720a48eeba023ed51bf27bb4",
         "evo_art_url": "Art/10534121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70534120,
+          "base_art_url": "./Art/70534120.png",
+          "evo_art_url": "./Art/70534121.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "conoco",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -35547,6 +35516,23 @@
         "jpCard_image_hash": "66ae19914b524d0a8a0e8d5d9d6fa68c",
         "card_banner_image_hash": "5759fda2c81a4ad593e0067f9187e711",
         "evo_art_url": "Art/10544111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70544110,
+          "base_art_url": "./Art/70544110.png",
+          "evo_art_url": "./Art/70544111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Kazashino",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -36466,30 +36452,21 @@
         "evo_art_url": "Art/10574121.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "920d4c7a80654610be9252ca383b33e2",
-            "evo_hash": "5957bd37fcbe488da1cf051ef2ebcac3",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Chiaki Negishi",
-            "skill_text": "",
-            "flavour_text": "Oh, I need to introduce myself. I'm Imari, Dewdrop of the Flower Kami. I'm good at making friends through games. Just watch. When you lose, you'll be Imari's friend in no time.\n—<i>Games with Dewdrop</i>, No. 6",
-            "evo_flavour_text": "Did I upset you, playmate? I'm really sorry. Um, I'll apologize as much as you want, okay? It's probably my fault anyway. But once I'm done, you'll keep on playing with me, won't you?\n—<i>Games with Dewdrop</i>, No. 7"
-          },
-          {
-            "hash": "9ddc04f554354caca5190bdf0c74c1f0",
-            "evo_hash": "81bd3e7c1ea74505aa10e005e4ad1fd1",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Chiaki Negishi",
-            "skill_text": "",
-            "flavour_text": "Oh, I need to introduce myself. I'm Imari, Dewdrop of the Flower Kami. I'm good at making friends through games. Just watch. When you lose, you'll be Imari's friend in no time.\n—<i>Games with Dewdrop</i>, No. 6",
-            "evo_flavour_text": "Did I upset you, playmate? I'm really sorry. Um, I'll apologize as much as you want, okay? It's probably my fault anyway. But once I'm done, you'll keep on playing with me, won't you?\n—<i>Games with Dewdrop</i>, No. 7"
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70574120,
+          "base_art_url": "./Art/70574120.png",
+          "evo_art_url": "./Art/70574121.png",
+          "hash": "920d4c7a80654610be9252ca383b33e2",
+          "evo_hash": "5957bd37fcbe488da1cf051ef2ebcac3",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Chiaki Negishi",
+          "skill_text": "",
+          "flavour_text": "Oh, I need to introduce myself. I'm Imari, Dewdrop of the Flower Kami. I'm good at making friends through games. Just watch. When you lose, you'll be Imari's friend in no time.\n—<i>Games with Dewdrop</i>, No. 6",
+          "evo_flavour_text": "Did I upset you, playmate? I'm really sorry. Um, I'll apologize as much as you want, okay? It's probably my fault anyway. But once I'm done, you'll keep on playing with me, won't you?\n—<i>Games with Dewdrop</i>, No. 7"
+        }
       }
     }
   },
@@ -37547,30 +37524,21 @@
         "evo_art_url": "Art/10514121.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "4658ddc73c984c95bfedd58696da0eac",
-            "evo_hash": "a91322f0492346488ef72c7f1ba559c2",
-            "name": "Frieren",
-            "name_ruby": "Frieren",
-            "cv": "Atsumi Tanezaki",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Add 2 copies of <b><i><color=Keyword>Fairy</color></i></b> to your hand.</ridx>\n<ridx=1>2. Recover 2 play points.</ridx>\n<ridx=2>3. Deal 3 damage split between all enemy followers.</ridx>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</ev>\n\n(This card is treated as <b><i>Miroku, Swarmpetal</i></b>.)",
-            "flavour_text": "Himmel, why did you recruit me?\n—Frieren",
-            "evo_flavour_text": "It's what Himmel the Hero would've done.\n—Frieren"
-          },
-          {
-            "hash": "710444239b7141789994aae71f337f5b",
-            "evo_hash": "3e3d3645ab934bccb9137e47d19b0ba7",
-            "name": "Frieren",
-            "name_ruby": "Frieren",
-            "cv": "Atsumi Tanezaki",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Add 2 copies of <b><i><color=Keyword>Fairy</color></i></b> to your hand.</ridx>\n<ridx=1>2. Recover 2 play points.</ridx>\n<ridx=2>3. Deal 3 damage split between all enemy followers.</ridx>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</ev>\n\n(This card is treated as <b><i>Miroku, Swarmpetal</i></b>.)",
-            "flavour_text": "Himmel, why did you recruit me?\n—Frieren",
-            "evo_flavour_text": "It's what Himmel the Hero would've done.\n—Frieren"
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70514120,
+          "base_art_url": "./Art/70514120.png",
+          "evo_art_url": "./Art/70514121.png",
+          "hash": "4658ddc73c984c95bfedd58696da0eac",
+          "evo_hash": "a91322f0492346488ef72c7f1ba559c2",
+          "name": "Frieren",
+          "name_ruby": "Frieren",
+          "cv": "Atsumi Tanezaki",
+          "illustrator": "liiko",
+          "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Add 2 copies of <b><i><color=Keyword>Fairy</color></i></b> to your hand.</ridx>\n<ridx=1>2. Recover 2 play points.</ridx>\n<ridx=2>3. Deal 3 damage split between all enemy followers.</ridx>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</ev>\n\n(This card is treated as <b><i>Miroku, Swarmpetal</i></b>.)",
+          "flavour_text": "Himmel, why did you recruit me?\n—Frieren",
+          "evo_flavour_text": "It's what Himmel the Hero would've done.\n—Frieren"
+        }
       }
     }
   },
@@ -38009,19 +37977,21 @@
       },
       "evo": {},
       "alternate": {
-        "style_data": [
-          {
-            "hash": "f9f37413d66e4a3b94570dbec347da4f",
-            "evo_hash": "",
-            "name": "Awakening Spell",
-            "name_ruby": "Awakening Spell",
-            "cv": "Yuichi Nakamura",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Engage</color></b>: Destroy this card. Draw X cards. X is the number of allied followers on the field with <b><color=Keyword>Ward</color></b>.\n\n(This card is treated as <b><i>Protective Shell</i></b>.)",
-            "flavour_text": "Awakening spell!\n—Sein",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70562210,
+          "base_art_url": "./Art/70562210.png",
+          "evo_art_url": null,
+          "hash": "f9f37413d66e4a3b94570dbec347da4f",
+          "evo_hash": "",
+          "name": "Awakening Spell",
+          "name_ruby": "Awakening Spell",
+          "cv": "Yuichi Nakamura",
+          "illustrator": "",
+          "skill_text": "<b><color=Keyword>Engage</color></b>: Destroy this card. Draw X cards. X is the number of allied followers on the field with <b><color=Keyword>Ward</color></b>.\n\n(This card is treated as <b><i>Protective Shell</i></b>.)",
+          "flavour_text": "Awakening spell!\n—Sein",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -38216,19 +38186,21 @@
       },
       "evo": {},
       "alternate": {
-        "style_data": [
-          {
-            "hash": "ec1514b9b62042228bebff5ed1b832ea",
-            "evo_hash": "",
-            "name": "Test of Worth",
-            "name_ruby": "Test of Worth",
-            "cv": "Mariya Ise",
-            "illustrator": "",
-            "skill_text": "Select a card in your hand and discard it. Add a copy each of 2 random differently named allied followers destroyed this match to your hand without revealing them.\n\n(This card is treated as <b><i>Resurrection Tuner</i></b>.)",
-            "flavour_text": "How truly useless.\n—Serie",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70572310,
+          "base_art_url": "./Art/70572310.png",
+          "evo_art_url": null,
+          "hash": "ec1514b9b62042228bebff5ed1b832ea",
+          "evo_hash": "",
+          "name": "Test of Worth",
+          "name_ruby": "Test of Worth",
+          "cv": "Mariya Ise",
+          "illustrator": "",
+          "skill_text": "Select a card in your hand and discard it. Add a copy each of 2 random differently named allied followers destroyed this match to your hand without revealing them.\n\n(This card is treated as <b><i>Resurrection Tuner</i></b>.)",
+          "flavour_text": "How truly useless.\n—Serie",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -39043,6 +39015,23 @@
         "jpCard_image_hash": "e744999b10ce467681d98c0e700c70fb",
         "card_banner_image_hash": "a07e2d058b6346928357895482dfa0a4",
         "evo_art_url": "Art/10513111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70513110,
+          "base_art_url": "./Art/70513110.png",
+          "evo_art_url": "./Art/70513111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Fujie Sei",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -39091,19 +39080,21 @@
       },
       "evo": {},
       "alternate": {
-        "style_data": [
-          {
-            "hash": "25a9514f1a56484b8038eee4ff7723da",
-            "evo_hash": "",
-            "name": "Where the Blue Moon Weed Grows",
-            "name_ruby": "Where the Blue Moon Weed Grows",
-            "cv": "Nobuhiko Okamoto",
-            "illustrator": "",
-            "skill_text": "Add 2 copies of <b><i><color=Keyword>Glittering Gold</color></i></b> to your hand.\n<b><color=Keyword>Enhance</color> (5)</b>: Add 4 instead.\n\n(This card is treated as <b><i>Splendor of the Goldbloom</i></b>.)",
-            "flavour_text": "Someday, I'd like to show them to you.\n—Himmel",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70523310,
+          "base_art_url": "./Art/70523310.png",
+          "evo_art_url": null,
+          "hash": "25a9514f1a56484b8038eee4ff7723da",
+          "evo_hash": "",
+          "name": "Where the Blue Moon Weed Grows",
+          "name_ruby": "Where the Blue Moon Weed Grows",
+          "cv": "Nobuhiko Okamoto",
+          "illustrator": "apt",
+          "skill_text": "Add 2 copies of <b><i><color=Keyword>Glittering Gold</color></i></b> to your hand.\n<b><color=Keyword>Enhance</color> (5)</b>: Add 4 instead.\n\n(This card is treated as <b><i>Splendor of the Goldbloom</i></b>.)",
+          "flavour_text": "Someday, I'd like to show them to you.\n—Himmel",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -39521,19 +39512,21 @@
       },
       "evo": {},
       "alternate": {
-        "style_data": [
-          {
-            "hash": "05222a63e81c4677bb037eff5a17af5b",
-            "evo_hash": "",
-            "name": "Auserlese",
-            "name_ruby": "Auserlese",
-            "cv": "Ayana Taketatsu",
-            "illustrator": "",
-            "skill_text": "Deal 3 damage to all leaders with the lowest defense.\n\n(This card is treated as <b><i>Tyrannical Fists</i></b>.)",
-            "flavour_text": "Auserlese.\n—Aura",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70552310,
+          "base_art_url": "./Art/70552310.png",
+          "evo_art_url": null,
+          "hash": "05222a63e81c4677bb037eff5a17af5b",
+          "evo_hash": "",
+          "name": "Auserlese",
+          "name_ruby": "Auserlese",
+          "cv": "Ayana Taketatsu",
+          "illustrator": "SEMSEI",
+          "skill_text": "Deal 3 damage to all leaders with the lowest defense.\n\n(This card is treated as <b><i>Tyrannical Fists</i></b>.)",
+          "flavour_text": "Auserlese.\n—Aura",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -39614,6 +39607,23 @@
         "jpCard_image_hash": "7f32b1e69539415ea5eb5f1750169cb8",
         "card_banner_image_hash": "c1bd6c6de0994c04aa76b8c72976258c",
         "evo_art_url": "Art/10524121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70524120,
+          "base_art_url": "./Art/70524120.png",
+          "evo_art_url": "./Art/70524121.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "ameya",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -39968,6 +39978,23 @@
         "jpCard_image_hash": "f39b4bc2c5134bb7a73d7df6189eabcc",
         "card_banner_image_hash": "8703050dc51846ff905dc00a11ec10b8",
         "evo_art_url": "Art/10532121.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70532120,
+          "base_art_url": "./Art/70532120.png",
+          "evo_art_url": "./Art/70532121.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Kinako Kuromitsu",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -40081,19 +40108,21 @@
       },
       "evo": {},
       "alternate": {
-        "style_data": [
-          {
-            "hash": "200ff3245c11432d8573d579aed33c25",
-            "evo_hash": "",
-            "name": "New Beginnings",
-            "name_ruby": "New Beginnings",
-            "cv": "Atsumi Tanezaki",
-            "illustrator": "",
-            "skill_text": "<b><color=Keyword>Countdown</color> (5)</b>\nWhenever you play another card, if there's a card on the field other than it with the same base cost, advance this amulet's count by 1.\n<b><color=Keyword>Last Words</color></b>: Draw 2 cards.\n\n(This card is treated as <b><i>World of Games</i></b>.)",
-            "flavour_text": "Don't worry, Himmel. The world has changed.\n—Frieren",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70503210,
+          "base_art_url": "./Art/70503210.png",
+          "evo_art_url": null,
+          "hash": "200ff3245c11432d8573d579aed33c25",
+          "evo_hash": "",
+          "name": "New Beginnings",
+          "name_ruby": "New Beginnings",
+          "cv": "Atsumi Tanezaki",
+          "illustrator": "ponsumi",
+          "skill_text": "<b><color=Keyword>Countdown</color> (5)</b>\nWhenever you play another card, if there's a card on the field other than it with the same base cost, advance this amulet's count by 1.\n<b><color=Keyword>Last Words</color></b>: Draw 2 cards.\n\n(This card is treated as <b><i>World of Games</i></b>.)",
+          "flavour_text": "Don't worry, Himmel. The world has changed.\n—Frieren",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -42225,19 +42254,21 @@
         "evo_art_url": "Art/10621111.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "b8b9b84af21f4789a180053c8374c595",
-            "evo_hash": "182593d0dc584814aa30b3f581b1f513",
-            "name": "",
-            "name_ruby": "",
-            "cv": "Anne Yatco",
-            "illustrator": "uid",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70621110,
+          "base_art_url": "./Art/70621110.png",
+          "evo_art_url": "./Art/70621111.png",
+          "hash": "b8b9b84af21f4789a180053c8374c595",
+          "evo_hash": "182593d0dc584814aa30b3f581b1f513",
+          "name": "",
+          "name_ruby": "",
+          "cv": "Anne Yatco",
+          "illustrator": "uid",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -42516,6 +42547,23 @@
         "jpCard_image_hash": "b3a5abdad7a04d4f9bbda16a2fc75717",
         "card_banner_image_hash": "59ae2cf8be0b472da50aa26af9dfa508",
         "evo_art_url": "Art/10623111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70623110,
+          "base_art_url": "./Art/70623110.png",
+          "evo_art_url": "./Art/70623111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Yanagawa",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -42816,6 +42864,23 @@
         "jpCard_image_hash": "cf6f9812917f4c0faf23a49cd1757847",
         "card_banner_image_hash": "de33b60b3719445689a2600de5b1fb67",
         "evo_art_url": "Art/10664111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70664110,
+          "base_art_url": "./Art/70664110.png",
+          "evo_art_url": "./Art/70664111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "netuki",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -44360,6 +44425,23 @@
         "jpCard_image_hash": "e533fa6a36d54ca79970af0c9f3d67c3",
         "card_banner_image_hash": "a739938c48a24bce9d53d3c2823a783b",
         "evo_art_url": "Art/10644111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70644110,
+          "base_art_url": "./Art/70644110.png",
+          "evo_art_url": "./Art/70644111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "77gl",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -44680,30 +44762,21 @@
         "evo_art_url": "Art/10634111.png"
       },
       "alternate": {
-        "style_data": [
-          {
-            "hash": "30d982bbae464197a2bc60c2c4dddff5",
-            "evo_hash": "4317c73c03fa44f196df10366a2e1fec",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Soji Hisakata",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          },
-          {
-            "hash": "fbbbde0fb58a459292a01bb76233feee",
-            "evo_hash": "7b5ef09fd31f4e638d2c6aa341971154",
-            "name": "",
-            "name_ruby": "",
-            "cv": "",
-            "illustrator": "Soji Hisakata",
-            "skill_text": "",
-            "flavour_text": "",
-            "evo_flavour_text": ""
-          }
-        ]
+        "voices": [],
+        "style_data": {
+          "card_id": 70634110,
+          "base_art_url": "./Art/70634110.png",
+          "evo_art_url": "./Art/70634111.png",
+          "hash": "30d982bbae464197a2bc60c2c4dddff5",
+          "evo_hash": "4317c73c03fa44f196df10366a2e1fec",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Soji Hisakata",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
@@ -45102,6 +45175,23 @@
         "jpCard_image_hash": "f47e4f2b1ca34ab5b920d9501598ece8",
         "card_banner_image_hash": "2d42605952ce4cb79aaf075be16bc267",
         "evo_art_url": "Art/10672111.png"
+      },
+      "alternate": {
+        "voices": [],
+        "style_data": {
+          "card_id": 70672110,
+          "base_art_url": "./Art/70672110.png",
+          "evo_art_url": "./Art/70672111.png",
+          "hash": "",
+          "evo_hash": "",
+          "name": "",
+          "name_ruby": "",
+          "cv": "",
+          "illustrator": "Budi",
+          "skill_text": "",
+          "flavour_text": "",
+          "evo_flavour_text": ""
+        }
       }
     }
   },
