@@ -421,6 +421,7 @@ const localization = {
     'Gelt': 'Gelt',
     'Liam': 'Liam',
     'Anne & Grea': 'Anne & Grea',
+    'voice_contact_request': 'If you have this card in-game and would like to help provide the voice line data, please contact @arishulmr on Discord or @Arishulmer on X.',
   },
   jp: {
     'Anne & Grea': 'アン＆グレア',
@@ -575,7 +576,8 @@ const localization = {
     'Basic': 'ベーシック',
     'Legends Rise': '伝説の幕開',
     'Infinity Evolved': 'インフィニティ・エボルヴ',
-    'Heirs of the Omen': '絶傑の継承者'
+    'Heirs of the Omen': '絶傑の継承者',
+    'voice_contact_request': 'このカードをゲーム内でお持ちで、ボイスラインデータの提供にご協力いただける場合は、Discordの@arishulmrまたはXの@Arishulmerまでご連絡ください。',
   }
 };
 
@@ -1742,8 +1744,13 @@ function updateVoiceButtonsOnCard(cardEl, cardObj) {
   } else {
     const placeholder = document.createElement("div");
     placeholder.className = "audio-btn audio-unavailable";
-    placeholder.innerHTML = `<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">...</svg><span>${getLocalizedText('Not available')}</span>`;
+    placeholder.innerHTML = `<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg><span>${getLocalizedText('Not available')}</span>`;
     row.appendChild(placeholder);
+
+    const contactInfo = document.createElement("div");
+    contactInfo.className = "voice-contact-info";
+    contactInfo.textContent = getLocalizedText('voice_contact_request');
+    row.appendChild(contactInfo);
   }
   voiceButtonsContainer.appendChild(row);
 }
@@ -2782,8 +2789,14 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         voicesContainer.appendChild(voiceContainer);
       });
     } else {
-      voicesContainer.innerHTML =
-        `<div style="color: var(--muted); font-style: italic; text-align: center; padding: 20px;">${getLocalizedText('No voice lines available')}</div>`;
+      voicesContainer.innerHTML = `
+        <div class="no-voices-placeholder">
+          <div style="color: var(--muted); font-style: italic; text-align: center; padding: 10px 20px;">${getLocalizedText('No voice lines available')}</div>
+          <div class="voice-contact-info" style="font-size: 0.85em; opacity: 0.8; text-align: center; border-top: 1px solid var(--border); padding-top: 15px; margin-top: 10px;">
+            ${getLocalizedText('voice_contact_request')}
+          </div>
+        </div>
+      `;
     }
   };
 
