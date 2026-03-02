@@ -2354,11 +2354,13 @@ function updateAllCardsForLanguage() {
 
     updateVoiceButtonsOnCard(cardEl, cardObj);
 
+    const img = cardEl.querySelector(".card-image img");
+    const isAlt = img && img.dataset.artType === "alternate";
+
     // Update Toggle Buttons
     const toggleBtn = cardEl.querySelector(".img-toggle span");
     if (toggleBtn) {
       // Determine current state
-      const img = cardEl.querySelector("img");
       const isEvo = img && img.dataset.variant === "evo";
       // If isEvo, button says "Show: Base"
       toggleBtn.textContent = getLocalizedText(isEvo ? "Show: Base" : "Show: Evo");
@@ -2370,10 +2372,9 @@ function updateAllCardsForLanguage() {
       leftMetadata.innerHTML = "";
       rightMetadata.innerHTML = "";
 
-      const img = cardEl.querySelector("img");
       const rawAltDataCv = cardObj.metadata?.alternate?.style_data;
       const alternateDataCv = Array.isArray(rawAltDataCv) ? rawAltDataCv[0] : rawAltDataCv;
-      const altCv = isAlt && alternateDataCv?.cv;
+      const altCv = isAlt && alternateDataCv?.cv ? alternateDataCv.cv : '';
 
       renderCVMetadataContent(leftMetadata, meta, altCv);
 
