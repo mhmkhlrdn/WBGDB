@@ -1729,8 +1729,8 @@ function updateVoiceButtonsOnCard(cardEl, cardObj) {
   if (!voiceButtonsContainer) return;
   voiceButtonsContainer.innerHTML = "";
 
-  const isAlternate = cardEl.querySelector("img")?.dataset.artType === "alternate";
-  const voicesToUse = isAlternate && cardObj.metadata?.alternate?.voices ? cardObj.metadata.alternate.voices : (Array.isArray(cardObj.voices) ? cardObj.voices : []);
+  const isAlternate = cardEl.querySelector(".card-image img")?.dataset.artType === "alternate";
+  const voicesToUse = isAlternate ? (cardObj.metadata?.alternate?.voices || []) : (Array.isArray(cardObj.voices) ? cardObj.voices : []);
   const row = document.createElement("div");
   row.className = "btn-row";
 
@@ -2656,8 +2656,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
 
   const updateLightboxVoices = () => {
     voicesContainer.innerHTML = "";
-    const voicesToUse =
-      showingAlternate && alternate?.voices ? alternate.voices : voices;
+    const voicesToUse = showingAlternate ? (alternate?.voices || []) : (Array.isArray(voices) ? voices : []);
 
     if (voicesToUse && voicesToUse.length > 7) {
       voicesContainer.classList.add("many-voices");
