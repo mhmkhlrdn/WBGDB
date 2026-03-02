@@ -2322,8 +2322,11 @@ function updateOpenLightboxVoiceLanguage() {
 }
 
 function updateAllCardsForLanguage() {
-  const cards = document.querySelectorAll('.card[data-hydrated="1"]');
+  const cards = document.querySelectorAll('.card'); // Check all cards, even skeletons (they will skip below if needed)
   cards.forEach(cardEl => {
+    // Skip skeletons or things that haven't been fully initialized if they don't have a cardId
+    if (cardEl.dataset.hydrated !== "1") return;
+
     const cardId = cardEl.dataset.cardId;
     const cardObj = allCards[cardId];
     if (!cardObj) return;
@@ -3463,7 +3466,6 @@ fetch("cards.json")
 const debouncedVoiceLanguageToggle = debounce(() => {
   isEnglishVoice = !isEnglishVoice;
 
-  // Save voice language preference
   Settings.save('voiceLanguage', isEnglishVoice ? 'en' : 'jp');
 
   const langText = document.querySelector(".lang-text");
@@ -3485,15 +3487,10 @@ const debouncedVoiceLanguageToggle = debounce(() => {
     }
   }
 
-  requestAnimationFrame(() => {
-    populateCVOptions();
-  });
-
-  // Instead of full render, update existing cards in place
-  requestAnimationFrame(() => {
-    updateAllCardsForLanguage();
-  });
-}, 16);
+  // Update CV options dropdown and all cards immediately
+  populateCVOptions();
+  updateAllCardsForLanguage();
+}, 20);
 
 function handleUILanguageChange() {
   const select = document.getElementById("ui-lang-select");
