@@ -8,6 +8,7 @@ let filteredCards = [];
 let currentCardData = null;
 let cvDetailsIndex = new Map();
 let cvDetailsByKey = {};
+let voiceCreditsData = null;
 
 // Cookie management utilities
 const CookieManager = {
@@ -422,6 +423,7 @@ const localization = {
     'Liam': 'Liam',
     'Anne & Grea': 'Anne & Grea',
     'voice_contact_request': 'If you have this card in-game and would like to help provide the voice line data, please contact @arishulmr on Discord or @Arishulmer on X.',
+    'voice_provided_by': 'Voice provided by',
   },
   jp: {
     'Anne & Grea': 'アン＆グレア',
@@ -578,6 +580,7 @@ const localization = {
     'Infinity Evolved': 'インフィニティ・エボルヴ',
     'Heirs of the Omen': '絶傑の継承者',
     'voice_contact_request': 'このカードをゲーム内でお持ちで、ボイスラインデータの提供にご協力いただける場合は、Discordの@arishulmrまたはXの@Arishulmerまでご連絡ください。',
+    'voice_provided_by': '音声提供',
   }
 };
 
@@ -1012,7 +1015,7 @@ function formatName(name) {
   return name.replace(/_/g, " ");
 }
 
-function createAudioButton(line) {
+function createAudioButton(line, cardName = "", isAlt = false) {
   const container = document.createElement("div");
   container.className = "audio-button-container";
 
@@ -1140,7 +1143,10 @@ function createAudioButton(line) {
     const audioUrl = isEnglishVoice ? line.en_url : line.url;
     const link = document.createElement("a");
     link.href = audioUrl;
-    link.download = `${line.label || line.name || "audio"}.mp3`;
+    const safeName = (cardName || line.name || "audio").replace(/[/\\?%*:|"<>]/g, '-');
+    const altSuffix = isAlt ? " Alt" : "";
+    const labelSegment = line.label || line.name || "audio";
+    link.download = `${safeName}${altSuffix} - ${labelSegment}.mp3`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1737,8 +1743,12 @@ function updateVoiceButtonsOnCard(cardEl, cardObj) {
   row.className = "btn-row";
 
   if (Array.isArray(voicesToUse) && voicesToUse.length > 0) {
+    const cardId = cardEl.dataset.cardId;
+    const meta = (cardObj.metadata && cardObj.metadata.common) || {};
+    const cardName = isEnglishUI ? formatName(cardId) : (meta.jpName || formatName(cardId));
+    
     voicesToUse.forEach(line => {
-      const btn = createAudioButton(line);
+      const btn = createAudioButton(line, cardName, isAlternate);
       row.appendChild(btn);
     });
   } else {
@@ -1747,10 +1757,12 @@ function updateVoiceButtonsOnCard(cardEl, cardObj) {
     placeholder.innerHTML = `<svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg><span>${getLocalizedText('Not available')}</span>`;
     row.appendChild(placeholder);
 
-    const contactInfo = document.createElement("div");
-    contactInfo.className = "voice-contact-info";
-    contactInfo.textContent = getLocalizedText('voice_contact_request');
-    row.appendChild(contactInfo);
+    if (isAlternate) {
+      const contactInfo = document.createElement("div");
+      contactInfo.className = "voice-contact-info";
+      contactInfo.textContent = getLocalizedText('voice_contact_request');
+      row.appendChild(contactInfo);
+    }
   }
   voiceButtonsContainer.appendChild(row);
 }
@@ -1822,97 +1834,79 @@ function renderCardsOptimized(cards, filter = "") {
   entries = entries.filter(([cardName, cardObj]) => passesFilters(cardObj.voices, cardObj.metadata?.common, cardObj));
 
   // If text filter present, apply it (keeps logic consistent with your previous code)
-  if (filter) {
-    const orGroups = filter.toLowerCase().split('|').map(g => g.trim()).filter(Boolean);
-    entries = entries.filter(([cardName, cardObj]) => {
-      const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
-      const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
-      const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
-      const skillText = (meta.skill_text || '').toLowerCase();
-      const jpSkillText = (meta.jpSkill_Text || '').toLowerCase();
+  // Replace the inline filter logic with a dedicated function to allow checking purely for text matches
+  const matchSearchText = (cardName, cardObj, filterStr) => {
+    if (!filterStr) return true;
+    const orGroups = filterStr.toLowerCase().split('|').map(g => g.trim()).filter(Boolean);
+    const meta = (cardObj && cardObj.metadata && cardObj.metadata.common) || {};
+    const normalizedCardName = cardName.toLowerCase().replace(/_/g, ' ');
+    const jpName = meta.jpName ? meta.jpName.toLowerCase() : '';
+    const skillText = (meta.skill_text || '').toLowerCase();
+    const jpSkillText = (meta.jpSkill_Text || '').toLowerCase();
 
-      return orGroups.some(orGroup => {
-        const andTerms = orGroup.split('&&').map(t => t.trim()).filter(Boolean);
-        return andTerms.every(term => {
-          if (term.startsWith('skill:')) {
-            const skillTerm = term.substring(6).trim();
-            if (!skillTerm) return true;
-            if (skillTerm.startsWith('"') && skillTerm.endsWith('"')) {
-              const strictSkillTerm = skillTerm.slice(1, -1);
-              return skillText.includes(strictSkillTerm) || jpSkillText.includes(strictSkillTerm);
-            } else {
-              const words = skillTerm.split(" ");
-              return words.every(word => skillText.includes(word) || jpSkillText.includes(word));
-            }
-          } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:')) {
-            const parts = term.split(':');
-            const statType = parts[0]; // 'atk', 'life', 'cost'
-            const statQuery = parts[1]; // e.g., '>5', '<=3', '7'
-
-            if (!statQuery) return true;
-
-            const valueMatch = statQuery.match(/\d+/);
-            const value = valueMatch ? Number(valueMatch[0]) : NaN;
-            if (isNaN(value)) return false;
-
-            const operator = statQuery.match(/[<>=!]+/)?.[0] || '=';
-            const cardStat = Number(meta[statType]);
-
-            switch (operator) {
-              case '>': return cardStat > value;
-              case '<': return cardStat < value;
-              case '>=': return cardStat >= value;
-              case '<=': return cardStat <= value;
-              case '!=': return cardStat !== value;
-              case '=':
-              default: return cardStat === value;
-            }
-          } else if (term.startsWith('type:')) {
-            const typeMap = {
-              follower: 1,
-              amulet: 2,
-              spell: 4,
-            };
-            const typeTerm = term.substring(5).trim().toLowerCase();
-            if (!typeTerm) return true;
-            const matchedKey = Object.keys(typeMap).find(k => k.startsWith(typeTerm));
-            return matchedKey ? meta.type === typeMap[matchedKey] : false;
-
-          } else if (term.startsWith('class:')) {
-            const classMap = {
-              neutral: 0,
-              forest: 1,
-              sword: 2,
-              rune: 3,
-              dragon: 4,
-              abyss: 5,
-              haven: 6,
-              portal: 7,
-            };
-            const classTerm = term.substring(6).trim().toLowerCase();
-            if (!classTerm) return true;
-            const matchedKey = Object.keys(classMap).find(k => k.startsWith(classTerm));
-            return matchedKey ? meta.class === classMap[matchedKey] : false;
-
-          } else if (term.startsWith('rarity:')) {
-            const rarityMap = {
-              bronze: 1,
-              silver: 2,
-              gold: 3,
-              legendary: 4,
-            };
-            const rarityTerm = term.substring(7).trim().toLowerCase();
-            if (!rarityTerm) return true;
-            const matchedKey = Object.keys(rarityMap).find(k => k.startsWith(rarityTerm));
-            return matchedKey ? meta.rarity === rarityMap[matchedKey] : false;
-
+    return orGroups.some(orGroup => {
+      const andTerms = orGroup.split('&&').map(t => t.trim()).filter(Boolean);
+      return andTerms.every(term => {
+        if (term.startsWith('skill:')) {
+          const skillTerm = term.substring(6).trim();
+          if (!skillTerm) return true;
+          if (skillTerm.startsWith('"') && skillTerm.endsWith('"')) {
+            const strictSkillTerm = skillTerm.slice(1, -1);
+            return skillText.includes(strictSkillTerm) || jpSkillText.includes(strictSkillTerm);
           } else {
-            // Regular name search
-            return normalizedCardName.includes(term) || jpName.includes(term);
+            const words = skillTerm.split(" ");
+            return words.every(word => skillText.includes(word) || jpSkillText.includes(word));
           }
-        });
+        } else if (term.startsWith('atk:') || term.startsWith('life:') || term.startsWith('cost:')) {
+          const parts = term.split(':');
+          const statType = parts[0]; 
+          const statQuery = parts[1]; 
+
+          if (!statQuery) return true;
+
+          const valueMatch = statQuery.match(/\d+/);
+          const value = valueMatch ? Number(valueMatch[0]) : NaN;
+          if (isNaN(value)) return false;
+
+          const operator = statQuery.match(/[<>=!]+/)?.[0] || '=';
+          const cardStat = Number(meta[statType]);
+
+          switch (operator) {
+            case '>': return cardStat > value;
+            case '<': return cardStat < value;
+            case '>=': return cardStat >= value;
+            case '<=': return cardStat <= value;
+            case '!=': return cardStat !== value;
+            case '=':
+            default: return cardStat === value;
+          }
+        } else if (term.startsWith('type:')) {
+          const typeMap = { follower: 1, amulet: 2, spell: 4 };
+          const typeTerm = term.substring(5).trim().toLowerCase();
+          if (!typeTerm) return true;
+          const matchedKey = Object.keys(typeMap).find(k => k.startsWith(typeTerm));
+          return matchedKey ? meta.type === typeMap[matchedKey] : false;
+        } else if (term.startsWith('class:')) {
+          const classMap = { neutral: 0, forest: 1, sword: 2, rune: 3, dragon: 4, abyss: 5, haven: 6, portal: 7 };
+          const classTerm = term.substring(6).trim().toLowerCase();
+          if (!classTerm) return true;
+          const matchedKey = Object.keys(classMap).find(k => k.startsWith(classTerm));
+          return matchedKey ? meta.class === classMap[matchedKey] : false;
+        } else if (term.startsWith('rarity:')) {
+          const rarityMap = { bronze: 1, silver: 2, gold: 3, legendary: 4 };
+          const rarityTerm = term.substring(7).trim().toLowerCase();
+          if (!rarityTerm) return true;
+          const matchedKey = Object.keys(rarityMap).find(k => k.startsWith(rarityTerm));
+          return matchedKey ? meta.rarity === rarityMap[matchedKey] : false;
+        } else {
+          return normalizedCardName.includes(term) || jpName.includes(term);
+        }
       });
     });
+  };
+
+  if (filter) {
+    entries = entries.filter(([cardName, cardObj]) => matchSearchText(cardName, cardObj, filter));
   }
 
   // Sorting (keep your original sort logic)
@@ -2027,10 +2021,129 @@ function renderCardsOptimized(cards, filter = "") {
 
   // Apply changes to DOM
   container.innerHTML = "";
+
+  const hasDropdownFiltersActive = 
+    activeFilters.rarity !== "" || activeFilters.costMin !== "" || activeFilters.costMax !== "" ||
+    activeFilters.cv !== "" || activeFilters.illustrator !== "" || activeFilters.atkMin !== "" ||
+    activeFilters.atkMax !== "" || activeFilters.lifeMin !== "" || activeFilters.lifeMax !== "" ||
+    activeFilters.class !== "" || activeFilters.set !== "" || activeFilters.type !== "" ||
+    activeFilters.tokenMode !== "all" || activeFilters.voices !== "both" ||
+    (typeof activeFilters.manyVoices !== 'undefined' && activeFilters.manyVoices !== "all") || 
+    activeFilters.alternate !== "all";
+
+  const createClearBtn = () => {
+    const clearBtn = document.createElement("button");
+    clearBtn.className = "filter-btn";
+    clearBtn.style = "padding: 10px 24px; font-size: 1em; background: var(--button); color: #fff; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-top: 10px;";
+    clearBtn.innerHTML = `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+      ${isEnglishUI ? "Clear Filters" : "フィルターをクリア"}
+    `;
+    clearBtn.onclick = () => {
+       const currentSearch = document.getElementById("search") ? document.getElementById("search").value : "";
+       
+       const toClear = ["rarity", "costMin", "costMax", "atkMin", "atkMax", "lifeMin", "lifeMax", "cv", "illustrator", "class", "type", "set"];
+       toClear.forEach(k => activeFilters[k] = "");
+       
+       activeFilters.tokenMode = "all";
+       activeFilters.voices = "both";
+       activeFilters.manyVoices = "all";
+       activeFilters.alternate = "all";
+
+       const elements = [
+         "filter-rarity", "filter-cost-min", "filter-cost-max",
+         "filter-atk-min", "filter-atk-max", "filter-life-min",
+         "filter-life-max", "filter-illustrator", "filter-cv",
+         "filter-class", "filter-type", "filter-set", "filter-token",
+         "filter-voices", "filter-alternate"
+       ];
+
+       elements.forEach(id => {
+         const el = document.getElementById(id);
+         if (el) {
+           if (["filter-token", "filter-voices", "filter-alternate"].includes(id)) {
+             el.value = (id === "filter-voices") ? "both" : "all";
+           } else {
+             el.value = "";
+           }
+           if (el._customDropdown && el._customDropdown.update) el._customDropdown.update();
+         }
+       });
+
+       const manyVs = document.getElementById("filter-many-voices");
+       if (manyVs) {
+         manyVs.value = "all";
+         if (manyVs._customDropdown && manyVs._customDropdown.update) manyVs._customDropdown.update();
+       }
+
+       saveCurrentFilters();
+       renderCards(allCards, currentSearch);
+    };
+    
+    clearBtn.addEventListener('mouseenter', () => clearBtn.style.background = 'var(--button-hover, #444)');
+    clearBtn.addEventListener('mouseleave', () => clearBtn.style.background = 'var(--button)');
+    
+    return clearBtn;
+  };
+
+  if (entries.length === 0) {
+    let noteText = isEnglishUI ? "No cards found." : "カードが見つかりません。";
+    let showClearBtn = false;
+    
+    if (filter && hasDropdownFiltersActive) {
+      const rawEntries = Object.entries(cards);
+      const matchedBase = rawEntries.filter(([cardName, cardObj]) => matchSearchText(cardName, cardObj, filter));
+      if (matchedBase.length > 0) {
+        showClearBtn = true;
+        noteText = isEnglishUI 
+          ? "A card was found matching your search, but it is being hidden by active filters." 
+          : "検索に一致するカードが見つかりましたが、アクティブなフィルターにより非表示になっています。";
+      }
+    } else if (hasDropdownFiltersActive && !filter) {
+      showClearBtn = true;
+      noteText = isEnglishUI 
+        ? "Active filters are hiding all cards." 
+        : "アクティブなフィルターによりすべてのカードが非表示になっています。";
+    }
+
+    const noCardsDiv = document.createElement("div");
+    noCardsDiv.style = "grid-column: 1 / -1; padding: 60px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px;";
+    noCardsDiv.innerHTML = `<div style="font-size: 1.1em; color: var(--muted); margin-bottom: 20px;">${noteText}</div>`;
+    
+    if (showClearBtn) {
+      noCardsDiv.appendChild(createClearBtn());
+    }
+    
+    container.appendChild(noCardsDiv);
+    return;
+  }
+
   container.appendChild(fragment);
 
   if (activeFilters.viewMode === "waterfall") {
     applyMasonryLayout(container);
+  }
+
+  // Append partial matches note at the end if cards are rendered but some matches are hidden
+  if (filter && hasDropdownFiltersActive && entries.length > 0) {
+    const rawEntries = Object.entries(cards);
+    const matchedBase = rawEntries.filter(([cardName, cardObj]) => matchSearchText(cardName, cardObj, filter));
+    if (matchedBase.length > entries.length) {
+      const hiddenCount = matchedBase.length - entries.length;
+      const partialNote = document.createElement("div");
+      partialNote.style = "grid-column: 1 / -1; width: 100%; padding: 40px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 20px; border-top: 1px solid var(--border);";
+      
+      const hiddenText = isEnglishUI 
+        ? `${hiddenCount} more card${hiddenCount > 1 ? 's' : ''} matching your search ${hiddenCount > 1 ? 'are' : 'is'} hidden by active filters.`
+        : `さらに ${hiddenCount} 枚のカードが検索に一致しますが、アクティブなフィルターにより非表示になっています。`;
+        
+      partialNote.innerHTML = `<div style="font-size: 1.05em; color: var(--muted); margin-bottom: 15px;">${hiddenText}</div>`;
+      partialNote.appendChild(createClearBtn());
+      container.appendChild(partialNote);
+    }
   }
 }
 
@@ -2302,7 +2415,8 @@ function updateOpenLightboxVoiceLanguage() {
           ? getLocalizedText(rawText)
           : rawText;
 
-        const btn = createAudioButton(line);
+        const nextDisplayName = isEnglishUI ? cardData.name : (cardData.meta.jpName || cardData.name);
+        const btn = createAudioButton(line, nextDisplayName, false);
 
       });
     }
@@ -2474,6 +2588,7 @@ function updateLightboxMetadata(
 }
 
 function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, cardIndex = -1, cardData = null }) {
+  document.body.style.overflow = "hidden";
   if (window.resetLightboxZoom) window.resetLightboxZoom();
   const lb = document.getElementById("lightbox");
   const img = document.getElementById("lightbox-img");
@@ -2512,7 +2627,9 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     nextBtn.disabled = currentCardIndex >= filteredCards.length - 1;
   }
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const isLargeScreen = window.matchMedia("(min-width: 1025px)").matches;
+  const useTouchGestures = isTouchDevice || !isLargeScreen;
   let touchStartX = 0;
   let touchStartY = 0;
   let touchEndX = 0;
@@ -2584,7 +2701,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     }
   };
 
-  if (isMobile) {
+  if (useTouchGestures) {
     if (window.cleanupLightboxTouchEvents) {
       window.cleanupLightboxTouchEvents();
     }
@@ -2782,7 +2899,10 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           const audioUrl = isEnglishVoice ? line.en_url : line.url;
           const link = document.createElement("a");
           link.href = audioUrl;
-          link.download = `${line.label || line.name || "audio"}.mp3`;
+          const safeName = (cardData.name || "").replace(/[/\\?%*:|"<>]/g, '-');
+          const altSuffix = showingAlternate ? " Alt" : "";
+          const labelSegment = line.label || line.name || "audio";
+          link.download = `${safeName}${altSuffix} - ${labelSegment}.mp3`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -2796,11 +2916,36 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
       voicesContainer.innerHTML = `
         <div class="no-voices-placeholder">
           <div style="color: var(--muted); font-style: italic; text-align: center; padding: 10px 20px;">${getLocalizedText('No voice lines available')}</div>
+          ${showingAlternate ? `
           <div class="voice-contact-info" style="font-size: 0.85em; opacity: 0.8; text-align: center; border-top: 1px solid var(--border); padding-top: 15px; margin-top: 10px;">
             ${getLocalizedText('voice_contact_request')}
           </div>
+          ` : ""}
         </div>
       `;
+    }
+
+    if (voiceCreditsData && voiceCreditsData.cards) {
+      const cardIdToCheck = showingAlternate ? `${cardData.id}_Alt` : cardData.id;
+      const lang = isEnglishVoice ? "en" : "jp";
+      const cardCredits = voiceCreditsData.cards[cardIdToCheck] && voiceCreditsData.cards[cardIdToCheck][lang];
+      
+      if (cardCredits && cardCredits.length > 0) {
+        const creditsDiv = document.createElement("div");
+        creditsDiv.className = "lightbox-voices-credits";
+        creditsDiv.style = "font-size: 0.85em; opacity: 0.8; text-align: center; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 10px;";
+        
+        const creditLinks = cardCredits.map(contributorId => {
+          const contributor = voiceCreditsData.contributors && voiceCreditsData.contributors[contributorId];
+          if (contributor) {
+            return `<a href="${contributor.link}" target="_blank" rel="noopener noreferrer" style="color: var(--focus, #66b2ff); text-decoration: none;">${contributor.name}</a>`;
+          }
+          return contributorId;
+        }).join(", ");
+        
+        creditsDiv.innerHTML = `${getLocalizedText('voice_provided_by')}: ${creditLinks}`;
+        voicesContainer.appendChild(creditsDiv);
+      }
     }
   };
 
@@ -3012,10 +3157,18 @@ fetch("cards.json")
       })
       .catch(() => { })
       .finally(() => {
-        if (!document.getElementById("cards")?.children?.length) {
-          const q = document.getElementById("search")?.value || "";
-          renderCards(allCards, q);
-        }
+        fetch("credits.json")
+          .then(r => r.ok ? r.json() : null)
+          .then(data => {
+            if (data) voiceCreditsData = data;
+          })
+          .catch(() => {})
+          .finally(() => {
+            if (!document.getElementById("cards")?.children?.length) {
+              const q = document.getElementById("search")?.value || "";
+              renderCards(allCards, q);
+            }
+          });
       });
 
     const uiLangSelect = document.getElementById("ui-lang-select");
@@ -4070,8 +4223,9 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   const filtersSection = document.getElementById("filters");
 
   function isMobile() {
-    return window.matchMedia("(max-width: 767px)").matches;
+    return window.matchMedia("(max-width: 1024px)").matches;
   }
+
 
   function setVisible(visible) {
     filtersSection.style.display = visible ? "block" : "none";
@@ -4120,6 +4274,7 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   function close() {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = "";
 
     if (touchStartHandler && touchEndHandler) {
       lb.removeEventListener('touchstart', touchStartHandler);

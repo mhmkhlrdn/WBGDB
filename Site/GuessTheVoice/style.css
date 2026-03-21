@@ -42,6 +42,13 @@ header {
   text-align: center;
 }
 
+@media (max-width: 767px) {
+  .game-container {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+}
+
 .score-board {
   font-size: 1.2rem;
   margin-bottom: 20px;
@@ -73,9 +80,11 @@ header {
   box-shadow: 0 10px 25px rgba(108, 140, 255, 0.4);
 }
 
-.play-btn:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 15px 35px rgba(108, 140, 255, 0.5);
+@media (hover: hover) {
+  .play-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 15px 35px rgba(108, 140, 255, 0.5);
+  }
 }
 
 .play-btn:active {
@@ -147,11 +156,13 @@ header {
   box-shadow: 0 4px 12px rgba(138, 92, 255, 0.2);
 }
 
-.hint-btn:hover {
-  background: linear-gradient(135deg, rgba(138, 92, 255, 0.3), rgba(108, 140, 255, 0.3));
-  border-color: rgba(138, 92, 255, 0.6);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(138, 92, 255, 0.3);
+@media (hover: hover) {
+  .hint-btn:hover {
+    background: linear-gradient(135deg, rgba(138, 92, 255, 0.3), rgba(108, 140, 255, 0.3));
+    border-color: rgba(138, 92, 255, 0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(138, 92, 255, 0.3);
+  }
 }
 
 .hint-btn:active {
@@ -220,7 +231,12 @@ input[type="text"]:focus {
   border-bottom: none;
 }
 
-.dropdown-item:hover, .dropdown-item.selected {
+@media (hover: hover) {
+  .dropdown-item:hover {
+    background: rgba(108, 140, 255, 0.15);
+  }
+}
+.dropdown-item.selected {
   background: rgba(108, 140, 255, 0.15);
 }
 
@@ -286,10 +302,12 @@ input[type="text"]:focus {
   box-shadow: 0 4px 12px rgba(25, 211, 167, 0.3);
 }
 
-.submit-btn:hover {
-  background: #1ce6b6;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(25, 211, 167, 0.4);
+@media (hover: hover) {
+  .submit-btn:hover {
+    background: #1ce6b6;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(25, 211, 167, 0.4);
+  }
 }
 
 .submit-btn:active {
@@ -336,9 +354,11 @@ input[type="text"]:focus {
   letter-spacing: 0.5px;
 }
 
-.filters-toggle:hover {
-  background: rgba(108, 140, 255, 0.15);
-  border-color: var(--primary);
+@media (hover: hover) {
+  .filters-toggle:hover {
+    background: rgba(108, 140, 255, 0.15);
+    border-color: var(--primary);
+  }
 }
 
 .filters-toggle.open .filters-toggle-icon {
@@ -391,8 +411,10 @@ input[type="text"]:focus {
   user-select: none;
 }
 
-.filter-checkbox:hover {
-  color: var(--primary);
+@media (hover: hover) {
+  .filter-checkbox:hover {
+    color: var(--primary);
+  }
 }
 
 .filter-checkbox input[type="checkbox"] {
@@ -424,10 +446,12 @@ input[type="text"]:focus {
   transition: all 0.2s ease;
 }
 
-.lang-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text);
-  border-color: var(--muted);
+@media (hover: hover) {
+  .lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border-color: var(--muted);
+  }
 }
 
 .difficulty-toggle {
@@ -442,10 +466,12 @@ input[type="text"]:focus {
   transition: all 0.2s ease;
 }
 
-.difficulty-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text);
-  border-color: var(--muted);
+@media (hover: hover) {
+  .difficulty-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border-color: var(--muted);
+  }
 }
 
 /* Animations */
@@ -498,9 +524,11 @@ input[type="text"]:focus {
   transition: all 0.2s ease;
 }
 
-.history-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(108, 140, 255, 0.3);
+@media (hover: hover) {
+  .history-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(108, 140, 255, 0.3);
+  }
 }
 
 .history-item-name {
@@ -574,8 +602,10 @@ input[type="text"]:focus {
   user-select: none;
 }
 
-.session-header:hover {
-  background: rgba(108, 140, 255, 0.12);
+@media (hover: hover) {
+  .session-header:hover {
+    background: rgba(108, 140, 255, 0.12);
+  }
 }
 
 .session-header.open .session-toggle-icon {
@@ -649,9 +679,11 @@ input[type="text"]:focus {
   border-color: rgba(255, 92, 138, 0.3) !important;
 }
 
-.history-item-failed:hover {
-  background: rgba(255, 92, 138, 0.12) !important;
-  border-color: rgba(255, 92, 138, 0.4) !important;
+@media (hover: hover) {
+  .history-item-failed:hover {
+    background: rgba(255, 92, 138, 0.12) !important;
+    border-color: rgba(255, 92, 138, 0.4) !important;
+  }
 }
 
 .failed-label {
@@ -670,9 +702,11 @@ input[type="text"]:focus {
   border-color: rgba(108, 140, 255, 0.3) !important;
 }
 
-.history-item-filters:hover {
-  background: rgba(108, 140, 255, 0.12) !important;
-  border-color: rgba(108, 140, 255, 0.4) !important;
+@media (hover: hover) {
+  .history-item-filters:hover {
+    background: rgba(108, 140, 255, 0.12) !important;
+    border-color: rgba(108, 140, 255, 0.4) !important;
+  }
 }
 
 .filter-info-label {

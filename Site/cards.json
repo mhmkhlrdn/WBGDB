@@ -10856,7 +10856,38 @@
         "evo_art_url": "Art/10304121.png"
       },
       "alternate": {
-        "voices": [],
+        "voices": [
+          {
+            "name": "Attack.mp3",
+            "label": "Play",
+            "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest_Alt/Attack.mp3",
+            "en_url": "Audio/EN/Gilnelise,_Voracity_Manifest_Alt/Attack.mp3"
+          },
+          {
+            "name": "Death.mp3",
+            "label": "Attack",
+            "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest_Alt/Death.mp3",
+            "en_url": "Audio/EN/Gilnelise,_Voracity_Manifest_Alt/Death.mp3"
+          },
+          {
+            "name": "Evo.mp3",
+            "label": "Death",
+            "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest_Alt/Evo.mp3",
+            "en_url": "Audio/EN/Gilnelise,_Voracity_Manifest_Alt/Evo.mp3"
+          },
+          {
+            "name": "Play.mp3",
+            "label": "Evolve",
+            "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest_Alt/Play.mp3",
+            "en_url": "Audio/EN/Gilnelise,_Voracity_Manifest_Alt/Play.mp3"
+          },
+          {
+            "name": "SuperEvo.mp3",
+            "label": "Super-Evolve",
+            "url": "Audio/FILTERED/Gilnelise,_Voracity_Manifest_Alt/Super Evo.mp3",
+            "en_url": "Audio/EN/Gilnelise,_Voracity_Manifest_Alt/SuperEvo.mp3"
+          }
+        ],
         "style_data": [
           {
             "card_id": 70304120,
@@ -11834,9 +11865,6 @@
         "url": "Audio/FILTERED/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk6.mp3",
         "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk7.mp3",
         "label": "Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Hnikar_&_Jafnhar,_Firestorm_Duo/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -15836,12 +15864,6 @@
         "url": "Audio/FILTERED/Maddening_Benison/chunk0.mp3",
         "en_url": "Audio/EN/Maddening_Benison/chunk0.mp3",
         "label": "Play"
-      },
-      {
-        "en_url": "Audio/EN/Maddening_Benison/chunk1.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Maddening_Benison/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -17091,9 +17113,6 @@
         "url": "Audio/FILTERED/Miriam,_the_Resolute/chunk6.mp3",
         "en_url": "Audio/EN/Miriam,_the_Resolute/chunk5.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Miriam,_the_Resolute/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -19118,9 +19137,6 @@
         "url": "Audio/FILTERED/Orthrus,_Hellhound_Blader/chunk10.mp3",
         "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk5.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Orthrus,_Hellhound_Blader/chunk6.mp3"
       }
     ],
     "metadata": {
@@ -22711,18 +22727,6 @@
         "url": "Audio/FILTERED/Selwyn,_Sonic_Archer/chunk10.mp3",
         "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk4.mp3",
         "label": "Super-Evolve"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk5.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk6.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk7.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Selwyn,_Sonic_Archer/chunk8.mp3"
       }
     ],
     "metadata": {
@@ -28417,9 +28421,6 @@
         "label": "Play",
         "url": "Audio/FILTERED/Shadowcrypt_Memorial/chunk1.mp3",
         "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk1.mp3"
-      },
-      {
-        "en_url": "Audio/EN/Shadowcrypt_Memorial/chunk2.mp3"
       }
     ],
     "metadata": {
@@ -36351,16 +36352,16 @@
         "is_token": false,
         "atk": 0,
         "life": 0,
-        "cost": 5,
+        "cost": 7,
         "rarity": 3,
         "cv": "Keythe Farley",
         "illustrator": "Tsukuba Ibuki",
         "flavour_text": "The past is dead; the future is being reborn. Shed your human skin, and with it shed your sins. There is nothing to fear and everything to celebrate. Through rebirth, you shall finally be pure.",
         "skill_text": "Transform all allied followers on the field into exact copies of random followers in your deck.",
-        "card_image_hash": "33c74334aece45a88b613c9f19f38684",
+        "card_image_hash": "c0bbd8f4ee684dcd86ecf3d8227ed5ce",
         "card_banner_image_hash": "6c9315deda064700a12070227eb40e35",
         "base_art_url": "Art/10533310.png",
-        "jpCard_image_hash": "1c63ee9a075349ae85d81614ab42e630",
+        "jpCard_image_hash": "1f2bfc606a154d8ca78fbe436ab56ec5",
         "jpCV": "宮内敦士",
         "jpName": "壮美なる明越花",
         "jpFlavour_Text": "至る来世。過ぎる今世。君は、憐れなる人の形を脱ぐ。\n怖がる事は一つとしてない。これは言祝ぎに他ならない。\n御覧。生まれ変わった君の形は、是だ。",
@@ -38317,9 +38318,6 @@
         "url": "Audio/FILTERED/Rigor_of_the_Nightblossom/chunk0.mp3",
         "en_url": "Audio/EN/Rigor_of_the_Nightblossom/chunk0.mp3",
         "label": "Play"
-      },
-      {
-        "en_url": "Audio/EN/Rigor_of_the_Nightblossom/chunk1.mp3"
       }
     ],
     "metadata": {
