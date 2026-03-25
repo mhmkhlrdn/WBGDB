@@ -2618,34 +2618,60 @@ function updateLightboxMetadata(
 
   metaBox.innerHTML = "";
 
-  const cvValue =
-    isAlternate && alternateData?.cv
-      ? alternateData.cv
-      : isEnglishVoice
-        ? meta.cv || ""
-        : meta.jpCV || "";
+  if (infoType === "skill") {
+    // Show stats
+    const cost = meta.cost ?? "";
+    const currentMeta = showing === "evo" ? metaEvo : meta;
+    const atk = currentMeta.atk ?? "";
+    const life = currentMeta.life ?? "";
 
-  const illustratorValue =
-    isAlternate
-      ? (alternateData?.illustrator || "")
-      : (isEnglishUI ? (meta.illustrator || "") : (meta.jpIllustrator || meta.illustrator || ""));
+    if (cost !== "") {
+      const item = document.createElement("div");
+      item.innerHTML = `<div class="label">${getLocalizedText('Cost')}</div><div class="value">${cost}</div>`;
+      metaBox.appendChild(item);
+    }
+    if (atk !== "") {
+      const item = document.createElement("div");
+      item.innerHTML = `<div class="label">${getLocalizedText('ATK')}</div><div class="value">${atk}</div>`;
+      metaBox.appendChild(item);
+    }
+    if (life !== "") {
+      const item = document.createElement("div");
+      item.innerHTML = `<div class="label">${getLocalizedText('LIFE')}</div><div class="value">${life}</div>`;
+      metaBox.appendChild(item);
+    }
 
-  if (cvValue) {
-    const cvItem = document.createElement("div");
-    cvItem.innerHTML = `
-      <div class="label">${getLocalizedText('CV')}</div>
-      <div class="value">${cvValue}</div>
-    `;
-    metaBox.appendChild(cvItem);
-  }
+  } else {
+    // Show CV/Illustrator (Original Flavor logic)
+    const cvValue =
+      isAlternate && alternateData?.cv
+        ? alternateData.cv
+        : isEnglishVoice
+          ? meta.cv || ""
+          : meta.jpCV || "";
 
-  if (illustratorValue) {
-    const illustratorItem = document.createElement("div");
-    illustratorItem.innerHTML = `
-      <div class="label">${getLocalizedText('Illustrator')}</div>
-      <div class="value">${illustratorValue}</div>
-    `;
-    metaBox.appendChild(illustratorItem);
+    const illustratorValue =
+      isAlternate
+        ? (alternateData?.illustrator || "")
+        : (isEnglishUI ? (meta.illustrator || "") : (meta.jpIllustrator || meta.illustrator || ""));
+
+    if (cvValue) {
+      const cvItem = document.createElement("div");
+      cvItem.innerHTML = `
+        <div class="label">${getLocalizedText('CV')}</div>
+        <div class="value">${cvValue}</div>
+      `;
+      metaBox.appendChild(cvItem);
+    }
+
+    if (illustratorValue) {
+      const illustratorItem = document.createElement("div");
+      illustratorItem.innerHTML = `
+        <div class="label">${getLocalizedText('Illustrator')}</div>
+        <div class="value">${illustratorValue}</div>
+      `;
+      metaBox.appendChild(illustratorItem);
+    }
   }
 
   if (infoType === "skill") {
