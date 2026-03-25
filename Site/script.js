@@ -9,6 +9,7 @@ let currentCardData = null;
 let cvDetailsIndex = new Map();
 let cvDetailsByKey = {};
 let voiceCreditsData = null;
+let activeTooltipHideFn = null;
 
 // Cookie management utilities
 const CookieManager = {
@@ -799,7 +800,7 @@ function createMobileDropdown(inputId, datalistId, placeholder) {
   const datalist = document.getElementById(datalistId);
   if (!input || !datalist) return;
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (!isMobile) return;
 
   const existingBtn = input.parentNode.querySelector('.mobile-dropdown-btn');
@@ -939,7 +940,7 @@ function updateMobileDropdownMenu(inputId, datalistId) {
   const datalist = document.getElementById(datalistId);
   if (!input || !datalist) return;
 
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
   if (!isMobile) return;
 
   const dropdownContainer = input.parentNode.querySelector('.mobile-dropdown-container');
@@ -1454,82 +1455,92 @@ function hydrateCard(skeletonEl) {
       }
     }
 
-    const showTooltip = () => {
-      tooltip.style.display = "block";
-      if (relatedTooltip) relatedTooltip.style.display = "block";
-    };
-    const hideTooltip = () => {
-      tooltip.style.display = "none";
-      if (relatedTooltip) relatedTooltip.style.display = "none";
-    };
-
-    img.addEventListener("mousemove", (e) => {
+    const positionTooltip = (clientX, clientY) => {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
+      const isMobile = viewportWidth <= 768;
 
-      // -- Position Main Tooltip --
       const rect1 = tooltip.getBoundingClientRect();
-      // Default: Right of cursor, slightly down
-      let left1 = e.clientX + 12;
-      let top1 = e.clientY + 12;
+      let left1 = clientX + 12;
+      let top1 = clientY + 12;
 
-      // Flip if overflows Right
       if (left1 + rect1.width > viewportWidth - 10) {
-        left1 = e.clientX - rect1.width - 12;
+        left1 = clientX - rect1.width - 12;
       }
-      // Flip if overflows Bottom
+      if (left1 < 10) {
+        left1 = 10;
+        if (left1 + rect1.width > viewportWidth - 10) {
+          tooltip.style.maxWidth = (viewportWidth - 20) + 'px';
+        }
+      }
+      
       if (top1 + rect1.height > viewportHeight - 10) {
-        top1 = e.clientY - rect1.height - 12;
+        top1 = clientY - rect1.height - 12;
       }
+      if (top1 < 10) top1 = 10;
 
       tooltip.style.left = `${left1}px`;
       tooltip.style.top = `${top1}px`;
 
-      // -- Position Related Tooltip (if exists) --
       if (relatedTooltip) {
         const rect2 = relatedTooltip.getBoundingClientRect();
-
-        // Try to place it NEXT to the main tooltip (to the right)
-        // If main tooltip is to the right of cursor -> place related further right
-        // If main tooltip is to the left of cursor -> place related further left
-
         let left2, top2;
 
-        // Check where main tooltip ended up relative to cursor
-        const mainIsRight = left1 > e.clientX;
-
-        if (mainIsRight) {
-          // Main is Right: Try stacking Related to the Right of active tooltip
-          left2 = left1 + rect1.width + 10;
-          top2 = top1;
-
-          // If that overflows, try moving Related BELOW Main
-          if (left2 + rect2.width > viewportWidth - 10) {
-            left2 = left1;
-            top2 = top1 + rect1.height + 10;
-
-            // If moving below overflows bottom, try moving Main to Left and Related to Left-Left? 
-            // For simplicity, just let it overflow or try to flip to left of cursor if space exists
-            if (top2 + rect2.height > viewportHeight - 10) {
-              // Fallback: Just put it on the left of cursor if there's space
-              left2 = e.clientX - rect2.width - 12;
-              top2 = e.clientY + 12;
-            }
+        if (isMobile) {
+          left2 = left1;
+          top2 = top1 + rect1.height + 8;
+          if (top2 + rect2.height > viewportHeight - 10) {
+            top2 = top1 - rect2.height - 8;
+          }
+          if (top2 < 10) top2 = 10;
+          if (top2 + rect2.height > viewportHeight - 10) {
+             relatedTooltip.style.maxHeight = '200px';
+             relatedTooltip.style.overflowY = 'auto';
           }
         } else {
-          // Main is Left: Try stacking Related to the Left of active tooltip
-          left2 = left1 - rect2.width - 10;
-          top2 = top1;
-
-          // If overflows Left edge
-          if (left2 < 10) {
-            left2 = left1;
-            top2 = top1 + rect1.height + 10;
+          const mainIsRight = left1 > clientX;
+          if (mainIsRight) {
+            left2 = left1 + rect1.width + 10;
+            top2 = top1;
+            if (left2 + rect2.width > viewportWidth - 10) {
+              left2 = left1;
+              top2 = top1 + rect1.height + 10;
+            }
+          } else {
+            left2 = left1 - rect2.width - 10;
+            top2 = top1;
+            if (left2 < 10) {
+              left2 = left1;
+              top2 = top1 + rect1.height + 10;
+            }
           }
         }
-
         relatedTooltip.style.left = `${left2}px`;
         relatedTooltip.style.top = `${top2}px`;
+      }
+    };
+
+    const showTooltip = (e = null) => {
+      if (activeTooltipHideFn && activeTooltipHideFn !== hideTooltip) {
+        activeTooltipHideFn();
+      }
+      tooltip.style.display = "block";
+      if (relatedTooltip) relatedTooltip.style.display = "block";
+      if (e) positionTooltip(e.clientX, e.clientY);
+      activeTooltipHideFn = hideTooltip;
+    };
+
+    const hideTooltip = () => {
+      tooltip.style.display = "none";
+      if (relatedTooltip) relatedTooltip.style.display = "none";
+      if (activeTooltipHideFn === hideTooltip) {
+        activeTooltipHideFn = null;
+      }
+    };
+
+    img.addEventListener("mousemove", (e) => {
+      if (tooltip.style.display === "block") {
+        positionTooltip(e.clientX, e.clientY);
       }
     });
 
@@ -1549,30 +1560,26 @@ function hydrateCard(skeletonEl) {
       skillBtn.style.right = "8px";
       skillBtn.style.zIndex = "60";
 
-      let isVisible = false;
       skillBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (isVisible) {
+        if (tooltip.style.display === "block") {
           hideTooltip();
-          isVisible = false;
         } else {
-          showTooltip();
-          isVisible = true;
+          showTooltip(e);
         }
       });
 
       // hide tooltip if tapping outside the card
       document.addEventListener("click", (e) => {
-        if (isVisible && !imgWrap.contains(e.target)) {
+        if (tooltip.style.display === "block" && !imgWrap.contains(e.target) && !skillBtn.contains(e.target)) {
           hideTooltip();
-          isVisible = false;
         }
       });
 
       imgWrap.appendChild(skillBtn);
     } else {
-      img.addEventListener("mouseenter", showTooltip);
+      img.addEventListener("mouseenter", (e) => showTooltip(e));
       img.addEventListener("mouseleave", hideTooltip);
     }
   }
@@ -2168,7 +2175,7 @@ function applyMasonryLayout(container) {
       // For full mode, calculate columns based on fixed width (~300px per column)
       // preserving the density of the waterfall layout
       const width = document.body.clientWidth;
-      return Math.max(1, Math.floor(width / 300));
+      return Math.max(2, Math.floor(width / 300));
     }
 
     // Fixed mode logic (capped at 4)
@@ -2176,7 +2183,7 @@ function applyMasonryLayout(container) {
     if (width >= 1200) return 4;
     if (width >= 900) return 3;
     if (width >= 600) return 2;
-    return 1;
+    return 2;
   };
 
   const columnCount = getColumnCount();
@@ -2233,7 +2240,8 @@ function applyMasonryLayout(container) {
     // Create flex container for columns
     const flexContainer = document.createElement('div');
     flexContainer.style.display = 'flex';
-    flexContainer.style.gap = '16px';
+    flexContainer.style.gap = '10px';
+    flexContainer.style.width = '100%';
     flexContainer.style.alignItems = 'flex-start';
 
     columnContainers.forEach(col => flexContainer.appendChild(col));
@@ -2522,12 +2530,86 @@ function updateAllCardsForLanguage() {
   updateOpenLightboxVoiceLanguage();
 }
 
+function renderLightboxRelations(relatedCardIds) {
+  const container = document.getElementById("lightbox-relations");
+  const lightboxContent = document.querySelector(".lightbox-content");
+  if (!container || !lightboxContent) return;
+  container.innerHTML = "";
+
+  if (!relatedCardIds || relatedCardIds.length === 0) {
+    lightboxContent.classList.remove("has-relations");
+    return;
+  }
+
+  let foundAny = false;
+  relatedCardIds.forEach(relatedId => {
+    // Search allCards for this ID
+    let relatedCard = null;
+    for (const [cardName, cardData] of Object.entries(allCards)) {
+      const cardMeta = cardData?.metadata?.common;
+      if (cardMeta && cardMeta.card_id === relatedId) {
+        relatedCard = { name: cardName, meta: cardMeta, fullData: cardData };
+        break;
+      }
+    }
+
+    if (relatedCard) {
+      const name = isEnglishUI ? formatName(relatedCard.name) : (relatedCard.meta.jpName || formatName(relatedCard.name));
+      const skill = isEnglishUI ? relatedCard.meta.skill_text : (relatedCard.meta.jpSkill_Text || relatedCard.meta.skill_text);
+      let stats = "";
+      if (relatedCard.meta.atk !== undefined && relatedCard.meta.life !== undefined) {
+        stats = ` <span style="font-weight:400; opacity:0.7; font-size:0.85em;">(${relatedCard.meta.atk}/${relatedCard.meta.life})</span>`;
+      }
+
+      const entry = document.createElement("div");
+      entry.className = "lightbox-relation-entry";
+      entry.style.cursor = "pointer";
+      entry.onclick = () => {
+        const full = relatedCard.fullData;
+        openLightbox({
+          name: relatedCard.name,
+          meta: full.metadata.common,
+          metaEvo: full.metadata.evo,
+          voices: full.voices,
+          alternate: full.alternate,
+          cardIndex: -1, // No navigation index for related-only cards
+          cardData: full
+        });
+      };
+
+      const langSeg = isEnglishUI ? "eng" : "jpn";
+      const baseHash = isEnglishUI ? (relatedCard.meta.card_image_hash || "") : (relatedCard.meta.jpCard_image_hash || relatedCard.meta.card_image_hash || "");
+      const { commonUrl } = buildCardImageUrls(baseHash, null, langSeg) || {};
+      const thumbUrl = commonUrl || "";
+
+      entry.innerHTML = `
+        <div class="lightbox-relation-header" style="display:flex; gap:12px; align-items:flex-start; margin-bottom: 8px;">
+          <img src="${thumbUrl}" style="width: 48px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.5); flex-shrink: 0;" alt="${name}">
+          <div class="lightbox-relation-name" style="margin-bottom: 0;">
+            <span>${name}</span>${stats}
+          </div>
+        </div>
+        <div class="lightbox-relation-skill">${skill || ""}</div>
+      `;
+      container.appendChild(entry);
+      foundAny = true;
+    }
+  });
+
+  if (foundAny) {
+    lightboxContent.classList.add("has-relations");
+  } else {
+    lightboxContent.classList.remove("has-relations");
+  }
+}
+
 function updateLightboxMetadata(
   meta,
   metaEvo,
   isAlternate,
   alternateData = null,
-  showing = "common"
+  showing = "common",
+  infoType = "flavor"
 ) {
   const metaBox = document.getElementById("lightbox-meta");
   const flavor = document.getElementById("lightbox-flavor");
@@ -2566,23 +2648,27 @@ function updateLightboxMetadata(
     metaBox.appendChild(illustratorItem);
   }
 
-  if (
-    isAlternate &&
-    alternateData?.evo_flavour_text &&
-    showing === "evo"
-  ) {
-    flavor.innerHTML = alternateData.evo_flavour_text;
-  } else if (isAlternate && alternateData?.flavour_text) {
-    flavor.innerHTML = alternateData.flavour_text;
+  if (infoType === "skill") {
+    const skillText = isEnglishUI ? meta.skill_text : (meta.jpSkill_Text || meta.skill_text);
+    flavor.innerHTML = `<div class="lightbox-skill-content">${skillText || ""}</div>`;
+    renderLightboxRelations(meta.related_card_ids);
   } else {
-    if (showing === "evo" && metaEvo?.flavour_text) {
-      const jpEvoFlavor = metaEvo.jpFlavour_text;
-      const flavorText = isEnglishUI ? metaEvo.flavour_text : jpEvoFlavor;
-      flavor.innerHTML = flavorText || "";
+    // Show Flavor
+    renderLightboxRelations([]); // Clear
+    if (isAlternate && alternateData?.evo_flavour_text && showing === "evo") {
+      flavor.innerHTML = alternateData.evo_flavour_text;
+    } else if (isAlternate && alternateData?.flavour_text) {
+      flavor.innerHTML = alternateData.flavour_text;
     } else {
-      const jpFlavor = meta.jpFlavour_Text;
-      const flavorText = isEnglishUI ? meta.flavour_text : (jpFlavor || meta.flavour_text);
-      flavor.innerHTML = flavorText || "";
+      if (showing === "evo" && metaEvo?.flavour_text) {
+        const jpEvoFlavor = metaEvo.jpFlavour_text;
+        const flavorText = isEnglishUI ? metaEvo.flavour_text : jpEvoFlavor;
+        flavor.innerHTML = flavorText || "";
+      } else {
+        const jpFlavor = meta.jpFlavour_Text;
+        const flavorText = isEnglishUI ? meta.flavour_text : (jpFlavor || meta.flavour_text);
+        flavor.innerHTML = flavorText || "";
+      }
     }
   }
 }
@@ -2627,6 +2713,26 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     nextBtn.disabled = currentCardIndex >= filteredCards.length - 1;
   }
 
+  // Close on pull-down at top for mobile
+  const lbSide = document.querySelector('.lightbox-side');
+  if (lbSide) {
+    let lastScrollY = 0;
+    lbSide.addEventListener('touchstart', (e) => {
+      lastScrollY = e.touches[0].clientY;
+    }, { passive: true });
+
+    lbSide.addEventListener('touchmove', (e) => {
+      const { scrollTop } = lbSide;
+      const currentTouchY = e.touches[0].clientY;
+      const swipeDownDistance = currentTouchY - lastScrollY;
+      
+      // If at top AND pulling DOWN (reveal top) more than 180px
+      if (scrollTop <= 1 && swipeDownDistance > 180) {
+           if (window.closeLightbox) window.closeLightbox(true);
+      }
+    }, { passive: true });
+  }
+
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const isLargeScreen = window.matchMedia("(min-width: 1025px)").matches;
   const useTouchGestures = isTouchDevice || !isLargeScreen;
@@ -2641,6 +2747,14 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     const deltaY = touchEndY - touchStartY;
     const absDeltaX = Math.abs(deltaX);
     const absDeltaY = Math.abs(deltaY);
+
+    // Swipe down to close on mobile (Increased threshold to 180px)
+    if (absDeltaY > absDeltaX && deltaY > 180) {
+      if (window.closeLightbox) {
+        window.closeLightbox(true);
+        return;
+      }
+    }
 
     if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
       const lightboxContent = document.querySelector('.lightbox-content');
@@ -2772,6 +2886,12 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
     })();
 
   let showing = "common";
+  let showingInfo = "flavor"; // flavor or skill
+  const infoToggle = document.getElementById("lightbox-content-toggle");
+  if (infoToggle) {
+    infoToggle.textContent = getLocalizedText("Show: Skill");
+  }
+
   img.src = commonUrl;
   const lightboxTitleName = isEnglishUI ? name : (meta.jpName || name);
   title.textContent = lightboxTitleName;
@@ -2974,7 +3094,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               metaEvo,
               showingAlternate,
               showingAlternate ? (alternate?.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null) : null,
-              "evo"
+              "evo",
+              showingInfo
             );
           } else {
             if (showingAlternate && (alternate?.style_data && (Array.isArray(alternate.style_data) ? alternate.style_data[0].base_art_url : alternate.style_data.base_art_url))) {
@@ -2990,7 +3111,8 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
               metaEvo,
               showingAlternate,
               showingAlternate ? (alternate?.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null) : null,
-              "common"
+              "common",
+              showingInfo
             );
           }
 
@@ -3027,7 +3149,7 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
         const normalTitleName = isEnglishUI ? name : (meta.jpName || name);
         title.textContent = normalTitleName;
 
-        updateLightboxMetadata(meta, metaEvo, false, null, showing);
+        updateLightboxMetadata(meta, metaEvo, false, null, showing, showingInfo);
       } else {
         const altData = alternate.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null;
         if (showing === "evo" && altData?.evo_art_url) {
@@ -3047,11 +3169,27 @@ function openLightbox({ name, meta, metaEvo, voices = [], alternate = null, card
           metaEvo,
           true,
           alternate.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null,
-          showing
+          showing,
+          showingInfo
         );
       }
 
       updateLightboxVoices();
+    };
+  }
+
+  if (infoToggle) {
+    infoToggle.onclick = () => {
+      showingInfo = showingInfo === "flavor" ? "skill" : "flavor";
+      infoToggle.textContent = getLocalizedText(showingInfo === "flavor" ? "Show: Skill" : "Show: Flavor");
+      updateLightboxMetadata(
+        meta,
+        metaEvo,
+        showingAlternate,
+        showingAlternate ? (alternate?.style_data ? (Array.isArray(alternate.style_data) ? alternate.style_data[0] : alternate.style_data) : null) : null,
+        showing,
+        showingInfo
+      );
     };
   } else if (alternateToggle) {
     alternateToggle.style.display = "none";
@@ -3744,12 +3882,21 @@ function setupLightboxZoom() {
     zoomScale = 1;
     hasInteracted = false;
     img.style.transform = `scale(1)`;
-    setTimeout(() => {
-      img.style.transformOrigin = "center center";
-    }, 100);
+    img.style.transformOrigin = "center center";
   };
 
+  if (window.innerWidth <= 768) {
+    resetLightboxZoom();
+    // Neutralize interactions on mobile
+    img.style.cursor = "default";
+    return;
+  }
+
   const updateZoom = () => {
+    if (window.innerWidth <= 768) {
+      img.style.transform = `scale(1)`;
+      return;
+    }
     img.style.transform = `scale(${zoomScale})`;
     ticking = false;
   };
@@ -3780,60 +3927,21 @@ function setupLightboxZoom() {
 
 
   // Zoom Hint Logic
-  let hintEl = null;
-  const hasSeenZoomTip = Settings.load('hasZoomTip');
-
-  if (!hasSeenZoomTip) {
-    hintEl = document.createElement('div');
-    hintEl.className = 'zoom-hint';
-    hintEl.innerHTML = getLocalizedText('Scroll to zoom') || 'Scroll to zoom';
-    document.body.appendChild(hintEl);
-  }
-
-  const updateHintPosition = (e) => {
-    if (hintEl && hintEl.classList.contains('visible')) {
-      hintEl.style.left = `${e.clientX}px`;
-      hintEl.style.top = `${e.clientY}px`;
-    }
-  };
-
-  const hideHint = () => {
-    if (hintEl) {
-      hintEl.classList.remove('visible');
-    }
-  };
-
-  const permanentyHideHint = () => {
-    if (hintEl) {
-      hintEl.classList.remove('visible');
-      setTimeout(() => {
-        if (hintEl && hintEl.parentNode) hintEl.parentNode.removeChild(hintEl);
-        hintEl = null;
-      }, 300);
-      Settings.save('hasZoomTip', true);
-    }
-  };
-
   wrapper.addEventListener("mouseenter", () => {
     if (!hasInteracted) {
       hasInteracted = true;
       zoomScale = 2; // Auto zoom on hover
-      if (hintEl) hintEl.classList.add('visible');
-    } else if (hintEl) {
-      hintEl.classList.add('visible');
     }
     updateZoom();
   });
 
   wrapper.addEventListener("mouseleave", () => {
-    hideHint();
     img.style.transform = `scale(1)`;
   });
 
   wrapper.addEventListener("wheel", (e) => {
     e.preventDefault();
     hasInteracted = true;
-    permanentyHideHint();
     const delta = e.deltaY * -0.002;
     zoomScale += delta;
     zoomScale = Math.min(Math.max(1, zoomScale), 6);
@@ -3845,7 +3953,6 @@ function setupLightboxZoom() {
 
 
   wrapper.addEventListener("mousemove", (e) => {
-    updateHintPosition(e);
     updatePan(e.clientX, e.clientY);
   });
 
@@ -3854,43 +3961,39 @@ function setupLightboxZoom() {
   let initialPinchScale = 1;
 
   wrapper.addEventListener("touchstart", (e) => {
-    if (e.touches.length === 2) {
-      // Pinch start
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      initialPinchDistance = Math.hypot(dx, dy);
-      initialPinchScale = zoomScale;
-    } else if (e.touches.length === 1) {
-      // Pan start (just ensure origin is updated)
+    if (e.touches.length === 1) {
       updatePan(e.touches[0].clientX, e.touches[0].clientY);
     }
-  }, { passive: false });
+  }, { passive: true });
 
   wrapper.addEventListener("touchmove", (e) => {
-    if (e.touches.length === 2 && initialPinchDistance) {
-      // Pinching
-      e.preventDefault();
-      const dx = e.touches[0].clientX - e.touches[1].clientX;
-      const dy = e.touches[0].clientY - e.touches[1].clientY;
-      const distance = Math.hypot(dx, dy);
-      const scaleFactor = distance / initialPinchDistance;
-      zoomScale = Math.min(Math.max(1, initialPinchScale * scaleFactor), 6);
-      if (!ticking) {
-        requestAnimationFrame(updateZoom);
-        ticking = true;
-      }
-    } else if (e.touches.length === 1 && zoomScale > 1) {
-      // Panning while zoomed
-      e.preventDefault(); // Prevent page scroll
+    if (e.touches.length === 1 && zoomScale > 1) {
+      e.preventDefault(); // Prevent page scroll while panning zoomed image
       updatePan(e.touches[0].clientX, e.touches[0].clientY);
     }
   }, { passive: false });
 
   wrapper.addEventListener("touchend", (e) => {
-    if (e.touches.length < 2) {
-      initialPinchDistance = null;
-    }
+    // Only cleanup state if needed
   });
+
+  // Manual Zoom Buttons
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
+
+  if (zoomInBtn && zoomOutBtn) {
+    zoomInBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      zoomScale = Math.min(zoomScale + 0.5, 6);
+      updateZoom();
+    });
+
+    zoomOutBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      zoomScale = Math.max(zoomScale - 0.5, 1);
+      updateZoom();
+    });
+  }
 
 }
 
@@ -4271,21 +4374,35 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
   let touchStartHandler = null;
   let touchEndHandler = null;
 
-  function close() {
-    lb.classList.remove('open');
-    lb.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = "";
+  function close(animate = false) {
+    const lbc = lb.querySelector('.lightbox-content');
+    
+    const resolveClose = () => {
+      lb.classList.remove('open');
+      if (lbc) lbc.classList.remove('closing');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = "";
 
-    if (touchStartHandler && touchEndHandler) {
-      lb.removeEventListener('touchstart', touchStartHandler);
-      lb.removeEventListener('touchend', touchEndHandler);
-      touchStartHandler = null;
-      touchEndHandler = null;
+      if (touchStartHandler && touchEndHandler) {
+        lb.removeEventListener('touchstart', touchStartHandler);
+        lb.removeEventListener('touchend', touchEndHandler);
+        touchStartHandler = null;
+        touchEndHandler = null;
+      }
+    };
+
+    if (animate && lbc && window.innerWidth <= 768) {
+      lbc.classList.add('closing');
+      setTimeout(resolveClose, 300); // Wait for the 0.3s sheetDown animation
+    } else {
+      resolveClose();
     }
   }
 
-  closeBtn?.addEventListener('click', close);
-  lb?.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  window.closeLightbox = (animate = false) => close(animate);
+
+  closeBtn?.addEventListener('click', () => close(true));
+  lb?.addEventListener('click', (e) => { if (e.target === lb) close(true); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
 
   window.cleanupLightboxTouchEvents = () => {

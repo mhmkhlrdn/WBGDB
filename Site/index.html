@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="icon" type="image/png" href="./Art/logo.png" />
   <link rel="stylesheet" href="style.css?v=2">
   <title>The Great Entwining</title>
@@ -271,12 +271,24 @@
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" />
         </svg> <span class="lightbox-shortcut" title="Keyboard shortcut: D or →">D</span> </button>
-      <div class="lightbox-content"> <button class="lightbox-close" id="lightbox-close" aria-label="Close"> <svg
+      <div class="lightbox-content">
+        <div class="lightbox-drag-handle"></div> <button class="lightbox-close" id="lightbox-close" aria-label="Close"> <svg
             width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M18.3 5.71L12 12.01l-6.29-6.3-1.42 1.42 6.29 6.29-6.3 6.29 1.42 1.42 6.3-6.29 6.29 6.29 1.42-1.42-6.29-6.29 6.29-6.3z" />
           </svg> </button>
-        <div class="lightbox-img-wrap"> <img id="lightbox-img" class="lightbox-img" alt="Card image" /> </div>
+        <div id="lightbox-relations" class="lightbox-relations"></div>
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" class="lightbox-img" alt="Card image" />
+          <div class="lightbox-zoom-controls">
+            <button id="zoom-in" class="zoom-btn" aria-label="Zoom in">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <button id="zoom-out" class="zoom-btn" aria-label="Zoom out">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+          </div>
+        </div>
         <div class="lightbox-side">
           <h3 id="lightbox-title" class="lightbox-title"></h3>
           <div class="lightbox-meta" id="lightbox-meta"></div>
@@ -285,9 +297,12 @@
             <h4 class="lightbox-voices-title">Voice Lines</h4>
             <div class="lightbox-voices-list" id="lightbox-voices-list"></div>
           </div>
-          <div class="lightbox-controls"> <button id="lightbox-toggle" class="lightbox-btn" type="button">Show:
-              Evo</button> <button id="lightbox-download" class="lightbox-btn" type="button">Open Image</button> <button
-              id="lightbox-download-img" class="lightbox-btn" type="button">Download Image</button> </div>
+          <div class="lightbox-controls">
+            <button id="lightbox-toggle" class="lightbox-btn" type="button">Show: Evo</button>
+            <button id="lightbox-content-toggle" class="lightbox-btn" type="button">Show: Skill</button>
+            <button id="lightbox-download" class="lightbox-btn" type="button">Open Image</button>
+            <button id="lightbox-download-img" class="lightbox-btn" type="button">Download Image</button>
+          </div>
         </div>
       </div>
     </div>
